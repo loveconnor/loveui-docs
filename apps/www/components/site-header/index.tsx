@@ -11,21 +11,53 @@ import { cn } from "@loveui/ui/lib/utils";
 import { QuickSearch } from "@/components/site-header/quick-search";
 import { useScrolledPastHero } from "@/hooks/use-scrolled-past-hero";
 
-const uiAppBaseUrl = process.env.NEXT_PUBLIC_COSS_UI_URL || "/ui";
+type NavItem = {
+  label: string;
+  href: string;
+  activeHref?: string;
+};
 
-const navItems = [
-  { href: `${uiAppBaseUrl}/ui/docs`, label: "Docs" },
-  { href: `${uiAppBaseUrl}/ui/docs/features/avatar-stack`, label: "Features" },
-  { href: `${uiAppBaseUrl}/ui/building-blocks`, label: "Building Blocks" },
-  { href: `${uiAppBaseUrl}/ui/docs/backgrounds/ether`, label: "Backgrounds" },
+const uiAppBaseUrl = process.env.NEXT_PUBLIC_COSS_UI_URL;
+
+const baseNavItems: ReadonlyArray<{ path: string; label: string }> = [
+  { path: "/docs", label: "Docs" },
+  { path: "/docs/features/avatar-stack", label: "Features" },
+  { path: "/building-blocks", label: "Building Blocks" },
+  { path: "/docs/backgrounds/ether", label: "Backgrounds" },
 ] as const;
 
-function useActiveHref(items: readonly { href: string; label: string }[]) {
+const normalizePath = (path: string) => (path.startsWith("/") ? path : `/${path}`);
+
+const resolveNavHref = (path: string) => {
+  const normalizedPath = normalizePath(path);
+
+  if (!uiAppBaseUrl) {
+    const base = "/ui";
+    return `${base}${normalizedPath}`.replace(/\/{2,}/g, "/");
+  }
+
+  const trimmedBase = uiAppBaseUrl.replace(/\/+$/, "");
+
+  if (/^https?:\/\//i.test(trimmedBase)) {
+    const baseUrl = trimmedBase.endsWith("/") ? trimmedBase : `${trimmedBase}/`;
+    return new URL(normalizedPath.replace(/^\//, ""), baseUrl).toString();
+  }
+
+  return `${trimmedBase}${normalizedPath}`.replace(/\/{2,}/g, "/");
+};
+
+const navItems: ReadonlyArray<NavItem> = baseNavItems.map((item) => ({
+  label: item.label,
+  href: resolveNavHref(item.path),
+  activeHref: item.path,
+}));
+
+function useActiveHref(items: readonly NavItem[]) {
   const pathname = usePathname();
   const normalizedPath = (pathname || "/").replace(/\/$/, "") || "/";
 
   return items.reduce<string | null>((best, item) => {
-    const href = item.href.replace(/\/$/, "") || "/";
+    const href = (item.activeHref ?? item.href).replace(/\/$/, "") || "/";
     const matchesExact = normalizedPath === href;
     const matchesPrefix = normalizedPath.startsWith(`${href}/`);
 
@@ -45,7 +77,7 @@ function DesktopNav() {
   return (
     <nav className="hidden items-center gap-2 lg:flex">
       {navItems.map((item) => {
-        const normalizedHref = item.href.replace(/\/$/, "") || "/";
+        const normalizedHref = (item.activeHref ?? item.href).replace(/\/$/, "") || "/";
         const isActive = activeHref === normalizedHref;
 
         return (
@@ -76,7 +108,7 @@ function MobileNav() {
         <div className="text-sm font-medium text-muted-foreground">Navigate</div>
         <nav className="flex flex-col gap-1.5">
           {navItems.map((item) => {
-            const normalizedHref = item.href.replace(/\/$/, "") || "/";
+            const normalizedHref = (item.activeHref ?? item.href).replace(/\/$/, "") || "/";
             const isActive = activeHref === normalizedHref;
 
             return (

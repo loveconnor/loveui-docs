@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 
 import { WordmarkIcon } from "@/components/logo";
 import { Button } from "../../../../packages/ui/src/ui/button";
@@ -48,15 +48,7 @@ export function Footer() {
     {
       icon: GithubIcon,
       link: "https://github.com/loveconnor/loveui",
-    },
-    {
-      icon: LinkedinIcon,
-      link: "https://www.linkedin.com/company/loveui",
-    },
-    {
-      icon: TwitterIcon,
-      link: "https://x.com/loveui",
-    },
+    }
   ];
 
   const community = [

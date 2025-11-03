@@ -7,19 +7,19 @@ export const appConfig = {
   navItems: [
   
     {
-      href: "/docs",
+      href: "http://ui.loveui.dev/docs",
       label: "Docs",
     },
     {
-      href: "/docs/features/avatar-stack",
+      href: "http://ui.loveui.dev/docs/features/avatar-stack",
       label: "Features",
     },
     {
-      href: "/building-blocks",
+      href: "http://ui.loveui.dev/building-blocks",
       label: "Building Blocks",
     },
     {
-      href: "/docs/backgrounds/ether",
+      href: "http://ui.loveui.dev/docs/backgrounds/ether",
       label: "Backgrounds",
     },
   ],

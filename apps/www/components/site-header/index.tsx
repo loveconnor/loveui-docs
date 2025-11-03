@@ -20,10 +20,10 @@ type NavItem = {
 const uiAppBaseUrl = process.env.NEXT_PUBLIC_COSS_UI_URL;
 
 const baseNavItems: ReadonlyArray<{ path: string; label: string }> = [
-  { path: "/docs", label: "Docs" },
-  { path: "/docs/features/avatar-stack", label: "Features" },
-  { path: "/building-blocks", label: "Building Blocks" },
-  { path: "/docs/backgrounds/ether", label: "Backgrounds" },
+  { path: "ui/docs", label: "Docs" },
+  { path: "ui/docs/features/avatar-stack", label: "Features" },
+  { path: "ui/building-blocks", label: "Building Blocks" },
+  { path: "ui/docs/backgrounds/ether", label: "Backgrounds" },
 ] as const;
 
 const normalizePath = (path: string) => (path.startsWith("/") ? path : `/${path}`);

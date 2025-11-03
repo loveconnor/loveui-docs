@@ -33,7 +33,7 @@ const resolveNavHref = (path: string) => {
 
   if (!uiAppBaseUrl) {
     const base = "/ui";
-    return `${base}${normalizedPath}`.replace(/\/{2,}/g, "/");
+    return `${base}${normalizedPath}`.replace(/\/{2,}/g, "/ui");
   }
 
   const trimmedBase = uiAppBaseUrl.replace(/\/+$/, "");

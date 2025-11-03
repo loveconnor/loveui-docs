@@ -5,21 +5,20 @@ export const appConfig = {
   description:
     "A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code.",
   navItems: [
-  
     {
-      href: "http://ui.loveui.dev/docs",
+      href: "/docs",
       label: "Docs",
     },
     {
-      href: "http://ui.loveui.dev/docs/features/avatar-stack",
+      href: "/docs/features/avatar-stack",
       label: "Features",
     },
     {
-      href: "http://ui.loveui.dev/building-blocks",
+      href: "/building-blocks",
       label: "Building Blocks",
     },
     {
-      href: "http://ui.loveui.dev/docs/backgrounds/ether",
+      href: "/docs/backgrounds/ether",
       label: "Backgrounds",
     },
   ],

@@ -36,7 +36,7 @@ export function Footer() {
     },
     {
       title: "Support",
-      href: "mailto:hello@loveui.dev",
+      href: "mailto:loveconnor2005@gmail.com",
     },
     {
       title: "License",

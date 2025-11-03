@@ -23,7 +23,7 @@ import {
 
 const organizations = [
   {
-    value: "coss",
+    value: "loveui",
     label: "loveui",
   },
   {
@@ -35,7 +35,7 @@ const organizations = [
 export default function Component() {
   const id = useId()
   const [open, setOpen] = useState<boolean>(false)
-  const [value, setValue] = useState<string>("coss")
+  const [value, setValue] = useState<string>("loveui")
 
   return (
     <div className="*:not-first:mt-2">

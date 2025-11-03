@@ -18,8 +18,8 @@ interface ProductsDropdownProps {
 }
 
 export function ProductsDropdown({ items }: ProductsDropdownProps) {
-  const gatewayOrigin = process.env.NEXT_PUBLIC_COSS_URL || ""
-  const uiGatewayOrigin = process.env.NEXT_PUBLIC_COSS_UI_URL || ""
+  const gatewayOrigin = process.env.NEXT_PUBLIC_LOVEUI_URL || ""
+  const uiGatewayOrigin = process.env.NEXT_PUBLIC_LOVEUI_UI_URL || ""
 
   const getLinkProps = (item: { href: string; label: string; upcoming?: boolean }) => {
     const isHomePage = item.href === "/"

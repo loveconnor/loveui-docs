@@ -17,7 +17,7 @@ type NavItem = {
   activeHref?: string;
 };
 
-const uiAppBaseUrl = process.env.NEXT_PUBLIC_COSS_UI_URL;
+const uiAppBaseUrl = process.env.NEXT_PUBLIC_LOVEUI_UI_URL;
 
 const baseNavItems: ReadonlyArray<{ path: string; label: string }> = [
   { path: "/docs", label: "Docs" },

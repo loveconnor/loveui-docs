@@ -11,7 +11,7 @@ const links = [{ text: "Easing Classes", href: "/building-blocks/easings" }]
 
 export default function Header() {
   const isMobile = useIsMobile()
-  const cossHomeUrl = process.env.NEXT_PUBLIC_COSS_URL || ""
+  const loveuiHomeUrl = process.env.NEXT_PUBLIC_LOVEUI_URL || ""
 
   return (
     <header className="sticky top-(--header-height) z-40 mb-14 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 before:absolute before:-inset-x-32 before:bottom-0 before:h-px before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] relative">
@@ -21,7 +21,7 @@ export default function Header() {
       ></div>
       <div className="mx-auto flex h-[72px] w-full max-w-6xl items-center justify-between gap-3">
         <div className="-mt-0.5 flex shrink-0 items-start gap-1.5 font-heading text-2xl sm:text-[1.625em]">
-          <a href={cossHomeUrl} aria-label="Home">
+          <a href={loveuiHomeUrl} aria-label="Home">
             loveui
           </a>
           <Link
@@ -53,7 +53,7 @@ export default function Header() {
           <div className="flex items-center gap-1">
             <a
               className="inline-flex size-9 items-center justify-center rounded text-muted-foreground outline-none hover:text-foreground/80 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50"
-              href="https://x.com/coss_com"
+              href="https://x.com/loveui_com"
               target="_blank"
               rel="noopener noreferrer"
             >

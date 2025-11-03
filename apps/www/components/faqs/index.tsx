@@ -38,8 +38,8 @@ export function FaqsSection() {
       </Accordion>
       <p className="text-muted-foreground">
         Can't find what you're looking for? Email us at{" "}
-        <a className="text-primary hover:underline" href="mailto:hello@loveui.dev">
-          hello@loveui.dev
+        <a className="text-primary hover:underline" href="mailto:loveconnor2005@gmail.com">
+          loveconnor2005@gmail.com
         </a>{" "}
         and we'll get back within a day.
       </p>

@@ -31,25 +31,31 @@ const normalizePath = (path: string) => (path.startsWith("/") ? path : `/${path}
 const resolveNavHref = (path: string) => {
   const normalizedPath = normalizePath(path);
 
-  if (!uiAppBaseUrl) {
-    const base = "/ui";
-    return `${base}${normalizedPath}`.replace(/\/{2,}/g, "/ui");
+  if (!uiAppBaseUrl || uiAppBaseUrl.trim() === "") {
+    return `/ui${normalizedPath}`;
   }
 
   const trimmedBase = uiAppBaseUrl.replace(/\/+$/, "");
-
   if (/^https?:\/\//i.test(trimmedBase)) {
-    const baseUrl = trimmedBase.endsWith("/") ? trimmedBase : `${trimmedBase}/`;
-    return new URL(normalizedPath.replace(/^\//, ""), baseUrl).toString();
+    return `${trimmedBase}${normalizedPath}`;
   }
 
-  return `${trimmedBase}${normalizedPath}`.replace(/\/{2,}/g, "/");
+  return `${trimmedBase}${normalizedPath}`;
+};
+
+const inferActiveHref = (path: string) => {
+  const normalizedPath = normalizePath(path);
+  const base =
+    !uiAppBaseUrl || uiAppBaseUrl.trim() === "" || /^https?:\/\//i.test(uiAppBaseUrl)
+      ? "/ui"
+      : uiAppBaseUrl.replace(/\/+$/, "") || "";
+  return `${base}${normalizedPath}`.replace(/\/{2,}/g, "/");
 };
 
 const navItems: ReadonlyArray<NavItem> = baseNavItems.map((item) => ({
   label: item.label,
   href: resolveNavHref(item.path),
-  activeHref: item.path,
+  activeHref: inferActiveHref(item.path),
 }));
 
 function useActiveHref(items: readonly NavItem[]) {

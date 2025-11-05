@@ -17,7 +17,13 @@ type NavItem = {
   activeHref?: string;
 };
 
-const uiAppBaseUrl = process.env.NEXT_PUBLIC_LOVEUI_UI_URL;
+const vercelEnv =
+  process.env.NEXT_PUBLIC_VERCEL_ENV ??
+  process.env.VERCEL_ENV ??
+  (process.env.NODE_ENV === "production" ? "production" : "development");
+
+const uiAppBaseUrl =
+  process.env.NEXT_PUBLIC_LOVEUI_UI_URL ?? (vercelEnv === "production" ? "https://ui.loveui.dev" : "/ui");
 
 const baseNavItems: ReadonlyArray<{ path: string; label: string }> = [
   { path: "/docs", label: "Docs" },

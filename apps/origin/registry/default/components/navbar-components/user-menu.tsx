@@ -29,7 +29,10 @@ export default function UserMenu() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="h-auto p-0 hover:bg-transparent">
           <Avatar>
-            <AvatarImage src="https://i.pravatar.cc/160?img=21" alt="Profile image" />
+            <AvatarImage
+              src="https://i.pravatar.cc/160?img=21"
+              alt="Profile image"
+            />
             <AvatarFallback>CL</AvatarFallback>
           </Avatar>
         </Button>

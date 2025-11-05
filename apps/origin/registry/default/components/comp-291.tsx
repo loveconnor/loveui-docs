@@ -15,7 +15,9 @@ export default function Component() {
           />
           <div className="flex grow flex-col gap-3">
             <div className="space-y-1">
-              <p className="text-sm font-medium">Payout sent to your bank account.</p>
+              <p className="text-sm font-medium">
+                Payout sent to your bank account.
+              </p>
               <p className="text-sm text-muted-foreground">
                 Expect funds within two business days.
               </p>

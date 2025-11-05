@@ -21,7 +21,8 @@ export default function Component() {
           />
           <div className="flex grow flex-col justify-between gap-3 md:flex-row md:items-center">
             <p className="text-sm">
-              A new API explorer ships with this release—call endpoints in your browser.
+              A new API explorer ships with this release—call endpoints in your
+              browser.
             </p>
             <div className="flex gap-2 max-md:flex-wrap">
               <Button size="sm" className="text-sm">

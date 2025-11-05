@@ -6,7 +6,8 @@ export default function Component() {
     <div className="z-50 rounded-md border bg-background px-4 py-3 shadow-lg">
       <div className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
         <p className="text-sm">
-          We use cookies to personalize dashboards and track anonymized product analytics.
+          We use cookies to personalize dashboards and track anonymized product
+          analytics.
         </p>
         <div className="flex gap-2 max-md:flex-wrap">
           <Button size="sm">Accept all</Button>

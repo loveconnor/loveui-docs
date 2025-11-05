@@ -64,7 +64,10 @@ export default function Component() {
           <div className="ml-2 flex items-center gap-2">
             <div className="relative">
               <Avatar>
-                <AvatarImage src="https://i.pravatar.cc/160?img=20" alt="Kelly King" />
+                <AvatarImage
+                  src="https://i.pravatar.cc/160?img=20"
+                  alt="Kelly King"
+                />
                 <AvatarFallback>CL</AvatarFallback>
               </Avatar>
               <span className="absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 border-background bg-emerald-500">
@@ -85,7 +88,10 @@ export default function Component() {
             </div>
             <div className="relative">
               <Avatar>
-                <AvatarImage src="https://i.pravatar.cc/160?img=18" alt="Linda Green" />
+                <AvatarImage
+                  src="https://i.pravatar.cc/160?img=18"
+                  alt="Linda Green"
+                />
                 <AvatarFallback>CL</AvatarFallback>
               </Avatar>
               <span className="absolute -end-0.5 -bottom-0.5 size-3 rounded-full border-2 border-background bg-muted-foreground">

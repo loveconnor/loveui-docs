@@ -14,7 +14,9 @@ export default function Component() {
             aria-hidden="true"
           />
           <div className="flex grow justify-between gap-12">
-            <p className="text-sm">Receipt sent to billing@acme. Need to copy someone else?</p>
+            <p className="text-sm">
+              Receipt sent to billing@acme. Need to copy someone else?
+            </p>
             <div className="text-sm whitespace-nowrap">
               <button className="text-sm font-medium hover:underline">
                 View receipt

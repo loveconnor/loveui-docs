@@ -49,6 +49,56 @@ const EXCLUDED_DIRS = new Set([
   ".cache"
 ]);
 
+// Love-ui components (Base UI) that should be extracted individually
+const LOVE_UI_COMPONENTS = new Set([
+  "accordion",
+  "alert",
+  "alert-dialog",
+  "autocomplete",
+  "avatar",
+  "badge",
+  "breadcrumb",
+  "button",
+  "card",
+  "checkbox",
+  "checkbox-group",
+  "collapsible",
+  "combobox",
+  "command",
+  "dialog",
+  "empty",
+  "field",
+  "fieldset",
+  "form",
+  "frame",
+  "group",
+  "input",
+  "label",
+  "menu",
+  "meter",
+  "number-field",
+  "pagination",
+  "popover",
+  "preview-card",
+  "progress",
+  "radio-group",
+  "scroll-area",
+  "select",
+  "separator",
+  "sheet",
+  "skeleton",
+  "slider",
+  "switch",
+  "table",
+  "tabs",
+  "textarea",
+  "toast",
+  "toggle",
+  "toggle-group",
+  "toolbar",
+  "tooltip"
+]);
+
 type TargetResolution = {
   base: string;
   includePackageName: boolean;
@@ -58,6 +108,24 @@ function getPackageSlug(packageName: string): string {
   if (!packageName) return packageName;
   const parts = packageName.split("/");
   return parts[parts.length - 1] || packageName;
+}
+
+function normalizeAliasPath(alias: string): string {
+  let normalized = alias.trim();
+  if (!normalized) return normalized;
+
+  if (normalized.startsWith("@/") || normalized.startsWith("~/")) {
+    normalized = `src/${normalized.slice(2)}`;
+  }
+
+  if (normalized.startsWith("/")) {
+    normalized = normalized.slice(1);
+  }
+
+  normalized = normalized.replace(/^\.\//, "");
+  normalized = normalized.replace(/\/+$/, "");
+
+  return normalized;
 }
 
 function normalizePackageDirectory(packageName: string): string {
@@ -122,7 +190,7 @@ async function loadComponentsConfig(root: string): Promise<string | null> {
     const parsed = JSON.parse(raw) as ComponentsConfig;
     const alias = parsed.aliases?.components;
     if (!alias) return null;
-    return alias.replace(/^\.\//, "").replace(/\/+$/, "");
+    return normalizeAliasPath(alias);
   } catch {
     return null;
   }
@@ -148,6 +216,13 @@ async function detectDefaultComponentsDir(root: string): Promise<string> {
           ) {
             return "src/components";
           }
+          if (
+            key === "@/*" &&
+            Array.isArray(values) &&
+            values.some((v: string) => v.startsWith("app/") || v.startsWith("./app/"))
+          ) {
+            return "app/components";
+          }
         }
       }
     } catch {
@@ -157,6 +232,10 @@ async function detectDefaultComponentsDir(root: string): Promise<string> {
 
   if (existsSync(path.join(root, "src"))) {
     return "src/components";
+  }
+
+  if (existsSync(path.join(root, "app"))) {
+    return "app/components";
   }
 
   return "components";
@@ -179,10 +258,23 @@ function adjustTargetPath(target: string, componentsDir: string, useExactTarget:
   if (useExactTarget) return collapse(target);
 
   const normalizedDir = componentsDir.replace(/\/+$/, "");
+
+  // Handle components/ paths - replace "components" with the configured directory
   if (target.startsWith("components/")) {
     const remainder = target.slice("components".length);
     return collapse(`${normalizedDir}${remainder}`.replace(/^\//, ""));
   }
+
+  // Handle lib/ paths - prepend the base directory (src/, app/, or nothing) to lib paths
+  if (target.startsWith("lib/")) {
+    if (normalizedDir.startsWith("src/")) {
+      return collapse(`src/${target}`);
+    }
+    if (normalizedDir.startsWith("app/")) {
+      return collapse(`app/${target}`);
+    }
+  }
+
   return collapse(target);
 }
 
@@ -241,7 +333,57 @@ async function collectBundledFiles(packageDir: string, packageName: string): Pro
   return files;
 }
 
+async function getLoveUiComponent(componentName: string): Promise<RegistryFile[] | null> {
+  // Love-ui components use Base UI
+  const loveUiDir = path.join(BUNDLED_PACKAGES_ROOT, "love-ui");
+  const componentFile = path.join(loveUiDir, "src", "ui", `${componentName}.tsx`);
+
+  if (!existsSync(componentFile)) {
+    return null;
+  }
+
+  try {
+    const files: RegistryFile[] = [];
+
+    // Read component file
+    let content = await readFile(componentFile, "utf8");
+
+    // Fix import paths to use local lib/utils instead of package import
+    content = content.replace(
+      /from\s+["']@loveui\/ui\/lib\/utils["']/g,
+      'from "@/lib/utils"'
+    );
+
+    files.push({
+      path: `src/ui/${componentName}.tsx`,
+      target: `components/ui/${componentName}.tsx`,
+      content
+    });
+
+    // Always include utils.ts
+    const utilsFile = path.join(loveUiDir, "src", "lib", "utils.ts");
+    if (existsSync(utilsFile)) {
+      const utilsContent = await readFile(utilsFile, "utf8");
+      files.push({
+        path: "src/lib/utils.ts",
+        target: "lib/utils.ts",
+        content: utilsContent
+      });
+    }
+
+    return files;
+  } catch (error) {
+    console.warn(`Warning: unable to read ${componentName} component`, error);
+    return null;
+  }
+}
+
 async function getBundledRegistryFiles(packageName: string): Promise<RegistryFile[] | null> {
+  // Check if it's a love-ui component (Base UI)
+  if (LOVE_UI_COMPONENTS.has(packageName)) {
+    return await getLoveUiComponent(packageName);
+  }
+
   const directory = normalizePackageDirectory(packageName);
   const sourceDir = path.join(BUNDLED_PACKAGES_ROOT, directory);
   if (!existsSync(sourceDir)) return null;
@@ -254,9 +396,91 @@ async function getBundledRegistryFiles(packageName: string): Promise<RegistryFil
   }
 }
 
+// Core dependencies that all love-ui components need
+const LOVE_UI_CORE_DEPS: Record<string, string> = {
+  "@base-ui-components/react": "1.0.0-beta.4",
+  "class-variance-authority": "^0.7.1",
+  "clsx": "^2.1.1",
+  "tailwind-merge": "^3.3.1"
+};
+
+async function extractDependencies(packageName: string): Promise<Record<string, string>> {
+  // For love-ui components, return core dependencies
+  if (LOVE_UI_COMPONENTS.has(packageName)) {
+    return { ...LOVE_UI_CORE_DEPS };
+  }
+
+  // For other packages, use their package.json
+  const directory = normalizePackageDirectory(packageName);
+  const pkgJsonPath = path.join(BUNDLED_PACKAGES_ROOT, directory, "package.json");
+
+  try {
+    const raw = await readFile(pkgJsonPath, "utf8");
+    const parsed = JSON.parse(raw) as Record<string, any>;
+    return parsed.dependencies ?? {};
+  } catch {
+    return {};
+  }
+}
+
+async function detectPackageManager(root: string): Promise<"npm" | "yarn" | "pnpm" | "bun"> {
+  if (existsSync(path.join(root, "bun.lockb"))) return "bun";
+  if (existsSync(path.join(root, "pnpm-lock.yaml"))) return "pnpm";
+  if (existsSync(path.join(root, "yarn.lock"))) return "yarn";
+  return "npm";
+}
+
+async function installDependencies(
+  dependencies: Record<string, string>,
+  packageManager: "npm" | "yarn" | "pnpm" | "bun",
+  root: string
+): Promise<boolean> {
+  const deps = Object.entries(dependencies);
+  if (deps.length === 0) return true;
+
+  console.log(`\nInstalling dependencies...`);
+  const depList = deps.map(([name, version]) => `${name}@${version}`);
+
+  let command: string;
+  switch (packageManager) {
+    case "bun":
+      command = `bun add ${depList.join(" ")}`;
+      break;
+    case "pnpm":
+      command = `pnpm add ${depList.join(" ")}`;
+      break;
+    case "yarn":
+      command = `yarn add ${depList.join(" ")}`;
+      break;
+    default:
+      command = `npm install ${depList.join(" ")}`;
+  }
+
+  const result = spawnSync(command, {
+    stdio: "inherit",
+    shell: true,
+    cwd: root,
+  });
+
+  if (result.error || result.status !== 0) {
+    console.warn(`\nFailed to install dependencies. You may need to install them manually:`);
+    console.warn(`  ${depList.join("\n  ")}`);
+    return false;
+  }
+
+  console.log(`Dependencies installed successfully!\n`);
+  return true;
+}
+
 export async function run(argv: string[] = process.argv.slice(2)) {
+  if (argv.length === 0 || (argv.length === 1 && (argv[0] === "--version" || argv[0] === "-v"))) {
+    console.log("love-ui version 1.1.3");
+    process.exit(0);
+  }
+
   if (argv.length < 2 || argv[0] !== "add") {
     console.log("Usage: npx love-ui add [...packages]");
+    console.log("       npx love-ui --version");
     process.exit(1);
   }
 
@@ -266,94 +490,105 @@ export async function run(argv: string[] = process.argv.slice(2)) {
   const fallbackDir = await detectDefaultComponentsDir(projectRoot);
   const componentsDir = configDir ?? fallbackDir;
   const hasCustomConfig = configDir !== null;
+  const packageManager = await detectPackageManager(projectRoot);
+
+  const allDependencies: Record<string, string> = {};
 
   for (const packageName of packageNames) {
     if (!packageName.trim()) {
       continue;
     }
 
-    console.log(`Adding ${packageName} component...`);
+    console.log(`\nAdding ${packageName}...`);
 
-    const url =
-      packageName === "ai"
-        ? new URL("all.json", "https://registry.ai-sdk.dev/")
-        : new URL(`r/${packageName}.json`, "https://www.loveui.dev/");
-
+    // Try to fetch from registry first
+    const url = new URL(`r/${packageName}.json`, "https://www.loveui.dev/");
     let payload: RegistryPayload | null = null;
+
     try {
       const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch registry definition: ${response.status} ${response.statusText}`);
+      if (response.ok) {
+        payload = (await response.json()) as RegistryPayload;
       }
-      payload = (await response.json()) as RegistryPayload;
-    } catch (error) {
-      console.warn(`Warning: unable to fetch registry definition before install. Falling back to CLI only.`, error);
+    } catch {
+      // Silently fall back to bundled files
     }
 
+    // Use bundled files as primary source
     const bundledFiles = await getBundledRegistryFiles(packageName);
+    const definitions: RegistryFile[] = bundledFiles ?? payload?.files ?? [];
 
+    if (!definitions.length) {
+      console.warn(`Component "${packageName}" not found. Available components can be found at https://loveui.dev`);
+      continue;
+    }
+
+    // Ensure components directory exists
     if (!hasCustomConfig) {
       await mkdir(path.join(projectRoot, componentsDir), { recursive: true });
     }
 
-    const command = `npx -y shadcn@latest add ${url.toString()}`;
-    const result = spawnSync(command, {
-      stdio: "inherit",
-      shell: true,
-    });
-
-    let shadcnSuccess = true;
-    if (result.error) {
-      console.warn(`Failed to run shadcn add for ${packageName}:`, result.error.message);
-      shadcnSuccess = false;
-    } else if (result.status !== 0) {
-      console.warn(`shadcn add exited with code ${result.status} for ${packageName}`);
-      shadcnSuccess = false;
-    }
-
-    const definitions: RegistryFile[] = payload?.files?.length
-      ? payload.files
-      : bundledFiles ?? [];
-
-    if (!definitions.length) {
-      console.warn(`No component templates found for ${packageName}.`);
-      continue;
-    }
+    // Copy component files
+    let filesCreated = 0;
+    let filesUpdated = 0;
 
     for (const file of definitions) {
       if (!file.content) continue;
+
       const desiredPath = adjustTargetPath(file.target, componentsDir, hasCustomConfig);
       const absolutePath = path.join(projectRoot, desiredPath);
+      const alreadyExists = existsSync(absolutePath);
 
-      if (existsSync(absolutePath)) {
-        continue;
+      if (alreadyExists) {
+        try {
+          const existingContent = await readFile(absolutePath, "utf8");
+          if (existingContent === file.content) {
+            continue;
+          }
+        } catch {
+          /* ignore read errors and overwrite below */
+        }
       }
 
       await ensureDirectory(desiredPath, projectRoot);
       await writeFile(absolutePath, file.content, "utf8");
-      console.log(`Created ${desiredPath}`);
+
+      if (alreadyExists) {
+        filesUpdated++;
+      } else {
+        filesCreated++;
+      }
     }
 
-    if (!shadcnSuccess) {
-      console.warn(
-        `shadcn add did not complete successfully. Files were copied, but you may need to install dependencies manually.`
-      );
+    if (filesCreated > 0) {
+      console.log(`✓ Created ${filesCreated} file${filesCreated > 1 ? 's' : ''}`);
     }
+    if (filesUpdated > 0) {
+      console.log(`✓ Updated ${filesUpdated} file${filesUpdated > 1 ? 's' : ''}`);
+    }
+
+    // Collect dependencies
+    const deps = await extractDependencies(packageName);
+    Object.assign(allDependencies, deps);
   }
+
+  // Install all dependencies at once
+  if (Object.keys(allDependencies).length > 0) {
+    await installDependencies(allDependencies, packageManager, projectRoot);
+  }
+
+  console.log(`\n✓ Done! You can now import and use the components in your app.`);
 }
 
-const invokedDirectly = (() => {
-  const entry = process.argv[1];
-  if (!entry) return false;
+// Run when executed as a CLI (via bin or direct node execution)
+// Skip when imported as a module
+const isMainModule = process.argv[1] && (
+  import.meta.url === pathToFileURL(process.argv[1]).href ||
+  process.argv[1].includes('love-ui') ||
+  process.argv[1].includes('loveui')
+);
 
-  try {
-    return pathToFileURL(entry).href === import.meta.url;
-  } catch {
-    return false;
-  }
-})();
-
-if (invokedDirectly) {
+if (isMainModule) {
   run().catch((error) => {
     console.error(error);
     process.exit(1);

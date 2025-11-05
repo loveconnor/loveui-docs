@@ -21,7 +21,8 @@ export default function Component() {
           />
           <div className="flex grow flex-col justify-between gap-2 md:flex-row">
             <p className="text-sm">
-              Real-time dashboards just shipped—stream events without refreshing.
+              Real-time dashboards just shipped—stream events without
+              refreshing.
             </p>
             <a href="#" className="group text-sm font-medium whitespace-nowrap">
               View release notes

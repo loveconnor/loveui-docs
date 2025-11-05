@@ -83,7 +83,8 @@ export default function Component() {
             <div className="space-y-0.5">
               <p className="text-sm font-medium">Launch Week ends soon</p>
               <p className="text-sm text-muted-foreground">
-                Save 30% on yearly plans for the next 24 hours—lock it in while it lasts.
+                Save 30% on yearly plans for the next 24 hours—lock it in while
+                it lasts.
               </p>
             </div>
             <div className="flex gap-3 max-md:flex-wrap">

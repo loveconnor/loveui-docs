@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Server } from "@modelcontextprotocol/sdk/server";
-import packageJson from "../package.json" assert { type: "json" };
-import { listRegistryPackages, loadRegistryItem } from "./registry";
+import packageJson from "../package.json" with { type: "json" };
+import { listRegistryPackages, loadRegistryItem } from "./registry.js";
 
 const LOVEUI_REGISTRY_SCHEME = "loveui://registry/";
 
@@ -19,8 +19,8 @@ async function main() {
   server.addResourceProvider({
     name: "loveui-registry",
     listResources: async () => {
-      const packages = await listRegistryPackages();
-      return packages.map((pkg) => ({
+      const packages: string[] = await listRegistryPackages();
+      return packages.map((pkg: string) => ({
         uri: createResourceUri(pkg),
         name: pkg,
         description: `loveui registry definition for ${pkg}`,

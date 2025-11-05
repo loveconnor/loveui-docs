@@ -476,7 +476,7 @@ async function installDependencies(
 
 export async function run(argv: string[] = process.argv.slice(2)) {
   if (argv.length === 0 || (argv.length === 1 && (argv[0] === "--version" || argv[0] === "-v"))) {
-    console.log("love-ui version 1.1.6");
+    console.log("love-ui version 1.1.8");
     process.exit(0);
   }
 
@@ -539,10 +539,20 @@ export async function run(argv: string[] = process.argv.slice(2)) {
     let definitions: RegistryFile[] = bundledFiles ?? payload?.files ?? [];
 
     // Normalize building block format: if target is missing, use path as target
-    definitions = definitions.map(file => ({
-      ...file,
-      target: file.target || file.path
-    }));
+    // Strip "registry/default/" prefix from building block paths
+    definitions = definitions.map(file => {
+      let target = file.target || file.path;
+
+      // Remove registry prefix for building blocks
+      if (target.startsWith('registry/default/')) {
+        target = target.replace('registry/default/', '');
+      }
+
+      return {
+        ...file,
+        target
+      };
+    });
 
     if (!definitions.length) {
       console.warn(`Component "${packageName}" not found. Available components can be found at https://loveui.dev`);

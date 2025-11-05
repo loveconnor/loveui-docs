@@ -476,7 +476,7 @@ async function installDependencies(
 
 export async function run(argv: string[] = process.argv.slice(2)) {
   if (argv.length === 0 || (argv.length === 1 && (argv[0] === "--version" || argv[0] === "-v"))) {
-    console.log("love-ui version 1.1.8");
+    console.log("love-ui version 1.1.9");
     process.exit(0);
   }
 
@@ -554,6 +554,31 @@ export async function run(argv: string[] = process.argv.slice(2)) {
       };
     });
 
+    // Detect and rename main component file based on subfolder structure
+    // For building blocks with pattern: comp-XXX.tsx + subfolder/
+    // Rename comp-XXX.tsx to subfolder-name.tsx
+    const mainComponentFile = definitions.find(file =>
+      file.target.match(/^components\/comp-\d+\.tsx$/)
+    );
+
+    if (mainComponentFile) {
+      // Find if there's a subfolder (e.g., event-calendar/)
+      const subfolderFiles = definitions.filter(file =>
+        file.target.match(/^components\/[^/]+\//) &&
+        file.target !== mainComponentFile.target
+      );
+
+      if (subfolderFiles.length > 0 && subfolderFiles[0]) {
+        // Extract subfolder name (e.g., "event-calendar" from "components/event-calendar/day-view.tsx")
+        const match = subfolderFiles[0].target.match(/^components\/([^/]+)\//);
+        if (match && match[1]) {
+          const subfolderName = match[1];
+          // Rename comp-542.tsx to event-calendar.tsx
+          mainComponentFile.target = `components/${subfolderName}.tsx`;
+        }
+      }
+    }
+
     if (!definitions.length) {
       console.warn(`Component "${packageName}" not found. Available components can be found at https://loveui.dev`);
       continue;
@@ -575,10 +600,40 @@ export async function run(argv: string[] = process.argv.slice(2)) {
       const absolutePath = path.join(projectRoot, desiredPath);
       const alreadyExists = existsSync(absolutePath);
 
+      // Fix import paths in building blocks
+      // Replace @/registry/building-blocks/default/components/ with @/components/
+      // Replace @/registry/building-blocks/default/ui/ with @/components/ui/
+      // Replace @/registry/building-blocks/default/lib/ with @/lib/
+      let content = file.content;
+      content = content.replace(
+        /@\/registry\/building-blocks\/default\/components\//g,
+        '@/components/'
+      );
+      content = content.replace(
+        /@\/registry\/building-blocks\/default\/ui\//g,
+        '@/components/ui/'
+      );
+      content = content.replace(
+        /@\/registry\/building-blocks\/default\/lib\//g,
+        '@/lib/'
+      );
+      content = content.replace(
+        /@\/registry\/default\/components\//g,
+        '@/components/'
+      );
+      content = content.replace(
+        /@\/registry\/default\/ui\//g,
+        '@/components/ui/'
+      );
+      content = content.replace(
+        /@\/registry\/default\/lib\//g,
+        '@/lib/'
+      );
+
       if (alreadyExists) {
         try {
           const existingContent = await readFile(absolutePath, "utf8");
-          if (existingContent === file.content) {
+          if (existingContent === content) {
             continue;
           }
         } catch {
@@ -587,7 +642,7 @@ export async function run(argv: string[] = process.argv.slice(2)) {
       }
 
       await ensureDirectory(desiredPath, projectRoot);
-      await writeFile(absolutePath, file.content, "utf8");
+      await writeFile(absolutePath, content, "utf8");
 
       if (alreadyExists) {
         filesUpdated++;

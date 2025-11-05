@@ -14,6 +14,7 @@ type RegistryFile = {
 
 type RegistryPayload = {
   files?: RegistryFile[];
+  dependencies?: Record<string, string>;
 };
 
 type ComponentsConfig = {
@@ -474,7 +475,7 @@ async function installDependencies(
 
 export async function run(argv: string[] = process.argv.slice(2)) {
   if (argv.length === 0 || (argv.length === 1 && (argv[0] === "--version" || argv[0] === "-v"))) {
-    console.log("love-ui version 1.1.3");
+    console.log("love-ui version 1.1.4");
     process.exit(0);
   }
 
@@ -501,21 +502,36 @@ export async function run(argv: string[] = process.argv.slice(2)) {
 
     console.log(`\nAdding ${packageName}...`);
 
-    // Try to fetch from registry first
-    const url = new URL(`r/${packageName}.json`, "https://www.loveui.dev/");
     let payload: RegistryPayload | null = null;
+    let bundledFiles: RegistryFile[] | null = null;
 
-    try {
-      const response = await fetch(url);
-      if (response.ok) {
-        payload = (await response.json()) as RegistryPayload;
+    // Check if packageName is a URL
+    if (packageName.startsWith('http://') || packageName.startsWith('https://')) {
+      // Fetch from the provided URL
+      try {
+        const response = await fetch(packageName);
+        if (response.ok) {
+          payload = (await response.json()) as RegistryPayload;
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch from ${packageName}:`, error);
       }
-    } catch {
-      // Silently fall back to bundled files
+    } else {
+      // Try to fetch from registry first
+      const url = new URL(`r/${packageName}.json`, "https://www.loveui.dev/");
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          payload = (await response.json()) as RegistryPayload;
+        }
+      } catch {
+        // Silently fall back to bundled files
+      }
+
+      // Use bundled files as primary source for named components
+      bundledFiles = await getBundledRegistryFiles(packageName);
     }
 
-    // Use bundled files as primary source
-    const bundledFiles = await getBundledRegistryFiles(packageName);
     const definitions: RegistryFile[] = bundledFiles ?? payload?.files ?? [];
 
     if (!definitions.length) {
@@ -568,7 +584,16 @@ export async function run(argv: string[] = process.argv.slice(2)) {
     }
 
     // Collect dependencies
-    const deps = await extractDependencies(packageName);
+    let deps: Record<string, string> = {};
+
+    // If we fetched from URL and payload has dependencies, use those
+    if (payload?.dependencies) {
+      deps = payload.dependencies;
+    } else {
+      // Otherwise extract from package.json
+      deps = await extractDependencies(packageName);
+    }
+
     Object.assign(allDependencies, deps);
   }
 

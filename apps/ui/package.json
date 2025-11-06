@@ -25,6 +25,8 @@
     "@hugeicons/react": "^1.0.5",
     "@loveui/ether": "workspace:*",
     "@loveui/gradiant-blinds": "workspace:*",
+    "@loveui/gradient-mesh": "workspace:*",
+    "@loveui/shader-ripple": "workspace:*",
     "@loveui/silk": "workspace:*",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",

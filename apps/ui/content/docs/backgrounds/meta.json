@@ -1,5 +1,5 @@
 {
   "root": true,
   "title": "Backgrounds",
-  "pages": ["---Backgrounds---", "ether", "gradient-blinds", "silk"]
+  "pages": ["---Backgrounds---", "ether", "gradient-blinds", "gradient-mesh", "shader-ripple", "silk"]
 }

@@ -1,0 +1,251 @@
+---
+title: Shader Ripple
+description: Animated ripple background with customizable colors and effects powered by Three.js shaders.
+icon: Waves
+installer: shader-ripple
+---
+
+import ShaderRippleDemo from "./_components/shader-ripple-demo"
+
+<ShaderRippleDemo />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx love-ui@latest add shader-ripple
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install three
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="shader-ripple" title="components/shader-ripple.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ShaderRipple } from "@/components/shader-ripple"
+```
+
+```tsx
+<ShaderRipple
+  color1="#FF00FF"
+  color2="#FF00FF"
+  color3="#FF6EC7"
+  rippleCount={8}
+/>
+```
+
+## Props
+
+### speed
+
+Controls the animation speed.
+
+- Type: `number`
+- Default: `0.05`
+
+```tsx
+<ShaderRipple speed={0.1} />
+```
+
+### lineWidth
+
+The width of ripple lines.
+
+- Type: `number`
+- Default: `0.002`
+
+```tsx
+<ShaderRipple lineWidth={0.003} />
+```
+
+### rippleCount
+
+Number of ripples to render.
+
+- Type: `number`
+- Default: `8`
+
+```tsx
+<ShaderRipple rippleCount={12} />
+```
+
+### colorLayers
+
+Number of color layers (1-3).
+
+- Type: `number`
+- Default: `3`
+
+```tsx
+<ShaderRipple colorLayers={2} />
+```
+
+### backgroundColor
+
+Background color for the container.
+
+- Type: `string`
+- Default: `"transparent"`
+
+```tsx
+<ShaderRipple backgroundColor="#000000" />
+```
+
+### rotation
+
+Rotation angle in degrees.
+
+- Type: `number`
+- Default: `135`
+
+```tsx
+<ShaderRipple rotation={90} />
+```
+
+### timeScale
+
+Scale factor for animation timing.
+
+- Type: `number`
+- Default: `0.5`
+
+```tsx
+<ShaderRipple timeScale={1.0} />
+```
+
+### opacity
+
+Overall opacity of the effect.
+
+- Type: `number`
+- Default: `1.0`
+
+```tsx
+<ShaderRipple opacity={0.8} />
+```
+
+### waveIntensity
+
+Intensity of wave distortion.
+
+- Type: `number`
+- Default: `0`
+
+```tsx
+<ShaderRipple waveIntensity={0.02} />
+```
+
+### animationSpeed
+
+Multiplier for animation speed.
+
+- Type: `number`
+- Default: `1.0`
+
+```tsx
+<ShaderRipple animationSpeed={1.5} />
+```
+
+### loopDuration
+
+Duration of the animation loop in seconds.
+
+- Type: `number`
+- Default: `0.7`
+
+```tsx
+<ShaderRipple loopDuration={1.0} />
+```
+
+### scale
+
+Scale factor for the ripple size.
+
+- Type: `number`
+- Default: `1`
+
+```tsx
+<ShaderRipple scale={1.5} />
+```
+
+### color1
+
+First color layer in hex format.
+
+- Type: `string`
+- Default: `"#FF00FF"`
+
+```tsx
+<ShaderRipple color1="#FF0000" />
+```
+
+### color2
+
+Second color layer in hex format.
+
+- Type: `string`
+- Default: `"#FF00FF"`
+
+```tsx
+<ShaderRipple color2="#00FF00" />
+```
+
+### color3
+
+Third color layer in hex format.
+
+- Type: `string`
+- Default: `"#FF6EC7"`
+
+```tsx
+<ShaderRipple color3="#0000FF" />
+```
+
+### mod
+
+Modulation value for ripple patterns.
+
+- Type: `number`
+- Default: `0.2`
+
+```tsx
+<ShaderRipple mod={0.3} />
+```
+
+### className
+
+Additional CSS classes to apply to the container.
+
+- Type: `string`
+
+```tsx
+<ShaderRipple className="rounded-lg" />
+```

@@ -9,7 +9,9 @@
       "Bash(cp:*)",
       "Bash(bun run:*)",
       "Bash(npm run build:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(find:*)",
+      "Bash(bun install:*)"
     ],
     "deny": [],
     "ask": []

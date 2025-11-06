@@ -1,0 +1,207 @@
+---
+title: Gradient Mesh
+description: Animated gradient mesh background with water effects and color blending powered by OGL WebGL library.
+icon: Waves
+installer: gradient-mesh
+---
+
+import GradientMeshDemo from "./_components/gradient-mesh-demo"
+
+<GradientMeshDemo />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTab value="cli">CLI</TabsTab>
+  <TabsTab value="manual">Manual</TabsTab>
+</TabsList>
+<TabsPanel value="cli">
+
+```bash
+npx love-ui@latest add gradient-mesh
+```
+
+</TabsPanel>
+
+<TabsPanel value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ogl
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="gradient-mesh" title="components/gradient-mesh.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsPanel>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GradientMesh } from "@/components/gradient-mesh"
+```
+
+```tsx
+<GradientMesh
+  colors={["#3b2a8d", "#aaa7d7", "#f75092"]}
+  distortion={5}
+  swirl={0.5}
+  speed={1.0}
+/>
+```
+
+## Props
+
+### colors
+
+An array of hex color strings for the gradient mesh (uses first 3 colors).
+
+- Type: `string[]`
+- Default: `["#3b2a8d", "#aaa7d7", "#f75092"]`
+
+```tsx
+<GradientMesh colors={["#FF0000", "#00FF00", "#0000FF"]} />
+```
+
+### distortion
+
+The amount of distortion applied to the gradient mesh.
+
+- Type: `number`
+- Default: `5`
+
+```tsx
+<GradientMesh distortion={8} />
+```
+
+### swirl
+
+The intensity of the swirl effect.
+
+- Type: `number`
+- Default: `0.5`
+
+```tsx
+<GradientMesh swirl={1.0} />
+```
+
+### speed
+
+Animation speed multiplier.
+
+- Type: `number`
+- Default: `1.0`
+
+```tsx
+<GradientMesh speed={2.0} />
+```
+
+### scale
+
+Scale factor for the mesh size.
+
+- Type: `number`
+- Default: `1`
+
+```tsx
+<GradientMesh scale={1.5} />
+```
+
+### offsetX
+
+Horizontal offset of the mesh.
+
+- Type: `number`
+- Default: `0.0`
+
+```tsx
+<GradientMesh offsetX={0.2} />
+```
+
+### offsetY
+
+Vertical offset of the mesh.
+
+- Type: `number`
+- Default: `0.0`
+
+```tsx
+<GradientMesh offsetY={-0.1} />
+```
+
+### rotation
+
+Rotation angle in radians.
+
+- Type: `number`
+- Default: `90`
+
+```tsx
+<GradientMesh rotation={45} />
+```
+
+### waveAmp
+
+Amplitude of the water wave effect.
+
+- Type: `number`
+- Default: `0.1`
+
+```tsx
+<GradientMesh waveAmp={0.2} />
+```
+
+### waveFreq
+
+Frequency of the water waves.
+
+- Type: `number`
+- Default: `10.0`
+
+```tsx
+<GradientMesh waveFreq={15.0} />
+```
+
+### waveSpeed
+
+Speed of the water wave animation.
+
+- Type: `number`
+- Default: `0.2`
+
+```tsx
+<GradientMesh waveSpeed={0.5} />
+```
+
+### grain
+
+Intensity of the grain/noise effect using color dodge blending.
+
+- Type: `number`
+- Default: `0.06`
+
+```tsx
+<GradientMesh grain={0.1} />
+```
+
+### className
+
+Additional CSS classes to apply to the container.
+
+- Type: `string`
+
+```tsx
+<GradientMesh className="rounded-lg" />
+```

@@ -22,7 +22,7 @@ const users = [
     email: "thomas@example.com",
     location: "London",
     status: "Active",
-    balance: "$2,345.67",
+    balance: "$22,345.67",
   },
   {
     name: "Charlie Cambell",

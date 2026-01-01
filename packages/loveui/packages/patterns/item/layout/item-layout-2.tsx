@@ -23,7 +23,7 @@ const people = [
   },
   {
     username: "thomasraklovits",
-    avatar: "https://github.com/monster0506.png",
+    avatar: "https://github.com/loveconnor.png",
     email: "thomas@example.com",
   },
   {

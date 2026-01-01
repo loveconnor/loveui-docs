@@ -1,4 +1,4 @@
-import buildingBlocksRegistry from "../../../../apps/origin/registry.json"
+import buildingBlocksRegistry from "@/registry.json"
 import { clsx, type ClassValue } from "clsx"
 import type { RegistryItem } from "shadcn/registry"
 import { twMerge } from "tailwind-merge"

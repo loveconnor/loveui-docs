@@ -43,7 +43,7 @@ export default function Component() {
             <span className="flex items-center gap-2">
               <img
                 className="rounded-full"
-                src="https://i.pravatar.cc/160?img=9"
+                src="https://github.com/monster0506.png"
                 alt="Thomas Raklovits"
                 width={40}
                 height={40}

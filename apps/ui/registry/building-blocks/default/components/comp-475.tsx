@@ -39,7 +39,7 @@ const items = [
     email: "traklovits@company.com",
     location: "Cleveland, Ohio",
     status: "Active",
-    balance: "$0.00",
+    balance: "$10,330.00",
   },
   {
     id: "5",

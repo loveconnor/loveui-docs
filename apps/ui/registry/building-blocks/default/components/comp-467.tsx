@@ -35,7 +35,7 @@ const items = [
     name: "Thomas Raklovits",
     username: "@mariagarcia",
     image:
-      "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/avatar-40-03_dkeufx.jpg",
+      "https://github.com/monster0506.png",
     email: "traklovits@company.com",
     location: "Cleveland, Ohio",
     status: "Active",

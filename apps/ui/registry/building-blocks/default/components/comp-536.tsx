@@ -43,7 +43,7 @@ const items = [
     title: "Thomas Raklovits",
     action: "closed the issue",
     description: "The issue has been fixed. Please review the changes.",
-    image: "https://i.pravatar.cc/160?img=12",
+    image: "https://github.com/monster0506.png",
   },
 ]
 

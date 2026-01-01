@@ -43,7 +43,7 @@ const initialNotifications = [
   },
   {
     id: 4,
-    image: "https://i.pravatar.cc/160?img=17",
+    image: "https://github.com/monster0506.png",
     user: "Thomas Raklovits",
     action: "replied to your comment in",
     target: "Authentication flow",

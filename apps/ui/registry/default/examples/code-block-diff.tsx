@@ -1,93 +1,42 @@
 "use client";
 
-import type { BundledLanguage } from "../../../../../packages/code-block";
-import {
-  CodeBlock,
-  CodeBlockBody,
-  CodeBlockContent,
-  CodeBlockCopyButton,
-  CodeBlockFilename,
-  CodeBlockFiles,
-  CodeBlockHeader,
-  CodeBlockItem,
-  CodeBlockSelect,
-  CodeBlockSelectContent,
-  CodeBlockSelectItem,
-  CodeBlockSelectTrigger,
-  CodeBlockSelectValue,
-} from "../../../../../packages/code-block";
+import { CodeBlockShowcase, type CodeSample } from "./code-block-shared";
 
-const code = [
+const code: CodeSample[] = [
+  {
+    language: "ts",
+    filename: "utils.ts",
+    code: `function calculateTotal(items: Array<{ price: number; quantity: number }>) {
+- let total = 0;
++ let subtotal = 0;
+
+  for (const item of items) {
+-   total += item.price * item.quantity;
++   subtotal += item.price * item.quantity;
+  }
+
+- return total;
++ return subtotal;
+}`,
+  },
   {
     language: "js",
     filename: "utils.js",
     code: `function calculateTotal(items) {
-  let total = 0;
-  for (let i = 0; i < items.length; i++) {
-    total += items[i].price * items[i].quantity; // [!code --]
-    const itemTotal = items[i].price * items[i].quantity; // [!code ++]
-    total += itemTotal; // [!code ++]
-  }
-  return total;
-}`,
-  },
-  {
-    language: "ts",
-    filename: "utils.ts",
-    code: `interface Item {
-  price: number;
-  quantity: number;
-}
+- let total = 0;
++ let subtotal = 0;
 
-function calculateTotal(items: Item[]): number {
-  let total = 0;
-  for (let i = 0; i < items.length; i++) {
-    total += items[i].price * items[i].quantity; // [!code --]
-    const itemTotal = items[i].price * items[i].quantity; // [!code ++]
-    total += itemTotal; // [!code ++]
+  for (const item of items) {
+-   total += item.price * item.quantity;
++   subtotal += item.price * item.quantity;
   }
-  return total;
+
+- return total;
++ return subtotal;
 }`,
   },
 ];
 
-const Example = () => (
-  <CodeBlock data={code} defaultValue={code[0].language}>
-    <CodeBlockHeader>
-      <CodeBlockFiles>
-        {(item) => (
-          <CodeBlockFilename key={item.language} value={item.language}>
-            {item.filename}
-          </CodeBlockFilename>
-        )}
-      </CodeBlockFiles>
-      <CodeBlockSelect>
-        <CodeBlockSelectTrigger>
-          <CodeBlockSelectValue />
-        </CodeBlockSelectTrigger>
-        <CodeBlockSelectContent>
-          {(item) => (
-            <CodeBlockSelectItem key={item.language} value={item.language}>
-              {item.language}
-            </CodeBlockSelectItem>
-          )}
-        </CodeBlockSelectContent>
-      </CodeBlockSelect>
-      <CodeBlockCopyButton
-        onCopy={() => console.log("Copied code to clipboard")}
-        onError={() => console.error("Failed to copy code to clipboard")}
-      />
-    </CodeBlockHeader>
-    <CodeBlockBody>
-      {(item) => (
-        <CodeBlockItem key={item.language} value={item.language}>
-          <CodeBlockContent language={item.language as BundledLanguage}>
-            {item.code}
-          </CodeBlockContent>
-        </CodeBlockItem>
-      )}
-    </CodeBlockBody>
-  </CodeBlock>
-);
+const Example = () => <CodeBlockShowcase files={code} lineNumbers />;
 
 export default Example;

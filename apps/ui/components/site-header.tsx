@@ -13,6 +13,7 @@ export function SiteHeader() {
   return (
     <WorkspaceSiteHeader
       currentProduct="ui"
+      showProductsDropdown={false}
       mobileNav={
         <MobileNav
           tree={pageTree}

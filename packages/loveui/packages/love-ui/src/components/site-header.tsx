@@ -11,11 +11,13 @@ export function SiteHeader({
   mobileNav,
   children,
   currentProduct,
+  showProductsDropdown = true,
   className
 }: {
   mobileNav?: React.ReactNode;
   children?: React.ReactNode;
   currentProduct?: string;
+  showProductsDropdown?: boolean;
   className?: string;
 }) {
   const gatewayOrigin = process.env.NEXT_PUBLIC_LOVEUI_URL || ""
@@ -45,7 +47,7 @@ export function SiteHeader({
         </div>
         <div className="ms-auto flex items-center gap-2 md:flex-1 md:justify-end">
           {children}
-          <ProductsDropdown items={siteConfig.products} />
+          {showProductsDropdown ? <ProductsDropdown items={siteConfig.products} /> : null}
           <ModeSwitcher />
         </div>
       </div>

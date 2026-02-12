@@ -10,14 +10,9 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { findNeighbour } from "fumadocs-core/page-tree"
 
 import { source } from "@/lib/source"
-import { absoluteUrl } from "@/lib/utils"
 import { DocsCopyPage } from "@/components/docs-copy-page"
 import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/registry/default/ui/button"
-
-export const revalidate = false
-export const dynamic = "force-static"
-export const dynamicParams = false
 
 export function generateStaticParams() {
   return source.generateParams()

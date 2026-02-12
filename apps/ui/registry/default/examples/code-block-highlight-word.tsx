@@ -1,88 +1,28 @@
 "use client";
 
-import type { BundledLanguage } from "../../../../../packages/code-block";
-import {
-  CodeBlock,
-  CodeBlockBody,
-  CodeBlockContent,
-  CodeBlockCopyButton,
-  CodeBlockFilename,
-  CodeBlockFiles,
-  CodeBlockHeader,
-  CodeBlockItem,
-  CodeBlockSelect,
-  CodeBlockSelectContent,
-  CodeBlockSelectItem,
-  CodeBlockSelectTrigger,
-  CodeBlockSelectValue,
-} from "../../../../../packages/code-block";
+import { CodeBlockShowcase, type CodeSample } from "./code-block-shared";
 
-const code = [
+const code: CodeSample[] = [
   {
-    language: "jsx",
-    filename: "MyComponent.jsx",
-    code: `function MyComponent(props) {
-  return (
-    <div>
-      // [!code word:props.name]
-      <h1>Hello, {props.name}!</h1>
-      <p>This is an example React component.</p>
-    </div>
-  );
+    language: "tsx",
+    filename: "format-user.tsx",
+    code: `type User = { firstName: string; lastName: string };
+
+export function formatUser(user: User) {
+  return \`\${user.firstName} \${user.lastName}\`;
 }`,
   },
   {
-    language: "tsx",
-    filename: "MyComponent.tsx",
-    code: `function MyComponent(props: { name: string }) {
-  return (
-    <div>
-      // [!code word:props.name]
-      <h1>Hello, {props.name}!</h1>
-      <p>This is an example React component.</p>
-    </div>
-  );
+    language: "ts",
+    filename: "format-user.ts",
+    code: `type User = { firstName: string; lastName: string };
+
+export function formatUser(user: User) {
+  return [user.firstName, user.lastName].join(" ");
 }`,
   },
 ];
 
-const Example = () => (
-  <CodeBlock data={code} defaultValue={code[0].language}>
-    <CodeBlockHeader>
-      <CodeBlockFiles>
-        {(item) => (
-          <CodeBlockFilename key={item.language} value={item.language}>
-            {item.filename}
-          </CodeBlockFilename>
-        )}
-      </CodeBlockFiles>
-      <CodeBlockSelect>
-        <CodeBlockSelectTrigger>
-          <CodeBlockSelectValue />
-        </CodeBlockSelectTrigger>
-        <CodeBlockSelectContent>
-          {(item) => (
-            <CodeBlockSelectItem key={item.language} value={item.language}>
-              {item.language}
-            </CodeBlockSelectItem>
-          )}
-        </CodeBlockSelectContent>
-      </CodeBlockSelect>
-      <CodeBlockCopyButton
-        onCopy={() => console.log("Copied code to clipboard")}
-        onError={() => console.error("Failed to copy code to clipboard")}
-      />
-    </CodeBlockHeader>
-    <CodeBlockBody>
-      {(item) => (
-        <CodeBlockItem key={item.language} value={item.language}>
-          <CodeBlockContent language={item.language as BundledLanguage}>
-            {item.code}
-          </CodeBlockContent>
-        </CodeBlockItem>
-      )}
-    </CodeBlockBody>
-  </CodeBlock>
-);
+const Example = () => <CodeBlockShowcase files={code} lineNumbers />;
 
 export default Example;

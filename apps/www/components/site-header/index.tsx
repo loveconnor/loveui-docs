@@ -133,6 +133,7 @@ export function SiteHeader() {
     <>
       <WorkspaceSiteHeader
         currentProduct="ui"
+        showProductsDropdown={false}
         mobileNav={<MobileNav />}
         className={cn(
           "landing-header transition-[background-color,backdrop-filter] duration-300 before:transition-colors",

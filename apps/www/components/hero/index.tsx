@@ -47,10 +47,10 @@ export function Hero() {
           cohesive product experiences without wrestling with design systems from scratch.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button size="xl" render={<Link href="https://loveui.dev/ui/docs" />}>
+          <Button size="xl" render={<Link href="https://ui.loveui.dev/ui/docs" />}>
             Browse the docs
           </Button>
-          <Button size="xl" variant="outline" render={<Link href="https://loveui.dev/ui/building-blocks" />}>
+          <Button size="xl" variant="outline" render={<Link href="https://ui.loveui.dev/ui/building-blocks" />}>
             Explore blocks
           </Button>
         </div>

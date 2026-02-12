@@ -7,10 +7,16 @@ import { Tabs } from "@/registry/default/ui/tabs"
 
 export function CodeTabs({ children }: React.ComponentProps<typeof Tabs>) {
   const [config, setConfig] = useConfig()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const installationType = React.useMemo(() => {
+    if (!mounted) return "cli"
     return config.installationType || "cli"
-  }, [config])
+  }, [config, mounted])
 
   return (
     <Tabs

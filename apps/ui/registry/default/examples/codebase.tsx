@@ -1,17 +1,15 @@
 "use client";
 
-import type { BundledLanguage } from "../../../../../packages/code-block";
 import {
   CodeBlock,
-  CodeBlockBody,
   CodeBlockContent,
-  CodeBlockCopyButton,
-  CodeBlockFilename,
-  CodeBlockFiles,
+  CodeBlockGroup,
   CodeBlockHeader,
-  CodeBlockItem,
-  type CodeBlockProps,
-} from "../../../../../packages/code-block";
+  CodeBlockIcon,
+  CodeblockShiki,
+  CopyButton,
+  type Languages,
+} from "../../../../../packages/code-block/src";
 import {
   TreeExpander,
   TreeIcon,
@@ -22,19 +20,19 @@ import {
   TreeProvider,
   TreeView,
 } from "../../../../../packages/tree";
-import { FileCode, FileJson, FileText, FileType } from "lucide-react";
+import { FileJson, FileText, FileType } from "lucide-react";
 import { useState } from "react";
 
 type FileContent = {
   name: string;
-  language: string;
+  language: Languages;
   code: string;
 };
 
 const fileContents: Record<string, FileContent> = {
   "server.ts": {
     name: "server.ts",
-    language: "typescript",
+    language: "ts",
     code: `import express from 'express';
 import { taskRouter } from './routes/tasks';
 import { userRouter } from './routes/users';
@@ -66,7 +64,7 @@ app.listen(config.port, () => {
   },
   "tasks.ts": {
     name: "tasks.ts",
-    language: "typescript",
+    language: "ts",
     code: `import { Router } from 'express';
 import { TaskService } from '../services/taskService';
 import { validateTask } from '../middleware/validation';
@@ -126,7 +124,7 @@ export { router as taskRouter };`,
   },
   "users.ts": {
     name: "users.ts",
-    language: "typescript",
+    language: "ts",
     code: `import { Router } from 'express';
 import { UserService } from '../services/userService';
 import { validateUser } from '../middleware/validation';
@@ -168,7 +166,7 @@ export { router as userRouter };`,
   },
   "taskService.ts": {
     name: "taskService.ts",
-    language: "typescript",
+    language: "ts",
     code: `import { db } from '../db';
 import type { Task, CreateTaskInput, UpdateTaskInput } from '../types';
 
@@ -214,7 +212,7 @@ export class TaskService {
   },
   "userService.ts": {
     name: "userService.ts",
-    language: "typescript",
+    language: "ts",
     code: `import { db } from '../db';
 import { hashPassword } from '../utils/crypto';
 import type { User, CreateUserInput } from '../types';
@@ -264,7 +262,7 @@ export class UserService {
   },
   "errorHandler.ts": {
     name: "errorHandler.ts",
-    language: "typescript",
+    language: "ts",
     code: `import type { Request, Response, NextFunction } from 'express';
 
 export class AppError extends Error {
@@ -301,7 +299,7 @@ export const errorHandler = (
   },
   "logger.ts": {
     name: "logger.ts",
-    language: "typescript",
+    language: "ts",
     code: `import type { Request, Response, NextFunction } from 'express';
 
 export const logger = (req: Request, res: Response, next: NextFunction) => {
@@ -325,7 +323,7 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
   },
   "validation.ts": {
     name: "validation.ts",
-    language: "typescript",
+    language: "ts",
     code: `import type { Request, Response, NextFunction } from 'express';
 import { AppError } from './errorHandler';
 
@@ -375,7 +373,7 @@ export const validateUser = (
   },
   "types.ts": {
     name: "types.ts",
-    language: "typescript",
+    language: "ts",
     code: `export type TaskStatus = 'pending' | 'in_progress' | 'completed';
 
 export interface Task {
@@ -413,7 +411,7 @@ export interface CreateUserInput {
   },
   "config.ts": {
     name: "config.ts",
-    language: "typescript",
+    language: "ts",
     code: `export const config = {
   port: process.env.PORT || 3000,
   nodeEnv: process.env.NODE_ENV || 'development',
@@ -459,7 +457,7 @@ export interface CreateUserInput {
   },
   "README.md": {
     name: "README.md",
-    language: "markdown",
+    language: "mdx",
     code: `# Task Management API
 
 A RESTful API built with Express and TypeScript for managing tasks and users.
@@ -540,15 +538,13 @@ src/
 
 export default function CodebaseExample() {
   const [selectedFile, setSelectedFile] = useState<string>("server.ts");
+  const fallbackFile = fileContents["server.ts"];
 
-  // Convert fileContents to the format expected by CodeBlock
-  const codeData: CodeBlockProps["data"] = Object.entries(fileContents).map(
-    ([id, content]) => ({
-      ...content,
-      id,
-      filename: content.name,
-    })
-  );
+  if (!fallbackFile) {
+    return null;
+  }
+
+  const activeFile = fileContents[selectedFile] ?? fallbackFile;
 
   const handleFileSelect = (fileId: string) => {
     if (fileContents[fileId]) {
@@ -563,8 +559,9 @@ export default function CodebaseExample() {
         <TreeProvider
           defaultExpandedIds={["src", "routes", "services", "middleware"]}
           onSelectionChange={(ids) => {
-            if (ids.length > 0) {
-              handleFileSelect(ids[0]);
+            const firstId = ids[0];
+            if (firstId) {
+              handleFileSelect(firstId);
             }
           }}
           selectedIds={[selectedFile]}
@@ -695,31 +692,21 @@ export default function CodebaseExample() {
       </div>
 
       {/* Code Viewer */}
-      <CodeBlock
-        className="size-full overflow-y-auto rounded-none border-none"
-        data={codeData}
-        onValueChange={setSelectedFile}
-        value={selectedFile}
-      >
+      <CodeBlock className="size-full overflow-y-auto rounded-none border-none">
         <CodeBlockHeader>
-          <CodeBlockFiles>
-            {(item) => (
-              <CodeBlockFilename key={item.filename} value={item.filename}>
-                {item.filename}
-              </CodeBlockFilename>
-            )}
-          </CodeBlockFiles>
-          <CodeBlockCopyButton />
+          <CodeBlockGroup>
+            <CodeBlockIcon language={activeFile.language} />
+            <span>{activeFile.name}</span>
+          </CodeBlockGroup>
+          <CopyButton content={activeFile.code} />
         </CodeBlockHeader>
-        <CodeBlockBody className="h-[calc(100%-3rem)]">
-          {(item) => (
-            <CodeBlockItem key={item.filename} value={item.filename}>
-              <CodeBlockContent language={item.language as BundledLanguage}>
-                {item.code}
-              </CodeBlockContent>
-            </CodeBlockItem>
-          )}
-        </CodeBlockBody>
+        <CodeBlockContent className="h-[calc(100%-2.25rem)] rounded-none">
+          <CodeblockShiki
+            code={activeFile.code}
+            language={activeFile.language}
+            lineNumbers
+          />
+        </CodeBlockContent>
       </CodeBlock>
     </div>
   );

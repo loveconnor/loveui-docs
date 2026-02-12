@@ -9,6 +9,9 @@ type Config = {
 const configAtom = atomWithStorage<Config>("config", {
   packageManager: "npm",
   installationType: "cli",
+}, undefined, {
+  // Keep SSR and first client render in sync to avoid hydration mismatches.
+  getOnInit: false,
 })
 
 export function useConfig() {

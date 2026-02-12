@@ -1,86 +1,28 @@
 "use client";
 
-import type { BundledLanguage } from "../../../../../packages/code-block";
-import {
-  CodeBlock,
-  CodeBlockBody,
-  CodeBlockContent,
-  CodeBlockCopyButton,
-  CodeBlockFilename,
-  CodeBlockFiles,
-  CodeBlockHeader,
-  CodeBlockItem,
-  CodeBlockSelect,
-  CodeBlockSelectContent,
-  CodeBlockSelectItem,
-  CodeBlockSelectTrigger,
-  CodeBlockSelectValue,
-} from "../../../../../packages/code-block";
+import { CodeBlockShowcase, type CodeSample } from "./code-block-shared";
 
-const code = [
-  {
-    language: "js",
-    filename: "utils.js",
-    code: `function calculateDiscount(price, percentage) {
-  const discount = price * (percentage / 100); // [!code focus]
-  return price - discount;
-}
-
-// Example usage
-const finalPrice = calculateDiscount(100, 20);
-console.log(finalPrice); // 80`,
-  },
+const code: CodeSample[] = [
   {
     language: "ts",
-    filename: "utils.ts",
-    code: `function calculateDiscount(price: number, percentage: number): number {
-  const discount = price * (percentage / 100); // [!code focus]
-  return price - discount;
-}
-
-// Example usage
-const finalPrice: number = calculateDiscount(100, 20);
-console.log(finalPrice); // 80`,
+    filename: "discount.ts",
+    code: `export function calculateDiscount(price: number, percentage: number) {
+  const discount = price * (percentage / 100);
+  const finalPrice = price - discount; // focus line
+  return Number(finalPrice.toFixed(2));
+}`,
+  },
+  {
+    language: "js",
+    filename: "discount.js",
+    code: `export function calculateDiscount(price, percentage) {
+  const discount = price * (percentage / 100);
+  const finalPrice = price - discount; // focus line
+  return Number(finalPrice.toFixed(2));
+}`,
   },
 ];
 
-const Example = () => (
-  <CodeBlock data={code} defaultValue={code[0].language}>
-    <CodeBlockHeader>
-      <CodeBlockFiles>
-        {(item) => (
-          <CodeBlockFilename key={item.language} value={item.language}>
-            {item.filename}
-          </CodeBlockFilename>
-        )}
-      </CodeBlockFiles>
-      <CodeBlockSelect>
-        <CodeBlockSelectTrigger>
-          <CodeBlockSelectValue />
-        </CodeBlockSelectTrigger>
-        <CodeBlockSelectContent>
-          {(item) => (
-            <CodeBlockSelectItem key={item.language} value={item.language}>
-              {item.language}
-            </CodeBlockSelectItem>
-          )}
-        </CodeBlockSelectContent>
-      </CodeBlockSelect>
-      <CodeBlockCopyButton
-        onCopy={() => console.log("Copied code to clipboard")}
-        onError={() => console.error("Failed to copy code to clipboard")}
-      />
-    </CodeBlockHeader>
-    <CodeBlockBody>
-      {(item) => (
-        <CodeBlockItem key={item.language} value={item.language}>
-          <CodeBlockContent language={item.language as BundledLanguage}>
-            {item.code}
-          </CodeBlockContent>
-        </CodeBlockItem>
-      )}
-    </CodeBlockBody>
-  </CodeBlock>
-);
+const Example = () => <CodeBlockShowcase files={code} lineNumbers />;
 
 export default Example;

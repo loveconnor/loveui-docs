@@ -1,52 +1,19 @@
 "use client";
 
-import type { BundledLanguage } from "../../../../../packages/code-block";
-import {
-  CodeBlock,
-  CodeBlockBody,
-  CodeBlockContent,
-  CodeBlockItem,
-} from "../../../../../packages/code-block";
+import { CodeBlockShowcase, type CodeSample } from "./code-block-shared";
 
-const code = [
-  {
-    language: "jsx",
-    filename: "MyComponent.jsx",
-    code: `function MyComponent(props) {
-  return (
-    <div>
-      <h1>Hello, {props.name}!</h1>
-      <p>This is an example React component.</p>
-    </div>
-  );
-}`,
-  },
+const code: CodeSample[] = [
   {
     language: "tsx",
-    filename: "MyComponent.tsx",
-    code: `function MyComponent(props: { name: string }) {
-  return (
-    <div>
-      <h1>Hello, {props.name}!</h1>
-      <p>This is an example React component.</p>
-    </div>
-  );
+    filename: "api-client.ts",
+    code: `export async function getUser(id: string) {
+  const response = await fetch(\`/api/users/\${id}\`);
+  if (!response.ok) throw new Error("Failed to load user");
+  return response.json();
 }`,
   },
 ];
 
-const Example = () => (
-  <CodeBlock data={code} defaultValue={code[0].language}>
-    <CodeBlockBody>
-      {(item) => (
-        <CodeBlockItem key={item.language} value={item.language}>
-          <CodeBlockContent language={item.language as BundledLanguage}>
-            {item.code}
-          </CodeBlockContent>
-        </CodeBlockItem>
-      )}
-    </CodeBlockBody>
-  </CodeBlock>
-);
+const Example = () => <CodeBlockShowcase files={code} hideHeader />;
 
 export default Example;

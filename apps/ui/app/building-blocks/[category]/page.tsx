@@ -64,6 +64,7 @@ export default async function Page({ params }: Props) {
   const components = getComponentsByNames(
     category.components.map((item) => item.name)
   )
+  const isStatsCategory = category.slug === "stats"
 
   // Determine the description text based on category
   const getDescriptionText = () => {
@@ -90,7 +91,11 @@ export default async function Page({ params }: Props) {
           <ComponentCard
             key={component.name}
             component={component}
-            className="data-[slot=comp-542]:px-0"
+            className={
+              isStatsCategory
+                ? "col-span-12 flex justify-center sm:col-span-12 lg:col-span-12 data-[slot=comp-542]:px-0"
+                : "data-[slot=comp-542]:px-0"
+            }
           >
             <ComponentLoader component={component} />
             <ComponentDetails component={component} />

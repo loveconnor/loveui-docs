@@ -26,6 +26,7 @@ export const registryTags = [
   "select",
   "slider",
   "sonner",
+  "stats",
   "stepper",
   "table",
   "tabs",

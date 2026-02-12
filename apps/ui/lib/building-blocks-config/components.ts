@@ -609,6 +609,28 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "stats",
+    name: "Stats",
+    components: [
+      { name: "comp-600" },
+      { name: "comp-601" },
+      { name: "comp-602" },
+      { name: "comp-603" },
+      { name: "comp-604" },
+      { name: "comp-605" },
+      { name: "comp-606" },
+      { name: "comp-607" },
+      { name: "comp-608" },
+      { name: "comp-609" },
+      { name: "comp-610" },
+      { name: "comp-611" },
+      { name: "comp-612" },
+      { name: "comp-613" },
+      { name: "comp-614" },
+    ],
+    isNew: true,
+  },
+  {
     slug: "stepper",
     name: "Stepper",
     components: [

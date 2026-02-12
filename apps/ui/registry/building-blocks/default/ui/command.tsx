@@ -62,7 +62,7 @@ function CommandInput({
       className="flex items-center border-b border-input px-5"
       cmdk-input-wrapper=""
     >
-      <SearchIcon size={20} className="me-3 text-muted-foreground/80" />
+      <SearchIcon size={16} className="me-3 text-muted-foreground/80" />
       <CommandPrimitive.Input
         data-slot="command-input-wrapper"
         className={cn(

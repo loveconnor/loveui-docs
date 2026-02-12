@@ -64,7 +64,9 @@ export default async function Page({ params }: Props) {
   const components = getComponentsByNames(
     category.components.map((item) => item.name)
   )
-  const isStatsCategory = category.slug === "stats"
+  const isSingleColumnCategory = ["stats", "command-menu"].includes(
+    category.slug
+  )
 
   // Determine the description text based on category
   const getDescriptionText = () => {
@@ -92,7 +94,7 @@ export default async function Page({ params }: Props) {
             key={component.name}
             component={component}
             className={
-              isStatsCategory
+              isSingleColumnCategory
                 ? "col-span-12 flex justify-center sm:col-span-12 lg:col-span-12 data-[slot=comp-542]:px-0"
                 : "data-[slot=comp-542]:px-0"
             }

@@ -268,6 +268,16 @@ export const categories: ComponentCategory[] = [
     ],
   },
   {
+    slug: "command-menu",
+    name: "Command Menu",
+    components: [
+      { name: "comp-615" },
+      { name: "comp-616" },
+      { name: "comp-617" },
+    ],
+    isNew: true,
+  },
+  {
     slug: "dialog",
     name: "Dialog",
     components: [

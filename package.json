@@ -37,6 +37,7 @@
     "@origin-space/image-cropper": "^0.1.9",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
+    "@tabler/icons-react": "^3.36.1",
     "@tanstack/react-table": "^8.21.3",
     "@vercel/analytics": "^1.5.0",
     "cmdk": "^1.1.1",

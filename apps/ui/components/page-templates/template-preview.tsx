@@ -1,5 +1,7 @@
 import { Suspense } from "react"
+
 import type { PageTemplate } from "@/lib/page-templates/utils"
+import { getTemplateRegistryPath } from "@/lib/page-templates/utils"
 import { TemplatePreviewTabs } from "@/components/page-templates/template-preview-tabs"
 import { TemplateSource } from "@/components/page-templates/template-source"
 
@@ -10,13 +12,18 @@ interface TemplatePreviewProps {
 export function TemplatePreview({ template }: TemplatePreviewProps) {
   // Dynamically import the template component from the main component file
   const mainComponentPath = template.mainComponent || "app/page"
-  const TemplateComponent = require(`@/registry/page-templates/default/templates/${template.name}/${mainComponentPath}`).default
+  const templateRegistryPath = getTemplateRegistryPath(template)
+  const TemplateComponent = require(
+    `@/registry/page-templates/default/templates/${templateRegistryPath}/${mainComponentPath}`
+  ).default
 
   return (
     <div className="mb-16">
       {template.title && (
         <div className="mb-6">
-          <h2 className="text-2xl font-bold tracking-tight">{template.title}</h2>
+          <h2 className="text-2xl font-bold tracking-tight">
+            {template.title}
+          </h2>
           {template.description && (
             <p className="mt-2 text-muted-foreground">{template.description}</p>
           )}

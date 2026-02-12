@@ -18,8 +18,8 @@ export const appConfig = {
       label: "Building Blocks",
     },
     {
-      href: "/page-templates",
-      label: "Page Templates",
+      href: "/templates",
+      label: "Templates",
     },
     {
       href: "/docs/backgrounds/ether",

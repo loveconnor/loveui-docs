@@ -4,8 +4,8 @@ import * as React from "react"
 import { ExternalLink } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Tabs, TabsList, TabsTab } from "@/registry/default/ui/tabs"
 import { Button } from "@/registry/default/ui/button"
+import { Tabs, TabsList, TabsTab } from "@/registry/default/ui/tabs"
 
 export function TemplatePreviewTabs({
   className,
@@ -21,12 +21,12 @@ export function TemplatePreviewTabs({
   const [tab, setTab] = React.useState("preview")
 
   const handleOpenInNewTab = () => {
-    window.open(`/page-templates/preview/${templateName}`, "_blank")
+    window.open(`/templates/preview/${templateName}`, "_blank")
   }
 
   return (
     <div
-      className={cn("group relative mb-12 mt-4 flex flex-col gap-2", className)}
+      className={cn("group relative mt-4 mb-12 flex flex-col gap-2", className)}
       {...props}
     >
       <Tabs value={tab} onValueChange={setTab}>

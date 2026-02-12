@@ -1,22 +1,13 @@
-export interface TemplateCategory {
-  slug: string
-  name: string
-  templates: { name: string }[]
-  isNew?: boolean
-}
+import {
+  getTemplateCategories,
+  getTemplateCategory,
+  type TemplateCategory,
+} from "@/lib/page-templates/registry"
 
-export const categories: TemplateCategory[] = [
-  {
-    slug: "auth",
-    name: "Auth",
-    templates: [
-      { name: "template-auth-01" },
-      { name: "template-auth-02" },
-      { name: "template-auth-03" },
-    ],
-  },
-]
+export { type TemplateCategory }
+
+export const categories: TemplateCategory[] = getTemplateCategories()
 
 export function getCategory(slug: string): TemplateCategory | undefined {
-  return categories.find((category) => category.slug === slug)
+  return getTemplateCategory(slug)
 }

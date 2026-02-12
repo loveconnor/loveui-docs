@@ -1,7 +1,9 @@
 "use client"
 
 import { Suspense } from "react"
+
 import type { PageTemplate } from "@/lib/page-templates/utils"
+import { getTemplateRegistryPath } from "@/lib/page-templates/utils"
 
 interface TemplateLoaderProps {
   template: PageTemplate
@@ -9,10 +11,17 @@ interface TemplateLoaderProps {
 
 export default function TemplateLoader({ template }: TemplateLoaderProps) {
   // Dynamically import the template component
-  const TemplateComponent = require(`@/registry/page-templates/default/templates/${template.name}`).default
+  const templateRegistryPath = getTemplateRegistryPath(template)
+  const mainComponentPath = template.mainComponent || "app/page"
+  const TemplateComponent = require(
+    `@/registry/page-templates/default/templates/${templateRegistryPath}/${mainComponentPath}`
+  ).default
 
   return (
-    <div className="peer relative w-full overflow-hidden" data-comp-loading="false">
+    <div
+      className="peer relative w-full overflow-hidden"
+      data-comp-loading="false"
+    >
       <Suspense
         fallback={
           <div className="flex min-h-[600px] items-center justify-center">

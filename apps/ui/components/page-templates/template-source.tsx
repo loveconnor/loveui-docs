@@ -2,8 +2,11 @@ import fs from "node:fs/promises"
 import path from "node:path"
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { resolveTemplateRegistryRoot } from "@/lib/page-templates/registry"
 import type { PageTemplate } from "@/lib/page-templates/utils"
+import { getTemplateRegistryPath } from "@/lib/page-templates/utils"
+import { cn } from "@/lib/utils"
+
 import { TemplateSourceClient } from "./template-source-client"
 
 export async function TemplateSource({
@@ -12,14 +15,16 @@ export async function TemplateSource({
 }: React.ComponentProps<"div"> & {
   template: PageTemplate
 }) {
+  const templateRoot = resolveTemplateRegistryRoot()
+  const templateRegistryPath = getTemplateRegistryPath(template)
+
   // Load all file contents
   const filesWithContent = await Promise.all(
     template.files.map(async (file) => {
       try {
         const filePath = path.join(
-          process.cwd(),
-          "registry/page-templates/default/templates",
-          template.name,
+          templateRoot,
+          templateRegistryPath,
           file.path
         )
         const content = await fs.readFile(filePath, "utf-8")

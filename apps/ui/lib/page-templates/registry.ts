@@ -139,6 +139,31 @@ const KNOWN_TEMPLATE_META: Record<
     description:
       "A minimal sign-up layout with email/password fields, social actions, and a clear sign-in path.",
   },
+  "logo-cloud/one": {
+    title: "Logo Cloud (Dense Grid)",
+    description:
+      "A centered trust section with a dense multi-row logo grid and simple heading for straightforward social proof.",
+  },
+  "logo-cloud/two": {
+    title: "Logo Cloud (Hover Reveal)",
+    description:
+      "A compact logo grid that softens on hover to reveal a contextual call to action for customer stories.",
+  },
+  "logo-cloud/three": {
+    title: "Logo Cloud (Marquee Slider)",
+    description:
+      "A horizontally scrolling marquee of partner logos with edge fades and progressive blur for continuous motion.",
+  },
+  "logo-cloud/four": {
+    title: "Logo Cloud (SVG Brand Grid)",
+    description:
+      "A clean, responsive brand grid rendered with inline SVG marks for crisp logos across themes and breakpoints.",
+  },
+  "logo-cloud/five": {
+    title: "Logo Cloud (Animated Groups)",
+    description:
+      "A rotating logo cloud that cycles through grouped brand sets with staggered animated transitions.",
+  },
   "hero/one": {
     title: "Integration Hero (Centered)",
     description:

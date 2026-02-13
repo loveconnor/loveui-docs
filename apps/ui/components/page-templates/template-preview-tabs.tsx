@@ -52,14 +52,14 @@ export function TemplatePreviewTabs({
       </Tabs>
       <div
         data-tab={tab}
-        className="relative min-h-[600px] rounded-xl border data-[tab=code]:bg-code"
+        className="relative rounded-xl border data-[tab=code]:h-[600px] data-[tab=code]:bg-code"
       >
         <div
           data-slot="preview"
           data-active={tab === "preview"}
           className="invisible data-[active=true]:visible"
         >
-          <div className="preview flex min-h-[600px] w-full justify-center overflow-y-auto">
+          <div className="preview flex w-full justify-center overflow-y-auto">
             {component}
           </div>
         </div>

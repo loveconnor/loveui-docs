@@ -8,11 +8,11 @@ import { Button } from "@/ui/button"
 import { Beacon } from "@/ui/svgs/beacon"
 import { Bolt } from "@/ui/svgs/bolt"
 import { Claude } from "@/ui/svgs/claude"
-import { Github } from "@/ui/svgs/github"
 import { Hulu } from "@/ui/svgs/hulu"
 import { Linear } from "@/ui/svgs/linear"
 import { Slack } from "@/ui/svgs/slack"
 import { Supabase } from "@/ui/svgs/supabase"
+import { Twilio } from "@/ui/svgs/twilio"
 import { ChevronRight } from "lucide-react"
 
 const transitionVariants = {
@@ -176,9 +176,9 @@ export default function HeroSection() {
                 </span>
               </div>
               <div className="flex">
-                <Github className="mx-auto h-4 w-fit text-foreground dark:text-white" />{" "}
+                <Twilio className="mx-auto h-4 w-fit text-foreground dark:text-white" />{" "}
                 <span className="text-sm font-medium text-muted-foreground">
-                  GitHub
+                  Twilio
                 </span>
               </div>
               <div className="flex">

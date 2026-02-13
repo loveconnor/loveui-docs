@@ -44,7 +44,7 @@ export function TemplatePreview({ template }: TemplatePreviewProps) {
         component={
           <Suspense
             fallback={
-              <div className="flex min-h-[600px] items-center justify-center">
+              <div className="flex h-[320px] items-center justify-center">
                 <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-200 border-t-zinc-900 dark:border-zinc-800 dark:border-t-zinc-100" />
               </div>
             }

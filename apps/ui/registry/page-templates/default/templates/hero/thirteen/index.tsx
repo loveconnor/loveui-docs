@@ -10,11 +10,11 @@ import { Bolt } from "@/ui/svgs/bolt"
 import { Cisco } from "@/ui/svgs/cisco"
 import { Claude } from "@/ui/svgs/claude"
 import { Figma } from "@/ui/svgs/figma"
-import { Github } from "@/ui/svgs/github"
 import { Hulu } from "@/ui/svgs/hulu"
 import { Linear } from "@/ui/svgs/linear"
 import { Slack } from "@/ui/svgs/slack"
 import { Supabase } from "@/ui/svgs/supabase"
+import { Twilio } from "@/ui/svgs/twilio"
 import { Vercel } from "@/ui/svgs/vercel"
 import { ArrowRight, Menu, Rocket, X } from "lucide-react"
 
@@ -160,9 +160,9 @@ export default function HeroSection() {
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Github className="h-4 w-fit text-foreground dark:text-white" />
+                <Twilio className="h-4 w-fit text-foreground dark:text-white" />
                 <span className="text-sm font-medium text-muted-foreground">
-                  GitHub
+                  Twilio
                 </span>
               </div>
               <div className="flex items-center gap-2">

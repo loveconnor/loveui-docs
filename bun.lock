@@ -35,8 +35,10 @@
         "react-fast-marquee": "^1.6.5",
         "react-payment-inputs": "^1.2.0",
         "react-phone-number-input": "^3.4.13",
+        "react-use-measure": "^2.1.7",
         "recharts": "^3.7.0",
         "sonner": "^2.0.7",
+        "swiper": "^12.1.0",
         "three": "^0.181.0",
         "tsup": "^8.5.0",
         "use-mask-input": "^3.5.2",
@@ -3805,6 +3807,8 @@
     "suspend-react": ["suspend-react@0.1.3", "", { "peerDependencies": { "react": ">=17.0" } }, "sha512-aqldKgX9aZqpoDp3e8/BZ8Dm7x1pJl+qI3ZKxDN0i/IQTWUwBx/ManmlVJ3wowqbno6c2bmiIfs+Um6LbsjJyQ=="],
 
     "swap-case": ["swap-case@1.1.2", "", { "dependencies": { "lower-case": "1.1.4", "upper-case": "1.1.3" } }, "sha512-BAmWG6/bx8syfc6qXPprof3Mn5vQgf5dwdUNJhsNqU9WdPt5P+ES/wQ5bxfijy8zwZgZZHslC3iAsxsuQMCzJQ=="],
+
+    "swiper": ["swiper@12.1.0", "", {}, "sha512-BD4CpAOOyEvZ2f0CDx362ea+vmOwukVcmbsQx+0BhRIaBUz8wvcCd//E7RFmvBZCrfyqXCHUVqmgUwts6ywlxw=="],
 
     "tabbable": ["tabbable@6.4.0", "", {}, "sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg=="],
 

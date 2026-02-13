@@ -5,7 +5,8 @@
     "paths": {
       "@/ui/*": ["../../../../registry/default/ui/*"],
       "@/lib/*": ["../../../../lib/*"],
-      "@/hooks/*": ["../../../../hooks/*"]
+      "@/hooks/*": ["../../../../hooks/*"],
+      "@/motion-primitives/*": ["../../../../registry/default/motion-primitives/*"]
     }
   }
 }

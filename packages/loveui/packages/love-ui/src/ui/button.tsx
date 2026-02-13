@@ -45,11 +45,26 @@ const buttonVariants = cva(
 interface ButtonProps extends useRender.ComponentProps<"button"> {
   variant?: VariantProps<typeof buttonVariants>["variant"]
   size?: VariantProps<typeof buttonVariants>["size"]
+  asChild?: boolean
 }
 
-function Button({ className, variant, size, render, ...props }: ButtonProps) {
+function Button({
+  className,
+  variant,
+  size,
+  render,
+  asChild = false,
+  children,
+  ...props
+}: ButtonProps) {
+  const renderValue = asChild
+    ? (React.Children.only(children) as React.ReactElement<
+        Record<string, unknown>
+      >)
+    : render
+
   const typeValue: React.ButtonHTMLAttributes<HTMLButtonElement>["type"] =
-    render ? undefined : "button"
+    renderValue ? undefined : "button"
 
   const defaultProps = {
     "data-slot": "button",
@@ -59,8 +74,11 @@ function Button({ className, variant, size, render, ...props }: ButtonProps) {
 
   return useRender({
     defaultTagName: "button",
-    render,
-    props: mergeProps<"button">(defaultProps, props),
+    render: renderValue,
+    props: mergeProps<"button">(
+      defaultProps,
+      asChild ? props : { ...props, children }
+    ),
   })
 }
 

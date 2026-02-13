@@ -57,6 +57,10 @@ const MAIN_COMPONENT_CANDIDATES = [
   "app/page.ts",
   "app/page.jsx",
   "app/page.js",
+  "index.tsx",
+  "index.ts",
+  "index.jsx",
+  "index.js",
 ]
 
 const SOURCE_FILE_EXTENSIONS = new Set([
@@ -134,6 +138,76 @@ const KNOWN_TEMPLATE_META: Record<
     title: "Sign Up (Minimal)",
     description:
       "A minimal sign-up layout with email/password fields, social actions, and a clear sign-in path.",
+  },
+  "hero/one": {
+    title: "Integration Hero (Centered)",
+    description:
+      "A centered hero layout with partner logos, concise product messaging, and a high-contrast primary call to action.",
+  },
+  "hero/two": {
+    title: "Integration Hero (Logo First)",
+    description:
+      "A hero composition that leads with an integration logo grid before the headline, ideal for trust-first positioning.",
+  },
+  "hero/three": {
+    title: "AI Hero (Conversation Preview)",
+    description:
+      "A split hero template with conversational prompt previews and a focused value proposition for AI product launches.",
+  },
+  "hero/four": {
+    title: "AI Hero (Workspace Surface)",
+    description:
+      "A perspective-style hero featuring an interactive workspace mock and feature shortcuts to showcase advanced capabilities.",
+  },
+  "hero/five": {
+    title: "Minimal Hero (Floating CTA)",
+    description:
+      "A minimal hero with a floating top call to action, strong visual focal point, and streamlined supporting copy.",
+  },
+  "hero/six": {
+    title: "Launch Hero (Spotlight + Social Proof)",
+    description:
+      "An animated launch hero with announcement badge, dual CTAs, product screenshot framing, and a hover-reactive customer logo wall.",
+  },
+  "hero/seven": {
+    title: "Product Hero (Clean Screenshot)",
+    description:
+      "A streamlined product hero with sequential text reveals, paired CTAs, and a centered app preview followed by customer logos.",
+  },
+  "hero/eight": {
+    title: "Wellness Hero (Email Capture)",
+    description:
+      "A wellness-focused hero with layered device mockups, inline email signup, and a marquee logo cloud for trust reinforcement.",
+  },
+  "hero/nine": {
+    title: "Split Hero (Abstract Visual)",
+    description:
+      "A split-layout hero pairing focused conversion copy with an abstract visual treatment and an infinite partner logo slider.",
+  },
+  "hero/ten": {
+    title: "Video Hero (Rounded Stage)",
+    description:
+      "A full-bleed video hero inside a rounded frame with rounded action buttons and continuous customer-brand marquee support.",
+  },
+  "hero/eleven": {
+    title: "Marketing Hero (Lead Capture + Nav)",
+    description:
+      "A navigation-first marketing hero with mobile menu support, headline-led positioning, embedded email capture, and feature bullets.",
+  },
+  "hero/twelve": {
+    title: "Carousel Hero (Proof Cards)",
+    description:
+      "A product hero with responsive navigation, launch-style messaging, and a coverflow carousel of customer proof cards.",
+  },
+  "hero/thirteen": {
+    title: "Platform Hero (Screenshot + Partners)",
+    description:
+      "A centered platform hero with launch badge, primary CTA, product interface screenshot, and an expanded partner logo cluster.",
+  },
+  "hero/fourteen": {
+    title: "Integration Hero (Connector Grid)",
+    description:
+      "An integrations-focused hero featuring a compact value proposition and branded connector cards arranged in a balanced grid.",
   },
 }
 

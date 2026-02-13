@@ -13,9 +13,19 @@ export function TemplatePreview({ template }: TemplatePreviewProps) {
   // Dynamically import the template component from the main component file
   const mainComponentPath = template.mainComponent || "app/page"
   const templateRegistryPath = getTemplateRegistryPath(template)
-  const TemplateComponent = require(
-    `@/registry/page-templates/default/templates/${templateRegistryPath}/${mainComponentPath}`
-  ).default
+  const modulePath = `@/registry/page-templates/default/templates/${templateRegistryPath}/${mainComponentPath}`
+
+  if (process.env.NODE_ENV === "development") {
+    // Dynamic require paths can retain stale module instances in dev.
+    try {
+      const resolvedModulePath = require.resolve(modulePath)
+      delete require.cache[resolvedModulePath]
+    } catch {
+      // Ignore cache invalidation failures and fall back to default loading.
+    }
+  }
+
+  const TemplateComponent = require(modulePath).default
 
   return (
     <div className="mb-16">

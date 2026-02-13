@@ -11,6 +11,9 @@
       "@/ui/*": [
         "./registry/default/ui/*"
       ],
+      "@/motion-primitives/*": [
+        "./registry/default/motion-primitives/*"
+      ],
       "@loveui/*": [
         "../../packages/*"
       ],

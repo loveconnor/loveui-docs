@@ -1,7 +1,12 @@
-"use client";
+"use client"
 
-import { Comparison, ComparisonHandle, ComparisonItem } from "../../../../../packages/comparison";
-import Image from "next/image";
+import Image from "next/image"
+
+import {
+  Comparison,
+  ComparisonHandle,
+  ComparisonItem,
+} from "../../../../../packages/comparison"
 
 const Example = () => (
   <Comparison
@@ -31,6 +36,6 @@ const Example = () => (
     </ComparisonItem>
     <ComparisonHandle />
   </Comparison>
-);
+)
 
-export default Example;
+export default Example

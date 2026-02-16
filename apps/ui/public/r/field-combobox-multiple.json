@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-combobox-multiple",
-  "type": "registry:example",
   "description": "Field with multiple selection combobox",
   "registryDependencies": [
     "@loveui/field",
@@ -20,5 +19,6 @@
     "combobox",
     "label",
     "multiple"
-  ]
+  ],
+  "type": "registry:example"
 }

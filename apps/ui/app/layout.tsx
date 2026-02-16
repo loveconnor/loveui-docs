@@ -7,6 +7,7 @@ import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
 import { SiteHeader } from "@/components/site-header"
 import { ToastProvider } from "@/registry/default/ui/toast"
+import { Toaster } from "@loveui/gooey-toast"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
               {children}
             </div>
           </ToastProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

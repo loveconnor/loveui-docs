@@ -6,7 +6,9 @@
       "@/ui/*": ["../../../../registry/default/ui/*"],
       "@/lib/*": ["../../../../lib/*"],
       "@/hooks/*": ["../../../../hooks/*"],
-      "@/motion-primitives/*": ["../../../../registry/default/motion-primitives/*"]
+      "@/motion-primitives/*": [
+        "../../../../registry/default/motion-primitives/*"
+      ]
     }
   }
 }

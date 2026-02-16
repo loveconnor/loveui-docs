@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { CircleAlert } from "lucide-react"
 
 import {
   Banner,
@@ -6,16 +8,17 @@ import {
   BannerClose,
   BannerIcon,
   BannerTitle,
-} from "../../../../../packages/banner";
-import { CircleAlert } from "lucide-react";
+} from "../../../../../packages/banner"
 
 const Example = () => (
   <Banner inset>
     <BannerIcon icon={CircleAlert} />
-    <BannerTitle>Your trial ends in 3 days. Add a payment method to stay live.</BannerTitle>
+    <BannerTitle>
+      Your trial ends in 3 days. Add a payment method to stay live.
+    </BannerTitle>
     <BannerAction>Update billing</BannerAction>
     <BannerClose />
   </Banner>
-);
+)
 
-export default Example;
+export default Example

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu-radio-group",
-  "type": "registry:example",
   "description": "Menu with radio options",
   "registryDependencies": [
     "@loveui/menu",
@@ -17,5 +16,6 @@
   "categories": [
     "menu",
     "radio"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toggle-icon-group",
-  "type": "registry:example",
   "description": "Multiple toggles",
   "registryDependencies": [
     "@loveui/toggle"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "toggle"
-  ]
+  ],
+  "type": "registry:example"
 }

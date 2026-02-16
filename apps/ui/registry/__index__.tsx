@@ -5676,6 +5676,96 @@ export const Index: Record<string, any> = {
     categories: ["toast"],
     meta: undefined,
   },
+  "gooey-toast-demo": {
+    name: "gooey-toast-demo",
+    description: "Basic gooey toast",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast","@loveui/select","@loveui/button"],
+    files: [{
+      path: "registry/default/examples/gooey-toast-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/gooey-toast-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["gooey-toast","button","select"],
+    meta: undefined,
+  },
+  "gooey-toast-states": {
+    name: "gooey-toast-states",
+    description: "Gooey toast with different states",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [{
+      path: "registry/default/examples/gooey-toast-states.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/gooey-toast-states.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["gooey-toast","button"],
+    meta: undefined,
+  },
+  "gooey-toast-promise": {
+    name: "gooey-toast-promise",
+    description: "Drive gooey toasts from promise states",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [{
+      path: "registry/default/examples/gooey-toast-promise.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/gooey-toast-promise.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["gooey-toast","button"],
+    meta: undefined,
+  },
+  "gooey-toast-with-button": {
+    name: "gooey-toast-with-button",
+    description: "Gooey toast with an action button",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [{
+      path: "registry/default/examples/gooey-toast-with-button.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/gooey-toast-with-button.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["gooey-toast","button"],
+    meta: undefined,
+  },
+  "gooey-toast-position": {
+    name: "gooey-toast-position",
+    description: "Control toast position",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [{
+      path: "registry/default/examples/gooey-toast-position.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/default/examples/gooey-toast-position.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: ["gooey-toast","button"],
+    meta: undefined,
+  },
   "toggle-demo": {
     name: "toggle-demo",
     description: "Basic toggle",

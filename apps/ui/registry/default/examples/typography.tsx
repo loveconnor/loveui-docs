@@ -1,7 +1,8 @@
-"use client";
+"use client"
 
-import "../../../../../packages/typography/styles.css";
-import Image from "next/image";
+import "../../../../../packages/typography/styles.css"
+
+import Image from "next/image"
 
 const Example = () => (
   <div className="size-full overflow-y-auto">
@@ -82,8 +83,8 @@ Temperature: 75-80°F (24-27°C) optimal`}</code>
         from some ancient ceremony. It leaves you filled with one of the world's
         sweetest smells... there is no chiropractic treatment, no Yoga exercise,
         no hour of meditation in a music-throbbing chapel that will leave you
-        emptier of bad thoughts than this homely ceremony of making bread."
-        — M.F.K. Fisher
+        emptier of bad thoughts than this homely ceremony of making bread." —
+        M.F.K. Fisher
       </blockquote>
 
       <h2>Fermentation Timeline</h2>
@@ -132,7 +133,9 @@ Temperature: 75-80°F (24-27°C) optimal`}</code>
           salt
         </dd>
         <dt>Bulk Fermentation</dt>
-        <dd>First rise after mixing, typically 4-6 hours at room temperature</dd>
+        <dd>
+          First rise after mixing, typically 4-6 hours at room temperature
+        </dd>
         <dt>Banneton</dt>
         <dd>Proofing basket used to support dough during final rise</dd>
       </dl>
@@ -175,6 +178,6 @@ Temperature: 75-80°F (24-27°C) optimal`}</code>
       </p>
     </div>
   </div>
-);
+)
 
-export default Example;
+export default Example

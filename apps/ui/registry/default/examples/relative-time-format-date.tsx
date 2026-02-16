@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   RelativeTime,
@@ -6,13 +6,13 @@ import {
   RelativeTimeZoneDate,
   RelativeTimeZoneDisplay,
   RelativeTimeZoneLabel,
-} from "../../../../../packages/relative-time";
+} from "../../../../../packages/relative-time"
 
 const timezones = [
   { label: "EST", zone: "America/New_York" },
   { label: "GMT", zone: "Europe/London" },
   { label: "JST", zone: "Asia/Tokyo" },
-];
+]
 
 const Example = () => (
   <div className="rounded-md border bg-background p-4">
@@ -26,6 +26,6 @@ const Example = () => (
       ))}
     </RelativeTime>
   </div>
-);
+)
 
-export default Example;
+export default Example

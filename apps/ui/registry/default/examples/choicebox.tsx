@@ -6,7 +6,7 @@ import {
   ChoiceboxItemHeader,
   ChoiceboxItemSubtitle,
   ChoiceboxItemTitle,
-} from "../../../../../packages/choicebox";
+} from "../../../../../packages/choicebox"
 
 const options = [
   {
@@ -21,7 +21,7 @@ const options = [
     subtitle: "(the second option)",
     description: "This is the second option",
   },
-];
+]
 
 const Example = () => (
   <Choicebox defaultValue="1">
@@ -40,6 +40,6 @@ const Example = () => (
       </ChoiceboxItem>
     ))}
   </Choicebox>
-);
+)
 
-export default Example;
+export default Example

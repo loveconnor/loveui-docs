@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Cursor,
@@ -6,7 +6,7 @@ import {
   CursorMessage,
   CursorName,
   CursorPointer,
-} from "../../../../../packages/cursor";
+} from "../../../../../packages/cursor"
 
 const Example = () => (
   <>
@@ -32,6 +32,6 @@ const Example = () => (
       </CursorBody>
     </Cursor>
   </>
-);
+)
 
-export default Example;
+export default Example

@@ -1,8 +1,16 @@
-"use client";
+"use client"
 
-import { Card, CardContent, CardFooter } from "@/registry/building-blocks/default/ui/card";
-import { type ChartConfig, ChartContainer } from "@/registry/building-blocks/default/ui/chart";
-import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
+import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts"
+
+import {
+  Card,
+  CardContent,
+  CardFooter,
+} from "@/registry/building-blocks/default/ui/card"
+import {
+  ChartContainer,
+  type ChartConfig,
+} from "@/registry/building-blocks/default/ui/chart"
 
 const data = [
   {
@@ -37,21 +45,21 @@ const data = [
     href: "#",
     fill: "var(--chart-4)",
   },
-];
+]
 
 const chartConfig = {
   progress: {
     label: "Progress",
     color: "var(--primary)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export default function Stats08() {
   return (
-    <div className="flex items-center justify-center p-10 w-full">
-      <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
+    <div className="flex w-full items-center justify-center p-10">
+      <dl className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {data.map((item) => (
-          <Card key={item.name} className="p-0 gap-0">
+          <Card key={item.name} className="gap-0 p-0">
             <CardContent className="p-4">
               <div className="flex items-center space-x-3">
                 <div className="relative flex items-center justify-center">
@@ -102,7 +110,7 @@ export default function Stats08() {
             <CardFooter className="flex items-center justify-end border-t border-border p-0!">
               <a
                 href={item.href}
-                className="text-sm font-medium text-primary px-6 py-3 hover:text-primary/90"
+                className="px-6 py-3 text-sm font-medium text-primary hover:text-primary/90"
               >
                 View more &#8594;
               </a>
@@ -111,5 +119,5 @@ export default function Stats08() {
         ))}
       </dl>
     </div>
-  );
+  )
 }

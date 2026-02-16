@@ -37,9 +37,7 @@ export default function Component() {
             </svg>
           </div>
           <DialogHeader>
-            <DialogTitle className="sm:text-center">
-              Sign up loveui
-            </DialogTitle>
+            <DialogTitle className="sm:text-center">Sign up loveui</DialogTitle>
             <DialogDescription className="sm:text-center">
               We just need a few details to get you started.
             </DialogDescription>

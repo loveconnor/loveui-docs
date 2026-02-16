@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from "react"
 
 const Twilio = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 64 64">
@@ -10,6 +10,6 @@ const Twilio = (props: SVGProps<SVGSVGElement>) => (
       <circle cx="25.6" cy="25.6" r="7.1" />
     </g>
   </svg>
-);
+)
 
-export { Twilio };
+export { Twilio }

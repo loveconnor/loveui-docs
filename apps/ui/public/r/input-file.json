@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-file",
-  "type": "registry:example",
   "description": "Input type set to file",
   "registryDependencies": [
     "@loveui/input"
@@ -16,5 +15,6 @@
   "categories": [
     "input",
     "file"
-  ]
+  ],
+  "type": "registry:example"
 }

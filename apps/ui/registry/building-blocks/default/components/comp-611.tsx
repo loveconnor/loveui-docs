@@ -1,16 +1,24 @@
-"use client";
+"use client"
 
-import { Button } from "@/registry/building-blocks/default/ui/button";
-import { Card, CardContent, CardHeader } from "@/registry/building-blocks/default/ui/card";
-import { ChartContainer, type ChartConfig } from "@/registry/building-blocks/default/ui/chart";
-import { Cell, Pie, PieChart } from "recharts";
+import { Cell, Pie, PieChart } from "recharts"
+
+import { Button } from "@/registry/building-blocks/default/ui/button"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+} from "@/registry/building-blocks/default/ui/card"
+import {
+  ChartContainer,
+  type ChartConfig,
+} from "@/registry/building-blocks/default/ui/chart"
 
 interface UsageItem {
-  name: string;
-  current: string;
-  limit: string;
-  percentage: number;
-  href?: string;
+  name: string
+  current: string
+  limit: string
+  percentage: number
+  href?: string
 }
 
 const usageData: UsageItem[] = [
@@ -59,7 +67,7 @@ const usageData: UsageItem[] = [
     limit: "300K",
     percentage: 1.4,
   },
-];
+]
 
 const chartConfig = {
   used: {
@@ -70,10 +78,10 @@ const chartConfig = {
     label: "Remaining",
     color: "hsl(var(--muted))",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 function DonutChart({ percentage }: { percentage: number }) {
-  const backgroundData = [{ name: "background", value: 100, fill: "#E5E7EB" }];
+  const backgroundData = [{ name: "background", value: 100, fill: "#E5E7EB" }]
   const foregroundData = [
     {
       name: "used",
@@ -85,12 +93,12 @@ function DonutChart({ percentage }: { percentage: number }) {
       value: 100 - Math.max(0, Math.min(100, Number(percentage))),
       fill: "transparent",
     },
-  ];
+  ]
 
   return (
     <ChartContainer
       config={chartConfig}
-      className="w-6 h-6 shrink-0 aspect-square"
+      className="aspect-square h-6 w-6 shrink-0"
     >
       <PieChart>
         <Pie
@@ -124,7 +132,7 @@ function DonutChart({ percentage }: { percentage: number }) {
         </Pie>
       </PieChart>
     </ChartContainer>
-  );
+  )
 }
 
 export default function Stats12() {
@@ -133,8 +141,8 @@ export default function Stats12() {
       <CardHeader className="px-5">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
-            <h3 className="text-balance text-sm font-medium">Last 30 days</h3>
-            <p className="text-pretty text-xs text-muted-foreground font-medium">
+            <h3 className="text-sm font-medium text-balance">Last 30 days</h3>
+            <p className="text-xs font-medium text-pretty text-muted-foreground">
               Updated just now
             </p>
           </div>
@@ -144,20 +152,20 @@ export default function Stats12() {
         </div>
       </CardHeader>
 
-      <CardContent className="pt-0 px-3">
+      <CardContent className="px-3 pt-0">
         <div className="space-y-0">
           {usageData.map((item, index) => (
             <div
               key={item.name}
-              className={`flex items-center gap-3 p-2 rounded-sm transition-colors hover:bg-muted/50 ${
+              className={`flex items-center gap-3 rounded-sm p-2 transition-colors hover:bg-muted/50 ${
                 index % 2 === 1 ? "bg-muted/20" : ""
               }`}
             >
               <DonutChart percentage={item.percentage} />
-              <span className="text-sm flex-1 truncate leading-4">
+              <span className="flex-1 truncate text-sm leading-4">
                 {item.name}
               </span>
-              <span className="text-xs font-medium tabular-nums tracking-tighter text-muted-foreground">
+              <span className="text-xs font-medium tracking-tighter text-muted-foreground tabular-nums">
                 {item.current} /{" "}
                 <span className="text-foreground">{item.limit}</span>
               </span>
@@ -166,5 +174,5 @@ export default function Stats12() {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }

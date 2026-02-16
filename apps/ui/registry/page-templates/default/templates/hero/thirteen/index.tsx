@@ -3,7 +3,6 @@
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { assetPath } from "@/lib/page-templates/utils"
 import { Button } from "@/ui/button"
 import { Beacon } from "@/ui/svgs/beacon"
 import { Bolt } from "@/ui/svgs/bolt"
@@ -17,6 +16,8 @@ import { Supabase } from "@/ui/svgs/supabase"
 import { Twilio } from "@/ui/svgs/twilio"
 import { Vercel } from "@/ui/svgs/vercel"
 import { ArrowRight, Menu, Rocket, X } from "lucide-react"
+
+import { assetPath } from "@/lib/page-templates/utils"
 
 const menuItems = [
   { name: "Features", href: "#" },

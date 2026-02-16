@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "combobox-multiple",
-  "type": "registry:example",
   "description": "Combobox with multiple selection",
   "registryDependencies": [
     "@loveui/combobox"
@@ -16,5 +15,6 @@
   "categories": [
     "combobox",
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

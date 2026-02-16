@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-group-demo",
-  "type": "registry:example",
   "description": "Checkbox group",
   "registryDependencies": [
     "@loveui/checkbox-group",
@@ -18,5 +17,6 @@
   "categories": [
     "checkbox group",
     "checkbox"
-  ]
+  ],
+  "type": "registry:example"
 }

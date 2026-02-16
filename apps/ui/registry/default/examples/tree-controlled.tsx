@@ -1,4 +1,8 @@
-"use client";
+"use client"
+
+import { useState } from "react"
+
+import { Button } from "@/registry/default/ui/button"
 
 import {
   TreeExpander,
@@ -9,27 +13,25 @@ import {
   TreeNodeTrigger,
   TreeProvider,
   TreeView,
-} from "../../../../../packages/tree";
-import { useState } from "react";
-import { Button } from "@/registry/default/ui/button";
+} from "../../../../../packages/tree"
 
 export default function TreeControlledExample() {
-  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [expandedIds] = useState<string[]>([
     "team",
     "engineering",
     "design",
     "product",
-  ]);
+  ])
 
   const handleClearSelection = () => {
-    setSelectedIds([]);
-  };
+    setSelectedIds([])
+  }
 
   const handleSelectAll = () => {
-    const allIds = ["alice", "bob", "carol", "david", "eve", "frank"];
-    setSelectedIds(allIds);
-  };
+    const allIds = ["alice", "bob", "carol", "david", "eve", "frank"]
+    setSelectedIds(allIds)
+  }
 
   return (
     <div className="space-y-4">
@@ -131,10 +133,10 @@ export default function TreeControlledExample() {
       </TreeProvider>
 
       {selectedIds.length > 0 && (
-        <div className="text-muted-foreground text-sm">
+        <div className="text-sm text-muted-foreground">
           Selected: {selectedIds.join(", ")}
         </div>
       )}
     </div>
-  );
+  )
 }

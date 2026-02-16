@@ -1,15 +1,16 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   MiniCalendar,
   MiniCalendarDay,
   MiniCalendarDays,
   MiniCalendarNavigation,
-} from "../../../../../packages/mini-calendar";
-import { useState } from "react";
+} from "../../../../../packages/mini-calendar"
 
 const Example = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
 
   return (
     <div className="space-y-4">
@@ -22,7 +23,7 @@ const Example = () => {
       </MiniCalendar>
 
       {selectedDate && (
-        <p className="text-muted-foreground text-sm">
+        <p className="text-sm text-muted-foreground">
           Selected:{" "}
           {selectedDate.toLocaleDateString("en-US", {
             weekday: "long",
@@ -33,7 +34,7 @@ const Example = () => {
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autocomplete-disabled",
-  "type": "registry:example",
   "description": "Disabled autocomplete",
   "registryDependencies": [
     "@loveui/autocomplete"
@@ -17,5 +16,6 @@
     "autocomplete",
     "input",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

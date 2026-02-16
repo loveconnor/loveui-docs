@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "textarea-form",
-  "type": "registry:example",
   "description": "Textarea in a form",
   "registryDependencies": [
     "@loveui/textarea",
@@ -21,5 +20,6 @@
     "form",
     "field",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import Link from "next/link"
+
+import { cn } from "@/lib/utils"
 
 export function WordmarkIcon({ className }: { className?: string }) {
   return (
@@ -12,7 +13,7 @@ export function WordmarkIcon({ className }: { className?: string }) {
       <span className="font-semibold">love</span>{" "}
       <span className="text-muted-foreground">ui</span>
     </span>
-  );
+  )
 }
 
 export function LogoLink({ className }: { className?: string }) {
@@ -20,5 +21,5 @@ export function LogoLink({ className }: { className?: string }) {
     <Link href="/" className={cn("inline-flex items-center", className)}>
       <WordmarkIcon />
     </Link>
-  );
+  )
 }

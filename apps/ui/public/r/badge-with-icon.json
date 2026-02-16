@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "badge-with-icon",
-  "type": "registry:example",
   "description": "Badge with icon",
   "registryDependencies": [
     "@loveui/badge"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "badge"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-size",
-  "type": "registry:example",
   "description": "Avatars with different sizes",
   "registryDependencies": [
     "@loveui/avatar"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "avatar"
-  ]
+  ],
+  "type": "registry:example"
 }

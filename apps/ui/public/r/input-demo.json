@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-demo",
-  "type": "registry:example",
   "description": "Basic input component without label",
   "registryDependencies": [
     "@loveui/input"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-demo",
-  "type": "registry:example",
   "description": "Basic table",
   "registryDependencies": [
     "@loveui/table",
@@ -17,5 +16,6 @@
   "categories": [
     "table",
     "badge"
-  ]
+  ],
+  "type": "registry:example"
 }

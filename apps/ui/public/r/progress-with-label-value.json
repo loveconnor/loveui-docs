@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "progress-with-label-value",
-  "type": "registry:example",
   "description": "Progress with label and value",
   "registryDependencies": [
     "@loveui/progress"
@@ -16,5 +15,6 @@
   "categories": [
     "progress",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

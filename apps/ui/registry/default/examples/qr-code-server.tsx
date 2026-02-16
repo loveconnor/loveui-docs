@@ -1,4 +1,4 @@
-import { QRCode } from "../../../../../packages/qr-code/server";
+import { QRCode } from "../../../../../packages/qr-code/server"
 
 const Example = () => (
   <QRCode
@@ -6,6 +6,6 @@ const Example = () => (
     data="https://www.loveconnor.com/"
     foreground="#111"
   />
-);
+)
 
-export default Example;
+export default Example

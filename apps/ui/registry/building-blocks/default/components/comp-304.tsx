@@ -12,7 +12,8 @@ export default function Component() {
           />
           <div className="flex grow flex-col justify-between gap-2 md:flex-row md:items-center">
             <p className="text-sm">
-              Workspace automation now supports conditional branches and approvals.
+              Workspace automation now supports conditional branches and
+              approvals.
             </p>
             <a href="#" className="group text-sm font-medium whitespace-nowrap">
               See what’s new

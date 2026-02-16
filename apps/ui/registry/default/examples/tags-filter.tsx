@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   Tags,
@@ -10,8 +12,7 @@ import {
   TagsList,
   TagsTrigger,
   TagsValue,
-} from "../../../../../packages/tags";
-import { useState } from "react";
+} from "../../../../../packages/tags"
 
 const defaultTags = [
   { id: "react", label: "React" },
@@ -28,32 +29,31 @@ const defaultTags = [
   { id: "csharp", label: "C#" },
   { id: "php", label: "PHP" },
   { id: "go", label: "Go" },
-];
+]
 
 const Example = () => {
-  const [selected, setSelected] = useState<string[]>([]);
-  const [newTag, setNewTag] = useState<string>("");
-  const [tags, setTags] =
-    useState<{ id: string; label: string }[]>(defaultTags);
+  const [selected, setSelected] = useState<string[]>([])
+  const [newTag, setNewTag] = useState<string>("")
+  const [tags, setTags] = useState<{ id: string; label: string }[]>(defaultTags)
 
   const handleRemove = (value: string) => {
     if (!selected.includes(value)) {
-      return;
+      return
     }
 
-    console.log(`removed: ${value}`);
-    setSelected((prev) => prev.filter((v) => v !== value));
-  };
+    console.log(`removed: ${value}`)
+    setSelected((prev) => prev.filter((v) => v !== value))
+  }
 
   const handleSelect = (value: string) => {
     if (selected.includes(value)) {
-      handleRemove(value);
-      return;
+      handleRemove(value)
+      return
     }
 
-    console.log(`selected: ${value}`);
-    setSelected((prev) => [...prev, value]);
-  };
+    console.log(`selected: ${value}`)
+    setSelected((prev) => [...prev, value])
+  }
 
   return (
     <Tags className="max-w-[300px]">
@@ -80,7 +80,7 @@ const Example = () => {
         </TagsList>
       </TagsContent>
     </Tags>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

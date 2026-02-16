@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-validity",
-  "type": "registry:example",
   "description": "Show field validity state",
   "registryDependencies": [
     "@loveui/field"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "field"
-  ]
+  ],
+  "type": "registry:example"
 }

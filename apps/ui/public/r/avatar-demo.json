@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-demo",
-  "type": "registry:example",
   "description": "Avatar with image and fallback",
   "registryDependencies": [
     "@loveui/avatar"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "avatar"
-  ]
+  ],
+  "type": "registry:example"
 }

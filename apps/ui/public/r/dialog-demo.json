@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-demo",
-  "type": "registry:example",
   "description": "Basic dialog",
   "registryDependencies": [
     "@loveui/dialog",
@@ -21,5 +20,6 @@
     "form",
     "field",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

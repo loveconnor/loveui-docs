@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Stories,
@@ -6,7 +6,7 @@ import {
   Story,
   StoryAuthor,
   StoryAuthorImage,
-} from "../../../../../packages/stories";
+} from "../../../../../packages/stories"
 
 const stories = [
   {
@@ -33,7 +33,7 @@ const stories = [
     avatar: "https://github.com/loveconnor.png",
     fallback: "OC",
   },
-];
+]
 
 const Example = () => (
   <div className="w-full max-w-4xl">
@@ -60,6 +60,6 @@ const Example = () => (
       </StoriesContent>
     </Stories>
   </div>
-);
+)
 
-export default Example;
+export default Example

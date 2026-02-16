@@ -1,27 +1,33 @@
-"use client";
+"use client"
 
-import { faker } from "@faker-js/faker";
-import type { DragEndEvent } from "../../../../../packages/list";
+import { useState } from "react"
+import { faker } from "@faker-js/faker"
+
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/default/ui/avatar"
+
+import type { DragEndEvent } from "../../../../../packages/list"
 import {
   ListGroup,
   ListHeader,
   ListItem,
   ListItems,
   ListProvider,
-} from "../../../../../packages/list";
-import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/default/ui/avatar";
+} from "../../../../../packages/list"
 
 // Seed faker to ensure consistent data between server and client
-faker.seed(123);
+faker.seed(123)
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
   { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
   { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
   { id: faker.string.uuid(), name: "Done", color: "#10B981" },
-];
+]
 
 const users = Array.from({ length: 4 })
   .fill(null)
@@ -29,7 +35,7 @@ const users = Array.from({ length: 4 })
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     image: faker.image.avatar(),
-  }));
+  }))
 
 const exampleFeatures = Array.from({ length: 20 })
   .fill(null)
@@ -40,34 +46,34 @@ const exampleFeatures = Array.from({ length: 20 })
     endAt: faker.date.future({ years: 0.5, refDate: new Date() }),
     status: faker.helpers.arrayElement(statuses),
     owner: faker.helpers.arrayElement(users),
-  }));
+  }))
 
 const Example = () => {
-  const [features, setFeatures] = useState(exampleFeatures);
+  const [features, setFeatures] = useState(exampleFeatures)
 
   const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
+    const { active, over } = event
 
     if (!over) {
-      return;
+      return
     }
 
-    const status = statuses.find((status) => status.name === over.id);
+    const status = statuses.find((status) => status.name === over.id)
 
     if (!status) {
-      return;
+      return
     }
 
     setFeatures(
       features.map((feature) => {
         if (feature.id === active.id) {
-          return { ...feature, status };
+          return { ...feature, status }
         }
 
-        return feature;
+        return feature
       })
-    );
-  };
+    )
+  }
 
   return (
     <ListProvider onDragEnd={handleDragEnd}>
@@ -89,7 +95,7 @@ const Example = () => {
                     className="h-2 w-2 shrink-0 rounded-full"
                     style={{ backgroundColor: feature.status.color }}
                   />
-                  <p className="m-0 flex-1 font-medium text-sm">
+                  <p className="m-0 flex-1 text-sm font-medium">
                     {feature.name}
                   </p>
                   {feature.owner && (
@@ -106,7 +112,7 @@ const Example = () => {
         </ListGroup>
       ))}
     </ListProvider>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

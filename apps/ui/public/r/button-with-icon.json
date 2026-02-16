@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-with-icon",
-  "type": "registry:example",
   "description": "Button with icon",
   "registryDependencies": [
     "@loveui/button"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toast-heights",
-  "type": "registry:example",
   "description": "Toast with varying heights",
   "registryDependencies": [
     "@loveui/toast"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "toast"
-  ]
+  ],
+  "type": "registry:example"
 }

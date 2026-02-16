@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "colors-zinc",
-  "type": "registry:style",
   "cssVars": {
     "light": {
       "background": "oklch(1 0 0)",
@@ -57,5 +56,6 @@
       "input": "oklch(1 0 0 / 12%)",
       "ring": "oklch(0.552 0.016 285.938)"
     }
-  }
+  },
+  "type": "registry:style"
 }

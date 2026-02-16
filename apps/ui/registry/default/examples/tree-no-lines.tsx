@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   TreeExpander,
@@ -9,7 +9,7 @@ import {
   TreeNodeTrigger,
   TreeProvider,
   TreeView,
-} from "../../../../../packages/tree";
+} from "../../../../../packages/tree"
 
 export default function TreeNoLinesExample() {
   return (
@@ -112,5 +112,5 @@ export default function TreeNoLinesExample() {
         </TreeNode>
       </TreeView>
     </TreeProvider>
-  );
+  )
 }

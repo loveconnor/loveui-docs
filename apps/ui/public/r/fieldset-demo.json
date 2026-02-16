@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "fieldset-demo",
-  "type": "registry:example",
   "description": "Fieldset with legend and labeled fields",
   "registryDependencies": [
     "@loveui/fieldset",
@@ -20,5 +19,6 @@
     "label",
     "input",
     "helper"
-  ]
+  ],
+  "type": "registry:example"
 }

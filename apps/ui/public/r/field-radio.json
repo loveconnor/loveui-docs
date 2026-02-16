@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-radio",
-  "type": "registry:example",
   "description": "Field with radio group",
   "registryDependencies": [
     "@loveui/field",
@@ -22,5 +21,6 @@
     "fieldset",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

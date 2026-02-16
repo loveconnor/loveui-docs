@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toast-loading",
-  "type": "registry:example",
   "description": "Loading toast",
   "registryDependencies": [
     "@loveui/toast"
@@ -17,5 +16,6 @@
     "toast",
     "button",
     "loading"
-  ]
+  ],
+  "type": "registry:example"
 }

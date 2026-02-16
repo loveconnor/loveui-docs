@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-multiple",
-  "type": "registry:example",
   "description": "Multiple selection with formatted value",
   "registryDependencies": [
     "@loveui/select"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "select"
-  ]
+  ],
+  "type": "registry:example"
 }

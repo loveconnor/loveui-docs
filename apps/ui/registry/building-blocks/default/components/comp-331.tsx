@@ -1,11 +1,9 @@
 "use client"
 
-
-import { assetPath } from "@/lib/building-blocks/utils"
-
 import { useId, useState } from "react"
 import { CheckIcon, ImagePlusIcon, XIcon } from "lucide-react"
 
+import { assetPath } from "@/lib/building-blocks/utils"
 import { useCharacterLimit } from "@/registry/building-blocks/default/hooks/use-character-limit"
 import { useFileUpload } from "@/registry/building-blocks/default/hooks/use-file-upload"
 import { Button } from "@/registry/building-blocks/default/ui/button"

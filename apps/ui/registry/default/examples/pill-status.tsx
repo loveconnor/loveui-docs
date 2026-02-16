@@ -1,7 +1,8 @@
-"use client";
+"use client"
 
-import { Pill, PillStatus } from "../../../../../packages/pill";
-import { CheckCircleIcon } from "lucide-react";
+import { CheckCircleIcon } from "lucide-react"
+
+import { Pill, PillStatus } from "../../../../../packages/pill"
 
 const Example = () => (
   <Pill>
@@ -11,6 +12,6 @@ const Example = () => (
     </PillStatus>
     Approval Status
   </Pill>
-);
+)
 
-export default Example;
+export default Example

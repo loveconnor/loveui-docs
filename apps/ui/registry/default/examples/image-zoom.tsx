@@ -1,7 +1,8 @@
-"use client";
+"use client"
 
-import { ImageZoom } from "../../../../../packages/image-zoom";
-import Image from "next/image";
+import Image from "next/image"
+
+import { ImageZoom } from "../../../../../packages/image-zoom"
 
 const Example = () => (
   <ImageZoom>
@@ -14,6 +15,6 @@ const Example = () => (
       width={1200}
     />
   </ImageZoom>
-);
+)
 
-export default Example;
+export default Example

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-demo",
-  "type": "registry:example",
   "description": "Tabs with default indicator",
   "registryDependencies": [
     "@loveui/tabs"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "tabs"
-  ]
+  ],
+  "type": "registry:example"
 }

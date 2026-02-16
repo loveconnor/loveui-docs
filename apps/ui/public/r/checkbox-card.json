@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-card",
-  "type": "registry:example",
   "description": "Card-style checkbox",
   "registryDependencies": [
     "@loveui/checkbox",
@@ -18,5 +17,6 @@
     "checkbox",
     "card",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

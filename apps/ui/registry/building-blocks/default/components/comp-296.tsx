@@ -16,7 +16,9 @@ export default function Component() {
         <div className="flex grow items-center gap-12">
           <div className="space-y-1">
             <p className="text-sm font-medium">Goes live in 18 hours</p>
-            <p className="text-xs text-muted-foreground">March 12 at 9:30 AM.</p>
+            <p className="text-xs text-muted-foreground">
+              March 12 at 9:30 AM.
+            </p>
           </div>
           <Button size="sm">Add to calendar</Button>
         </div>

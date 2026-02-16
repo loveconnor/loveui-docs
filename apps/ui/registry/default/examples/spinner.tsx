@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Spinner } from "../../../../../packages/spinner";
+import { Spinner } from "../../../../../packages/spinner"
 
-const Example = () => <Spinner />;
+const Example = () => <Spinner />
 
-export default Example;
+export default Example

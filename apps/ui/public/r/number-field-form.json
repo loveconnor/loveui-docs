@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-form",
-  "type": "registry:example",
   "description": "A number in a form",
   "registryDependencies": [
     "@loveui/number-field",
@@ -21,5 +20,6 @@
     "field",
     "form",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

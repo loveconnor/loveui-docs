@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider-vertical",
-  "type": "registry:example",
   "description": "Vertical slider",
   "registryDependencies": [
     "@loveui/slider"
@@ -16,5 +15,6 @@
   "categories": [
     "slider",
     "vertical slider"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,6 +1,9 @@
 import { BoxIcon, HouseIcon, PanelsTopLeftIcon } from "lucide-react"
 
-import { ScrollArea, ScrollBar } from "@/registry/building-blocks/default/ui/scroll-area"
+import {
+  ScrollArea,
+  ScrollBar,
+} from "@/registry/building-blocks/default/ui/scroll-area"
 import {
   Tabs,
   TabsContent,

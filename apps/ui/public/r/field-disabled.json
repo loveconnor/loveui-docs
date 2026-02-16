@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-disabled",
-  "type": "registry:example",
   "description": "Field in disabled state",
   "registryDependencies": [
     "@loveui/field"
@@ -19,5 +18,6 @@
     "disabled",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import type React from "react";
-import { useState } from "react";
+import type React from "react"
+import { useState } from "react"
+import { Box, Edit } from "lucide-react"
 
-import { Button } from "@/registry/building-blocks/default/ui/button";
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
+import { Button } from "@/registry/building-blocks/default/ui/button"
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
 import {
   Dialog,
   DialogContent,
@@ -12,24 +13,23 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/registry/building-blocks/default/ui/dialog";
-import { Input } from "@/registry/building-blocks/default/ui/input";
-import { Label } from "@/registry/building-blocks/default/ui/label";
-import { Box, Edit } from "lucide-react";
+} from "@/registry/building-blocks/default/ui/dialog"
+import { Input } from "@/registry/building-blocks/default/ui/input"
+import { Label } from "@/registry/building-blocks/default/ui/label"
 
 interface MetricCardProps {
-  title: string;
-  value: string;
-  limit: string;
-  percentage: number;
-  status?: string;
-  statusColor?: string;
-  progressColor: string;
-  details?: Array<{ label: string; value: string; color: string }>;
-  actionLabel: string;
-  actionIcon: React.ReactNode;
-  warningMessage?: string;
-  onActionClick?: () => void;
+  title: string
+  value: string
+  limit: string
+  percentage: number
+  status?: string
+  statusColor?: string
+  progressColor: string
+  details?: Array<{ label: string; value: string; color: string }>
+  actionLabel: string
+  actionIcon: React.ReactNode
+  warningMessage?: string
+  onActionClick?: () => void
 }
 
 function MetricCard({
@@ -48,11 +48,11 @@ function MetricCard({
 }: MetricCardProps) {
   const renderProgressBar = () => {
     if (details && title === "Commands") {
-      const writes = Number.parseInt(details[0].value.replace(/,/g, ""));
-      const reads = Number.parseInt(details[1].value.replace(/,/g, ""));
-      const total = writes + reads;
-      const writesPercentage = (writes / total) * 100;
-      const readsPercentage = (reads / total) * 100;
+      const writes = Number.parseInt(details[0].value.replace(/,/g, ""))
+      const reads = Number.parseInt(details[1].value.replace(/,/g, ""))
+      const total = writes + reads
+      const writesPercentage = (writes / total) * 100
+      const readsPercentage = (reads / total) * 100
 
       return (
         <div className="relative h-1 w-full overflow-hidden rounded-full bg-muted">
@@ -67,7 +67,7 @@ function MetricCard({
             }}
           />
         </div>
-      );
+      )
     }
 
     return (
@@ -77,18 +77,18 @@ function MetricCard({
           style={{ transform: `scaleX(${Math.min(percentage, 100) / 100})` }}
         />
       </div>
-    );
-  };
+    )
+  }
 
   return (
-    <Card className="relative overflow-hidden max-w-[280px]">
+    <Card className="relative max-w-[280px] overflow-hidden">
       <CardContent className="p-4 py-0">
-        <h5 className="text-xs font-normal leading-none tracking-wide text-muted-foreground dark:text-foreground/80 uppercase">
+        <h5 className="text-xs leading-none font-normal tracking-wide text-muted-foreground uppercase dark:text-foreground/80">
           {title}
         </h5>
 
         <div className="mt-2 flex items-baseline gap-1">
-          <div className="text-[1.2rem] font-medium leading-none text-foreground tabular-nums">
+          <div className="text-[1.2rem] leading-none font-medium text-foreground tabular-nums">
             {value}
           </div>
           <div className="text-xs leading-none text-muted-foreground">
@@ -134,10 +134,10 @@ function MetricCard({
           )}
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute right-0 bottom-0 left-0">
           <Button
             variant="ghost"
-            className="h-8 w-full rounded-none text-blue-500 gap-0 justify-start hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 bg-muted/50"
+            className="h-8 w-full justify-start gap-0 rounded-none bg-muted/50 text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
             onClick={onActionClick}
           >
             {actionIcon}
@@ -146,21 +146,21 @@ function MetricCard({
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 function BudgetDialog({
   open,
   onOpenChange,
 }: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+  open: boolean
+  onOpenChange: (open: boolean) => void
 }) {
-  const [budget, setBudget] = useState("150");
+  const [budget, setBudget] = useState("150")
 
   const handleUpdate = () => {
-    onOpenChange(false);
-  };
+    onOpenChange(false)
+  }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -193,11 +193,11 @@ function BudgetDialog({
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
+  )
 }
 
 export default function Stats11() {
-  const [budgetDialogOpen, setBudgetDialogOpen] = useState(false);
+  const [budgetDialogOpen, setBudgetDialogOpen] = useState(false)
 
   return (
     <>
@@ -256,5 +256,5 @@ export default function Stats11() {
         onOpenChange={setBudgetDialogOpen}
       />
     </>
-  );
+  )
 }

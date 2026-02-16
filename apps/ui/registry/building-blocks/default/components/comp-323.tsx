@@ -7,7 +7,10 @@ import {
   DialogTrigger,
 } from "@/registry/building-blocks/default/ui/dialog"
 import { Label } from "@/registry/building-blocks/default/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/registry/building-blocks/default/ui/radio-group"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/registry/building-blocks/default/ui/radio-group"
 import { Textarea } from "@/registry/building-blocks/default/ui/textarea"
 
 export default function Component() {

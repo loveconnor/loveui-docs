@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "alert-dialog-demo",
-  "type": "registry:example",
   "description": "Alert dialog",
   "registryDependencies": [
     "@loveui/alert-dialog",
@@ -16,5 +15,6 @@
   ],
   "categories": [
     "dialog"
-  ]
+  ],
+  "type": "registry:example"
 }

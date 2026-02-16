@@ -1,6 +1,23 @@
-"use client";
+"use client"
 
-import { faker } from "@faker-js/faker";
+import { useState } from "react"
+import { faker } from "@faker-js/faker"
+// @ts-ignore: No type declarations for 'lodash.groupby'
+import groupBy from "lodash.groupby"
+import { EyeIcon, LinkIcon, TrashIcon } from "lucide-react"
+
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/default/ui/avatar"
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/registry/default/ui/context-menu"
+
 import {
   GanttCreateMarkerTrigger,
   GanttFeatureList,
@@ -14,29 +31,18 @@ import {
   GanttSidebarItem,
   GanttTimeline,
   GanttToday,
-} from "../../../../../packages/gantt";
-// @ts-ignore: No type declarations for 'lodash.groupby'
-import groupBy from "lodash.groupby";
-import { EyeIcon, LinkIcon, TrashIcon } from "lucide-react";
-import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/default/ui/avatar";
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from "@/registry/default/ui/context-menu";
+} from "../../../../../packages/gantt"
 
 // Seed faker to ensure consistent data between server and client
-faker.seed(123);
+faker.seed(123)
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
   { id: faker.string.uuid(), name: "Confirmed", color: "#10B981" },
   { id: faker.string.uuid(), name: "Pending", color: "#F59E0B" },
   { id: faker.string.uuid(), name: "Cancelled", color: "#EF4444" },
-];
+]
 
 const guests = Array.from({ length: 8 })
   .fill(null)
@@ -44,7 +50,7 @@ const guests = Array.from({ length: 8 })
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     image: faker.image.avatar(),
-  }));
+  }))
 
 // Hotel rooms
 const hotelRooms = Array.from({ length: 5 })
@@ -52,16 +58,16 @@ const hotelRooms = Array.from({ length: 5 })
   .map((_, index) => ({
     id: faker.string.uuid(),
     name: `Room ${101 + index}`,
-  }));
+  }))
 
 // Generate hotel reservations - multiple guests can book the same room for different periods
 const hotelReservations = Array.from({ length: 12 })
   .fill(null)
   .map(() => {
-    const startDate = faker.date.future({ years: 0.3, refDate: new Date() });
-    const endDate = faker.date.future({ years: 0.1, refDate: startDate });
-    const room = faker.helpers.arrayElement(hotelRooms);
-    const guest = faker.helpers.arrayElement(guests);
+    const startDate = faker.date.future({ years: 0.3, refDate: new Date() })
+    const endDate = faker.date.future({ years: 0.1, refDate: startDate })
+    const room = faker.helpers.arrayElement(hotelRooms)
+    const guest = faker.helpers.arrayElement(guests)
 
     return {
       id: faker.string.uuid(),
@@ -76,8 +82,8 @@ const hotelReservations = Array.from({ length: 12 })
         room,
         group: { name: "Hotel Reservations" },
       },
-    };
-  });
+    }
+  })
 
 const exampleMarkers = Array.from({ length: 3 })
   .fill(null)
@@ -94,13 +100,13 @@ const exampleMarkers = Array.from({ length: 3 })
       "bg-green-100 text-green-900",
       "bg-purple-100 text-purple-900",
     ]),
-  }));
+  }))
 
 const Example = () => {
-  const [reservations, setReservations] = useState(hotelReservations);
+  const [reservations, setReservations] = useState(hotelReservations)
 
   // Group reservations by room (lane), then by group
-  const groupedReservations = groupBy(reservations, "metadata.group.name");
+  const groupedReservations = groupBy(reservations, "metadata.group.name")
   const roomGroupedReservations = Object.fromEntries(
     Object.entries(groupedReservations).map(
       ([groupName, groupReservations]) => [
@@ -108,23 +114,22 @@ const Example = () => {
         groupBy(groupReservations, "lane"),
       ]
     )
-  );
+  )
 
   const handleViewReservation = (id: string) =>
-    console.log(`Reservation selected: ${id}`);
+    console.log(`Reservation selected: ${id}`)
 
-  const handleCopyLink = (id: string) => console.log(`Copy link: ${id}`);
+  const handleCopyLink = (id: string) => console.log(`Copy link: ${id}`)
 
   const handleRemoveReservation = (id: string) =>
     setReservations((prev) =>
       prev.filter((reservation) => reservation.id !== id)
-    );
+    )
 
-  const handleRemoveMarker = (id: string) =>
-    console.log(`Remove marker: ${id}`);
+  const handleRemoveMarker = (id: string) => console.log(`Remove marker: ${id}`)
 
   const handleCreateMarker = (date: Date) =>
-    console.log(`Create marker: ${date.toISOString()}`);
+    console.log(`Create marker: ${date.toISOString()}`)
 
   const handleMoveReservation = (
     id: string,
@@ -132,20 +137,20 @@ const Example = () => {
     endAt: Date | null
   ) => {
     if (!endAt) {
-      return;
+      return
     }
 
     setReservations((prev) =>
       prev.map((reservation) =>
         reservation.id === id ? { ...reservation, startAt, endAt } : reservation
       )
-    );
+    )
 
-    console.log(`Move reservation: ${id} from ${startAt} to ${endAt}`);
-  };
+    console.log(`Move reservation: ${id} from ${startAt} to ${endAt}`)
+  }
 
   const handleAddReservation = (date: Date) =>
-    console.log(`Add reservation: ${date.toISOString()}`);
+    console.log(`Add reservation: ${date.toISOString()}`)
 
   return (
     <GanttProvider
@@ -160,7 +165,7 @@ const Example = () => {
             <GanttSidebarGroup key={groupName} name={groupName}>
               {Object.entries(roomReservations).map(
                 ([roomId, roomReservationList]) => {
-                  const room = hotelRooms.find((r) => r.id === roomId);
+                  const room = hotelRooms.find((r) => r.id === roomId)
                   // Create a representative feature for the sidebar
                   const representativeReservation = {
                     id: roomId,
@@ -176,7 +181,7 @@ const Example = () => {
                       )
                     ),
                     status: roomReservationList[0].status,
-                  };
+                  }
 
                   return (
                     <GanttSidebarItem
@@ -184,7 +189,7 @@ const Example = () => {
                       key={roomId}
                       onSelectItem={() => handleViewReservation(roomId)}
                     />
-                  );
+                  )
                 }
               )}
             </GanttSidebarGroup>
@@ -282,7 +287,7 @@ const Example = () => {
         <GanttCreateMarkerTrigger onCreateMarker={handleCreateMarker} />
       </GanttTimeline>
     </GanttProvider>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

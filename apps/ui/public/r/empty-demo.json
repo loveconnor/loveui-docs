@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "empty-demo",
-  "type": "registry:example",
   "description": "Basic empty state with icon",
   "registryDependencies": [
     "@loveui/empty",
@@ -16,5 +15,6 @@
   ],
   "categories": [
     "empty"
-  ]
+  ],
+  "type": "registry:example"
 }

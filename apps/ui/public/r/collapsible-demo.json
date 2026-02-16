@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "collapsible-demo",
-  "type": "registry:example",
   "description": "Basic collapsible",
   "registryDependencies": [
     "@loveui/collapsible"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "collapsible"
-  ]
+  ],
+  "type": "registry:example"
 }

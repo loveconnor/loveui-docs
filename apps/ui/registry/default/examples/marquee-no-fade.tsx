@@ -1,6 +1,10 @@
-"use client";
+"use client"
 
-import { Marquee, MarqueeContent, MarqueeItem } from "../../../../../packages/marquee";
+import {
+  Marquee,
+  MarqueeContent,
+  MarqueeItem,
+} from "../../../../../packages/marquee"
 
 const Example = () => (
   <Marquee>
@@ -16,6 +20,6 @@ const Example = () => (
       ))}
     </MarqueeContent>
   </Marquee>
-);
+)
 
-export default Example;
+export default Example

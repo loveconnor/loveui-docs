@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
-import { cn } from "@/lib/utils";
-import { AlertTriangle, Check, ChevronRight, Eye } from "lucide-react";
-import Link from "next/link";
+import Link from "next/link"
+import { AlertTriangle, Check, ChevronRight, Eye } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
 
 const data = [
   {
@@ -27,19 +28,19 @@ const data = [
     status: "critical",
     href: "#",
   },
-];
+]
 
 export default function Stats06() {
   return (
-    <div className="flex items-center justify-center p-10 w-full">
-      <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
+    <div className="flex w-full items-center justify-center p-10">
+      <dl className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((item) => (
-          <Card key={item.name} className="p-6 relative">
+          <Card key={item.name} className="relative p-6">
             <CardContent className="p-0">
               <dt className="text-sm font-medium text-muted-foreground">
                 {item.name}
               </dt>
-              <dd className="tabular-nums tabular-nums text-3xl font-semibold text-foreground">
+              <dd className="text-3xl font-semibold text-foreground tabular-nums">
                 {item.stat}
               </dd>
               <div className="group relative mt-6 flex items-center space-x-4 rounded-md bg-muted/60 p-2 hover:bg-muted">
@@ -51,8 +52,8 @@ export default function Stats06() {
                         item.status === "within"
                           ? "bg-emerald-500 text-white"
                           : item.status === "observe"
-                          ? "bg-yellow-500 text-white"
-                          : "bg-red-500 text-white"
+                            ? "bg-yellow-500 text-white"
+                            : "bg-red-500 text-white"
                       )}
                     >
                       {item.status === "within" ? (
@@ -67,7 +68,7 @@ export default function Stats06() {
                       )}
                     </span>
                     <dd>
-                      <p className="text-pretty text-sm text-muted-foreground">
+                      <p className="text-sm text-pretty text-muted-foreground">
                         <Link href={item.href} className="focus:outline-none">
                           {/* Extend link to entire card */}
                           <span
@@ -83,8 +84,8 @@ export default function Stats06() {
                           item.status === "within"
                             ? "text-emerald-800 dark:text-emerald-500"
                             : item.status === "observe"
-                            ? "text-yellow-800 dark:text-yellow-500"
-                            : "text-red-800 dark:text-red-500"
+                              ? "text-yellow-800 dark:text-yellow-500"
+                              : "text-red-800 dark:text-red-500"
                         )}
                       >
                         {item.status}
@@ -102,5 +103,5 @@ export default function Stats06() {
         ))}
       </dl>
     </div>
-  );
+  )
 }

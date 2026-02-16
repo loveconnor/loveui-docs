@@ -1,7 +1,11 @@
-"use client";
+"use client"
 
-import { Card, CardContent, CardFooter } from "@/registry/building-blocks/default/ui/card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+} from "@/registry/building-blocks/default/ui/card"
 
 const data = [
   {
@@ -25,14 +29,14 @@ const data = [
     changeType: "negative",
     href: "#",
   },
-];
+]
 
 export default function Stats05() {
   return (
-    <div className="flex items-center justify-center p-10 w-full">
-      <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
+    <div className="flex w-full items-center justify-center p-10">
+      <dl className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {data.map((item) => (
-          <Card key={item.name} className="p-0 gap-0">
+          <Card key={item.name} className="gap-0 p-0">
             <CardContent className="p-6">
               <dd className="flex items-start justify-between space-x-2">
                 <span className="truncate text-sm text-muted-foreground">
@@ -49,7 +53,7 @@ export default function Stats05() {
                   {item.change}
                 </span>
               </dd>
-              <dd className="tabular-nums mt-1 text-3xl font-semibold text-foreground">
+              <dd className="mt-1 text-3xl font-semibold text-foreground tabular-nums">
                 {item.value}
               </dd>
             </CardContent>
@@ -65,5 +69,5 @@ export default function Stats05() {
         ))}
       </dl>
     </div>
-  );
+  )
 }

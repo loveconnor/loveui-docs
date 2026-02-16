@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   DialogStack,
@@ -12,8 +12,8 @@ import {
   DialogStackPrevious,
   DialogStackTitle,
   DialogStackTrigger,
-} from "../../../../../packages/dialog-stack";
-import { Button } from "../../../../../packages/ui/src/ui/button";
+} from "../../../../../packages/dialog-stack"
+import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const Example = () => (
   <DialogStack>
@@ -69,6 +69,6 @@ const Example = () => (
       </DialogStackContent>
     </DialogStackBody>
   </DialogStack>
-);
+)
 
-export default Example;
+export default Example

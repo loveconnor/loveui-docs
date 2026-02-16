@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scroll-area-demo",
-  "type": "registry:example",
   "description": "Scroll area - vertical",
   "registryDependencies": [
     "@loveui/scroll-area"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "scroll area"
-  ]
+  ],
+  "type": "registry:example"
 }

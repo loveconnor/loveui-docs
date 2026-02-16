@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu-checkbox",
-  "type": "registry:example",
   "description": "Menu with checkbox items",
   "registryDependencies": [
     "@loveui/menu",
@@ -17,5 +16,6 @@
   "categories": [
     "menu",
     "checkbox"
-  ]
+  ],
+  "type": "registry:example"
 }

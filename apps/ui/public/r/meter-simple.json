@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "meter-simple",
-  "type": "registry:example",
   "description": "Meter without label and value",
   "registryDependencies": [
     "@loveui/meter"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "meter"
-  ]
+  ],
+  "type": "registry:example"
 }

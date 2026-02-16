@@ -12,7 +12,10 @@ import {
   DialogTrigger,
 } from "@/registry/building-blocks/default/ui/dialog"
 import { Label } from "@/registry/building-blocks/default/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/registry/building-blocks/default/ui/radio-group"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/registry/building-blocks/default/ui/radio-group"
 
 export default function Component() {
   const id = useId()

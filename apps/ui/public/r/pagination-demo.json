@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "pagination-demo",
-  "type": "registry:example",
   "description": "Pagination example",
   "registryDependencies": [
     "@loveui/pagination"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "pagination"
-  ]
+  ],
+  "type": "registry:example"
 }

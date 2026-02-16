@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "alert-with-icon-action",
-  "type": "registry:example",
   "description": "Alert with icon and action buttons",
   "registryDependencies": [
     "@loveui/alert",
@@ -16,5 +15,6 @@
   ],
   "categories": [
     "alert"
-  ]
+  ],
+  "type": "registry:example"
 }

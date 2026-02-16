@@ -1,10 +1,17 @@
-"use client";
+"use client"
 
-import { Deck, DeckCards, DeckEmpty, DeckItem } from "../../../../../packages/deck";
-import { StarIcon } from "lucide-react";
-import Image from "next/image";
-import { Badge } from "../../../../../packages/ui/src/ui/badge";
-import { cn } from "@/lib/utils";
+import Image from "next/image"
+import { StarIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+import {
+  Deck,
+  DeckCards,
+  DeckEmpty,
+  DeckItem,
+} from "../../../../../packages/deck"
+import { Badge } from "../../../../../packages/ui/src/ui/badge"
 
 const products = [
   {
@@ -43,7 +50,7 @@ const products = [
     category: "Accessories",
     description: "Adjustable aluminum laptop stand for better ergonomics",
   },
-];
+]
 
 const Example = () => (
   <div className="mx-auto w-80">
@@ -68,8 +75,8 @@ const Example = () => (
 
             <div className="flex flex-1 flex-col p-4">
               <div className="flex items-start justify-between">
-                <h3 className="font-semibold text-lg">{product.name}</h3>
-                <span className="font-bold text-lg text-primary">
+                <h3 className="text-lg font-semibold">{product.name}</h3>
+                <span className="text-lg font-bold text-primary">
                   {product.price}
                 </span>
               </div>
@@ -88,12 +95,12 @@ const Example = () => (
                     />
                   ))}
                 </div>
-                <span className="text-muted-foreground text-sm">
+                <span className="text-sm text-muted-foreground">
                   ({product.rating})
                 </span>
               </div>
 
-              <p className="mt-2 flex-1 text-muted-foreground text-sm">
+              <p className="mt-2 flex-1 text-sm text-muted-foreground">
                 {product.description}
               </p>
             </div>
@@ -103,6 +110,6 @@ const Example = () => (
       <DeckEmpty />
     </Deck>
   </div>
-);
+)
 
-export default Example;
+export default Example

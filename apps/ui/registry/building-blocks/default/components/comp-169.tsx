@@ -1,13 +1,28 @@
 import { useId } from "react"
 import { CheckIcon, MinusIcon } from "lucide-react"
-import { assetPath } from "@/lib/building-blocks/utils"
 
-import { RadioGroup, RadioGroupItem } from "@/registry/building-blocks/default/ui/radio-group"
+import { assetPath } from "@/lib/building-blocks/utils"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/registry/building-blocks/default/ui/radio-group"
 
 const items = [
-  { value: "1", label: "Light", image: assetPath("/building-blocks/ui-light.png") },
-  { value: "2", label: "Dark", image: assetPath("/building-blocks/ui-dark.png") },
-  { value: "3", label: "System", image: assetPath("/building-blocks/ui-system.png") },
+  {
+    value: "1",
+    label: "Light",
+    image: assetPath("/building-blocks/ui-light.png"),
+  },
+  {
+    value: "2",
+    label: "Dark",
+    image: assetPath("/building-blocks/ui-dark.png"),
+  },
+  {
+    value: "3",
+    label: "System",
+    image: assetPath("/building-blocks/ui-system.png"),
+  },
 ]
 
 export default function Component() {

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "textarea-disabled",
-  "type": "registry:example",
   "description": "Disabled textarea",
   "registryDependencies": [
     "@loveui/textarea"
@@ -16,5 +15,6 @@
   "categories": [
     "textarea",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

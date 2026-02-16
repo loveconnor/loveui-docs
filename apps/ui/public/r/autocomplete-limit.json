@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autocomplete-limit",
-  "type": "registry:example",
   "description": "Autocomplete with limited number of results",
   "registryDependencies": [
     "@loveui/autocomplete"
@@ -16,5 +15,6 @@
   "categories": [
     "autocomplete",
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

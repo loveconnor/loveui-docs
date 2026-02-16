@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autocomplete-with-label",
-  "type": "registry:example",
   "description": "Autocomplete with label",
   "registryDependencies": [
     "@loveui/autocomplete",
@@ -17,5 +16,6 @@
   "categories": [
     "autocomplete",
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

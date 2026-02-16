@@ -1,7 +1,13 @@
-"use client";
+"use client"
 
-import { Deck, DeckCards, DeckEmpty, DeckItem } from "../../../../../packages/deck";
-import Image from "next/image";
+import Image from "next/image"
+
+import {
+  Deck,
+  DeckCards,
+  DeckEmpty,
+  DeckItem,
+} from "../../../../../packages/deck"
 
 const images = [
   {
@@ -29,7 +35,7 @@ const images = [
     src: "https://placehold.co/400x600/feca57/fff?text=Card+5",
     title: "Card 5",
   },
-];
+]
 
 const Example = () => (
   <Deck className="size-full">
@@ -50,6 +56,6 @@ const Example = () => (
     </DeckCards>
     <DeckEmpty />
   </Deck>
-);
+)
 
-export default Example;
+export default Example

@@ -1,6 +1,7 @@
-"use client";
-import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
-import React, { useEffect, useRef } from "react";
+"use client"
+
+import React, { useEffect, useRef } from "react"
+import { Color, Mesh, Program, Renderer, Triangle } from "ogl"
 
 // Vertex shader
 const vert = `
@@ -13,7 +14,7 @@ void main() {
     vUv = uv;
     gl_Position = vec4(position, 0, 1);
 }
-`;
+`
 
 // Fragment shader with water effect
 const frag = (distortion: number) => `
@@ -99,69 +100,67 @@ void main() {
 
     gl_FragColor = vec4(col, 1.0);
 }
-`;
-
-
+`
 
 interface NovatrixProps {
-  colors?: string[];
-  distortion?: number;
-  swirl?: number;
-  speed?: number;
-  scale?: number;
-  offsetX?: number;
-  offsetY?: number;
-  rotation?: number; 
-  waveAmp?: number;
-  waveFreq?: number;
-  waveSpeed?: number;
-  grain?: number; // NEW
+  colors?: string[]
+  distortion?: number
+  swirl?: number
+  speed?: number
+  scale?: number
+  offsetX?: number
+  offsetY?: number
+  rotation?: number
+  waveAmp?: number
+  waveFreq?: number
+  waveSpeed?: number
+  grain?: number // NEW
 }
 
 // Convert hex to normalized RGB
 const hexToRgb = (hex: string): [number, number, number] => {
-  const cleanHex = hex.replace("#", "");
-  const r = parseInt(cleanHex.substring(0, 2), 16) / 255;
-  const g = parseInt(cleanHex.substring(2, 4), 16) / 255;
-  const b = parseInt(cleanHex.substring(4, 6), 16) / 255;
-  return [r, g, b];
-};
+  const cleanHex = hex.replace("#", "")
+  const r = parseInt(cleanHex.substring(0, 2), 16) / 255
+  const g = parseInt(cleanHex.substring(2, 4), 16) / 255
+  const b = parseInt(cleanHex.substring(4, 6), 16) / 255
+  return [r, g, b]
+}
 
 export function GradientMesh(props: NovatrixProps) {
-  const ctnDom = useRef<HTMLDivElement>(null);
+  const ctnDom = useRef<HTMLDivElement>(null)
   const {
-  colors = ["#3b2a8d", "#aaa7d7", "#f75092"],
-  distortion = 5,
-  swirl = 0.5,
-  speed = 1.0,
-  scale = 1,
-  offsetX = 0.0,
-  offsetY = 0.0,
-  rotation = 90,
-  waveAmp = 0.1,
-  waveFreq = 10.0,
-  waveSpeed = 0.2,
-  grain = 0.06,  
-  ...rest
-} = props;
+    colors = ["#3b2a8d", "#aaa7d7", "#f75092"],
+    distortion = 5,
+    swirl = 0.5,
+    speed = 1.0,
+    scale = 1,
+    offsetX = 0.0,
+    offsetY = 0.0,
+    rotation = 90,
+    waveAmp = 0.1,
+    waveFreq = 10.0,
+    waveSpeed = 0.2,
+    grain = 0.06,
+    ...rest
+  } = props
 
   useEffect(() => {
-    if (!ctnDom.current) return;
+    if (!ctnDom.current) return
 
-    const ctn = ctnDom.current;
-    const renderer = new Renderer();
-    const gl = renderer.gl;
-    gl.clearColor(0, 0, 0, 1);
+    const ctn = ctnDom.current
+    const renderer = new Renderer()
+    const gl = renderer.gl
+    gl.clearColor(0, 0, 0, 1)
 
     function resize() {
-      renderer.setSize(ctn.offsetWidth, ctn.offsetHeight);
+      renderer.setSize(ctn.offsetWidth, ctn.offsetHeight)
     }
-    window.addEventListener("resize", resize, false);
-    resize();
+    window.addEventListener("resize", resize, false)
+    resize()
 
-    const geometry = new Triangle(gl);
+    const geometry = new Triangle(gl)
 
-    const rgbColors = colors.slice(0, 3).map(hexToRgb);
+    const rgbColors = colors.slice(0, 3).map(hexToRgb)
     const uniforms: any = {
       uTime: { value: 0 },
       uSwirl: { value: swirl },
@@ -181,49 +180,61 @@ export function GradientMesh(props: NovatrixProps) {
         ),
       },
       uGrain: { value: grain },
+    }
 
-    };
-
-    const labels = ["A", "B", "C"];
+    const labels = ["A", "B", "C"]
     rgbColors.forEach((c, i) => {
-      uniforms[`uColor${labels[i]}`] = { value: new Color(...c) };
-    });
+      uniforms[`uColor${labels[i]}`] = { value: new Color(...c) }
+    })
 
     const program = new Program(gl, {
       vertex: vert,
       fragment: frag(distortion),
       uniforms,
-    });
+    })
 
-    const mesh = new Mesh(gl, { geometry, program });
+    const mesh = new Mesh(gl, { geometry, program })
 
-    let animateId: number;
+    let animateId: number
     function update(t: number) {
-      animateId = requestAnimationFrame(update);
-      program.uniforms.uTime.value = t * 0.001;
-      renderer.render({ scene: mesh });
+      animateId = requestAnimationFrame(update)
+      program.uniforms.uTime.value = t * 0.001
+      renderer.render({ scene: mesh })
     }
-    animateId = requestAnimationFrame(update);
+    animateId = requestAnimationFrame(update)
 
-    ctn.appendChild(gl.canvas);
+    ctn.appendChild(gl.canvas)
 
     return () => {
-      cancelAnimationFrame(animateId);
-      window.removeEventListener("resize", resize);
-      ctn.removeChild(gl.canvas);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
-    };
+      cancelAnimationFrame(animateId)
+      window.removeEventListener("resize", resize)
+      ctn.removeChild(gl.canvas)
+      gl.getExtension("WEBGL_lose_context")?.loseContext()
+    }
   }, [
-    colors, distortion, swirl, speed, scale,
-    offsetX, offsetY, rotation, waveAmp, waveFreq, waveSpeed
-  ]);
+    colors,
+    distortion,
+    swirl,
+    speed,
+    scale,
+    offsetX,
+    offsetY,
+    rotation,
+    waveAmp,
+    waveFreq,
+    waveSpeed,
+  ])
 
   return (
     <div
       ref={ctnDom}
-      style={{ width: "100%", height: "100%", position: "absolute", overflow: "hidden"  }}
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        overflow: "hidden",
+      }}
       {...rest}
     />
-  );
+  )
 }
- 

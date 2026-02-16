@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-custom-separator",
-  "type": "registry:example",
   "description": "Breadcrumb with custom separator",
   "registryDependencies": [
     "@loveui/breadcrumb"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "breadcrumb"
-  ]
+  ],
+  "type": "registry:example"
 }

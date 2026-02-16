@@ -1,3 +1,5 @@
+import type { HTMLAttributes } from "react"
+
 import {
   CreditCard,
   CreditCardBack,
@@ -8,8 +10,7 @@ import {
   CreditCardMagStripe,
   CreditCardName,
   CreditCardServiceProvider,
-} from "../../../../../packages/credit-card";
-import type { HTMLAttributes } from "react";
+} from "../../../../../packages/credit-card"
 
 const AppleLogo = (props: HTMLAttributes<SVGElement>) => (
   <svg
@@ -25,7 +26,7 @@ const AppleLogo = (props: HTMLAttributes<SVGElement>) => (
       strokeWidth="8"
     />
   </svg>
-);
+)
 
 const AppleChip = ({ ...props }: HTMLAttributes<SVGElement>) => (
   <svg
@@ -112,7 +113,7 @@ const AppleChip = ({ ...props }: HTMLAttributes<SVGElement>) => (
       </linearGradient>
     </defs>
   </svg>
-);
+)
 
 const MastercardLogo = (props: HTMLAttributes<SVGElement>) => (
   <svg
@@ -132,7 +133,7 @@ const MastercardLogo = (props: HTMLAttributes<SVGElement>) => (
       strokeWidth="8"
     />
   </svg>
-);
+)
 
 const Example = () => (
   <CreditCard>
@@ -144,7 +145,7 @@ const Example = () => (
         <CreditCardChip className="right-1 left-auto w-1/5">
           <AppleChip />
         </CreditCardChip>
-        <CreditCardName className="-translate-y-1/2 absolute top-1/2 mt-4">
+        <CreditCardName className="absolute top-1/2 mt-4 -translate-y-1/2">
           Connor Love
         </CreditCardName>
       </CreditCardFront>
@@ -159,6 +160,6 @@ const Example = () => (
       </CreditCardBack>
     </CreditCardFlipper>
   </CreditCard>
-);
+)
 
-export default Example;
+export default Example

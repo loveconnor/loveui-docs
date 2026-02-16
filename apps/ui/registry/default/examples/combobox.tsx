@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Combobox,
@@ -9,7 +9,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxTrigger,
-} from "../../../../../packages/combobox";
+} from "../../../../../packages/combobox"
 
 const frameworks = [
   {
@@ -36,7 +36,7 @@ const frameworks = [
     value: "vite",
     label: "Vite",
   },
-];
+]
 
 const Example = () => (
   <Combobox
@@ -60,6 +60,6 @@ const Example = () => (
       </ComboboxList>
     </ComboboxContent>
   </Combobox>
-);
+)
 
-export default Example;
+export default Example

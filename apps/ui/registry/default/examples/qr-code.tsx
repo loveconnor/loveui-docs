@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { QRCode } from "../../../../../packages/qr-code";
+import { QRCode } from "../../../../../packages/qr-code"
 
-const Example = () => <QRCode data="https://www.connorlove.com/" />;
+const Example = () => <QRCode data="https://www.connorlove.com/" />
 
-export default Example;
+export default Example

@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { AnimatedGroup } from "@/motion-primitives/animated-group"
 import { TextEffect } from "@/motion-primitives/text-effect"
-import { assetPath } from "@/lib/page-templates/utils"
 import { Button } from "@/ui/button"
 import { Beacon } from "@/ui/svgs/beacon"
 import { Bolt } from "@/ui/svgs/bolt"
@@ -14,6 +13,8 @@ import { Slack } from "@/ui/svgs/slack"
 import { Supabase } from "@/ui/svgs/supabase"
 import { Twilio } from "@/ui/svgs/twilio"
 import { ArrowRight, ChevronRight } from "lucide-react"
+
+import { assetPath } from "@/lib/page-templates/utils"
 
 const transitionVariants = {
   item: {

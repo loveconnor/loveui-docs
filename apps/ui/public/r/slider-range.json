@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider-range",
-  "type": "registry:example",
   "description": "Two-thumb range slider",
   "registryDependencies": [
     "@loveui/slider"
@@ -16,5 +15,6 @@
   "categories": [
     "slider",
     "range slider"
-  ]
+  ],
+  "type": "registry:example"
 }

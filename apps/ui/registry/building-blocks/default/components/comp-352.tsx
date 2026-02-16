@@ -135,7 +135,7 @@ function CollapsibleDemo({
         />
         {title}
       </CollapsibleTrigger>
-      <CollapsibleContent className="mt-1 overflow-hidden ps-6 text-sm text-muted-foreground transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+      <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down mt-1 overflow-hidden ps-6 text-sm text-muted-foreground transition-all">
         {content}
       </CollapsibleContent>
     </Collapsible>

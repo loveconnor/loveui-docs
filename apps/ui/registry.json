@@ -5766,6 +5766,99 @@
       ]
     },
     {
+      "name": "gooey-toast-demo",
+      "description": "Basic gooey toast",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@loveui/gooey-toast",
+        "@loveui/select",
+        "@loveui/button"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/gooey-toast-demo.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "gooey-toast",
+        "button",
+        "select"
+      ]
+    },
+    {
+      "name": "gooey-toast-states",
+      "description": "Gooey toast with different states",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@loveui/gooey-toast"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/gooey-toast-states.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "gooey-toast",
+        "button"
+      ]
+    },
+    {
+      "name": "gooey-toast-promise",
+      "description": "Drive gooey toasts from promise states",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@loveui/gooey-toast"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/gooey-toast-promise.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "gooey-toast",
+        "button"
+      ]
+    },
+    {
+      "name": "gooey-toast-with-button",
+      "description": "Gooey toast with an action button",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@loveui/gooey-toast"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/gooey-toast-with-button.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "gooey-toast",
+        "button"
+      ]
+    },
+    {
+      "name": "gooey-toast-position",
+      "description": "Control toast position",
+      "type": "registry:example",
+      "registryDependencies": [
+        "@loveui/gooey-toast"
+      ],
+      "files": [
+        {
+          "path": "registry/default/examples/gooey-toast-position.tsx",
+          "type": "registry:example"
+        }
+      ],
+      "categories": [
+        "gooey-toast",
+        "button"
+      ]
+    },
+    {
       "name": "toggle-demo",
       "description": "Basic toggle",
       "type": "registry:example",

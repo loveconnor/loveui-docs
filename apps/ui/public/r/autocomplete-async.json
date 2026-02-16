@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autocomplete-async",
-  "type": "registry:example",
   "description": "Autocomplete with async items loading",
   "registryDependencies": [
     "@loveui/autocomplete"
@@ -17,5 +16,6 @@
     "autocomplete",
     "input",
     "async"
-  ]
+  ],
+  "type": "registry:example"
 }

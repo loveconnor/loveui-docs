@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "table-framed",
-  "type": "registry:example",
   "description": "Framed table",
   "registryDependencies": [
     "@loveui/table",
@@ -19,5 +18,6 @@
     "table",
     "badge",
     "frame"
-  ]
+  ],
+  "type": "registry:example"
 }

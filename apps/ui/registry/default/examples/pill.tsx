@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { CheckCircleIcon, UsersIcon, XIcon } from "lucide-react"
 
 import {
   Pill,
@@ -9,8 +11,7 @@ import {
   PillIcon,
   PillIndicator,
   PillStatus,
-} from "../../../../../packages/pill";
-import { CheckCircleIcon, UsersIcon, XIcon } from "lucide-react";
+} from "../../../../../packages/pill"
 
 const Example = () => (
   <div className="flex flex-wrap items-center justify-center gap-2">
@@ -76,6 +77,6 @@ const Example = () => (
       Loved by millions
     </Pill>
   </div>
-);
+)
 
-export default Example;
+export default Example

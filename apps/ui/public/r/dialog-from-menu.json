@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-from-menu",
-  "type": "registry:example",
   "description": "Open dialog from a menu item",
   "registryDependencies": [
     "@loveui/dialog",
@@ -19,5 +18,6 @@
     "dialog",
     "menu",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

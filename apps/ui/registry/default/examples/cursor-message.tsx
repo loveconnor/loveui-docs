@@ -1,6 +1,11 @@
-"use client";
+"use client"
 
-import { Cursor, CursorBody, CursorMessage, CursorPointer } from "../../../../../packages/cursor";
+import {
+  Cursor,
+  CursorBody,
+  CursorMessage,
+  CursorPointer,
+} from "../../../../../packages/cursor"
 
 const Example = () => (
   <Cursor color="#000000">
@@ -9,6 +14,6 @@ const Example = () => (
       <CursorMessage>That looks great!</CursorMessage>
     </CursorBody>
   </Cursor>
-);
+)
 
-export default Example;
+export default Example

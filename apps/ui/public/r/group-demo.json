@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "group-demo",
-  "type": "registry:example",
   "description": "Group example",
   "registryDependencies": [
     "@loveui/group",
@@ -16,5 +15,6 @@
   ],
   "categories": [
     "group"
-  ]
+  ],
+  "type": "registry:example"
 }

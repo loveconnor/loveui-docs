@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "breadcrumb-demo",
-  "type": "registry:example",
   "description": "Breadcrumb with menu example",
   "registryDependencies": [
     "@loveui/breadcrumb",
@@ -17,5 +16,6 @@
   "categories": [
     "breadcrumb",
     "menu"
-  ]
+  ],
+  "type": "registry:example"
 }

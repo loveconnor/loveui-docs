@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "meter-with-range",
-  "type": "registry:example",
   "description": "Meter with min and max values",
   "registryDependencies": [
     "@loveui/meter"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "meter"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import { IconArrowRight, IconCornerDownLeft } from "@tabler/icons-react";
-import { useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback } from "react"
+import { useRouter } from "next/navigation"
+import { IconArrowRight, IconCornerDownLeft } from "@tabler/icons-react"
+
 import {
   Command,
   CommandEmpty,
@@ -10,8 +11,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/building-blocks/default/ui/command";
-import { Kbd } from "@/registry/building-blocks/default/ui/kbd";
+} from "@/registry/building-blocks/default/ui/command"
+import { Kbd } from "@/registry/building-blocks/default/ui/kbd"
 
 const navItems = [
   { href: "/", label: "Home", keywords: ["home", "main", "index"] },
@@ -25,7 +26,7 @@ const navItems = [
     label: "Settings",
     keywords: ["settings", "preferences"],
   },
-];
+]
 
 const pageGroups = [
   {
@@ -68,7 +69,7 @@ const pageGroups = [
       },
     ],
   },
-];
+]
 
 const colorGroups = [
   {
@@ -121,25 +122,28 @@ const colorGroups = [
       },
     ],
   },
-];
+]
 
 export default function CommandMenu03() {
-  const router = useRouter();
+  const router = useRouter()
 
   const copyToClipboard = useCallback((text: string) => {
-    navigator.clipboard.writeText(text);
-  }, []);
+    navigator.clipboard.writeText(text)
+  }, [])
 
   const runCommand = useCallback((command: () => unknown) => {
-    command();
-  }, []);
+    command()
+  }, [])
 
   return (
     <div className="relative w-full max-w-2xl rounded-xl border-none bg-clip-padding p-2 pb-11 shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800">
       <Command className="rounded-none bg-transparent [&_[cmdk-item]_svg]:size-4">
-        <CommandInput className="h-10 text-sm" placeholder="Search documentation..." />
+        <CommandInput
+          className="h-10 text-sm"
+          placeholder="Search documentation..."
+        />
         <CommandList className="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
-          <CommandEmpty className="py-12 text-center text-muted-foreground text-sm">
+          <CommandEmpty className="py-12 text-center text-sm text-muted-foreground">
             No results found.
           </CommandEmpty>
 
@@ -150,11 +154,11 @@ export default function CommandMenu03() {
             >
               {navItems.map((item) => (
                 <CommandItem
-                  className="px-3! h-9 rounded-md border border-transparent font-medium hover:border-input hover:bg-input/50"
+                  className="h-9 rounded-md border border-transparent px-3! font-medium hover:border-input hover:bg-input/50"
                   key={item.href}
                   keywords={item.keywords}
                   onSelect={() => {
-                    runCommand(() => router.push(item.href));
+                    runCommand(() => router.push(item.href))
                   }}
                   value={`Navigation ${item.label}`}
                 >
@@ -172,25 +176,25 @@ export default function CommandMenu03() {
               key={group.name}
             >
               {group.pages.map((page) => {
-                const isComponent = page.href.includes("/components/");
+                const isComponent = page.href.includes("/components/")
                 return (
                   <CommandItem
-                    className="px-3! h-9 rounded-md border border-transparent font-medium hover:border-input hover:bg-input/50"
+                    className="h-9 rounded-md border border-transparent px-3! font-medium hover:border-input hover:bg-input/50"
                     key={page.href}
                     keywords={page.keywords}
                     onSelect={() => {
-                      runCommand(() => router.push(page.href));
+                      runCommand(() => router.push(page.href))
                     }}
                     value={`${group.name} ${page.name}`}
                   >
                     {isComponent ? (
-                      <div className="aspect-square size-4 rounded-full border border-muted-foreground border-dashed" />
+                      <div className="aspect-square size-4 rounded-full border border-dashed border-muted-foreground" />
                     ) : (
                       <IconArrowRight aria-hidden="true" className="size-4" />
                     )}
                     {page.name}
                   </CommandItem>
-                );
+                )
               })}
             </CommandGroup>
           ))}
@@ -203,11 +207,11 @@ export default function CommandMenu03() {
             >
               {colorGroup.colors.map((color) => (
                 <CommandItem
-                  className="px-3! h-9 rounded-md border border-transparent font-medium hover:border-input hover:bg-input/50"
+                  className="h-9 rounded-md border border-transparent px-3! font-medium hover:border-input hover:bg-input/50"
                   key={color.className}
                   keywords={["color", color.name, color.className]}
                   onSelect={() => {
-                    runCommand(() => copyToClipboard(color.value));
+                    runCommand(() => copyToClipboard(color.value))
                   }}
                   value={color.className}
                 >
@@ -216,7 +220,7 @@ export default function CommandMenu03() {
                     style={{ backgroundColor: color.value }}
                   />
                   {color.className}
-                  <span className="ml-auto font-mono font-normal text-muted-foreground text-xs tabular-nums">
+                  <span className="ml-auto font-mono text-xs font-normal text-muted-foreground tabular-nums">
                     {color.value}
                   </span>
                 </CommandItem>
@@ -226,12 +230,12 @@ export default function CommandMenu03() {
         </CommandList>
       </Command>
 
-      <div className="absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 font-medium text-muted-foreground text-xs dark:border-t-neutral-700 dark:bg-neutral-800">
+      <div className="absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium text-muted-foreground dark:border-t-neutral-700 dark:bg-neutral-800">
         <Kbd>
           <IconCornerDownLeft aria-hidden="true" className="size-3" />
         </Kbd>
         Select
       </div>
     </div>
-  );
+  )
 }

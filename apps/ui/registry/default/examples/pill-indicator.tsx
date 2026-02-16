@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Pill, PillIndicator } from "../../../../../packages/pill";
+import { Pill, PillIndicator } from "../../../../../packages/pill"
 
 const Example = () => (
   <>
@@ -13,6 +13,6 @@ const Example = () => (
       Error
     </Pill>
   </>
-);
+)
 
-export default Example;
+export default Example

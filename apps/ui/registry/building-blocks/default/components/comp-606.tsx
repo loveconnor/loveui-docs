@@ -1,10 +1,14 @@
-"use client";
+"use client"
 
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
-import { type ChartConfig, ChartContainer } from "@/registry/building-blocks/default/ui/chart";
-import { ExternalLink } from "lucide-react";
-import Link from "next/link";
-import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts";
+import Link from "next/link"
+import { ExternalLink } from "lucide-react"
+import { PolarAngleAxis, RadialBar, RadialBarChart } from "recharts"
+
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
+import {
+  ChartContainer,
+  type ChartConfig,
+} from "@/registry/building-blocks/default/ui/chart"
 
 const data = [
   {
@@ -35,21 +39,23 @@ const data = [
     allowed: 100,
     fill: "var(--chart-4)",
   },
-];
+]
 
 const chartConfig = {
   capacity: {
     label: "Capacity",
     color: "hsl(var(--primary))",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export default function Stats07() {
   return (
-    <div className="flex items-center justify-center p-10 w-full">
+    <div className="flex w-full items-center justify-center p-10">
       <div className="w-full">
-        <h2 className="text-balance text-xl font-medium text-foreground">Plan overview</h2>
-        <p className="text-pretty mt-1 text-sm leading-6 text-muted-foreground">
+        <h2 className="text-xl font-medium text-balance text-foreground">
+          Plan overview
+        </h2>
+        <p className="mt-1 text-sm leading-6 text-pretty text-muted-foreground">
           You are currently on the{" "}
           <span className="font-medium text-foreground">starter plan</span>.{" "}
           <Link
@@ -63,7 +69,7 @@ export default function Stats07() {
         <dl className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {data.map((item) => (
             <Card key={item.name} className="p-4">
-              <CardContent className="p-0 flex items-center space-x-4">
+              <CardContent className="flex items-center space-x-4 p-0">
                 <div className="relative flex items-center justify-center">
                   <ChartContainer
                     config={chartConfig}
@@ -113,5 +119,5 @@ export default function Stats07() {
         </dl>
       </div>
     </div>
-  );
+  )
 }

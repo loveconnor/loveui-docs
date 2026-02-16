@@ -13,7 +13,11 @@ import { useTree } from "@headless-tree/react"
 import { FolderIcon, FolderOpenIcon, SearchIcon } from "lucide-react"
 
 import { Input } from "@/registry/building-blocks/default/ui/input"
-import { Tree, TreeItem, TreeItemLabel } from "@/registry/building-blocks/default/ui/tree"
+import {
+  Tree,
+  TreeItem,
+  TreeItemLabel,
+} from "@/registry/building-blocks/default/ui/tree"
 
 interface Item {
   name: string

@@ -1,4 +1,15 @@
-"use client";
+"use client"
+
+import { useState, type FormEventHandler } from "react"
+import {
+  CalendarIcon,
+  ImageIcon,
+  InfoIcon,
+  MapPinIcon,
+  TagIcon,
+  UsersIcon,
+} from "lucide-react"
+import { toast } from "sonner"
 
 import {
   Choicebox,
@@ -7,7 +18,7 @@ import {
   ChoiceboxItemDescription,
   ChoiceboxItemHeader,
   ChoiceboxItemTitle,
-} from "../../../../../packages/choicebox";
+} from "../../../../../packages/choicebox"
 import {
   Combobox,
   ComboboxContent,
@@ -17,18 +28,18 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxTrigger,
-} from "../../../../../packages/combobox";
-import { Dropzone, DropzoneContent, DropzoneEmptyState } from "../../../../../packages/dropzone";
+} from "../../../../../packages/combobox"
+import {
+  Dropzone,
+  DropzoneContent,
+  DropzoneEmptyState,
+} from "../../../../../packages/dropzone"
 import {
   MiniCalendar,
   MiniCalendarDay,
   MiniCalendarDays,
   MiniCalendarNavigation,
-} from "../../../../../packages/mini-calendar";
-import { Button } from "../../../../../packages/ui/src/ui/button";
-import { Input } from "../../../../../packages/ui/src/ui/input";
-import { Label } from "../../../../../packages/ui/src/ui/label";
-import { Textarea } from "../../../../../packages/ui/src/ui/textarea";
+} from "../../../../../packages/mini-calendar"
 import {
   Tags,
   TagsContent,
@@ -39,17 +50,11 @@ import {
   TagsList,
   TagsTrigger,
   TagsValue,
-} from "../../../../../packages/tags";
-import {
-  CalendarIcon,
-  ImageIcon,
-  InfoIcon,
-  MapPinIcon,
-  TagIcon,
-  UsersIcon,
-} from "lucide-react";
-import { type FormEventHandler, useState } from "react";
-import { toast } from "sonner";
+} from "../../../../../packages/tags"
+import { Button } from "../../../../../packages/ui/src/ui/button"
+import { Input } from "../../../../../packages/ui/src/ui/input"
+import { Label } from "../../../../../packages/ui/src/ui/label"
+import { Textarea } from "../../../../../packages/ui/src/ui/textarea"
 
 const eventTypes = [
   {
@@ -72,7 +77,7 @@ const eventTypes = [
     label: "Webinar",
     description: "Online presentation or seminar via video conference",
   },
-];
+]
 
 const venues = [
   { value: "convention-center", label: "Downtown Convention Center" },
@@ -80,7 +85,7 @@ const venues = [
   { value: "university-hall", label: "University Main Hall" },
   { value: "co-working-space", label: "Tech Hub Co-working Space" },
   { value: "online", label: "Online/Virtual" },
-];
+]
 
 const availableTags = [
   "Technology",
@@ -95,37 +100,37 @@ const availableTags = [
   "Innovation",
   "Remote Work",
   "Leadership",
-];
+]
 
 const Example = () => {
-  const [eventType, setEventType] = useState("");
-  const [venue, setVenue] = useState("");
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
-  const [files, setFiles] = useState<File[]>([]);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [eventType, setEventType] = useState("")
+  const [venue, setVenue] = useState("")
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>()
+  const [files, setFiles] = useState<File[]>([])
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const handleTagSelect = (tag: string) => {
     if (!selectedTags.includes(tag)) {
-      setSelectedTags([...selectedTags, tag]);
+      setSelectedTags([...selectedTags, tag])
     }
-  };
+  }
 
   const handleTagRemove = (tagToRemove: string) => {
-    setSelectedTags(selectedTags.filter((tag) => tag !== tagToRemove));
-  };
+    setSelectedTags(selectedTags.filter((tag) => tag !== tagToRemove))
+  }
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     toast.success("Event created successfully", {
       description: `${eventType} event created for ${selectedDate?.toLocaleDateString()} at ${venue}`,
-    });
-  };
+    })
+  }
 
   return (
     <div className="not-prose mx-auto max-w-[530px] p-8">
       <div className="mb-8 text-center">
-        <h1 className="mb-2 font-semibold text-3xl tracking-tight">
+        <h1 className="mb-2 text-3xl font-semibold tracking-tight">
           Create Your Event
         </h1>
         <p className="text-balance text-muted-foreground">
@@ -136,7 +141,7 @@ const Example = () => {
       <form className="space-y-8" onSubmit={handleSubmit}>
         {/* Basic Information */}
         <div className="space-y-4">
-          <h2 className="flex items-center gap-2 font-semibold text-xl">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <InfoIcon className="size-5" />
             Basic Information
           </h2>
@@ -170,7 +175,7 @@ const Example = () => {
 
         {/* Event Type Selection */}
         <div className="space-y-4">
-          <h2 className="flex items-center gap-2 font-semibold text-xl">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <UsersIcon className="size-5" />
             Event Type
           </h2>
@@ -191,7 +196,7 @@ const Example = () => {
 
         {/* Venue Selection */}
         <div className="space-y-4">
-          <h2 className="flex items-center gap-2 font-semibold text-xl">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <MapPinIcon className="size-5" />
             Venue
           </h2>
@@ -220,7 +225,7 @@ const Example = () => {
 
         {/* Date Selection */}
         <div className="space-y-4">
-          <h2 className="flex items-center gap-2 font-semibold text-xl">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <CalendarIcon className="size-5" />
             Select Date
           </h2>
@@ -242,7 +247,7 @@ const Example = () => {
 
         {/* Tags Selection */}
         <div className="space-y-4">
-          <h2 className="flex items-center gap-2 font-semibold text-xl">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <TagIcon className="size-5" />
             Event Tags
           </h2>
@@ -274,7 +279,7 @@ const Example = () => {
 
         {/* File Upload */}
         <div className="space-y-4">
-          <h2 className="flex items-center gap-2 font-semibold text-xl">
+          <h2 className="flex items-center gap-2 text-xl font-semibold">
             <ImageIcon className="size-5" />
             Event Images
           </h2>
@@ -290,7 +295,7 @@ const Example = () => {
             <DropzoneContent />
           </Dropzone>
           {files.length > 0 && (
-            <div className="text-muted-foreground text-sm">
+            <div className="text-sm text-muted-foreground">
               {files.length} file{files.length > 1 ? "s" : ""} selected
             </div>
           )}
@@ -305,7 +310,7 @@ const Example = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

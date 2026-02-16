@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-underline-vertical",
-  "type": "registry:example",
   "description": "Underline tabs with vertical layout",
   "registryDependencies": [
     "@loveui/tabs"
@@ -16,5 +15,6 @@
   "categories": [
     "tabs",
     "vertical tabs"
-  ]
+  ],
+  "type": "registry:example"
 }

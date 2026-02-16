@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Pill, PillAvatar, PillAvatarGroup } from "../../../../../packages/pill";
+import { Pill, PillAvatar, PillAvatarGroup } from "../../../../../packages/pill"
 
 const Example = () => (
   <Pill>
@@ -20,6 +20,6 @@ const Example = () => (
     </PillAvatarGroup>
     Loved by millions
   </Pill>
-);
+)
 
-export default Example;
+export default Example

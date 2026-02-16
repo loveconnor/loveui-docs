@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-complete-form",
-  "type": "registry:example",
   "description": "Complete form built with field",
   "registryDependencies": [
     "@loveui/field",
@@ -26,5 +25,6 @@
     "button",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

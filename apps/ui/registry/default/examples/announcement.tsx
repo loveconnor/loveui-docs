@@ -1,11 +1,12 @@
-"use client";
+"use client"
+
+import { ArrowUpRightIcon } from "lucide-react"
 
 import {
   Announcement,
   AnnouncementTag,
   AnnouncementTitle,
-} from "../../../../../packages/announcement";
-import { ArrowUpRightIcon } from "lucide-react";
+} from "../../../../../packages/announcement"
 
 const Example = () => (
   <Announcement>
@@ -15,6 +16,6 @@ const Example = () => (
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>
-);
+)
 
-export default Example;
+export default Example

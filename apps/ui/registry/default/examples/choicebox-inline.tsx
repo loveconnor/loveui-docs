@@ -5,7 +5,7 @@ import {
   ChoiceboxItemDescription,
   ChoiceboxItemHeader,
   ChoiceboxItemTitle,
-} from "../../../../../packages/choicebox";
+} from "../../../../../packages/choicebox"
 
 const options = [
   {
@@ -18,7 +18,7 @@ const options = [
     label: "Option 2",
     description: "This is the second option",
   },
-];
+]
 
 const Example = () => (
   <Choicebox
@@ -39,6 +39,6 @@ const Example = () => (
       </ChoiceboxItem>
     ))}
   </Choicebox>
-);
+)
 
-export default Example;
+export default Example

@@ -14,7 +14,9 @@ export default function Component() {
             aria-hidden="true"
           />
           <div className="flex grow justify-between gap-12">
-            <p className="text-sm">New approvals experience ships next Tuesday. Preview the changes.</p>
+            <p className="text-sm">
+              New approvals experience ships next Tuesday. Preview the changes.
+            </p>
             <a href="#" className="group text-sm font-medium whitespace-nowrap">
               Read update
               <ArrowRightIcon

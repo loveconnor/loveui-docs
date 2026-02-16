@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-demo",
-  "type": "registry:example",
   "description": "Basic accordion",
   "registryDependencies": [
     "@loveui/accordion"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "accordion"
-  ]
+  ],
+  "type": "registry:example"
 }

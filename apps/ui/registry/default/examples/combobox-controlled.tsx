@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   Combobox,
@@ -9,8 +11,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxTrigger,
-} from "../../../../../packages/combobox";
-import { useState } from "react";
+} from "../../../../../packages/combobox"
 
 const plants = [
   {
@@ -37,11 +38,11 @@ const plants = [
     value: "calathea-orbifolia",
     label: "Calathea Orbifolia (Prayer Plant)",
   },
-];
+]
 
 const Example = () => {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(plants[0].value);
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState(plants[0].value)
 
   return (
     <Combobox
@@ -67,7 +68,7 @@ const Example = () => {
         </ComboboxList>
       </ComboboxContent>
     </Combobox>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

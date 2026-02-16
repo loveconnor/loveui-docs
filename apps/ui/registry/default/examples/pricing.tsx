@@ -1,8 +1,12 @@
-"use client";
+"use client"
 
-import NumberFlow from "@number-flow/react";
-import { Badge } from "../../../../../packages/ui/src/ui/badge";
-import { Button } from "../../../../../packages/ui/src/ui/button";
+import { useState } from "react"
+import NumberFlow from "@number-flow/react"
+import { ArrowRight, BadgeCheck } from "lucide-react"
+
+import { cn } from "../../../../../packages/ui/src/lib/utils"
+import { Badge } from "../../../../../packages/ui/src/ui/badge"
+import { Button } from "../../../../../packages/ui/src/ui/button"
 import {
   Card,
   CardContent,
@@ -10,11 +14,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../../../../packages/ui/src/ui/card";
-import { cn } from "../../../../../packages/ui/src/lib/utils";
-import { ArrowRight, BadgeCheck } from "lucide-react";
-import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "../../../../../packages/ui/src/ui/tabs";
+} from "../../../../../packages/ui/src/ui/card"
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+} from "../../../../../packages/ui/src/ui/tabs"
 
 const plans = [
   {
@@ -70,18 +75,18 @@ const plans = [
     ],
     cta: "Contact us",
   },
-];
+]
 
 const Example = () => {
-  const [frequency, setFrequency] = useState<string>("monthly");
+  const [frequency, setFrequency] = useState<string>("monthly")
 
   return (
     <div className="not-prose @container flex flex-col gap-16 px-8 py-24 text-center">
       <div className="flex flex-col items-center justify-center gap-8">
-        <h1 className="mb-0 text-balance font-medium text-5xl tracking-tighter!">
+        <h1 className="mb-0 text-5xl font-medium tracking-tighter! text-balance">
           Simple, transparent pricing
         </h1>
-        <p className="mx-auto mt-0 mb-0 max-w-2xl text-balance text-lg text-muted-foreground">
+        <p className="mx-auto mt-0 mb-0 max-w-2xl text-lg text-balance text-muted-foreground">
           Managing a business is hard enough, so why not make your life easier?
           Our pricing plans are simple, transparent and scale with you.
         </p>
@@ -94,7 +99,7 @@ const Example = () => {
             </TabsTrigger>
           </TabsList>
         </Tabs>
-        <div className="mt-8 grid w-full max-w-4xl @2xl:grid-cols-3 gap-4">
+        <div className="mt-8 grid w-full max-w-4xl gap-4 @2xl:grid-cols-3">
           {plans.map((plan) => (
             <Card
               className={cn(
@@ -104,12 +109,12 @@ const Example = () => {
               key={plan.id}
             >
               {plan.popular && (
-                <Badge className="-translate-x-1/2 -translate-y-1/2 absolute top-0 left-1/2 rounded-full">
+                <Badge className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full">
                   Popular
                 </Badge>
               )}
               <CardHeader>
-                <CardTitle className="font-medium text-xl">
+                <CardTitle className="text-xl font-medium">
                   {plan.name}
                 </CardTitle>
                 <CardDescription>
@@ -140,7 +145,7 @@ const Example = () => {
               <CardContent className="grid gap-2">
                 {plan.features.map((feature, index) => (
                   <div
-                    className="flex gap-2 text-muted-foreground text-sm"
+                    className="flex gap-2 text-sm text-muted-foreground"
                     key={index}
                   >
                     <BadgeCheck className="h-[1lh] w-4 flex-none" />
@@ -162,7 +167,7 @@ const Example = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

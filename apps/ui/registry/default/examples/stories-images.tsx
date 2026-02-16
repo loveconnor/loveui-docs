@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Stories,
@@ -10,7 +10,7 @@ import {
   StoryImage,
   StoryOverlay,
   StoryTitle,
-} from "../../../../../packages/stories";
+} from "../../../../../packages/stories"
 
 const stories = [
   {
@@ -63,7 +63,7 @@ const stories = [
       "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=300&fit=crop",
     title: "Desert Road",
   },
-];
+]
 
 const Example = () => (
   <Stories>
@@ -73,7 +73,7 @@ const Example = () => (
           <StoryImage alt={story.title} src={story.preview} />
           <StoryOverlay side="top" />
           <StoryOverlay side="bottom" />
-          <StoryTitle className="truncate font-medium text-sm">
+          <StoryTitle className="truncate text-sm font-medium">
             {story.title}
           </StoryTitle>
           <StoryAuthor>
@@ -88,6 +88,6 @@ const Example = () => (
       ))}
     </StoriesContent>
   </Stories>
-);
+)
 
-export default Example;
+export default Example

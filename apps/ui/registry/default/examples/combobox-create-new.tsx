@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   Combobox,
@@ -10,8 +12,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxTrigger,
-} from "../../../../../packages/combobox";
-import { useState } from "react";
+} from "../../../../../packages/combobox"
 
 const initialFrameworks = [
   {
@@ -38,24 +39,24 @@ const initialFrameworks = [
     value: "vite",
     label: "Vite",
   },
-];
+]
 
 const Example = () => {
-  const [frameworks, setFrameworks] = useState(initialFrameworks);
-  const [value, setValue] = useState("");
+  const [frameworks, setFrameworks] = useState(initialFrameworks)
+  const [value, setValue] = useState("")
 
   const handleCreateNew = (newValue: string) => {
-    console.log("Creating new framework:", newValue);
+    console.log("Creating new framework:", newValue)
 
     // Add the new framework to the list
     const newFramework = {
       value: newValue.toLowerCase().replace(/\s+/g, "-"),
       label: newValue,
-    };
+    }
 
-    setFrameworks((prev) => [...prev, newFramework]);
-    setValue(newFramework.value);
-  };
+    setFrameworks((prev) => [...prev, newFramework])
+    setValue(newFramework.value)
+  }
 
   return (
     <Combobox
@@ -81,7 +82,7 @@ const Example = () => {
         </ComboboxList>
       </ComboboxContent>
     </Combobox>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

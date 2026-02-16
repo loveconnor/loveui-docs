@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-grouped",
-  "type": "registry:example",
   "description": "Toggle group with grouped tooltips",
   "registryDependencies": [
     "@loveui/tooltip",
@@ -18,5 +17,6 @@
     "tooltip",
     "toggle group",
     "toggle"
-  ]
+  ],
+  "type": "registry:example"
 }

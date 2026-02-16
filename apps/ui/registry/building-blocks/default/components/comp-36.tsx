@@ -2,7 +2,10 @@
 
 import { Label } from "react-aria-components"
 
-import { DateField, DateInput } from "@/registry/building-blocks/default/ui/datefield-rac"
+import {
+  DateField,
+  DateInput,
+} from "@/registry/building-blocks/default/ui/datefield-rac"
 
 export default function Component() {
   return (

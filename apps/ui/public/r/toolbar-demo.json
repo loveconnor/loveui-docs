@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toolbar-demo",
-  "type": "registry:example",
   "description": "Toolbar",
   "registryDependencies": [
     "@loveui/button",
@@ -23,5 +22,6 @@
     "select",
     "toggle",
     "tooltip"
-  ]
+  ],
+  "type": "registry:example"
 }

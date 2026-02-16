@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   DialogStack,
@@ -11,12 +13,11 @@ import {
   DialogStackOverlay,
   DialogStackPrevious,
   DialogStackTitle,
-} from "../../../../../packages/dialog-stack";
-import { Button } from "../../../../../packages/ui/src/ui/button";
-import { useState } from "react";
+} from "../../../../../packages/dialog-stack"
+import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const Example = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -74,7 +75,7 @@ const Example = () => {
         </DialogStackBody>
       </DialogStack>
     </>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

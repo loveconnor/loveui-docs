@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "form-demo",
-  "type": "registry:example",
   "description": "Input in a form",
   "registryDependencies": [
     "@loveui/form",
@@ -20,5 +19,6 @@
     "field",
     "button",
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

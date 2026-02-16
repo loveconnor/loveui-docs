@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-close-confirmation",
-  "type": "registry:example",
   "description": "Prompt before closing with unsaved changes",
   "registryDependencies": [
     "@loveui/alert-dialog",
@@ -25,5 +24,6 @@
     "field",
     "button",
     "textarea"
-  ]
+  ],
+  "type": "registry:example"
 }

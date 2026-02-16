@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-without-alignment",
-  "type": "registry:example",
   "description": "Select popup not aligned to trigger",
   "registryDependencies": [
     "@loveui/select"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "select"
-  ]
+  ],
+  "type": "registry:example"
 }

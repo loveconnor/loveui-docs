@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-nested",
-  "type": "registry:example",
   "description": "Dialog with a nested dialog",
   "registryDependencies": [
     "@loveui/dialog",
@@ -19,5 +18,6 @@
     "dialog",
     "field",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

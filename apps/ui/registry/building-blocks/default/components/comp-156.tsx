@@ -4,7 +4,10 @@ import { useEffect, useId, useRef, useState } from "react"
 
 import { Input } from "@/registry/building-blocks/default/ui/input"
 import { Label } from "@/registry/building-blocks/default/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/registry/building-blocks/default/ui/radio-group"
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/registry/building-blocks/default/ui/radio-group"
 
 export default function Component() {
   const radioId = useId()

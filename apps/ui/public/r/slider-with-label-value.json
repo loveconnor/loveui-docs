@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider-with-label-value",
-  "type": "registry:example",
   "description": "Slider with label and value",
   "registryDependencies": [
     "@loveui/slider",
@@ -17,5 +16,6 @@
   "categories": [
     "slider",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

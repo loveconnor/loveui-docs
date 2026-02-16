@@ -14,7 +14,9 @@ export default function Component() {
             aria-hidden="true"
           />
           <div className="flex grow justify-between gap-12">
-            <p className="text-sm">Real-time dashboards are now live for your team.</p>
+            <p className="text-sm">
+              Real-time dashboards are now live for your team.
+            </p>
             <a href="#" className="group text-sm font-medium whitespace-nowrap">
               See what's new
               <ArrowRightIcon

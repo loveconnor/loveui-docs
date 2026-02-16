@@ -1,15 +1,20 @@
-"use client";
+"use client"
 
-import { Dropzone, DropzoneContent, DropzoneEmptyState } from "../../../../../packages/dropzone";
-import { useState } from "react";
+import { useState } from "react"
+
+import {
+  Dropzone,
+  DropzoneContent,
+  DropzoneEmptyState,
+} from "../../../../../packages/dropzone"
 
 const Example = () => {
-  const [files, setFiles] = useState<File[] | undefined>();
+  const [files, setFiles] = useState<File[] | undefined>()
 
   const handleDrop = (files: File[]) => {
-    console.log(files);
-    setFiles(files);
-  };
+    console.log(files)
+    setFiles(files)
+  }
 
   return (
     <Dropzone
@@ -22,7 +27,7 @@ const Example = () => {
       <DropzoneEmptyState />
       <DropzoneContent />
     </Dropzone>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

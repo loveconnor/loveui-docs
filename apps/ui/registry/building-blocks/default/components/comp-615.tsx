@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   IconBell,
@@ -20,7 +20,8 @@ import {
   IconTarget,
   IconTrendingUp,
   IconUsers,
-} from "@tabler/icons-react";
+} from "@tabler/icons-react"
+
 import {
   Command,
   CommandEmpty,
@@ -28,8 +29,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/building-blocks/default/ui/command";
-import { Kbd } from "@/registry/building-blocks/default/ui/kbd";
+} from "@/registry/building-blocks/default/ui/command"
+import { Kbd } from "@/registry/building-blocks/default/ui/kbd"
 
 const workspaceItems = [
   { icon: IconLayoutDashboard, label: "Dashboard" },
@@ -42,14 +43,14 @@ const workspaceItems = [
   { icon: IconBell, label: "Notifications" },
   { icon: IconClock, label: "Time tracking" },
   { icon: IconTarget, label: "Goals" },
-];
+]
 
 const analyticsItems = [
   { icon: IconChartBar, label: "Overview" },
   { icon: IconTrendingUp, label: "Performance" },
   { icon: IconChartPie, label: "Reports" },
   { icon: IconBolt, label: "Insights" },
-];
+]
 
 const settingsItems = [
   { icon: IconSettings, label: "Preferences" },
@@ -57,7 +58,7 @@ const settingsItems = [
   { icon: IconKeyboard, label: "Keyboard shortcuts" },
   { icon: IconHelp, label: "Help & support" },
   { icon: IconLogout, label: "Sign out" },
-];
+]
 
 export default function CommandMenu01() {
   return (
@@ -96,11 +97,11 @@ export default function CommandMenu01() {
         </CommandList>
       </Command>
       <div className="flex h-12 items-center justify-end border-t px-3">
-        <span className="flex items-center gap-1 text-muted-foreground text-sm">
+        <span className="flex items-center gap-1 text-sm text-muted-foreground">
           <span>Close</span>
           <Kbd className="ml-1">Esc</Kbd>
         </span>
       </div>
     </div>
-  );
+  )
 }

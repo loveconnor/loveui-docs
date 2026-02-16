@@ -1,15 +1,12 @@
-"use client";
+"use client"
 
-import { AtSignIcon, ChevronLeftIcon } from "lucide-react";
-import type React from "react";
-import { WordmarkIcon } from "./logo";
-import { Button } from "@/ui/button";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/ui/input-group";
-import { FloatingPaths } from "./floating-paths";
+import type React from "react"
+import { Button } from "@/ui/button"
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/ui/input-group"
+import { AtSignIcon, ChevronLeftIcon } from "lucide-react"
+
+import { FloatingPaths } from "./floating-paths"
+import { WordmarkIcon } from "./logo"
 
 export function AuthPage() {
   return (
@@ -25,11 +22,11 @@ export function AuthPage() {
       <div className="relative flex min-h-screen flex-col justify-center p-4">
         <div
           aria-hidden
-          className="-z-10 absolute inset-0 isolate opacity-60 contain-strict"
+          className="absolute inset-0 isolate -z-10 opacity-60 contain-strict"
         >
-          <div className="-translate-y-87.5 absolute top-0 right-0 h-320 w-140 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,--theme(--color-foreground/.06)_0,hsla(0,0%,55%,.02)_50%,--theme(--color-foreground/.01)_80%)]" />
-          <div className="absolute top-0 right-0 h-320 w-60 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,--theme(--color-foreground/.04)_0,--theme(--color-foreground/.01)_80%,transparent_100%)] [translate:5%_-50%]" />
-          <div className="-translate-y-87.5 absolute top-0 right-0 h-320 w-60 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,--theme(--color-foreground/.04)_0,--theme(--color-foreground/.01)_80%,transparent_100%)]" />
+          <div className="absolute top-0 right-0 h-320 w-140 -translate-y-87.5 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,--theme(--color-foreground/.06)_0,hsla(0,0%,55%,.02)_50%,--theme(--color-foreground/.01)_80%)]" />
+          <div className="absolute top-0 right-0 h-320 w-60 [translate:5%_-50%] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,--theme(--color-foreground/.04)_0,--theme(--color-foreground/.01)_80%,transparent_100%)]" />
+          <div className="absolute top-0 right-0 h-320 w-60 -translate-y-87.5 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,--theme(--color-foreground/.04)_0,--theme(--color-foreground/.01)_80%,transparent_100%)]" />
         </div>
         <Button className="absolute top-7 left-5" variant="ghost">
           <a href="#">
@@ -40,7 +37,7 @@ export function AuthPage() {
         <div className="mx-auto space-y-4 sm:w-sm">
           <WordmarkIcon className="h-5 lg:hidden" />
           <div className="flex flex-col space-y-1">
-            <h1 className="font-bold text-2xl tracking-wide">
+            <h1 className="text-2xl font-bold tracking-wide">
               Sign In or Join Now!
             </h1>
             <p className="text-base text-muted-foreground">
@@ -64,12 +61,12 @@ export function AuthPage() {
 
           <div className="flex w-full items-center justify-center">
             <div className="h-px w-full bg-border" />
-            <span className="px-2 text-muted-foreground text-xs">OR</span>
+            <span className="px-2 text-xs text-muted-foreground">OR</span>
             <div className="h-px w-full bg-border" />
           </div>
 
           <form className="space-y-2">
-            <p className="text-start text-muted-foreground text-xs">
+            <p className="text-start text-xs text-muted-foreground">
               Enter your email address to sign in or create an account
             </p>
             <InputGroup>
@@ -86,7 +83,7 @@ export function AuthPage() {
               Continue With Email
             </Button>
           </form>
-          <p className="mt-8 text-muted-foreground text-sm">
+          <p className="mt-8 text-sm text-muted-foreground">
             By clicking continue, you agree to our{" "}
             <a
               className="underline underline-offset-4 hover:text-primary"
@@ -106,7 +103,7 @@ export function AuthPage() {
         </div>
       </div>
     </main>
-  );
+  )
 }
 
 const GoogleIcon = (props: React.ComponentProps<"svg">) => (
@@ -120,7 +117,7 @@ const GoogleIcon = (props: React.ComponentProps<"svg">) => (
       <path d="M12.479,14.265v-3.279h11.049c0.108,0.571,0.164,1.247,0.164,1.979c0,2.46-0.672,5.502-2.84,7.669   C18.744,22.829,16.051,24,12.483,24C5.869,24,0.308,18.613,0.308,12S5.869,0,12.483,0c3.659,0,6.265,1.436,8.223,3.307L18.392,5.62   c-1.404-1.317-3.307-2.341-5.913-2.341C7.65,3.279,3.873,7.171,3.873,12s3.777,8.721,8.606,8.721c3.132,0,4.916-1.258,6.059-2.401   c0.927-0.927,1.537-2.251,1.777-4.059L12.479,14.265z" />
     </g>
   </svg>
-);
+)
 
 function AppleIcon({
   fill = "currentColor",
@@ -141,7 +138,7 @@ function AppleIcon({
         </g>
       </g>
     </svg>
-  );
+  )
 }
 
 const GithubIcon = (props: React.ComponentProps<"svg">) => (
@@ -154,4 +151,4 @@ const GithubIcon = (props: React.ComponentProps<"svg">) => (
       transform="scale(64)"
     />
   </svg>
-);
+)

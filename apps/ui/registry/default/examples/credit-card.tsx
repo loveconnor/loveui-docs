@@ -1,3 +1,5 @@
+import type { HTMLAttributes } from "react"
+
 import {
   CreditCard,
   CreditCardBack,
@@ -11,8 +13,7 @@ import {
   CreditCardName,
   CreditCardNumber,
   CreditCardServiceProvider,
-} from "../../../../../packages/credit-card";
-import type { HTMLAttributes } from "react";
+} from "../../../../../packages/credit-card"
 
 const ChaseLogo = (props: HTMLAttributes<SVGElement>) => (
   <svg
@@ -30,7 +31,7 @@ const ChaseLogo = (props: HTMLAttributes<SVGElement>) => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const ChaseMark = (props: HTMLAttributes<SVGElement>) => (
   <svg
@@ -45,7 +46,7 @@ const ChaseMark = (props: HTMLAttributes<SVGElement>) => (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 const Example = () => (
   <CreditCard>
@@ -70,13 +71,13 @@ const Example = () => (
         <CreditCardNumber className="absolute bottom-0 left-0">
           0123 4567 8901 2345
         </CreditCardNumber>
-        <div className="-translate-y-1/2 absolute top-1/2 flex gap-4">
+        <div className="absolute top-1/2 flex -translate-y-1/2 gap-4">
           <CreditCardExpiry>01/24</CreditCardExpiry>
           <CreditCardCvv>123</CreditCardCvv>
         </div>
       </CreditCardBack>
     </CreditCardFlipper>
   </CreditCard>
-);
+)
 
-export default Example;
+export default Example

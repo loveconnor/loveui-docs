@@ -1,28 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 //@ts-nocheck
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import { useEffect, useRef } from "react"
+import * as THREE from "three"
 
 interface ShaderRippleProps {
-  speed?: number;
-  lineWidth?: number;
-  rippleCount?: number;
-  colorLayers?: number;
-  backgroundColor?: string;
-  rotation?: number;
-  timeScale?: number;
-  opacity?: number;
-  waveIntensity?: number;
-  animationSpeed?: number;
-  loopDuration?: number;
-  scale?: number;
-  color1?: string;
-  color2?: string;
-  color3?: string;
-  mod?: number;
-  className?: string;
+  speed?: number
+  lineWidth?: number
+  rippleCount?: number
+  colorLayers?: number
+  backgroundColor?: string
+  rotation?: number
+  timeScale?: number
+  opacity?: number
+  waveIntensity?: number
+  animationSpeed?: number
+  loopDuration?: number
+  scale?: number
+  color1?: string
+  color2?: string
+  color3?: string
+  mod?: number
+  className?: string
 }
 
 export function ShaderRipple({
@@ -45,39 +45,39 @@ export function ShaderRipple({
   className = "",
 }: ShaderRippleProps) {
   // Convert degrees to radians
-  const rotationRadians = (rotation * Math.PI) / 180;
+  const rotationRadians = (rotation * Math.PI) / 180
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<{
-    camera: THREE.Camera;
-    scene: THREE.Scene;
-    renderer: THREE.WebGLRenderer;
-    uniforms: any;
-    animationId: number;
-  } | null>(null);
+    camera: THREE.Camera
+    scene: THREE.Scene
+    renderer: THREE.WebGLRenderer
+    uniforms: any
+    animationId: number
+  } | null>(null)
 
   // Convert hex color to vec3
   const hexToVec3 = (hex: string) => {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     return result
       ? new THREE.Vector3(
           parseInt(result[1], 16) / 255,
           parseInt(result[2], 16) / 255,
           parseInt(result[3], 16) / 255
         )
-      : new THREE.Vector3(1, 0, 0);
-  };
+      : new THREE.Vector3(1, 0, 0)
+  }
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current) return
 
-    const container = containerRef.current;
+    const container = containerRef.current
 
     const vertexShader = `
       void main() {
         gl_Position = vec4( position, 1.0 );
       }
-    `;
+    `
 
     const fragmentShader = `
       #define TWO_PI 6.2831853072
@@ -167,13 +167,13 @@ export function ShaderRipple({
         
         gl_FragColor = vec4(finalColor * smoothFade, alpha);
       }
-    `;
+    `
 
-    const camera = new THREE.Camera();
-    camera.position.z = 1;
+    const camera = new THREE.Camera()
+    camera.position.z = 1
 
-    const scene = new THREE.Scene();
-    const geometry = new THREE.PlaneGeometry(2, 2);
+    const scene = new THREE.Scene()
+    const geometry = new THREE.PlaneGeometry(2, 2)
 
     const uniforms = {
       time: { type: "f", value: 1.0 },
@@ -191,7 +191,7 @@ export function ShaderRipple({
       color3: { type: "v3", value: hexToVec3(color3) },
       loopDuration: { type: "f", value: loopDuration },
       modValue: { type: "f", value: mod },
-    };
+    }
 
     const material = new THREE.ShaderMaterial({
       uniforms: uniforms,
@@ -200,37 +200,37 @@ export function ShaderRipple({
       transparent: true,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
-    });
+    })
 
-    const mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
+    const mesh = new THREE.Mesh(geometry, material)
+    scene.add(mesh)
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x000000, 0);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setClearColor(0x000000, 0)
 
-    container.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement)
 
     const onWindowResize = () => {
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      renderer.setSize(width, height);
-      uniforms.resolution.value.x = renderer.domElement.width;
-      uniforms.resolution.value.y = renderer.domElement.height;
-    };
+      const width = container.clientWidth
+      const height = container.clientHeight
+      renderer.setSize(width, height)
+      uniforms.resolution.value.x = renderer.domElement.width
+      uniforms.resolution.value.y = renderer.domElement.height
+    }
 
-    onWindowResize();
-    window.addEventListener("resize", onWindowResize, false);
+    onWindowResize()
+    window.addEventListener("resize", onWindowResize, false)
 
     const animate = () => {
-      const animationId = requestAnimationFrame(animate);
-      uniforms.time.value += speed * animationSpeed;
-      renderer.render(scene, camera);
+      const animationId = requestAnimationFrame(animate)
+      uniforms.time.value += speed * animationSpeed
+      renderer.render(scene, camera)
 
       if (sceneRef.current) {
-        sceneRef.current.animationId = animationId;
+        sceneRef.current.animationId = animationId
       }
-    };
+    }
 
     sceneRef.current = {
       camera,
@@ -238,25 +238,25 @@ export function ShaderRipple({
       renderer,
       uniforms,
       animationId: 0,
-    };
+    }
 
-    animate();
+    animate()
 
     return () => {
-      window.removeEventListener("resize", onWindowResize);
+      window.removeEventListener("resize", onWindowResize)
 
       if (sceneRef.current) {
-        cancelAnimationFrame(sceneRef.current.animationId);
+        cancelAnimationFrame(sceneRef.current.animationId)
 
         if (container && sceneRef.current.renderer.domElement) {
-          container.removeChild(sceneRef.current.renderer.domElement);
+          container.removeChild(sceneRef.current.renderer.domElement)
         }
 
-        sceneRef.current.renderer.dispose();
-        geometry.dispose();
-        material.dispose();
+        sceneRef.current.renderer.dispose()
+        geometry.dispose()
+        material.dispose()
       }
-    };
+    }
   }, [
     speed,
     lineWidth,
@@ -273,7 +273,7 @@ export function ShaderRipple({
     color2,
     color3,
     mod,
-  ]);
+  ])
 
   return (
     <div
@@ -284,5 +284,5 @@ export function ShaderRipple({
         overflow: "hidden",
       }}
     />
-  );
+  )
 }

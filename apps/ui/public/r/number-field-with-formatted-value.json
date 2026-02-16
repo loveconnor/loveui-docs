@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-with-formatted-value",
-  "type": "registry:example",
   "description": "A number field with formatted value",
   "registryDependencies": [
     "@loveui/number-field"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "number field"
-  ]
+  ],
+  "type": "registry:example"
 }

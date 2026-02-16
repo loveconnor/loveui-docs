@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-demo",
-  "type": "registry:example",
   "description": "Basic tooltip",
   "registryDependencies": [
     "@loveui/tooltip",
@@ -17,5 +16,6 @@
   "categories": [
     "tooltip",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

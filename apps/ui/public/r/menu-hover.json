@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu-hover",
-  "type": "registry:example",
   "description": "Open the menu on hover",
   "registryDependencies": [
     "@loveui/menu",
@@ -16,5 +15,6 @@
   ],
   "categories": [
     "menu"
-  ]
+  ],
+  "type": "registry:example"
 }

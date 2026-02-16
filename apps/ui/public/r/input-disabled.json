@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-disabled",
-  "type": "registry:example",
   "description": "Input with disabled state",
   "registryDependencies": [
     "@loveui/input"
@@ -16,5 +15,6 @@
   "categories": [
     "input",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

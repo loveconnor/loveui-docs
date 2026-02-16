@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "autocomplete-grouped",
-  "type": "registry:example",
   "description": "Autocomplete with grouped items",
   "registryDependencies": [
     "@loveui/autocomplete"
@@ -16,5 +15,6 @@
   "categories": [
     "autocomplete",
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

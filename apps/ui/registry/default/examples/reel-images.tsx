@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Reel,
@@ -7,14 +7,14 @@ import {
   ReelFooter,
   ReelImage,
   ReelItem,
-  type ReelItem as ReelItemType,
   ReelMuteButton,
   ReelNavigation,
   ReelNextButton,
   ReelPlayButton,
   ReelPreviousButton,
   ReelProgress,
-} from "../../../../../packages/reel";
+  type ReelItem as ReelItemType,
+} from "../../../../../packages/reel"
 
 const reels: ReelItemType[] = [
   {
@@ -44,7 +44,7 @@ const reels: ReelItemType[] = [
     description: "Into the woods",
     duration: 5,
   },
-];
+]
 
 const Example = () => (
   <Reel data={reels}>
@@ -59,7 +59,7 @@ const Example = () => (
           />
           <ReelFooter className="pb-16">
             <div className="text-white">
-              <h3 className="font-semibold text-lg">{reel.title}</h3>
+              <h3 className="text-lg font-semibold">{reel.title}</h3>
               <p className="text-sm opacity-90">{reel.description}</p>
             </div>
           </ReelFooter>
@@ -76,6 +76,6 @@ const Example = () => (
       <ReelNextButton />
     </ReelControls>
   </Reel>
-);
+)
 
-export default Example;
+export default Example

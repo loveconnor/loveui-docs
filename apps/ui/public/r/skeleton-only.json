@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "skeleton-only",
-  "type": "registry:example",
   "description": "Skeleton only",
   "registryDependencies": [
     "@loveui/skeleton"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "skeleton"
-  ]
+  ],
+  "type": "registry:example"
 }

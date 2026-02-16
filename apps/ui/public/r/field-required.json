@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-required",
-  "type": "registry:example",
   "description": "Field with required indicator",
   "registryDependencies": [
     "@loveui/field"
@@ -17,5 +16,6 @@
     "field",
     "label",
     "required"
-  ]
+  ],
+  "type": "registry:example"
 }

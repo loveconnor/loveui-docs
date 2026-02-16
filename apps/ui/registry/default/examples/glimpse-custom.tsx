@@ -5,11 +5,11 @@ import {
   GlimpseImage,
   GlimpseTitle,
   GlimpseTrigger,
-} from "../../../../../packages/glimpse";
-import { glimpse } from "../../../../../packages/glimpse/server";
+} from "../../../../../packages/glimpse"
+import { glimpse } from "../../../../../packages/glimpse/server"
 
 const Example = async () => {
-  const data = await glimpse("https://github.com/loveconnor/loveui");
+  const data = await glimpse("https://github.com/loveconnor/loveui")
 
   return (
     <div>
@@ -25,7 +25,7 @@ const Example = async () => {
         </GlimpseTrigger>
         <GlimpseContent className="w-80 bg-secondary">
           <GlimpseImage className="shadow-lg" src={data.image ?? ""} />
-          <GlimpseTitle className="line-clamp-2 font-semibold text-lg">
+          <GlimpseTitle className="line-clamp-2 text-lg font-semibold">
             {data.title}
           </GlimpseTitle>
           <GlimpseDescription className="text-sm">
@@ -35,7 +35,7 @@ const Example = async () => {
       </Glimpse>{" "}
       on GitHub
     </div>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

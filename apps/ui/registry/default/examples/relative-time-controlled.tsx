@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { useEffect, useState } from "react"
 
 import {
   RelativeTime,
@@ -6,24 +8,23 @@ import {
   RelativeTimeZoneDate,
   RelativeTimeZoneDisplay,
   RelativeTimeZoneLabel,
-} from "../../../../../packages/relative-time";
-import { useEffect, useState } from "react";
+} from "../../../../../packages/relative-time"
 
 const timezones = [
   { label: "EST", zone: "America/New_York" },
   { label: "GMT", zone: "Europe/London" },
   { label: "JST", zone: "Asia/Tokyo" },
-];
+]
 
 const Example = () => {
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(new Date())
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+      setTime(new Date())
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="rounded-md border bg-background p-4">
@@ -37,7 +38,7 @@ const Example = () => {
         ))}
       </RelativeTime>
     </div>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

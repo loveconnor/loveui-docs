@@ -1,14 +1,15 @@
-"use client";
+"use client"
+
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
 import {
   ImageCrop,
   ImageCropApply,
   ImageCropContent,
   ImageCropReset,
-} from "../../../../../packages/image-crop";
-import { Button } from "../../../../../packages/ui/src/ui/button";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+} from "../../../../../packages/image-crop"
+import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const STOCK_IMAGES = [
   {
@@ -23,80 +24,80 @@ const STOCK_IMAGES = [
     label: "Outdoor cafe",
     url: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
   },
-];
+]
 
 const getFileFromUrl = async (url: string, filename: string) => {
-  const response = await fetch(url);
+  const response = await fetch(url)
   if (!response.ok) {
-    throw new Error("Failed to fetch image");
+    throw new Error("Failed to fetch image")
   }
 
-  const blob = await response.blob();
-  const extension = blob.type.split("/").at(-1) || "jpg";
+  const blob = await response.blob()
+  const extension = blob.type.split("/").at(-1) || "jpg"
 
   return new File([blob], `${filename}.${extension}`, {
     type: blob.type || "image/jpeg",
-  });
-};
+  })
+}
 
 const Example = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [croppedImage, setCroppedImage] = useState<string | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [reloadKey, setReloadKey] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [croppedImage, setCroppedImage] = useState<string | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [reloadKey, setReloadKey] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    let cancelled = false;
-    const activeImage = STOCK_IMAGES[activeIndex];
+    let cancelled = false
+    const activeImage = STOCK_IMAGES[activeIndex]
 
     const load = async () => {
-      setIsLoading(true);
-      setError(null);
-      setSelectedFile(null);
+      setIsLoading(true)
+      setError(null)
+      setSelectedFile(null)
 
       try {
         const file = await getFileFromUrl(
           activeImage.url,
           activeImage.label.toLowerCase().replace(/\s+/g, "-")
-        );
+        )
 
         if (!cancelled) {
-          setSelectedFile(file);
-          setCroppedImage(null);
+          setSelectedFile(file)
+          setCroppedImage(null)
         }
       } catch (err) {
         if (!cancelled) {
           setError(
             err instanceof Error ? err.message : "Unable to load stock image."
-          );
+          )
         }
       } finally {
         if (!cancelled) {
-          setIsLoading(false);
+          setIsLoading(false)
         }
       }
-    };
+    }
 
-    void load();
+    void load()
 
     return () => {
-      cancelled = true;
-    };
-  }, [activeIndex, reloadKey]);
+      cancelled = true
+    }
+  }, [activeIndex, reloadKey])
 
   const handleReload = () => {
-    setReloadKey((key) => key + 1);
-  };
+    setReloadKey((key) => key + 1)
+  }
 
   const handleReset = () => {
-    setCroppedImage(null);
-  };
+    setCroppedImage(null)
+  }
 
   const handleRetry = () => {
-    handleReload();
-  };
+    handleReload()
+  }
 
   if (croppedImage) {
     return (
@@ -125,7 +126,7 @@ const Example = () => {
           Start Over
         </Button>
       </div>
-    );
+    )
   }
 
   return (
@@ -197,7 +198,7 @@ const Example = () => {
         </ImageCrop>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

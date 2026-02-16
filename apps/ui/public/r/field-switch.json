@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-switch",
-  "type": "registry:example",
   "description": "Field with toggle switch",
   "registryDependencies": [
     "@loveui/field",
@@ -18,5 +17,6 @@
     "field",
     "switch",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

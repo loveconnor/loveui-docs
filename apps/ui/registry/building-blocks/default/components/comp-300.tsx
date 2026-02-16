@@ -20,7 +20,9 @@ export default function Component() {
                   aria-hidden="true"
                 />
                 <div className="flex grow justify-between gap-12">
-                  <p className="text-sm">Release goes live tomorrow at 9:00 AM.</p>
+                  <p className="text-sm">
+                    Release goes live tomorrow at 9:00 AM.
+                  </p>
                   <div className="text-sm whitespace-nowrap">
                     <button className="text-sm font-medium hover:underline">
                       Review plan

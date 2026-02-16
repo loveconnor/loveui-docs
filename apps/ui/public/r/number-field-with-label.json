@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-with-label",
-  "type": "registry:example",
   "description": "A number field with an external label",
   "dependencies": [
     "@radix-ui/react-label"
@@ -20,5 +19,6 @@
   "categories": [
     "number field",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

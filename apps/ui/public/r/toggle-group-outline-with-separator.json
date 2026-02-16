@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toggle-group-outline-with-separator",
-  "type": "registry:example",
   "description": "Toggle group with outline toggles and separator",
   "registryDependencies": [
     "@loveui/toggle-group"
@@ -16,5 +15,6 @@
   "categories": [
     "toggle group",
     "toggle"
-  ]
+  ],
+  "type": "registry:example"
 }

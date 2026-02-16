@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
 
 const data = [
   {
@@ -28,12 +28,12 @@ const data = [
     change: "-2.4%",
     changeType: "negative",
   },
-];
+]
 
 export default function Stats03() {
   return (
-    <div className="flex items-center justify-center p-10 w-full">
-      <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
+    <div className="flex w-full items-center justify-center p-10">
+      <dl className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {data.map((item) => (
           <Card key={item.name} className="p-6 py-4">
             <CardContent className="p-0">
@@ -41,7 +41,7 @@ export default function Stats03() {
                 {item.name}
               </dt>
               <dd className="mt-2 flex items-baseline space-x-2.5">
-                <span className="tabular-nums tabular-nums text-3xl font-semibold text-foreground">
+                <span className="text-3xl font-semibold text-foreground tabular-nums">
                   {item.stat}
                 </span>
                 <span
@@ -60,5 +60,5 @@ export default function Stats03() {
         ))}
       </dl>
     </div>
-  );
+  )
 }

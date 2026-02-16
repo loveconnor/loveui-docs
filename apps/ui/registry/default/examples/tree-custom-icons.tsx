@@ -1,15 +1,5 @@
-"use client";
+"use client"
 
-import {
-  TreeExpander,
-  TreeIcon,
-  TreeLabel,
-  TreeNode,
-  TreeNodeContent,
-  TreeNodeTrigger,
-  TreeProvider,
-  TreeView,
-} from "../../../../../packages/tree";
 import {
   Database,
   Globe,
@@ -20,7 +10,18 @@ import {
   Table,
   User,
   Users,
-} from "lucide-react";
+} from "lucide-react"
+
+import {
+  TreeExpander,
+  TreeIcon,
+  TreeLabel,
+  TreeNode,
+  TreeNodeContent,
+  TreeNodeTrigger,
+  TreeProvider,
+  TreeView,
+} from "../../../../../packages/tree"
 
 export default function TreeCustomIconsExample() {
   return (
@@ -137,5 +138,5 @@ export default function TreeCustomIconsExample() {
         </TreeNode>
       </TreeView>
     </TreeProvider>
-  );
+  )
 }

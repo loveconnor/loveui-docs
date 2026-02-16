@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-form",
-  "type": "registry:example",
   "description": "Checkbox in a form",
   "registryDependencies": [
     "@loveui/checkbox",
@@ -21,5 +20,6 @@
     "form",
     "button",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

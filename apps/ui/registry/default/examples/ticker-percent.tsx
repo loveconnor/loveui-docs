@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import Image from "next/image"
 
 import {
   Ticker,
@@ -6,10 +8,9 @@ import {
   TickerPrice,
   TickerPriceChange,
   TickerSymbol,
-} from "../../../../../packages/ticker";
-import Image from "next/image";
+} from "../../../../../packages/ticker"
 
-const logoToken = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN;
+const logoToken = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN
 
 const items = [
   {
@@ -22,7 +23,7 @@ const items = [
     price: 409.33,
     change: 2.18,
   },
-];
+]
 
 const Example = () => (
   <>
@@ -46,6 +47,6 @@ const Example = () => (
       </Ticker>
     ))}
   </>
-);
+)
 
-export default Example;
+export default Example

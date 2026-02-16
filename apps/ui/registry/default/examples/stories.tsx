@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Stories,
@@ -9,7 +9,7 @@ import {
   StoryAuthorName,
   StoryOverlay,
   StoryVideo,
-} from "../../../../../packages/stories";
+} from "../../../../../packages/stories"
 
 const stories = [
   {
@@ -57,7 +57,7 @@ const stories = [
     video:
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
   },
-];
+]
 
 const Example = () => (
   <Stories>
@@ -78,6 +78,6 @@ const Example = () => (
       ))}
     </StoriesContent>
   </Stories>
-);
+)
 
-export default Example;
+export default Example

@@ -1,4 +1,7 @@
-"use client";
+"use client"
+
+import Image from "next/image"
+import { Heart, MessageCircle, Share } from "lucide-react"
 
 import {
   Reel,
@@ -8,18 +11,16 @@ import {
   ReelItem,
   ReelProgress,
   ReelVideo,
-} from "../../../../../packages/reel";
-import { Button } from "../../../../../packages/ui/src/ui/button";
-import { Heart, MessageCircle, Share } from "lucide-react";
-import Image from "next/image";
+} from "../../../../../packages/reel"
+import { Button } from "../../../../../packages/ui/src/ui/button"
 
 type CustomReelItem = ReelItem & {
-  author: string;
-  avatar: string;
-  description: string;
-  likes: string;
-  comments: string;
-};
+  author: string
+  avatar: string
+  description: string
+  likes: string
+  comments: string
+}
 const reels: CustomReelItem[] = [
   {
     id: 1,
@@ -57,7 +58,7 @@ const reels: CustomReelItem[] = [
     duration: 6,
     src: "https://wajxiz6qhqyqkm0o.public.blob.vercel-storage.com/grok-imagine-3.mp4",
   },
-];
+]
 
 const Example = () => (
   <Reel data={reels}>
@@ -77,7 +78,7 @@ const Example = () => (
                 unoptimized
                 width={24}
               />
-              <span className="font-medium text-sm text-white">
+              <span className="text-sm font-medium text-white">
                 {(reel as CustomReelItem).author}
               </span>
               <Button className="ml-auto rounded-full bg-white/20 px-3 py-1 text-sm text-white backdrop-blur-sm transition-colors hover:bg-white/30">
@@ -123,6 +124,6 @@ const Example = () => (
       )}
     </ReelContent>
   </Reel>
-);
+)
 
-export default Example;
+export default Example

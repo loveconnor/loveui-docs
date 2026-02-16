@@ -1,6 +1,20 @@
-"use client";
+"use client"
 
-import { faker } from "@faker-js/faker";
+import { useState } from "react"
+import { faker } from "@faker-js/faker"
+import groupBy from "lodash.groupby"
+import {
+  CalendarIcon,
+  ChevronRightIcon,
+  EyeIcon,
+  GanttChartSquareIcon,
+  KanbanSquareIcon,
+  LinkIcon,
+  ListIcon,
+  TableIcon,
+  TrashIcon,
+} from "lucide-react"
+
 import {
   CalendarBody,
   CalendarDate,
@@ -11,7 +25,7 @@ import {
   CalendarMonthPicker,
   CalendarProvider,
   CalendarYearPicker,
-} from "../../../../../packages/calendar";
+} from "../../../../../packages/calendar"
 import {
   GanttCreateMarkerTrigger,
   GanttFeatureItem,
@@ -25,23 +39,29 @@ import {
   GanttSidebarItem,
   GanttTimeline,
   GanttToday,
-} from "../../../../../packages/gantt";
+} from "../../../../../packages/gantt"
 import {
   KanbanBoard,
   KanbanCard,
   KanbanCards,
   KanbanHeader,
   KanbanProvider,
-} from "../../../../../packages/kanban";
+} from "../../../../../packages/kanban"
 import {
-  type DragEndEvent,
   ListGroup,
   ListHeader,
   ListItem,
   ListItems,
   ListProvider,
-} from "../../../../../packages/list";
-import type { ColumnDef } from "../../../../../packages/table";
+  type DragEndEvent,
+} from "../../../../../packages/list"
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "../../../../../packages/shadcn-ui/components/ui/context-menu"
+import type { ColumnDef } from "../../../../../packages/table"
 import {
   TableBody,
   TableCell,
@@ -51,39 +71,29 @@ import {
   TableHeaderGroup,
   TableProvider,
   TableRow,
-} from "../../../../../packages/table";
-import groupBy from "lodash.groupby";
+} from "../../../../../packages/table"
 import {
-  CalendarIcon,
-  ChevronRightIcon,
-  EyeIcon,
-  GanttChartSquareIcon,
-  KanbanSquareIcon,
-  LinkIcon,
-  ListIcon,
-  TableIcon,
-  TrashIcon,
-} from "lucide-react";
-import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../../../../../packages/ui/src/ui/avatar";
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "../../../../../packages/ui/src/ui/avatar"
 import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from "../../../../../packages/shadcn-ui/components/ui/context-menu";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../../../../packages/ui/src/ui/tabs";
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../../../../packages/ui/src/ui/tabs"
 
 // Seed faker to ensure consistent data between server and client
-faker.seed(123);
+faker.seed(123)
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
   { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
   { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
   { id: faker.string.uuid(), name: "Done", color: "#10B981" },
-];
+]
 
 const users = Array.from({ length: 4 })
   .fill(null)
@@ -91,35 +101,35 @@ const users = Array.from({ length: 4 })
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     image: faker.image.avatar(),
-  }));
+  }))
 
 const exampleGroups = Array.from({ length: 6 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleProducts = Array.from({ length: 4 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleInitiatives = Array.from({ length: 2 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleReleases = Array.from({ length: 3 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleFeatures = Array.from({ length: 20 })
   .fill(null)
@@ -134,7 +144,7 @@ const exampleFeatures = Array.from({ length: 20 })
     product: faker.helpers.arrayElement(exampleProducts),
     initiative: faker.helpers.arrayElement(exampleInitiatives),
     release: faker.helpers.arrayElement(exampleReleases),
-  }));
+  }))
 
 const exampleMarkers = Array.from({ length: 6 })
   .fill(null)
@@ -150,48 +160,47 @@ const exampleMarkers = Array.from({ length: 6 })
       "bg-orange-100 text-orange-900",
       "bg-teal-100 text-teal-900",
     ]),
-  }));
+  }))
 
 const GanttView = () => {
-  const [features, setFeatures] = useState(exampleFeatures);
-  const groupedFeatures = groupBy(features, "group.name");
+  const [features, setFeatures] = useState(exampleFeatures)
+  const groupedFeatures = groupBy(features, "group.name")
 
   const sortedGroupedFeatures = Object.fromEntries(
     Object.entries(groupedFeatures).sort(([nameA], [nameB]) =>
       nameA.localeCompare(nameB)
     )
-  );
+  )
 
   const handleViewFeature = (id: string) =>
-    console.log(`Feature selected: ${id}`);
+    console.log(`Feature selected: ${id}`)
 
-  const handleCopyLink = (id: string) => console.log(`Copy link: ${id}`);
+  const handleCopyLink = (id: string) => console.log(`Copy link: ${id}`)
 
   const handleRemoveFeature = (id: string) =>
-    setFeatures((prev) => prev.filter((feature) => feature.id !== id));
+    setFeatures((prev) => prev.filter((feature) => feature.id !== id))
 
-  const handleRemoveMarker = (id: string) =>
-    console.log(`Remove marker: ${id}`);
+  const handleRemoveMarker = (id: string) => console.log(`Remove marker: ${id}`)
 
   const handleCreateMarker = (date: Date) =>
-    console.log(`Create marker: ${date.toISOString()}`);
+    console.log(`Create marker: ${date.toISOString()}`)
 
   const handleMoveFeature = (id: string, startAt: Date, endAt: Date | null) => {
     if (!endAt) {
-      return;
+      return
     }
 
     setFeatures((prev) =>
       prev.map((feature) =>
         feature.id === id ? { ...feature, startAt, endAt } : feature
       )
-    );
+    )
 
-    console.log(`Move feature: ${id} from ${startAt} to ${endAt}`);
-  };
+    console.log(`Move feature: ${id} from ${startAt} to ${endAt}`)
+  }
 
   const handleAddFeature = (date: Date) =>
-    console.log(`Add feature: ${date.toISOString()}`);
+    console.log(`Add feature: ${date.toISOString()}`)
 
   return (
     <GanttProvider
@@ -284,20 +293,20 @@ const GanttView = () => {
         <GanttCreateMarkerTrigger onCreateMarker={handleCreateMarker} />
       </GanttTimeline>
     </GanttProvider>
-  );
-};
+  )
+}
 
 const earliestYear =
   exampleFeatures
     .map((feature) => feature.startAt.getFullYear())
     .sort()
-    .at(0) ?? new Date().getFullYear();
+    .at(0) ?? new Date().getFullYear()
 
 const latestYear =
   exampleFeatures
     .map((feature) => feature.endAt.getFullYear())
     .sort()
-    .at(-1) ?? new Date().getFullYear();
+    .at(-1) ?? new Date().getFullYear()
 
 const CalendarView = () => (
   <CalendarProvider>
@@ -313,34 +322,34 @@ const CalendarView = () => (
       {({ feature }) => <CalendarItem feature={feature} key={feature.id} />}
     </CalendarBody>
   </CalendarProvider>
-);
+)
 
 const ListView = () => {
-  const [features, setFeatures] = useState(exampleFeatures);
+  const [features, setFeatures] = useState(exampleFeatures)
 
   const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
+    const { active, over } = event
 
     if (!over) {
-      return;
+      return
     }
 
-    const status = statuses.find((status) => status.name === over.id);
+    const status = statuses.find((status) => status.name === over.id)
 
     if (!status) {
-      return;
+      return
     }
 
     setFeatures(
       features.map((feature) => {
         if (feature.id === active.id) {
-          return { ...feature, status };
+          return { ...feature, status }
         }
 
-        return feature;
+        return feature
       })
-    );
-  };
+    )
+  }
 
   return (
     <ListProvider className="overflow-auto" onDragEnd={handleDragEnd}>
@@ -362,7 +371,7 @@ const ListView = () => {
                     className="h-2 w-2 shrink-0 rounded-full"
                     style={{ backgroundColor: feature.status.color }}
                   />
-                  <p className="m-0 flex-1 font-medium text-sm">
+                  <p className="m-0 flex-1 text-sm font-medium">
                     {feature.name}
                   </p>
                   {feature.owner && (
@@ -379,19 +388,19 @@ const ListView = () => {
         </ListGroup>
       ))}
     </ListProvider>
-  );
-};
+  )
+}
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
   year: "numeric",
-});
+})
 
 const shortDateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
-});
+})
 
 const KanbanView = () => {
   const [features, setFeatures] = useState(
@@ -399,31 +408,31 @@ const KanbanView = () => {
       ...feature,
       column: feature.status.id,
     }))
-  );
+  )
 
   const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
+    const { active, over } = event
 
     if (!over) {
-      return;
+      return
     }
 
-    const status = statuses.find(({ id }) => id === over.id);
+    const status = statuses.find(({ id }) => id === over.id)
 
     if (!status) {
-      return;
+      return
     }
 
     setFeatures(
       features.map((feature) => {
         if (feature.id === active.id) {
-          return { ...feature, status };
+          return { ...feature, status }
         }
 
-        return feature;
+        return feature
       })
-    );
-  };
+    )
+  }
 
   return (
     <KanbanProvider
@@ -445,10 +454,10 @@ const KanbanView = () => {
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex flex-col gap-1">
-                    <p className="m-0 flex-1 font-medium text-sm">
+                    <p className="m-0 flex-1 text-sm font-medium">
                       {feature.name}
                     </p>
-                    <p className="m-0 text-muted-foreground text-xs">
+                    <p className="m-0 text-xs text-muted-foreground">
                       {feature.initiative.name}
                     </p>
                   </div>
@@ -461,7 +470,7 @@ const KanbanView = () => {
                     </Avatar>
                   )}
                 </div>
-                <p className="m-0 text-muted-foreground text-xs">
+                <p className="m-0 text-xs text-muted-foreground">
                   {shortDateFormatter.format(feature.startAt)} -{" "}
                   {dateFormatter.format(feature.endAt)}
                 </p>
@@ -471,8 +480,8 @@ const KanbanView = () => {
         </KanbanBoard>
       )}
     </KanbanProvider>
-  );
-};
+  )
+}
 
 const TableView = () => {
   const columns: ColumnDef<(typeof exampleFeatures)[number]>[] = [
@@ -500,7 +509,7 @@ const TableView = () => {
           </div>
           <div>
             <span className="font-medium">{row.original.name}</span>
-            <div className="flex items-center gap-1 text-muted-foreground text-xs">
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
               <span>{row.original.product.name}</span>
               <ChevronRightIcon size={12} />
               <span>{row.original.group.name}</span>
@@ -537,7 +546,7 @@ const TableView = () => {
       ),
       cell: ({ row }) => row.original.release.name,
     },
-  ];
+  ]
 
   return (
     <div className="size-full overflow-auto">
@@ -558,8 +567,8 @@ const TableView = () => {
         </TableBody>
       </TableProvider>
     </div>
-  );
-};
+  )
+}
 
 const Example = () => {
   const views = [
@@ -593,7 +602,7 @@ const Example = () => {
       icon: TableIcon,
       component: TableView,
     },
-  ];
+  ]
 
   return (
     <Tabs className="not-prose size-full gap-0 divide-y" defaultValue="gantt">
@@ -614,7 +623,7 @@ const Example = () => {
         </TabsContent>
       ))}
     </Tabs>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

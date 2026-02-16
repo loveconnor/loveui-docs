@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "separator-demo",
-  "type": "registry:example",
   "description": "Separator with horizontal and vertical orientations",
   "registryDependencies": [
     "@loveui/separator"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "separator"
-  ]
+  ],
+  "type": "registry:example"
 }

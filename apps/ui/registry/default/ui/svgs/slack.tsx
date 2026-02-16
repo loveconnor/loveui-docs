@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from "react"
 
 const Slack = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 2447.6 2452.5">
@@ -21,6 +21,6 @@ const Slack = (props: SVGProps<SVGSVGElement>) => (
       />
     </g>
   </svg>
-);
+)
 
-export { Slack };
+export { Slack }

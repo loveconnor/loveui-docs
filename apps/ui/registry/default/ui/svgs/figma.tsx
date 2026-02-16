@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from "react"
 
 const Figma = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 54 80" fill="none">
@@ -30,6 +30,6 @@ const Figma = (props: SVGProps<SVGSVGElement>) => (
       </clipPath>
     </defs>
   </svg>
-);
+)
 
-export { Figma };
+export { Figma }

@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
-import { ChartContainer } from "@/registry/building-blocks/default/ui/chart";
-import { cn } from "@/lib/utils";
-import { Area, AreaChart, XAxis } from "recharts";
+import { Area, AreaChart, XAxis } from "recharts"
+
+import { cn } from "@/lib/utils"
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
+import { ChartContainer } from "@/registry/building-blocks/default/ui/chart"
 
 const data = [
   {
@@ -96,7 +97,7 @@ const data = [
     "Beta Solutions": 78.54,
     "Gamma Industries": 75.68,
   },
-];
+]
 
 const summary = [
   {
@@ -123,27 +124,27 @@ const summary = [
     percentageChange: "-7.1%",
     changeType: "negative",
   },
-];
+]
 
 const sanitizeName = (name: string) => {
   return name
     .replace(/\\s+/g, "-")
     .replace(/[^a-zA-Z0-9-]/g, "_")
-    .toLowerCase();
-};
+    .toLowerCase()
+}
 
 export default function Stats10() {
   return (
-    <div className="flex items-center justify-center p-10 w-full">
-      <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
+    <div className="flex w-full items-center justify-center p-10">
+      <dl className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {summary.map((item) => {
-          const sanitizedName = sanitizeName(item.name);
-          const gradientId = `gradient-${sanitizedName}`;
+          const sanitizedName = sanitizeName(item.name)
+          const gradientId = `gradient-${sanitizedName}`
 
           const color =
             item.changeType === "positive"
               ? "hsl(142.1 76.2% 36.3%)"
-              : "hsl(0 72.2% 50.6%)";
+              : "hsl(0 72.2% 50.6%)"
 
           return (
             <Card key={item.name} className="p-0">
@@ -185,7 +186,7 @@ export default function Stats10() {
 
                 <div className="mt-2 h-16 overflow-hidden">
                   <ChartContainer
-                    className="w-full h-full"
+                    className="h-full w-full"
                     config={{
                       [item.name]: {
                         label: item.name,
@@ -228,9 +229,9 @@ export default function Stats10() {
                 </div>
               </CardContent>
             </Card>
-          );
+          )
         })}
       </dl>
     </div>
-  );
+  )
 }

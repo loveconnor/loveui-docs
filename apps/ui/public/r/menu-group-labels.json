@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu-group-labels",
-  "type": "registry:example",
   "description": "Menu items grouped with labels",
   "registryDependencies": [
     "@loveui/menu",
@@ -17,5 +16,6 @@
   "categories": [
     "menu",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "popover-demo",
-  "type": "registry:example",
   "description": "Popover with a form",
   "registryDependencies": [
     "@loveui/popover",
@@ -23,5 +22,6 @@
     "textarea",
     "form",
     "field"
-  ]
+  ],
+  "type": "registry:example"
 }

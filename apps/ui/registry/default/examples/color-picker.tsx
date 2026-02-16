@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   ColorPicker,
@@ -8,7 +8,7 @@ import {
   ColorPickerHue,
   ColorPickerOutput,
   ColorPickerSelection,
-} from "../../../../../packages/color-picker";
+} from "../../../../../packages/color-picker"
 
 const Example = () => (
   <ColorPicker className="max-w-sm rounded-md border bg-background p-4 shadow-sm">
@@ -25,6 +25,6 @@ const Example = () => (
       <ColorPickerFormat />
     </div>
   </ColorPicker>
-);
+)
 
-export default Example;
+export default Example

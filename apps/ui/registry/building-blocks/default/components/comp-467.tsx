@@ -34,8 +34,7 @@ const items = [
     id: "4",
     name: "Thomas Raklovits",
     username: "@mariagarcia",
-    image:
-      "https://github.com/monster0506.png",
+    image: "https://github.com/monster0506.png",
     email: "traklovits@company.com",
     location: "Cleveland, Ohio",
     status: "Active",

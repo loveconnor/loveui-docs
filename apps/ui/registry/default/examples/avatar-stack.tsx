@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { AvatarStack } from "../../../../../packages/avatar-stack";
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/default/ui/avatar";
+} from "@/registry/default/ui/avatar"
+
+import { AvatarStack } from "../../../../../packages/avatar-stack"
 
 const Example = () => (
   <AvatarStack>
@@ -26,6 +27,6 @@ const Example = () => (
       <AvatarFallback>MO</AvatarFallback>
     </Avatar>
   </AvatarStack>
-);
+)
 
-export default Example;
+export default Example

@@ -1,4 +1,7 @@
-"use client";
+"use client"
+
+import { useState } from "react"
+import { FileJson, FileText, FileType } from "lucide-react"
 
 import {
   CodeBlock,
@@ -9,7 +12,7 @@ import {
   CodeblockShiki,
   CopyButton,
   type Languages,
-} from "../../../../../packages/code-block/src";
+} from "../../../../../packages/code-block/src"
 import {
   TreeExpander,
   TreeIcon,
@@ -19,15 +22,13 @@ import {
   TreeNodeTrigger,
   TreeProvider,
   TreeView,
-} from "../../../../../packages/tree";
-import { FileJson, FileText, FileType } from "lucide-react";
-import { useState } from "react";
+} from "../../../../../packages/tree"
 
 type FileContent = {
-  name: string;
-  language: Languages;
-  code: string;
-};
+  name: string
+  language: Languages
+  code: string
+}
 
 const fileContents: Record<string, FileContent> = {
   "server.ts": {
@@ -534,23 +535,23 @@ src/
 └── server.ts        # Entry point
 \`\`\``,
   },
-};
+}
 
 export default function CodebaseExample() {
-  const [selectedFile, setSelectedFile] = useState<string>("server.ts");
-  const fallbackFile = fileContents["server.ts"];
+  const [selectedFile, setSelectedFile] = useState<string>("server.ts")
+  const fallbackFile = fileContents["server.ts"]
 
   if (!fallbackFile) {
-    return null;
+    return null
   }
 
-  const activeFile = fileContents[selectedFile] ?? fallbackFile;
+  const activeFile = fileContents[selectedFile] ?? fallbackFile
 
   const handleFileSelect = (fileId: string) => {
     if (fileContents[fileId]) {
-      setSelectedFile(fileId);
+      setSelectedFile(fileId)
     }
-  };
+  }
 
   return (
     <div className="grid size-full grid-cols-[300px_1fr] divide-x overflow-hidden">
@@ -559,9 +560,9 @@ export default function CodebaseExample() {
         <TreeProvider
           defaultExpandedIds={["src", "routes", "services", "middleware"]}
           onSelectionChange={(ids) => {
-            const firstId = ids[0];
+            const firstId = ids[0]
             if (firstId) {
-              handleFileSelect(firstId);
+              handleFileSelect(firstId)
             }
           }}
           selectedIds={[selectedFile]}
@@ -589,11 +590,11 @@ export default function CodebaseExample() {
                       </TreeNodeTrigger>
                     </TreeNode>
                     <TreeNode isLast level={2} nodeId="users.ts">
-                          <TreeNodeTrigger>
-                            <TreeExpander />
+                      <TreeNodeTrigger>
+                        <TreeExpander />
                         <TreeIcon icon={<FileType className="h-4 w-4" />} />
                         <TreeLabel>users.ts</TreeLabel>
-                          </TreeNodeTrigger>
+                      </TreeNodeTrigger>
                     </TreeNode>
                   </TreeNodeContent>
                 </TreeNode>
@@ -709,5 +710,5 @@ export default function CodebaseExample() {
         </CodeBlockContent>
       </CodeBlock>
     </div>
-  );
+  )
 }

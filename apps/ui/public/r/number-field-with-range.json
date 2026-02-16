@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-with-range",
-  "type": "registry:example",
   "description": "A number field with min/max constraints",
   "registryDependencies": [
     "@loveui/number-field"
@@ -16,5 +15,6 @@
   "categories": [
     "number field",
     "range"
-  ]
+  ],
+  "type": "registry:example"
 }

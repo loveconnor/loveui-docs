@@ -1,7 +1,8 @@
-"use client";
+"use client"
 
-import { faker } from "@faker-js/faker";
-import type { ColumnDef } from "../../../../../packages/table";
+import { faker } from "@faker-js/faker"
+
+import type { ColumnDef } from "../../../../../packages/table"
 import {
   TableBody,
   TableCell,
@@ -11,18 +12,18 @@ import {
   TableHeaderGroup,
   TableProvider,
   TableRow,
-} from "../../../../../packages/table";
+} from "../../../../../packages/table"
 
 // Seed faker to ensure consistent data between server and client
-faker.seed(123);
+faker.seed(123)
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
   { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
   { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
   { id: faker.string.uuid(), name: "Done", color: "#10B981" },
-];
+]
 
 const users = Array.from({ length: 4 })
   .fill(null)
@@ -30,28 +31,28 @@ const users = Array.from({ length: 4 })
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     image: faker.image.avatar(),
-  }));
+  }))
 
 const exampleProducts = Array.from({ length: 4 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleInitiatives = Array.from({ length: 2 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleReleases = Array.from({ length: 3 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleFeatures = Array.from({ length: 20 })
   .fill(null)
@@ -65,7 +66,7 @@ const exampleFeatures = Array.from({ length: 20 })
     product: faker.helpers.arrayElement(exampleProducts),
     initiative: faker.helpers.arrayElement(exampleInitiatives),
     release: faker.helpers.arrayElement(exampleReleases),
-  }));
+  }))
 
 const Example = () => {
   const columns: ColumnDef<(typeof exampleFeatures)[number]>[] = [
@@ -117,7 +118,7 @@ const Example = () => {
       ),
       cell: ({ row }) => row.original.release.name,
     },
-  ];
+  ]
 
   return (
     <TableProvider columns={columns} data={exampleFeatures}>
@@ -136,7 +137,7 @@ const Example = () => {
         )}
       </TableBody>
     </TableProvider>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

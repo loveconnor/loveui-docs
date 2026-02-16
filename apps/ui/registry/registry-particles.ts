@@ -83,7 +83,11 @@ export const particles: Registry["items"] = [
     name: "particle-fr-1",
     description: "Frame with collapsible content and delete button",
     type: "registry:example",
-    registryDependencies: ["@loveui/frame", "@loveui/collapsible", "@loveui/button"],
+    registryDependencies: [
+      "@loveui/frame",
+      "@loveui/collapsible",
+      "@loveui/button",
+    ],
     dependencies: ["lucide-react"],
     files: [{ path: "particles/particle-fr-1.tsx", type: "registry:block" }],
     categories: ["frame", "collapsible"],

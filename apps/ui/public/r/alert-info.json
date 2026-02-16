@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "alert-info",
-  "type": "registry:example",
   "description": "Info alert",
   "registryDependencies": [
     "@loveui/alert"
@@ -16,5 +15,6 @@
   "categories": [
     "alert",
     "info"
-  ]
+  ],
+  "type": "registry:example"
 }

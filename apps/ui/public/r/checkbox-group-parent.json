@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-group-parent",
-  "type": "registry:example",
   "description": "Checkbox group select/deselect all checkboxes",
   "registryDependencies": [
     "@loveui/checkbox-group",
@@ -19,5 +18,6 @@
     "checkbox group",
     "checkbox",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,16 +1,21 @@
-"use client";
+"use client"
 
-import { Dropzone, DropzoneContent, DropzoneEmptyState } from "../../../../../packages/dropzone";
-import { UploadIcon } from "lucide-react";
-import { useState } from "react";
+import { useState } from "react"
+import { UploadIcon } from "lucide-react"
+
+import {
+  Dropzone,
+  DropzoneContent,
+  DropzoneEmptyState,
+} from "../../../../../packages/dropzone"
 
 const Example = () => {
-  const [files, setFiles] = useState<File[] | undefined>();
+  const [files, setFiles] = useState<File[] | undefined>()
 
   const handleDrop = (files: File[]) => {
-    console.log(files);
-    setFiles(files);
-  };
+    console.log(files)
+    setFiles(files)
+  }
 
   return (
     <Dropzone onDrop={handleDrop} onError={console.error} src={files}>
@@ -20,8 +25,8 @@ const Example = () => {
             <UploadIcon size={24} />
           </div>
           <div className="text-left">
-            <p className="font-medium text-sm">Upload a file</p>
-            <p className="text-muted-foreground text-xs">
+            <p className="text-sm font-medium">Upload a file</p>
+            <p className="text-xs text-muted-foreground">
               Drag and drop or click to upload
             </p>
           </div>
@@ -29,7 +34,7 @@ const Example = () => {
       </DropzoneEmptyState>
       <DropzoneContent />
     </Dropzone>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

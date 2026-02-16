@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-disabled",
-  "type": "registry:example",
   "description": "A disabled select",
   "registryDependencies": [
     "@loveui/select"
@@ -16,5 +15,6 @@
   "categories": [
     "select",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu",
-  "type": "registry:ui",
   "dependencies": [
     "@base-ui-components/react"
   ],
@@ -19,5 +18,6 @@
     "dark": {
       "destructive-foreground": "oklch(0.704 0.191 22.216)"
     }
-  }
+  },
+  "type": "registry:ui"
 }

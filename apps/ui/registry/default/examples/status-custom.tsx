@@ -1,6 +1,10 @@
-"use client";
+"use client"
 
-import { Status, StatusIndicator, StatusLabel } from "../../../../../packages/status";
+import {
+  Status,
+  StatusIndicator,
+  StatusLabel,
+} from "../../../../../packages/status"
 
 const Example = () => (
   <Status
@@ -11,6 +15,6 @@ const Example = () => (
     <StatusIndicator />
     <StatusLabel className="font-mono">Fully operational</StatusLabel>
   </Status>
-);
+)
 
-export default Example;
+export default Example

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-with-button",
-  "type": "registry:example",
   "description": "Input with button",
   "registryDependencies": [
     "@loveui/input",
@@ -17,5 +16,6 @@
   "categories": [
     "input",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

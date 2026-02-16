@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ui",
-  "type": "registry:ui",
   "registryDependencies": [
     "@loveui/accordion",
     "@loveui/alert",
@@ -48,5 +47,6 @@
     "@loveui/toggle-group",
     "@loveui/toolbar",
     "@loveui/tooltip"
-  ]
+  ],
+  "type": "registry:ui"
 }

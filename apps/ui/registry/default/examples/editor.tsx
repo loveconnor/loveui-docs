@@ -1,6 +1,8 @@
-"use client";
+"use client"
 
-import type { Editor, JSONContent } from "../../../../../packages/editor";
+import { useState } from "react"
+
+import type { Editor, JSONContent } from "../../../../../packages/editor"
 import {
   EditorBubbleMenu,
   EditorCharacterCount,
@@ -42,8 +44,7 @@ import {
   EditorTableRowDelete,
   EditorTableRowMenu,
   EditorTableSplitCell,
-} from "../../../../../packages/editor";
-import { useState } from "react";
+} from "../../../../../packages/editor"
 
 const Example = () => {
   const [content, setContent] = useState<JSONContent>({
@@ -317,14 +318,14 @@ const Example = () => {
         ],
       },
     ],
-  });
+  })
 
   const handleUpdate = ({ editor }: { editor: Editor }) => {
-    const json = editor.getJSON();
+    const json = editor.getJSON()
 
-    setContent(json);
-    console.log(JSON.stringify(json));
-  };
+    setContent(json)
+    console.log(JSON.stringify(json))
+  }
 
   return (
     <EditorProvider
@@ -386,7 +387,7 @@ const Example = () => {
       </EditorTableMenu>
       <EditorCharacterCount.Words>Words: </EditorCharacterCount.Words>
     </EditorProvider>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

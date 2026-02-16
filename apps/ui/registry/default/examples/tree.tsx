@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { FileCode, FileJson, FileText } from "lucide-react"
 
 import {
   TreeExpander,
@@ -9,8 +11,7 @@ import {
   TreeNodeTrigger,
   TreeProvider,
   TreeView,
-} from "../../../../../packages/tree";
-import { FileCode, FileJson, FileText } from "lucide-react";
+} from "../../../../../packages/tree"
 
 export default function TreeExample() {
   return (
@@ -145,5 +146,5 @@ export default function TreeExample() {
         </TreeNode>
       </TreeView>
     </TreeProvider>
-  );
+  )
 }

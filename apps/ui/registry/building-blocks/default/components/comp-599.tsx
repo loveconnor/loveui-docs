@@ -11,7 +11,11 @@ import { useTree } from "@headless-tree/react"
 import { FileIcon, FolderIcon, FolderOpenIcon } from "lucide-react"
 
 import { Checkbox } from "@/registry/building-blocks/default/ui/checkbox"
-import { Tree, TreeItem, TreeItemLabel } from "@/registry/building-blocks/default/ui/tree"
+import {
+  Tree,
+  TreeItem,
+  TreeItemLabel,
+} from "@/registry/building-blocks/default/ui/tree"
 
 interface Item {
   name: string

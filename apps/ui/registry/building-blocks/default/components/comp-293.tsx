@@ -9,9 +9,12 @@ export default function Component() {
       <div className="flex gap-2">
         <div className="flex grow flex-col gap-3">
           <div className="space-y-1">
-            <p className="text-sm font-medium">Manage your cookie preferences</p>
+            <p className="text-sm font-medium">
+              Manage your cookie preferences
+            </p>
             <p className="text-sm text-muted-foreground">
-              We use cookies to understand traffic and personalize your experience.
+              We use cookies to understand traffic and personalize your
+              experience.
             </p>
           </div>
           <div className="flex gap-2">

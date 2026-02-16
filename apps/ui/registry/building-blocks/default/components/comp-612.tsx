@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
 
 interface Props {
-  title?: string;
-  used?: number;
-  total?: number;
-  usedLabel?: string;
-  totalLabel?: string;
+  title?: string
+  used?: number
+  total?: number
+  usedLabel?: string
+  totalLabel?: string
   segments?: {
-    label: string;
-    value: number;
-    color: string;
-  }[];
-  className?: string;
+    label: string
+    value: number
+    color: string
+  }[]
+  className?: string
 }
 
 const defaultSegments: NonNullable<Props["segments"]> = [
@@ -22,7 +22,7 @@ const defaultSegments: NonNullable<Props["segments"]> = [
   { label: "Photos", value: 1800, color: "bg-emerald-500" },
   { label: "Videos", value: 3200, color: "bg-amber-500" },
   { label: "Music", value: 900, color: "bg-purple-500" },
-];
+]
 
 export default function Stats13({
   title = "Using Storage",
@@ -33,15 +33,15 @@ export default function Stats13({
   segments = defaultSegments,
   className,
 }: Props) {
-  const totalValue = total * 1000;
-  const freeValue = totalValue - used;
+  const totalValue = total * 1000
+  const freeValue = totalValue - used
 
   return (
     <Card className={cn("w-full max-w-4xl shadow-sm", className)}>
       <CardContent className="py-0">
-        <p className="text-pretty mb-4 text-base text-muted-foreground">
+        <p className="mb-4 text-base text-pretty text-muted-foreground">
           {title}{" "}
-          <span className="font-semibold tabular-nums text-foreground">
+          <span className="font-semibold text-foreground tabular-nums">
             {used.toLocaleString(undefined, {
               minimumFractionDigits: 0,
               maximumFractionDigits: 2,
@@ -53,7 +53,7 @@ export default function Stats13({
 
         <div className="mb-4 flex h-2.5 w-full overflow-hidden rounded-full bg-muted">
           {segments.map((segment) => {
-            const percentage = (segment.value / totalValue) * 100;
+            const percentage = (segment.value / totalValue) * 100
             return (
               <div
                 key={segment.label}
@@ -65,7 +65,7 @@ export default function Stats13({
                 aria-valuemin={0}
                 aria-valuemax={totalValue}
               />
-            );
+            )
           })}
         </div>
 
@@ -79,7 +79,7 @@ export default function Stats13({
               <span className="text-sm text-muted-foreground">
                 {segment.label}
               </span>
-              <span className="text-sm tabular-nums text-muted-foreground">
+              <span className="text-sm text-muted-foreground tabular-nums">
                 {Math.round(segment.value)}
                 {usedLabel}
               </span>
@@ -91,7 +91,7 @@ export default function Stats13({
               aria-hidden="true"
             />
             <span className="text-sm text-muted-foreground">Free</span>
-            <span className="text-sm tabular-nums text-muted-foreground">
+            <span className="text-sm text-muted-foreground tabular-nums">
               {Math.round(freeValue)}
               {usedLabel}
             </span>
@@ -99,5 +99,5 @@ export default function Stats13({
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }

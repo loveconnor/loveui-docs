@@ -1,7 +1,8 @@
-"use client";
+"use client"
 
-import { Pill, PillButton } from "../../../../../packages/pill";
-import { XIcon } from "lucide-react";
+import { XIcon } from "lucide-react"
+
+import { Pill, PillButton } from "../../../../../packages/pill"
 
 const Example = () => (
   <Pill>
@@ -10,6 +11,6 @@ const Example = () => (
       <XIcon size={12} />
     </PillButton>
   </Pill>
-);
+)
 
-export default Example;
+export default Example

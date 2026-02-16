@@ -1,5 +1,6 @@
-"use client";
+"use client"
 
+import Link from "next/link"
 import {
   SiApple,
   SiFacebook,
@@ -8,19 +9,20 @@ import {
   SiInstagram,
   SiX,
   SiYoutube,
-} from "@icons-pack/react-simple-icons";
+} from "@icons-pack/react-simple-icons"
+
 import {
   Announcement,
   AnnouncementTag,
   AnnouncementTitle,
-} from "../../../../../packages/announcement";
+} from "../../../../../packages/announcement"
 import {
   Marquee,
   MarqueeContent,
   MarqueeFade,
   MarqueeItem,
-} from "../../../../../packages/marquee";
-import { Button } from "../../../../../packages/ui/src/ui/button";
+} from "../../../../../packages/marquee"
+import { Button } from "../../../../../packages/ui/src/ui/button"
 import {
   VideoPlayer,
   VideoPlayerContent,
@@ -32,8 +34,7 @@ import {
   VideoPlayerTimeDisplay,
   VideoPlayerTimeRange,
   VideoPlayerVolumeRange,
-} from "../../../../../packages/video-player";
-import Link from "next/link";
+} from "../../../../../packages/video-player"
 
 const logos = [
   {
@@ -71,7 +72,7 @@ const logos = [
     icon: SiYoutube,
     url: "https://youtube.com",
   },
-];
+]
 
 const Example = () => (
   <div className="flex flex-col gap-16 px-8 py-24 text-center">
@@ -82,13 +83,12 @@ const Example = () => (
           <AnnouncementTitle>Introducing blocks by LoveUI</AnnouncementTitle>
         </Announcement>
       </Link>
-      <h1 className="mb-0 text-balance font-medium text-6xl md:text-7xl xl:text-[5.25rem]">
+      <h1 className="mb-0 text-6xl font-medium text-balance md:text-7xl xl:text-[5.25rem]">
         The best way to build your website
       </h1>
-      <p className="mt-0 mb-0 text-balance text-lg text-muted-foreground">
-        LoveUI blocks are a new way to build your website. They are a
-        collection of pre-built components that you can use to build your
-        website.
+      <p className="mt-0 mb-0 text-lg text-balance text-muted-foreground">
+        LoveUI blocks are a new way to build your website. They are a collection
+        of pre-built components that you can use to build your website.
       </p>
       <div className="flex items-center gap-2">
         <Button render={<Link href="#" />}>Get started</Button>
@@ -98,7 +98,7 @@ const Example = () => (
       </div>
     </div>
     <section className="flex flex-col items-center justify-center gap-8 rounded-xl bg-secondary py-8 pb-18">
-      <p className="mb-0 text-balance font-medium text-muted-foreground">
+      <p className="mb-0 font-medium text-balance text-muted-foreground">
         Trusted by developers from leading companies
       </p>
       <div className="flex size-full items-center justify-center">
@@ -136,6 +136,6 @@ const Example = () => (
       </VideoPlayerControlBar>
     </VideoPlayer>
   </div>
-);
+)
 
-export default Example;
+export default Example

@@ -1,4 +1,3 @@
-
 export default function Component() {
   return (
     <div className="flex items-center rounded-full border bg-background p-1 shadow-sm">

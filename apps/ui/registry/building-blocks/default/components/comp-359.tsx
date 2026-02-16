@@ -1,5 +1,5 @@
-import { Button } from "@/registry/building-blocks/default/ui/button"
 import { assetPath } from "@/lib/building-blocks/utils"
+import { Button } from "@/registry/building-blocks/default/ui/button"
 import {
   Tooltip,
   TooltipContent,

@@ -1,5 +1,7 @@
 import { Label } from "@/registry/building-blocks/default/ui/label"
-import MultipleSelector, { Option } from "@/registry/building-blocks/default/ui/multiselect"
+import MultipleSelector, {
+  Option,
+} from "@/registry/building-blocks/default/ui/multiselect"
 
 const frameworks: Option[] = [
   {

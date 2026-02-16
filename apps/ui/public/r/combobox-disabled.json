@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "combobox-disabled",
-  "type": "registry:example",
   "description": "Disabled combobox",
   "registryDependencies": [
     "@loveui/combobox"
@@ -17,5 +16,6 @@
     "combobox",
     "input",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

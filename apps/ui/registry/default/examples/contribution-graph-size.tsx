@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { eachDayOfInterval, endOfYear, formatISO, startOfYear } from "date-fns"
 
 import {
   ContributionGraph,
@@ -7,30 +9,29 @@ import {
   ContributionGraphFooter,
   ContributionGraphLegend,
   ContributionGraphTotalCount,
-} from "../../../../../packages/contribution-graph";
-import { eachDayOfInterval, endOfYear, formatISO, startOfYear } from "date-fns";
+} from "../../../../../packages/contribution-graph"
 
-const maxCount = 20;
-const maxLevel = 4;
-const now = new Date();
+const maxCount = 20
+const maxLevel = 4
+const now = new Date()
 const days = eachDayOfInterval({
   start: startOfYear(now),
   end: endOfYear(now),
-});
+})
 
 const data = days.map((date) => {
   const c = Math.round(
     Math.random() * maxCount - Math.random() * (0.8 * maxCount)
-  );
-  const count = Math.max(0, c);
-  const level = Math.ceil((count / maxCount) * maxLevel);
+  )
+  const count = Math.max(0, c)
+  const level = Math.ceil((count / maxCount) * maxLevel)
 
   return {
     date: formatISO(date, { representation: "date" }),
     count,
     level,
-  };
-});
+  }
+})
 
 const Example = () => (
   <ContributionGraph blockMargin={2} blockSize={20} data={data} fontSize={16}>
@@ -48,6 +49,6 @@ const Example = () => (
       <ContributionGraphLegend />
     </ContributionGraphFooter>
   </ContributionGraph>
-);
+)
 
-export default Example;
+export default Example

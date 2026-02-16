@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "form-zod",
-  "type": "registry:example",
   "description": "Form with zod validation",
   "dependencies": [
     "zod"
@@ -25,5 +24,6 @@
     "validation",
     "label",
     "zod"
-  ]
+  ],
+  "type": "registry:example"
 }

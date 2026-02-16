@@ -6,7 +6,7 @@ import {
   CreditCardMagStripe,
   CreditCardName,
   CreditCardNumber,
-} from "../../../../../packages/credit-card";
+} from "../../../../../packages/credit-card"
 
 const Example = () => (
   <CreditCard>
@@ -15,15 +15,15 @@ const Example = () => (
       <CreditCardNumber className="absolute bottom-0 left-0">
         0123 4567 8901 2345
       </CreditCardNumber>
-      <div className="absolute @xs:bottom-12 bottom-8 flex w-full @xs:flex-row flex-col @xs:justify-between gap-4">
+      <div className="absolute bottom-8 flex w-full flex-col gap-4 @xs:bottom-12 @xs:flex-row @xs:justify-between">
         <CreditCardName className="flex-1">Connor Love</CreditCardName>
-        <div className="flex flex-1 @xs:justify-between gap-4">
+        <div className="flex flex-1 gap-4 @xs:justify-between">
           <CreditCardExpiry>01/24</CreditCardExpiry>
           <CreditCardCvv>123</CreditCardCvv>
         </div>
       </div>
     </CreditCardBack>
   </CreditCard>
-);
+)
 
-export default Example;
+export default Example

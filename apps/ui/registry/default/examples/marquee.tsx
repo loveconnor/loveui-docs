@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
 import {
   Marquee,
   MarqueeContent,
   MarqueeFade,
   MarqueeItem,
-} from "../../../../../packages/marquee";
+} from "../../../../../packages/marquee"
 
 const Example = () => (
   <div className="flex size-full items-center justify-center bg-background">
@@ -25,6 +25,6 @@ const Example = () => (
       </MarqueeContent>
     </Marquee>
   </div>
-);
+)
 
-export default Example;
+export default Example

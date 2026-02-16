@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "progress-demo",
-  "type": "registry:example",
   "description": "Animated progress bar",
   "registryDependencies": [
     "@loveui/progress"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "progress"
-  ]
+  ],
+  "type": "registry:example"
 }

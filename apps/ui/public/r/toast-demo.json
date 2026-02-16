@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "toast-demo",
-  "type": "registry:example",
   "description": "Status toast",
   "registryDependencies": [
     "@loveui/toast"
@@ -16,5 +15,6 @@
   "categories": [
     "toast",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   Snippet,
@@ -7,8 +9,7 @@ import {
   SnippetTabsContent,
   SnippetTabsList,
   SnippetTabsTrigger,
-} from "../../../../../packages/snippet";
-import { useState } from "react";
+} from "../../../../../packages/snippet"
 
 const commands = [
   {
@@ -27,11 +28,11 @@ const commands = [
     label: "bun",
     code: "bunx next-forge@latest init",
   },
-];
+]
 
 const Example = () => {
-  const [value, setValue] = useState(commands[0].label);
-  const activeCommand = commands.find((command) => command.label === value);
+  const [value, setValue] = useState(commands[0].label)
+  const activeCommand = commands.find((command) => command.label === value)
 
   return (
     <Snippet onValueChange={setValue} value={value}>
@@ -63,7 +64,7 @@ const Example = () => {
         </SnippetTabsContent>
       ))}
     </Snippet>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

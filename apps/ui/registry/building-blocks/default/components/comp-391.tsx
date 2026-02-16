@@ -1,4 +1,7 @@
-import { Avatar, AvatarFallback } from "@/registry/building-blocks/default/ui/avatar"
+import {
+  Avatar,
+  AvatarFallback,
+} from "@/registry/building-blocks/default/ui/avatar"
 
 export default function Component() {
   return (

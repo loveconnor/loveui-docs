@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   VideoPlayer,
@@ -11,7 +11,7 @@ import {
   VideoPlayerTimeDisplay,
   VideoPlayerTimeRange,
   VideoPlayerVolumeRange,
-} from "../../../../../packages/video-player";
+} from "../../../../../packages/video-player"
 
 const Example = () => (
   <VideoPlayer className="overflow-hidden rounded-lg border">
@@ -32,6 +32,6 @@ const Example = () => (
       <VideoPlayerVolumeRange />
     </VideoPlayerControlBar>
   </VideoPlayer>
-);
+)
 
-export default Example;
+export default Example

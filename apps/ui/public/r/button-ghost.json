@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-ghost",
-  "type": "registry:example",
   "description": "Ghost button",
   "registryDependencies": [
     "@loveui/button"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

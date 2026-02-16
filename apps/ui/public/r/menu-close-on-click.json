@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu-close-on-click",
-  "type": "registry:example",
   "description": "Close menu when items are clicked",
   "registryDependencies": [
     "@loveui/menu",
@@ -16,5 +15,6 @@
   ],
   "categories": [
     "menu"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,13 +1,15 @@
-"use client";
+"use client"
+
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
+
+import { Button } from "@/registry/default/ui/button"
 
 import {
   MiniCalendar,
   MiniCalendarDay,
   MiniCalendarDays,
   MiniCalendarNavigation,
-} from "../../../../../packages/mini-calendar";
-import { Button } from "@/registry/default/ui/button";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+} from "../../../../../packages/mini-calendar"
 
 const Example = () => (
   <MiniCalendar className="bg-card p-4 shadow-lg">
@@ -29,6 +31,6 @@ const Example = () => (
       </MiniCalendarNavigation>
     </div>
   </MiniCalendar>
-);
+)
 
-export default Example;
+export default Example

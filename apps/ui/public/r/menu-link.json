@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "menu-link",
-  "type": "registry:example",
   "description": "Menu items as links",
   "registryDependencies": [
     "@loveui/menu",
@@ -17,5 +16,6 @@
   "categories": [
     "menu",
     "link"
-  ]
+  ],
+  "type": "registry:example"
 }

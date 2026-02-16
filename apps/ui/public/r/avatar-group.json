@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "avatar-group",
-  "type": "registry:example",
   "description": "Overlapping avatar group",
   "registryDependencies": [
     "@loveui/avatar"
@@ -16,5 +15,6 @@
   "categories": [
     "avatar",
     "avatar group"
-  ]
+  ],
+  "type": "registry:example"
 }

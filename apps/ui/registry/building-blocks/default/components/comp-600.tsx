@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/registry/building-blocks/default/ui/card";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Card, CardContent } from "@/registry/building-blocks/default/ui/card"
 
 const data = [
   {
@@ -26,7 +26,7 @@ const data = [
     change: "-5.73%",
     changeType: "negative",
   },
-];
+]
 
 export default function Stats01() {
   return (
@@ -36,7 +36,7 @@ export default function Stats01() {
           <Card
             key={stat.name}
             className={cn(
-              "rounded-none border-0 shadow-none py-0",
+              "rounded-none border-0 py-0 shadow-none",
               index === 0 && "rounded-l-xl",
               index === data.length - 1 && "rounded-r-xl"
             )}
@@ -47,7 +47,7 @@ export default function Stats01() {
               </div>
               <div
                 className={cn(
-                  "tabular-nums text-xs font-medium",
+                  "text-xs font-medium tabular-nums",
                   stat.changeType === "positive"
                     ? "text-green-800 dark:text-green-400"
                     : "text-red-800 dark:text-red-400"
@@ -55,7 +55,7 @@ export default function Stats01() {
               >
                 {stat.change}
               </div>
-              <div className="tabular-nums w-full flex-none text-3xl font-medium tracking-tight text-foreground">
+              <div className="w-full flex-none text-3xl font-medium tracking-tight text-foreground tabular-nums">
                 {stat.value}
               </div>
             </CardContent>
@@ -63,5 +63,5 @@ export default function Stats01() {
         ))}
       </div>
     </div>
-  );
+  )
 }

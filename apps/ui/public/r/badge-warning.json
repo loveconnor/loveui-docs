@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "badge-warning",
-  "type": "registry:example",
   "description": "Warning badge",
   "registryDependencies": [
     "@loveui/badge"
@@ -16,5 +15,6 @@
   "categories": [
     "badge",
     "warning"
-  ]
+  ],
+  "type": "registry:example"
 }

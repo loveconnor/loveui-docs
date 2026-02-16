@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "combobox-with-label",
-  "type": "registry:example",
   "description": "Combobox with label",
   "registryDependencies": [
     "@loveui/combobox",
@@ -17,5 +16,6 @@
   "categories": [
     "combobox",
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
 import {
   MiniCalendar,
   MiniCalendarDay,
   MiniCalendarDays,
   MiniCalendarNavigation,
-} from "../../../../../packages/mini-calendar";
+} from "../../../../../packages/mini-calendar"
 
 const Example = () => (
   <MiniCalendar>
@@ -15,6 +15,6 @@ const Example = () => (
     </MiniCalendarDays>
     <MiniCalendarNavigation direction="next" />
   </MiniCalendar>
-);
+)
 
-export default Example;
+export default Example

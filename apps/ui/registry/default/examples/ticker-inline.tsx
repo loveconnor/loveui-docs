@@ -1,4 +1,6 @@
-"use client";
+"use client"
+
+import Image from "next/image"
 
 import {
   Ticker,
@@ -6,11 +8,10 @@ import {
   TickerPrice,
   TickerPriceChange,
   TickerSymbol,
-} from "../../../../../packages/ticker";
-import Image from "next/image";
+} from "../../../../../packages/ticker"
 
-const ticker = "GOOG";
-const logoToken = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN;
+const ticker = "GOOG"
+const logoToken = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN
 
 const Example = () => (
   <p>
@@ -34,6 +35,6 @@ const Example = () => (
     </Ticker>{" "}
     Waymo is looking to bring its robotaxi service to New York.
   </p>
-);
+)
 
-export default Example;
+export default Example

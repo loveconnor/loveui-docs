@@ -1,13 +1,14 @@
-"use client";
+"use client"
 
-import { Pill, PillIcon } from "../../../../../packages/pill";
-import { UsersIcon } from "lucide-react";
+import { UsersIcon } from "lucide-react"
+
+import { Pill, PillIcon } from "../../../../../packages/pill"
 
 const Example = () => (
   <Pill>
     <PillIcon icon={UsersIcon} />
     17 users
   </Pill>
-);
+)
 
-export default Example;
+export default Example

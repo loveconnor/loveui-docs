@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-disabled",
-  "type": "registry:example",
   "description": "Disabled button",
   "registryDependencies": [
     "@loveui/button"
@@ -16,5 +15,6 @@
   "categories": [
     "button",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

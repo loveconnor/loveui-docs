@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "textarea-with-label",
-  "type": "registry:example",
   "description": "Textarea labelled with Field",
   "registryDependencies": [
     "@loveui/textarea",
@@ -18,5 +17,6 @@
     "textarea",
     "field",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

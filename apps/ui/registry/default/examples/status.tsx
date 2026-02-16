@@ -1,6 +1,10 @@
-"use client";
+"use client"
 
-import { Status, StatusIndicator, StatusLabel } from "../../../../../packages/status";
+import {
+  Status,
+  StatusIndicator,
+  StatusLabel,
+} from "../../../../../packages/status"
 
 const Example = () => (
   <div className="flex gap-2">
@@ -24,6 +28,6 @@ const Example = () => (
       <StatusLabel />
     </Status>
   </div>
-);
+)
 
-export default Example;
+export default Example

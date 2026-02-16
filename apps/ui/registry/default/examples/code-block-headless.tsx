@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { CodeBlockShowcase, type CodeSample } from "./code-block-shared";
+import { CodeBlockShowcase, type CodeSample } from "./code-block-shared"
 
 const code: CodeSample[] = [
   {
@@ -12,8 +12,8 @@ const code: CodeSample[] = [
   return response.json();
 }`,
   },
-];
+]
 
-const Example = () => <CodeBlockShowcase files={code} hideHeader />;
+const Example = () => <CodeBlockShowcase files={code} hideHeader />
 
-export default Example;
+export default Example

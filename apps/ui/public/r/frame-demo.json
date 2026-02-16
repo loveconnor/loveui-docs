@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "frame-demo",
-  "type": "registry:example",
   "description": "Frame example",
   "registryDependencies": [
     "@loveui/frame"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "frame"
-  ]
+  ],
+  "type": "registry:example"
 }

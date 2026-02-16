@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "group-with-input",
-  "type": "registry:example",
   "description": "Group with input",
   "registryDependencies": [
     "@loveui/group",
@@ -17,5 +16,6 @@
   ],
   "categories": [
     "group"
-  ]
+  ],
+  "type": "registry:example"
 }

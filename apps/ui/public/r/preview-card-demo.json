@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "preview-card-demo",
-  "type": "registry:example",
   "description": "Preview card example",
   "registryDependencies": [
     "@loveui/preview-card",
@@ -17,5 +16,6 @@
   "categories": [
     "preview card",
     "button"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "particle-pa-1",
-  "type": "registry:block",
   "description": "Pagination with previous and next buttons only",
   "registryDependencies": [
     "@loveui/pagination"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "pagination"
-  ]
+  ],
+  "type": "registry:block"
 }

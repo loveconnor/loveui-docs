@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Reel,
@@ -12,7 +12,7 @@ import {
   ReelPreviousButton,
   ReelProgress,
   ReelVideo,
-} from "../../../../../packages/reel";
+} from "../../../../../packages/reel"
 
 const reels: ReelItem[] = [
   {
@@ -39,7 +39,7 @@ const reels: ReelItem[] = [
     title: "Grok Imagine Demo 3",
     description: "Third demo video",
   },
-];
+]
 
 const Example = () => (
   <Reel data={reels}>
@@ -61,6 +61,6 @@ const Example = () => (
       <ReelNextButton />
     </ReelControls>
   </Reel>
-);
+)
 
-export default Example;
+export default Example

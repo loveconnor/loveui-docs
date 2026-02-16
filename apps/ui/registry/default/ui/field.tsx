@@ -96,7 +96,11 @@ function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function FieldSeparator({ className, children, ...props }: React.ComponentProps<"div">) {
+function FieldSeparator({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="field-separator"

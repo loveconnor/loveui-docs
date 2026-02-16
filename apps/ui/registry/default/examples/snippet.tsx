@@ -1,4 +1,7 @@
-"use client";
+"use client"
+
+import { useState } from "react"
+import { BoxIcon, HeartIcon } from "lucide-react"
 
 import {
   Snippet,
@@ -7,21 +10,19 @@ import {
   SnippetTabsContent,
   SnippetTabsList,
   SnippetTabsTrigger,
-} from "../../../../../packages/snippet";
-import { BoxIcon, HeartIcon } from "lucide-react";
-import { useState } from "react";
+} from "../../../../../packages/snippet"
 
 const commands = [
   {
     label: "loveui",
     icon: HeartIcon,
     code: "npx love-ui@latest add  snippet",
-  }
-];
+  },
+]
 
 const Example = () => {
-  const [value, setValue] = useState(commands[0].label);
-  const activeCommand = commands.find((command) => command.label === value);
+  const [value, setValue] = useState(commands[0].label)
+  const activeCommand = commands.find((command) => command.label === value)
 
   return (
     <Snippet onValueChange={setValue} value={value}>
@@ -54,7 +55,7 @@ const Example = () => {
         </SnippetTabsContent>
       ))}
     </Snippet>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

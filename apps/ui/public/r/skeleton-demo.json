@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "skeleton-demo",
-  "type": "registry:example",
   "description": "Skeleton demo",
   "registryDependencies": [
     "@loveui/avatar",
@@ -17,5 +16,6 @@
   ],
   "categories": [
     "skeleton"
-  ]
+  ],
+  "type": "registry:example"
 }

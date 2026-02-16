@@ -21,37 +21,53 @@ export const LogoCloud = () => {
             <InfiniteSlider speedOnHover={20} speed={40} gap={112}>
               <div className="flex items-center gap-2">
                 <Figma className="size-4 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Figma</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Figma
+                </span>
               </div>
 
               <div className="flex items-center gap-2">
                 <Firebase className="size-5 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Firebase</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Firebase
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Supabase className="size-4 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Supabase</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Supabase
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Linear className="size-4 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Linear</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Linear
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Slack className="size-5 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Slack</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Slack
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Twilio className="size-4 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Twilio</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Twilio
+                </span>
               </div>
 
               <div className="flex items-center gap-2">
                 <Vercel className="size-4 shrink-0 text-foreground dark:text-white" />
-                <span className="text-sm font-medium text-muted-foreground">Vercel</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Vercel
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Claude className="size-5 shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground">Claude</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Claude
+                </span>
               </div>
             </InfiniteSlider>
 

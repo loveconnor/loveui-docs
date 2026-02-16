@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-slider",
-  "type": "registry:example",
   "description": "Field with slider",
   "registryDependencies": [
     "@loveui/field",
@@ -20,5 +19,6 @@
     "label",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

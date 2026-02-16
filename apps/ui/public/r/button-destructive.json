@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-destructive",
-  "type": "registry:example",
   "description": "Destructive button",
   "registryDependencies": [
     "@loveui/button"
@@ -17,5 +16,6 @@
     "button",
     "delete",
     "destructive"
-  ]
+  ],
+  "type": "registry:example"
 }

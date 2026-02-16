@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "accordion-multiple",
-  "type": "registry:example",
   "description": "Accordion allowing multiple panels open",
   "registryDependencies": [
     "@loveui/accordion"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "accordion"
-  ]
+  ],
+  "type": "registry:example"
 }

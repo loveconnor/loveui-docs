@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch-demo",
-  "type": "registry:example",
   "description": "Basic switch",
   "registryDependencies": [
     "@loveui/switch",
@@ -17,5 +16,6 @@
   "categories": [
     "switch",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

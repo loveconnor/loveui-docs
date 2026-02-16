@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch-disabled",
-  "type": "registry:example",
   "description": "Disabled switch",
   "registryDependencies": [
     "@loveui/switch",
@@ -18,5 +17,6 @@
     "switch",
     "label",
     "disabled"
-  ]
+  ],
+  "type": "registry:example"
 }

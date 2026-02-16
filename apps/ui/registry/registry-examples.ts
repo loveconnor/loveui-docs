@@ -317,7 +317,11 @@ export const examples: Registry["items"] = [
     name: "autocomplete-form",
     description: "Autocomplete form",
     type: "registry:example",
-    registryDependencies: ["@loveui/autocomplete", "@loveui/form", "@loveui/field"],
+    registryDependencies: [
+      "@loveui/autocomplete",
+      "@loveui/form",
+      "@loveui/field",
+    ],
     files: [
       {
         path: "examples/autocomplete-form.tsx",
@@ -1197,7 +1201,11 @@ export const examples: Registry["items"] = [
     name: "gantt",
     description: "Interactive Gantt chart with draggable features.",
     type: "registry:example",
-    registryDependencies: ["@loveui/gantt", "@faker-js/faker", "lodash.groupby"],
+    registryDependencies: [
+      "@loveui/gantt",
+      "@faker-js/faker",
+      "lodash.groupby",
+    ],
     files: [{ path: "examples/gantt.tsx", type: "registry:example" }],
     categories: ["gantt", "project management"],
   },
@@ -1205,7 +1213,11 @@ export const examples: Registry["items"] = [
     name: "gantt-no-sidebar",
     description: "Gantt chart focused on the timeline without sidebar.",
     type: "registry:example",
-    registryDependencies: ["@loveui/gantt", "@faker-js/faker", "lodash.groupby"],
+    registryDependencies: [
+      "@loveui/gantt",
+      "@faker-js/faker",
+      "lodash.groupby",
+    ],
     files: [
       { path: "examples/gantt-no-sidebar.tsx", type: "registry:example" },
     ],
@@ -1215,7 +1227,11 @@ export const examples: Registry["items"] = [
     name: "gantt-lanes",
     description: "Gantt chart using lanes to group reservations by room.",
     type: "registry:example",
-    registryDependencies: ["@loveui/gantt", "@faker-js/faker", "lodash.groupby"],
+    registryDependencies: [
+      "@loveui/gantt",
+      "@faker-js/faker",
+      "lodash.groupby",
+    ],
     files: [{ path: "examples/gantt-lanes.tsx", type: "registry:example" }],
     categories: ["gantt", "project management", "lanes"],
   },
@@ -1223,10 +1239,12 @@ export const examples: Registry["items"] = [
     name: "gantt-read-only",
     description: "Read-only Gantt chart with markers and grouped features.",
     type: "registry:example",
-    registryDependencies: ["@loveui/gantt", "@faker-js/faker", "lodash.groupby"],
-    files: [
-      { path: "examples/gantt-read-only.tsx", type: "registry:example" },
+    registryDependencies: [
+      "@loveui/gantt",
+      "@faker-js/faker",
+      "lodash.groupby",
     ],
+    files: [{ path: "examples/gantt-read-only.tsx", type: "registry:example" }],
     categories: ["gantt", "project management"],
   },
   {
@@ -1268,7 +1286,12 @@ export const examples: Registry["items"] = [
     description: "Code block example highlighting specific lines.",
     type: "registry:example",
     registryDependencies: ["@loveui/code-block"],
-    files: [{ path: "examples/code-block-highlight-line.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "examples/code-block-highlight-line.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "code-block", "highlight"],
   },
   {
@@ -1276,7 +1299,12 @@ export const examples: Registry["items"] = [
     description: "Code block example highlighting individual tokens.",
     type: "registry:example",
     registryDependencies: ["@loveui/code-block"],
-    files: [{ path: "examples/code-block-highlight-word.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "examples/code-block-highlight-word.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "code-block", "highlight"],
   },
   {
@@ -1284,7 +1312,9 @@ export const examples: Registry["items"] = [
     description: "Code block without line numbers for compact display.",
     type: "registry:example",
     registryDependencies: ["@loveui/code-block"],
-    files: [{ path: "examples/code-block-numberless.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/code-block-numberless.tsx", type: "registry:example" },
+    ],
     categories: ["code", "code-block"],
   },
   {
@@ -1292,7 +1322,12 @@ export const examples: Registry["items"] = [
     description: "Code block without syntax highlighting.",
     type: "registry:example",
     registryDependencies: ["@loveui/code-block"],
-    files: [{ path: "examples/code-block-no-highlighting.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "examples/code-block-no-highlighting.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "code-block"],
   },
   {
@@ -1308,7 +1343,9 @@ export const examples: Registry["items"] = [
     description: "Code block focusing attention on a highlighted snippet.",
     type: "registry:example",
     registryDependencies: ["@loveui/code-block"],
-    files: [{ path: "examples/code-block-focus.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/code-block-focus.tsx", type: "registry:example" },
+    ],
     categories: ["code", "code-block"],
   },
   {
@@ -1316,7 +1353,9 @@ export const examples: Registry["items"] = [
     description: "Code block demonstrating theme switching.",
     type: "registry:example",
     registryDependencies: ["@loveui/code-block"],
-    files: [{ path: "examples/code-block-theme.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/code-block-theme.tsx", type: "registry:example" },
+    ],
     categories: ["code", "code-block", "theme"],
   },
   {
@@ -1332,7 +1371,12 @@ export const examples: Registry["items"] = [
     description: "Sandbox without the file explorer for a compact layout.",
     type: "registry:example",
     registryDependencies: ["@loveui/sandbox", "@loveui/code-block"],
-    files: [{ path: "examples/sandbox-no-file-explorer.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "examples/sandbox-no-file-explorer.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "sandbox"],
   },
   {
@@ -1356,7 +1400,9 @@ export const examples: Registry["items"] = [
     description: "Comparison slider activated on hover.",
     type: "registry:example",
     registryDependencies: ["@loveui/comparison", "@loveui/code-block"],
-    files: [{ path: "examples/comparison-hover.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/comparison-hover.tsx", type: "registry:example" },
+    ],
     categories: ["code", "comparison", "hover"],
   },
   {
@@ -1364,63 +1410,128 @@ export const examples: Registry["items"] = [
     description: "Comparison slider demonstrating event handlers.",
     type: "registry:example",
     registryDependencies: ["@loveui/comparison", "@loveui/code-block"],
-    files: [{ path: "examples/comparison-event-handlers.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "examples/comparison-event-handlers.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "comparison", "events"],
   },
   {
     name: "contribution-graph",
     description: "Contribution graph showing activity heatmap.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      { path: "examples/contribution-graph.tsx", type: "registry:example" },
+    ],
     categories: ["code", "contribution"],
   },
   {
     name: "contribution-graph-custom-theme",
     description: "Contribution graph with custom color themes.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph-custom-theme.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      {
+        path: "examples/contribution-graph-custom-theme.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "contribution", "theme"],
   },
   {
     name: "contribution-graph-minimal",
     description: "Minimal contribution graph layout.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph-minimal.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      {
+        path: "examples/contribution-graph-minimal.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "contribution"],
   },
   {
     name: "contribution-graph-size",
     description: "Contribution graph showcasing custom sizing.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph-size.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      {
+        path: "examples/contribution-graph-size.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "contribution", "layout"],
   },
   {
     name: "contribution-graph-tooltip",
     description: "Contribution graph with custom tooltip content.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph-tooltip.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      {
+        path: "examples/contribution-graph-tooltip.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "contribution", "tooltip"],
   },
   {
     name: "contribution-graph-custom-blocks",
     description: "Contribution graph using custom block rendering.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph-custom-blocks.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      {
+        path: "examples/contribution-graph-custom-blocks.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "contribution", "customization"],
   },
   {
     name: "contribution-graph-custom-footer",
     description: "Contribution graph with custom footer summary.",
     type: "registry:example",
-    registryDependencies: ["@loveui/contribution-graph", "@loveui/code-block", "@faker-js/faker"],
-    files: [{ path: "examples/contribution-graph-custom-footer.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/contribution-graph",
+      "@loveui/code-block",
+      "@faker-js/faker",
+    ],
+    files: [
+      {
+        path: "examples/contribution-graph-custom-footer.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["code", "contribution", "customization"],
   },
   {
@@ -1433,7 +1544,8 @@ export const examples: Registry["items"] = [
   },
   {
     name: "snippet-npm",
-    description: "Snippet showing install commands for multiple package managers.",
+    description:
+      "Snippet showing install commands for multiple package managers.",
     type: "registry:example",
     registryDependencies: ["@loveui/snippet", "@loveui/code-block"],
     files: [{ path: "examples/snippet-npm.tsx", type: "registry:example" }],
@@ -1573,9 +1685,7 @@ export const examples: Registry["items"] = [
     description: "Controlled tree view with explicit expanded nodes.",
     type: "registry:example",
     registryDependencies: ["@loveui/tree"],
-    files: [
-      { path: "examples/tree-controlled.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/tree-controlled.tsx", type: "registry:example" }],
     categories: ["tree", "project management", "controlled"],
   },
   {
@@ -2460,7 +2570,11 @@ export const examples: Registry["items"] = [
     name: "skeleton-demo",
     description: "Skeleton demo",
     type: "registry:example",
-    registryDependencies: ["@loveui/avatar", "@loveui/button", "@loveui/skeleton"],
+    registryDependencies: [
+      "@loveui/avatar",
+      "@loveui/button",
+      "@loveui/skeleton",
+    ],
     files: [{ path: "examples/skeleton-demo.tsx", type: "registry:example" }],
     categories: ["skeleton"],
   },
@@ -2735,6 +2849,63 @@ export const examples: Registry["items"] = [
     categories: ["toast"],
   },
   {
+    name: "gooey-toast-demo",
+    description: "Basic gooey toast",
+    type: "registry:example",
+    registryDependencies: [
+      "@loveui/gooey-toast",
+      "@loveui/select",
+      "@loveui/button",
+    ],
+    files: [
+      { path: "examples/gooey-toast-demo.tsx", type: "registry:example" },
+    ],
+    categories: ["gooey-toast", "button", "select"],
+  },
+  {
+    name: "gooey-toast-states",
+    description: "Gooey toast with different states",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [
+      { path: "examples/gooey-toast-states.tsx", type: "registry:example" },
+    ],
+    categories: ["gooey-toast", "button"],
+  },
+  {
+    name: "gooey-toast-promise",
+    description: "Drive gooey toasts from promise states",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [
+      { path: "examples/gooey-toast-promise.tsx", type: "registry:example" },
+    ],
+    categories: ["gooey-toast", "button"],
+  },
+  {
+    name: "gooey-toast-with-button",
+    description: "Gooey toast with an action button",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [
+      {
+        path: "examples/gooey-toast-with-button.tsx",
+        type: "registry:example",
+      },
+    ],
+    categories: ["gooey-toast", "button"],
+  },
+  {
+    name: "gooey-toast-position",
+    description: "Control toast position",
+    type: "registry:example",
+    registryDependencies: ["@loveui/gooey-toast"],
+    files: [
+      { path: "examples/gooey-toast-position.tsx", type: "registry:example" },
+    ],
+    categories: ["gooey-toast", "button"],
+  },
+  {
     name: "toggle-demo",
     description: "Basic toggle",
     type: "registry:example",
@@ -2920,7 +3091,9 @@ export const examples: Registry["items"] = [
     description: "Inline choicebox layout for compact forms.",
     type: "registry:example",
     registryDependencies: ["@loveui/choicebox"],
-    files: [{ path: "examples/choicebox-inline.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/choicebox-inline.tsx", type: "registry:example" },
+    ],
     categories: ["forms", "choicebox"],
   },
 
@@ -2937,7 +3110,9 @@ export const examples: Registry["items"] = [
     description: "Dropzone allowing multiple file uploads.",
     type: "registry:example",
     registryDependencies: ["@loveui/dropzone"],
-    files: [{ path: "examples/dropzone-multiple.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/dropzone-multiple.tsx", type: "registry:example" },
+    ],
     categories: ["forms", "dropzone", "multiple"],
   },
   {
@@ -2945,7 +3120,9 @@ export const examples: Registry["items"] = [
     description: "Dropzone limiting file sizes and counts.",
     type: "registry:example",
     registryDependencies: ["@loveui/dropzone"],
-    files: [{ path: "examples/dropzone-min-max.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/dropzone-min-max.tsx", type: "registry:example" },
+    ],
     categories: ["forms", "dropzone"],
   },
   {
@@ -2961,7 +3138,9 @@ export const examples: Registry["items"] = [
     description: "Dropzone showing image previews for uploads.",
     type: "registry:example",
     registryDependencies: ["@loveui/dropzone"],
-    files: [{ path: "examples/dropzone-image-preview.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/dropzone-image-preview.tsx", type: "registry:example" },
+    ],
     categories: ["forms", "dropzone", "preview"],
   },
   {
@@ -2969,7 +3148,12 @@ export const examples: Registry["items"] = [
     description: "Dropzone with a custom empty-state design.",
     type: "registry:example",
     registryDependencies: ["@loveui/dropzone"],
-    files: [{ path: "examples/dropzone-custom-empty-state.tsx", type: "registry:example" }],
+    files: [
+      {
+        path: "examples/dropzone-custom-empty-state.tsx",
+        type: "registry:example",
+      },
+    ],
     categories: ["forms", "dropzone", "customization"],
   },
   {
@@ -3025,7 +3209,9 @@ export const examples: Registry["items"] = [
     description: "Pill representing an avatar group.",
     type: "registry:example",
     registryDependencies: ["@loveui/pill"],
-    files: [{ path: "examples/pill-avatar-group.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/pill-avatar-group.tsx", type: "registry:example" },
+    ],
     categories: ["forms", "pill", "avatar"],
   },
   {
@@ -3049,7 +3235,9 @@ export const examples: Registry["items"] = [
     description: "Controlled rating component example.",
     type: "registry:example",
     registryDependencies: ["@loveui/rating"],
-    files: [{ path: "examples/rating-controlled.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/rating-controlled.tsx", type: "registry:example" },
+    ],
     categories: ["forms", "rating", "controlled"],
   },
   {
@@ -3120,7 +3308,11 @@ export const examples: Registry["items"] = [
     name: "image-crop",
     description: "Image cropper with upload, crop, and reset controls.",
     type: "registry:example",
-    registryDependencies: ["@loveui/image-crop", "@loveui/button", "@loveui/input"],
+    registryDependencies: [
+      "@loveui/image-crop",
+      "@loveui/button",
+      "@loveui/input",
+    ],
     files: [{ path: "examples/image-crop.tsx", type: "registry:example" }],
     categories: ["media", "image", "crop"],
   },
@@ -3128,16 +3320,28 @@ export const examples: Registry["items"] = [
     name: "image-crop-custom",
     description: "Image cropper with custom action buttons.",
     type: "registry:example",
-    registryDependencies: ["@loveui/image-crop", "@loveui/button", "@loveui/input"],
-    files: [{ path: "examples/image-crop-custom.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/image-crop",
+      "@loveui/button",
+      "@loveui/input",
+    ],
+    files: [
+      { path: "examples/image-crop-custom.tsx", type: "registry:example" },
+    ],
     categories: ["media", "image", "crop", "customization"],
   },
   {
     name: "image-crop-circular",
     description: "Circular avatar cropper using the image crop component.",
     type: "registry:example",
-    registryDependencies: ["@loveui/image-crop", "@loveui/button", "@loveui/input"],
-    files: [{ path: "examples/image-crop-circular.tsx", type: "registry:example" }],
+    registryDependencies: [
+      "@loveui/image-crop",
+      "@loveui/button",
+      "@loveui/input",
+    ],
+    files: [
+      { path: "examples/image-crop-circular.tsx", type: "registry:example" },
+    ],
     categories: ["media", "image", "crop"],
   },
   {
@@ -3153,7 +3357,9 @@ export const examples: Registry["items"] = [
     description: "Image zoom with custom modal backdrop styling.",
     type: "registry:example",
     registryDependencies: ["@loveui/image-zoom"],
-    files: [{ path: "examples/image-zoom-background.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/image-zoom-background.tsx", type: "registry:example" },
+    ],
     categories: ["media", "image", "zoom", "customization"],
   },
   {
@@ -3161,7 +3367,9 @@ export const examples: Registry["items"] = [
     description: "Image zoom with adjusted viewport margin.",
     type: "registry:example",
     registryDependencies: ["@loveui/image-zoom"],
-    files: [{ path: "examples/image-zoom-margin.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/image-zoom-margin.tsx", type: "registry:example" },
+    ],
     categories: ["media", "image", "zoom"],
   },
   {
@@ -3177,7 +3385,9 @@ export const examples: Registry["items"] = [
     description: "Apple Card inspired credit card layout.",
     type: "registry:example",
     registryDependencies: ["@loveui/credit-card"],
-    files: [{ path: "examples/credit-card-apple.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/credit-card-apple.tsx", type: "registry:example" },
+    ],
     categories: ["finance", "credit-card"],
   },
   {
@@ -3185,7 +3395,9 @@ export const examples: Registry["items"] = [
     description: "Credit card back face focusing on CVV and expiry.",
     type: "registry:example",
     registryDependencies: ["@loveui/credit-card"],
-    files: [{ path: "examples/credit-card-back.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/credit-card-back.tsx", type: "registry:example" },
+    ],
     categories: ["finance", "credit-card"],
   },
   {
@@ -3241,7 +3453,9 @@ export const examples: Registry["items"] = [
     description: "Product card deck with swipe gestures.",
     type: "registry:example",
     registryDependencies: ["@loveui/deck", "@loveui/badge"],
-    files: [{ path: "examples/deck-product-cards.tsx", type: "registry:example" }],
+    files: [
+      { path: "examples/deck-product-cards.tsx", type: "registry:example" },
+    ],
     categories: ["social", "deck", "commerce"],
   },
   {
@@ -3462,7 +3676,10 @@ export const examples: Registry["items"] = [
     type: "registry:example",
     registryDependencies: ["@loveui/dialog-stack", "@loveui/button"],
     files: [
-      { path: "examples/dialog-stack-navigation.tsx", type: "registry:example" },
+      {
+        path: "examples/dialog-stack-navigation.tsx",
+        type: "registry:example",
+      },
     ],
     categories: ["overlay", "dialog", "navigation"],
   },
@@ -3479,9 +3696,7 @@ export const examples: Registry["items"] = [
     description: "Marquee without fade edges.",
     type: "registry:example",
     registryDependencies: ["@loveui/marquee"],
-    files: [
-      { path: "examples/marquee-no-fade.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/marquee-no-fade.tsx", type: "registry:example" }],
     categories: ["marketing", "marquee"],
   },
   {
@@ -3497,9 +3712,7 @@ export const examples: Registry["items"] = [
     description: "Marquee with adjustable spacing between items.",
     type: "registry:example",
     registryDependencies: ["@loveui/marquee"],
-    files: [
-      { path: "examples/marquee-spacing.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/marquee-spacing.tsx", type: "registry:example" }],
     categories: ["marketing", "marquee", "spacing"],
   },
   {
@@ -3515,9 +3728,7 @@ export const examples: Registry["items"] = [
     description: "QR code with custom styling.",
     type: "registry:example",
     registryDependencies: ["@loveui/qr-code"],
-    files: [
-      { path: "examples/qr-code-styling.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/qr-code-styling.tsx", type: "registry:example" }],
     categories: ["utility", "qr-code", "styling"],
   },
   {
@@ -3525,9 +3736,7 @@ export const examples: Registry["items"] = [
     description: "QR code with enhanced error correction.",
     type: "registry:example",
     registryDependencies: ["@loveui/qr-code"],
-    files: [
-      { path: "examples/qr-code-robust.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/qr-code-robust.tsx", type: "registry:example" }],
     categories: ["utility", "qr-code", "robust"],
   },
   {
@@ -3535,39 +3744,52 @@ export const examples: Registry["items"] = [
     description: "Server-rendered QR code usage.",
     type: "registry:example",
     registryDependencies: ["@loveui/qr-code"],
-    files: [
-      { path: "examples/qr-code-server.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/qr-code-server.tsx", type: "registry:example" }],
     categories: ["utility", "qr-code", "server"],
   },
   {
     name: "pricing",
     description: "A pricing page with a list of plans and features.",
     type: "registry:example",
-    registryDependencies: ["@loveui/card", "@loveui/button", "@loveui/badge", "@loveui/tabs"],
-    files: [
-      { path: "examples/pricing.tsx", type: "registry:example" },
+    registryDependencies: [
+      "@loveui/card",
+      "@loveui/button",
+      "@loveui/badge",
+      "@loveui/tabs",
     ],
+    files: [{ path: "examples/pricing.tsx", type: "registry:example" }],
     categories: ["blocks", "pricing", "marketing"],
   },
   {
     name: "hero",
-    description: "A hero section with announcement, headline, and video player.",
+    description:
+      "A hero section with announcement, headline, and video player.",
     type: "registry:example",
-    registryDependencies: ["@loveui/announcement", "@loveui/marquee", "@loveui/video-player", "@loveui/button"],
-    files: [
-      { path: "examples/hero.tsx", type: "registry:example" },
+    registryDependencies: [
+      "@loveui/announcement",
+      "@loveui/marquee",
+      "@loveui/video-player",
+      "@loveui/button",
     ],
+    files: [{ path: "examples/hero.tsx", type: "registry:example" }],
     categories: ["blocks", "hero", "marketing"],
   },
   {
     name: "roadmap",
-    description: "A comprehensive roadmap with multiple views: Gantt, Calendar, List, Kanban, and Table.",
+    description:
+      "A comprehensive roadmap with multiple views: Gantt, Calendar, List, Kanban, and Table.",
     type: "registry:example",
-    registryDependencies: ["@loveui/calendar", "@loveui/gantt", "@loveui/kanban", "@loveui/list", "@loveui/table", "@loveui/tabs", "@loveui/avatar", "@loveui/context-menu"],
-    files: [
-      { path: "examples/roadmap.tsx", type: "registry:example" },
+    registryDependencies: [
+      "@loveui/calendar",
+      "@loveui/gantt",
+      "@loveui/kanban",
+      "@loveui/list",
+      "@loveui/table",
+      "@loveui/tabs",
+      "@loveui/avatar",
+      "@loveui/context-menu",
     ],
+    files: [{ path: "examples/roadmap.tsx", type: "registry:example" }],
     categories: ["blocks", "roadmap", "project"],
   },
   {
@@ -3575,9 +3797,7 @@ export const examples: Registry["items"] = [
     description: "A complete form block with multiple input types.",
     type: "registry:example",
     registryDependencies: ["@loveui/form"],
-    files: [
-      { path: "examples/form.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/form.tsx", type: "registry:example" }],
     categories: ["blocks", "form"],
   },
   {
@@ -3585,9 +3805,7 @@ export const examples: Registry["items"] = [
     description: "A codebase explorer block.",
     type: "registry:example",
     registryDependencies: [],
-    files: [
-      { path: "examples/codebase.tsx", type: "registry:example" },
-    ],
+    files: [{ path: "examples/codebase.tsx", type: "registry:example" }],
     categories: ["blocks", "codebase", "code"],
   },
   {
@@ -3600,5 +3818,4 @@ export const examples: Registry["items"] = [
     ],
     categories: ["blocks", "collaborative", "canvas"],
   },
-
 ]

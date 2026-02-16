@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-sm",
-  "type": "registry:example",
   "description": "A select with small size",
   "registryDependencies": [
     "@loveui/select"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "select"
-  ]
+  ],
+  "type": "registry:example"
 }

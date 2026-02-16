@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { Cursor, CursorPointer } from "../../../../../packages/cursor";
+import { Cursor, CursorPointer } from "../../../../../packages/cursor"
 
 const Example = () => (
   <Cursor>
     <CursorPointer />
   </Cursor>
-);
+)
 
-export default Example;
+export default Example

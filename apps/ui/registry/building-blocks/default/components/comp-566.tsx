@@ -4,7 +4,11 @@ import React from "react"
 import { hotkeysCoreFeature, syncDataLoaderFeature } from "@headless-tree/core"
 import { useTree } from "@headless-tree/react"
 
-import { Tree, TreeItem, TreeItemLabel } from "@/registry/building-blocks/default/ui/tree"
+import {
+  Tree,
+  TreeItem,
+  TreeItemLabel,
+} from "@/registry/building-blocks/default/ui/tree"
 
 interface Item {
   name: string

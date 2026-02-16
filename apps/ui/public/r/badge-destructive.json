@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "badge-destructive",
-  "type": "registry:example",
   "description": "Destructive badge",
   "registryDependencies": [
     "@loveui/badge"
@@ -17,5 +16,6 @@
     "badge",
     "destructive",
     "error"
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { Rating, RatingButton } from "../../../../../packages/rating";
-import { Input } from "../../../../../packages/ui/src/ui/input";
-import { useState } from "react";
+import { useState } from "react"
+
+import { Rating, RatingButton } from "../../../../../packages/rating"
+import { Input } from "../../../../../packages/ui/src/ui/input"
 
 const Example = () => {
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(3)
 
   return (
     <>
@@ -23,7 +24,7 @@ const Example = () => {
         value={value}
       />
     </>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

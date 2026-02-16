@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Rating, RatingButton } from "../../../../../packages/rating";
+import { Rating, RatingButton } from "../../../../../packages/rating"
 
 const Example = () => (
   <Rating defaultValue={3}>
@@ -8,6 +8,6 @@ const Example = () => (
       <RatingButton className="text-yellow-500" key={index} />
     ))}
   </Rating>
-);
+)
 
-export default Example;
+export default Example

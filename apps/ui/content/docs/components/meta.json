@@ -43,6 +43,7 @@
     "tabs",
     "textarea",
     "toast",
+    "gooey-toast",
     "toggle",
     "toggle-group",
     "toolbar",

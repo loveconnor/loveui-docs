@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider-form",
-  "type": "registry:example",
   "description": "Slider in a form",
   "registryDependencies": [
     "@loveui/slider",
@@ -23,5 +22,6 @@
     "button",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

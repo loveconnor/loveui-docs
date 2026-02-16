@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-sm",
-  "type": "registry:example",
   "description": "Small input",
   "registryDependencies": [
     "@loveui/input"
@@ -15,5 +14,6 @@
   ],
   "categories": [
     "input"
-  ]
+  ],
+  "type": "registry:example"
 }

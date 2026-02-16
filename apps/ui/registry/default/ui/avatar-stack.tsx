@@ -1,12 +1,13 @@
-import { Children, type ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { Children, type ReactNode } from "react"
+
+import { cn } from "@/lib/utils"
 
 export type AvatarStackProps = {
-  children: ReactNode;
-  className?: string;
-  animate?: boolean;
-  size?: number;
-};
+  children: ReactNode
+  className?: string
+  animate?: boolean
+  size?: number
+}
 
 export const AvatarStack = ({
   children,
@@ -17,7 +18,7 @@ export const AvatarStack = ({
 }: AvatarStackProps) => (
   <div
     className={cn(
-      "-space-x-1 flex items-center",
+      "flex items-center -space-x-1",
       animate && "hover:space-x-0 [&>*]:transition-all",
       className
     )}
@@ -25,7 +26,7 @@ export const AvatarStack = ({
   >
     {Children.map(children, (child, index) => {
       if (!child) {
-        return null;
+        return null
       }
 
       return (
@@ -45,7 +46,7 @@ export const AvatarStack = ({
         >
           {child}
         </div>
-      );
+      )
     })}
   </div>
-);
+)

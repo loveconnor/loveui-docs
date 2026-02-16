@@ -250,7 +250,7 @@ function CollapsibleYear({
           {title}
         </Button>
       </CollapsibleTrigger>
-      <CollapsibleContent className="overflow-hidden px-3 py-1 text-sm transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+      <CollapsibleContent className="data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down overflow-hidden px-3 py-1 text-sm transition-all">
         {children}
       </CollapsibleContent>
     </Collapsible>

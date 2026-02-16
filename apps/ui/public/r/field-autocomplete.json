@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-autocomplete",
-  "type": "registry:example",
   "description": "Field with autocomplete",
   "registryDependencies": [
     "@loveui/field",
@@ -19,5 +18,6 @@
     "input",
     "autocomplete",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

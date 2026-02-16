@@ -1,6 +1,8 @@
-"use client";
+"use client"
 
-import { faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker"
+import groupBy from "lodash.groupby"
+
 import {
   GanttFeatureItem,
   GanttFeatureList,
@@ -13,19 +15,18 @@ import {
   GanttSidebarItem,
   GanttTimeline,
   GanttToday,
-} from "../../../../../packages/gantt";
-import groupBy from "lodash.groupby";
+} from "../../../../../packages/gantt"
 
 // Seed faker to ensure consistent data between server and client
-faker.seed(123);
+faker.seed(123)
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
   { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
   { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
   { id: faker.string.uuid(), name: "Done", color: "#10B981" },
-];
+]
 
 const users = Array.from({ length: 4 })
   .fill(null)
@@ -33,35 +34,35 @@ const users = Array.from({ length: 4 })
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     image: faker.image.avatar(),
-  }));
+  }))
 
 const exampleGroups = Array.from({ length: 6 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleProducts = Array.from({ length: 4 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleInitiatives = Array.from({ length: 2 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleReleases = Array.from({ length: 3 })
   .fill(null)
   .map(() => ({
     id: faker.string.uuid(),
     name: capitalize(faker.company.buzzPhrase()),
-  }));
+  }))
 
 const exampleFeatures = Array.from({ length: 20 })
   .fill(null)
@@ -76,7 +77,7 @@ const exampleFeatures = Array.from({ length: 20 })
     product: faker.helpers.arrayElement(exampleProducts),
     initiative: faker.helpers.arrayElement(exampleInitiatives),
     release: faker.helpers.arrayElement(exampleReleases),
-  }));
+  }))
 
 const exampleMarkers = Array.from({ length: 6 })
   .fill(null)
@@ -92,16 +93,16 @@ const exampleMarkers = Array.from({ length: 6 })
       "bg-orange-100 text-orange-900",
       "bg-teal-100 text-teal-900",
     ]),
-  }));
+  }))
 
 const Example = () => {
-  const groupedFeatures = groupBy(exampleFeatures, "group.name");
+  const groupedFeatures = groupBy(exampleFeatures, "group.name")
 
   const sortedGroupedFeatures = Object.fromEntries(
     Object.entries(groupedFeatures).sort(([nameA], [nameB]) =>
       nameA.localeCompare(nameB)
     )
-  );
+  )
 
   return (
     <GanttProvider className="border" range="monthly" zoom={100}>
@@ -133,7 +134,7 @@ const Example = () => {
         <GanttToday />
       </GanttTimeline>
     </GanttProvider>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

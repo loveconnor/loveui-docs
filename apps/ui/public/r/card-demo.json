@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-demo",
-  "type": "registry:example",
   "description": "Card example with form",
   "registryDependencies": [
     "@loveui/card",
@@ -24,5 +23,6 @@
     "select",
     "form",
     "field"
-  ]
+  ],
+  "type": "registry:example"
 }

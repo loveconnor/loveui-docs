@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-disabled",
-  "type": "registry:example",
   "description": "Disabled checkbox",
   "registryDependencies": [
     "@loveui/checkbox",
@@ -18,5 +17,6 @@
     "checkbox",
     "disabled",
     "label"
-  ]
+  ],
+  "type": "registry:example"
 }

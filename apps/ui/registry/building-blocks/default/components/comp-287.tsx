@@ -14,7 +14,9 @@ export default function Component() {
             aria-hidden="true"
           />
           <div className="flex grow items-center justify-between gap-12">
-            <p className="text-sm">Deliveries paused after hitting your send limit.</p>
+            <p className="text-sm">
+              Deliveries paused after hitting your send limit.
+            </p>
             <Button size="sm">Resume flows</Button>
           </div>
         </div>

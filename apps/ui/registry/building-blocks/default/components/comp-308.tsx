@@ -21,7 +21,8 @@ export default function Component() {
           />
           <div className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
             <p className="text-sm">
-              AI summaries now ship inside the insights tab—turn them on for your team.
+              AI summaries now ship inside the insights tab—turn them on for
+              your team.
             </p>
             <div className="flex gap-2 max-md:flex-wrap">
               <Button size="sm" className="rounded-full">

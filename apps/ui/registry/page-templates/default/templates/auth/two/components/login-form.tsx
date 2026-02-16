@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils"
 import { Button } from "@/ui/button"
 import {
   Card,
@@ -9,6 +8,8 @@ import {
 } from "@/ui/card"
 import { Input } from "@/ui/input"
 import { Label } from "@/ui/label"
+
+import { cn } from "@/lib/utils"
 
 export function LoginForm({
   className,
@@ -48,9 +49,7 @@ export function LoginForm({
                 <Input id="password" type="password" required />
               </div>
               <div className="flex flex-col gap-3">
-                <Button className="w-full">
-                  Login
-                </Button>
+                <Button className="w-full">Login</Button>
                 <Button variant="outline" className="w-full">
                   Login with Google
                 </Button>

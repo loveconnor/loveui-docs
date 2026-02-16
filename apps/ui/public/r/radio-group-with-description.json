@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "radio-group-with-description",
-  "type": "registry:example",
   "description": "Radio options with helper text",
   "registryDependencies": [
     "@loveui/radio-group",
@@ -19,5 +18,6 @@
     "label",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

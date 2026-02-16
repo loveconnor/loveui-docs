@@ -1,26 +1,32 @@
-"use client";
+"use client"
 
-import { faker } from "@faker-js/faker";
+import { useState } from "react"
+import { faker } from "@faker-js/faker"
+
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/default/ui/avatar"
+
 import {
   KanbanBoard,
   KanbanCard,
   KanbanCards,
   KanbanHeader,
   KanbanProvider,
-} from "../../../../../packages/kanban";
-import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/registry/default/ui/avatar";
+} from "../../../../../packages/kanban"
 
 // Seed faker to ensure consistent data between server and client
-faker.seed(123);
+faker.seed(123)
 
-const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const columns = [
   { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
   { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
   { id: faker.string.uuid(), name: "Done", color: "#10B981" },
-];
+]
 
 const users = Array.from({ length: 4 })
   .fill(null)
@@ -28,7 +34,7 @@ const users = Array.from({ length: 4 })
     id: faker.string.uuid(),
     name: faker.person.fullName(),
     image: faker.image.avatar(),
-  }));
+  }))
 
 const exampleFeatures = Array.from({ length: 20 })
   .fill(null)
@@ -39,21 +45,21 @@ const exampleFeatures = Array.from({ length: 20 })
     endAt: faker.date.future({ years: 0.5, refDate: new Date() }),
     column: faker.helpers.arrayElement(columns).id,
     owner: faker.helpers.arrayElement(users),
-  }));
+  }))
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
   year: "numeric",
-});
+})
 
 const shortDateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
-});
+})
 
 const Example = () => {
-  const [features, setFeatures] = useState(exampleFeatures);
+  const [features, setFeatures] = useState(exampleFeatures)
 
   return (
     <KanbanProvider
@@ -82,7 +88,7 @@ const Example = () => {
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex flex-col gap-1">
-                    <p className="m-0 flex-1 font-medium text-sm">
+                    <p className="m-0 flex-1 text-sm font-medium">
                       {feature.name}
                     </p>
                   </div>
@@ -95,7 +101,7 @@ const Example = () => {
                     </Avatar>
                   )}
                 </div>
-                <p className="m-0 text-muted-foreground text-xs">
+                <p className="m-0 text-xs text-muted-foreground">
                   {shortDateFormatter.format(feature.startAt)} -{" "}
                   {dateFormatter.format(feature.endAt)}
                 </p>
@@ -105,7 +111,7 @@ const Example = () => {
         </KanbanBoard>
       )}
     </KanbanProvider>
-  );
-};
+  )
+}
 
-export default Example;
+export default Example

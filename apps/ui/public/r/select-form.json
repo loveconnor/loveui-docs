@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-form",
-  "type": "registry:example",
   "description": "Select in a form",
   "registryDependencies": [
     "@loveui/button",
@@ -22,5 +21,6 @@
     "field",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

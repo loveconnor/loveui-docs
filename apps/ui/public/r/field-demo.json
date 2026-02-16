@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field-demo",
-  "type": "registry:example",
   "description": "Field with description",
   "registryDependencies": [
     "@loveui/field"
@@ -18,5 +17,6 @@
     "label",
     "helper",
     "hint"
-  ]
+  ],
+  "type": "registry:example"
 }

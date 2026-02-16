@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Pill, PillDelta } from "../../../../../packages/pill";
+import { Pill, PillDelta } from "../../../../../packages/pill"
 
 const Example = () => (
   <>
@@ -17,6 +17,6 @@ const Example = () => (
       No change
     </Pill>
   </>
-);
+)
 
-export default Example;
+export default Example

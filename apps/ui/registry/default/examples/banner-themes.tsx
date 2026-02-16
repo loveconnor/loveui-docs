@@ -1,4 +1,7 @@
-"use client";
+"use client"
+
+import type { CSSProperties } from "react"
+import { CircleAlert } from "lucide-react"
 
 import {
   Banner,
@@ -6,9 +9,7 @@ import {
   BannerClose,
   BannerIcon,
   BannerTitle,
-} from "../../../../../packages/banner";
-import { CircleAlert } from "lucide-react";
-import type { CSSProperties } from "react";
+} from "../../../../../packages/banner"
 
 const Example = () => (
   <>
@@ -63,6 +64,6 @@ const Example = () => (
       </Banner>
     </div>
   </>
-);
+)
 
-export default Example;
+export default Example

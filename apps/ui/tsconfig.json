@@ -39,6 +39,21 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "registry/example-apps/default/dashboard-1/app",
+    "registry/example-apps/default/dashboard-1/components",
+    "registry/example-apps/default/dashboard-1/lib",
+    "registry/example-apps/default/dashboard-1/hooks",
+    "registry/example-apps/default/dashboard-1/store", 
+    "registry/example-apps/default/dashboard-2/app",
+    "registry/example-apps/default/dashboard-2/components",
+    "registry/example-apps/default/dashboard-2/lib",
+    "registry/example-apps/default/dashboard-2/hooks",
+    "registry/example-apps/default/dashboard-2/store",
+    "registry/example-apps/default/dashboard-3/app",
+    "registry/example-apps/default/dashboard-3/components",
+    "registry/example-apps/default/dashboard-3/lib",
+    "registry/example-apps/default/dashboard-3/hooks",
+    "registry/example-apps/default/dashboard-3/store"
   ]
 }

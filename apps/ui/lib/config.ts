@@ -22,6 +22,10 @@ export const appConfig = {
       label: "Templates",
     },
     {
+      href: "/examples",
+      label: "Examples",
+    },
+    {
       href: "/docs/backgrounds/ether",
       label: "Backgrounds",
     },

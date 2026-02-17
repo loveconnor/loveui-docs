@@ -1,0 +1,40 @@
+{
+  "title": "Analytics Dashboard",
+  "description": "A comprehensive analytics dashboard with financial charts, employee management, and customizable stats cards",
+  "category": "dashboards",
+  "tags": ["analytics", "charts", "tables", "data-visualization"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/content.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/dashboard-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Dashboard",
+      "description": "Main analytics dashboard with charts and tables"
+    }
+  ]
+}

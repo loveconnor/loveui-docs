@@ -1,0 +1,36 @@
+{
+  "title": "Business Dashboard",
+  "description": "A business-focused dashboard application with metrics, charts, and data management features",
+  "category": "dashboards",
+  "tags": ["business", "analytics", "metrics"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/content.tsx",
+      "type": "component"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Dashboard",
+      "description": "Business dashboard overview"
+    }
+  ]
+}

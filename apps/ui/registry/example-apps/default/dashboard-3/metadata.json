@@ -1,0 +1,36 @@
+{
+  "title": "Modern Dashboard",
+  "description": "A modern dashboard design with clean layout and intuitive navigation",
+  "category": "dashboards",
+  "tags": ["modern", "clean", "minimalist"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/content.tsx",
+      "type": "component"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Dashboard",
+      "description": "Modern dashboard interface"
+    }
+  ]
+}

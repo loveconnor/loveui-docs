@@ -234,7 +234,7 @@ export function DashboardSidebar({
           <div className="relative mt-4 p-5 rounded-2xl border bg-card shadow-lg">
             <Button
               variant="ghost"
-              size="icon-xs"
+              size="icon-sm"
               className="absolute right-3 top-3 bg-muted"
               onClick={() => setShowUpgradeModal(false)}
             >

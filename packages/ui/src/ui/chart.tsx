@@ -118,11 +118,21 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  React.ComponentProps<"div"> & {
+}: React.ComponentProps<"div"> &
+  Partial<
+    Pick<
+      RechartsPrimitive.TooltipContentProps<any, any>,
+      "active" | "payload" | "label"
+    >
+  > &
+  Pick<
+    RechartsPrimitive.TooltipProps<any, any>,
+    "formatter" | "labelFormatter"
+  > & {
     hideLabel?: boolean
     hideIndicator?: boolean
     indicator?: "line" | "dot" | "dashed"
+    labelClassName?: string
     nameKey?: string
     labelKey?: string
   }) {
@@ -256,7 +266,10 @@ function ChartLegendContent({
   verticalAlign = "bottom",
   nameKey,
 }: React.ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+  Pick<
+    RechartsPrimitive.DefaultLegendContentProps,
+    "payload" | "verticalAlign"
+  > & {
     hideIcon?: boolean
     nameKey?: string
   }) {

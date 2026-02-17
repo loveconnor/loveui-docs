@@ -13,7 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
   DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import {
   Table,
   TableBody,
@@ -346,7 +346,7 @@ export function LeadsTable() {
             <div className="relative">
               <HugeiconsIcon
                 icon={Search01Icon}
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground z-10 pointer-events-none"
               />
               <Input
                 placeholder="Search"
@@ -592,7 +592,7 @@ export function LeadsTable() {
         <div className="relative flex-1">
           <HugeiconsIcon
             icon={Search01Icon}
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground"
+            className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground z-10 pointer-events-none"
           />
           <Input
             placeholder="Search"

@@ -19,7 +19,7 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuSeparator,
   DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { useDashboardStore, type LayoutDensity } from "../../store/dashboard-store";
 
 const densityLabels: Record<LayoutDensity, string> = {

@@ -12,7 +12,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { MoreVerticalIcon } from "@hugeicons/core-free-icons";
 import {

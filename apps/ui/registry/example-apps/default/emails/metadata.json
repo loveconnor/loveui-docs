@@ -1,0 +1,40 @@
+{
+  "title": "Email Client",
+  "description": "A responsive email client interface with list/detail panes, mobile drawer support, and mailbox navigation.",
+  "category": "productivity",
+  "tags": ["email", "inbox", "communication"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/emails/emails-header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/emails/email-list.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/emails/email-detail.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/emails-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Inbox",
+      "description": "Main email inbox with thread detail"
+    }
+  ]
+}

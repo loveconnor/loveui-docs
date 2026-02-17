@@ -1,0 +1,44 @@
+{
+  "title": "Calendar Workspace",
+  "description": "A weekly calendar planner with event management, side navigation, and scheduling tools.",
+  "category": "productivity",
+  "tags": ["calendar", "schedule", "events"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/calendar/calendar-sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/calendar/calendar-header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/calendar/calendar-controls.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/calendar/calendar-view.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/calendar-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Calendar",
+      "description": "Weekly calendar overview and event scheduling"
+    }
+  ]
+}

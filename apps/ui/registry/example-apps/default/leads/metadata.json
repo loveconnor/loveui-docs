@@ -1,0 +1,40 @@
+{
+  "title": "Leads Dashboard",
+  "description": "A sales leads dashboard with filtering, funnel metrics, growth charts, and lead tracking.",
+  "category": "project-management",
+  "tags": ["leads", "crm", "analytics"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/content.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/leads-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Leads",
+      "description": "Leads overview dashboard"
+    }
+  ]
+}

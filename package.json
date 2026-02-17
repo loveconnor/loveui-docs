@@ -5,7 +5,7 @@
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --filter=!./apps/ui/registry/example-apps/default/*",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "turbo run clean && rm -rf .turbo && rm -rf node_modules",

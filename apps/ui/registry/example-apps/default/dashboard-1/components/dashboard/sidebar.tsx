@@ -23,7 +23,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { cn } from "../../lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -153,7 +153,7 @@ export function DashboardSidebar({
         <div className="relative mb-4">
           <HugeiconsIcon
             icon={Search01Icon}
-            className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground"
+            className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
           />
           <Input
             placeholder="Search Anything..."

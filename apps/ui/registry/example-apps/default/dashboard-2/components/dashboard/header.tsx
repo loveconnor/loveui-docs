@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   DashboardSquare01Icon,

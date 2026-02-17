@@ -21,7 +21,6 @@ export const EXAMPLE_APP_CATEGORIES: ExampleAppCategory[] = [
     name: "Dashboards",
     description: "Full-featured dashboard applications with data visualization and analytics",
     apps: [
-      { name: "starter-dashboard" },
       { name: "dashboard-1" },
       { name: "dashboard-2" },
       { name: "dashboard-3" },
@@ -31,25 +30,30 @@ export const EXAMPLE_APP_CATEGORIES: ExampleAppCategory[] = [
     slug: "project-management",
     name: "Project Management",
     description: "Project and task management applications",
-    apps: [],
+    apps: [{ name: "leads" }],
   },
   {
     slug: "e-commerce",
     name: "E-Commerce",
     description: "Online shopping and product catalog applications",
-    apps: [],
+    apps: [{ name: "rentals" }],
   },
   {
     slug: "social",
     name: "Social Media",
     description: "Social networking and community applications",
-    apps: [],
+    apps: [{ name: "maps" }],
   },
   {
     slug: "productivity",
     name: "Productivity",
     description: "Tools for productivity and workflow management",
-    apps: [],
+    apps: [
+      { name: "bookmarks" },
+      { name: "calendar" },
+      { name: "emails" },
+      { name: "files" },
+    ],
   },
 ]
 
@@ -180,6 +184,18 @@ export const EXAMPLE_APPS: Record<string, ExampleApp> = {
   },
 }
 
+function getRegisteredExampleApps(): Record<string, ExampleApp> {
+  const discovered = discoverExampleApps()
+  const discoveredByName = Object.fromEntries(
+    discovered.map((app) => [app.name, app])
+  )
+
+  return {
+    ...EXAMPLE_APPS,
+    ...discoveredByName,
+  }
+}
+
 /**
  * Get all example app categories
  */
@@ -200,14 +216,14 @@ export function getExampleAppCategory(
  * Get all example apps
  */
 export function getAllExampleApps(): ExampleApp[] {
-  return Object.values(EXAMPLE_APPS)
+  return Object.values(getRegisteredExampleApps())
 }
 
 /**
  * Get an example app by name
  */
 export function getExampleAppByName(name: string): ExampleApp | undefined {
-  return EXAMPLE_APPS[name]
+  return getRegisteredExampleApps()[name]
 }
 
 /**

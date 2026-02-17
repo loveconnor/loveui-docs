@@ -1,0 +1,54 @@
+{
+  "title": "Maps Explorer",
+  "description": "An interactive map explorer with categories, filters, and location details.",
+  "category": "social",
+  "tags": ["maps", "locations", "explorer"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/(dashboard)/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "app/(dashboard)/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/maps-panel.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/map-view.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/map-controls.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/maps-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Explore",
+      "description": "All locations map view"
+    },
+    {
+      "path": "/favorites",
+      "title": "Favorites",
+      "description": "Favorite locations"
+    },
+    {
+      "path": "/recents",
+      "title": "Recents",
+      "description": "Recently viewed locations"
+    }
+  ]
+}

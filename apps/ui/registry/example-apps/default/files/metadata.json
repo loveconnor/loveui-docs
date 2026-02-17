@@ -1,0 +1,65 @@
+{
+  "title": "Files Workspace",
+  "description": "A modern file manager with storage insights, folder navigation, and recent activity.",
+  "category": "productivity",
+  "tags": ["files", "storage", "folders"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/(files)/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/(files)/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/files/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/files/header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/files/content.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/files-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "All Files",
+      "description": "Main file explorer"
+    },
+    {
+      "path": "/recent",
+      "title": "Recent",
+      "description": "Recently accessed files"
+    },
+    {
+      "path": "/shared",
+      "title": "Shared",
+      "description": "Shared files and folders"
+    },
+    {
+      "path": "/starred",
+      "title": "Starred",
+      "description": "Starred files"
+    },
+    {
+      "path": "/trash",
+      "title": "Trash",
+      "description": "Deleted files"
+    },
+    {
+      "path": "/folder/[id]",
+      "title": "Folder",
+      "description": "Dynamic folder view"
+    }
+  ]
+}

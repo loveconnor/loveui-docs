@@ -39,7 +39,7 @@ import {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 
 const fullYearData = [
   { month: "Jan", moneyIn: 155000, moneyOut: 25000, moneyInChange: 8.5, moneyOutChange: -5.2 },

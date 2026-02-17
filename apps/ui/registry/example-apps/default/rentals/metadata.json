@@ -1,0 +1,49 @@
+{
+  "title": "Rentals Explorer",
+  "description": "A property rental explorer with map-based search, filters, and favorites.",
+  "category": "e-commerce",
+  "tags": ["rentals", "properties", "maps"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/(dashboard)/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "app/(dashboard)/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/listings-panel.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/map-view.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/map-controls.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/rentals-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "Properties",
+      "description": "All properties map view"
+    },
+    {
+      "path": "/favorites",
+      "title": "Favorites",
+      "description": "Favorite properties"
+    }
+  ]
+}

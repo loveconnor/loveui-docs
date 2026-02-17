@@ -18,17 +18,24 @@ const nextConfig: NextConfig = {
       '@/ui': require('path').resolve(__dirname, 'registry/default/ui'),
     }
     
-    // Exclude standalone dashboard apps from webpack processing
+    // Exclude standalone example apps from webpack processing
     // These are meant to be run independently
-    const dashboardPaths = [
+    const exampleAppPaths = [
       'registry/example-apps/default/dashboard-1/(app|components|lib|hooks|store)',
       'registry/example-apps/default/dashboard-2/(app|components|lib|hooks|store)',
       'registry/example-apps/default/dashboard-3/(app|components|lib|hooks|store)',
+      'registry/example-apps/default/bookmarks/(app|components|lib|hooks|store|mock-data)',
+      'registry/example-apps/default/calendar/(app|components|lib|hooks|store|mock-data)',
+      'registry/example-apps/default/emails/(app|components|lib|hooks|store|mock-data)',
+      'registry/example-apps/default/files/(app|components|lib|hooks|store|mock-data)',
+      'registry/example-apps/default/leads/(app|components|lib|hooks|store|mock-data)',
+      'registry/example-apps/default/maps/(app|components|lib|hooks|store|mock-data)',
+      'registry/example-apps/default/rentals/(app|components|lib|hooks|store|mock-data)',
     ]
     
     config.plugins.push(
       new webpack.IgnorePlugin({
-        resourceRegExp: new RegExp(dashboardPaths.join('|')),
+        resourceRegExp: new RegExp(exampleAppPaths.join('|')),
       })
     )
     
@@ -51,6 +58,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "ik.imagekit.io",
+      },
+      {
+        protocol: "https",
+        hostname: "www.google.com",
       },
     ],
   },

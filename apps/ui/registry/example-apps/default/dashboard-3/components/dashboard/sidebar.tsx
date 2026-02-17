@@ -19,7 +19,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { Button } from "@loveui/ui/ui/button";
 import { cn } from "../../lib/utils";
 import { HugeiconsIcon } from "@hugeicons/react";

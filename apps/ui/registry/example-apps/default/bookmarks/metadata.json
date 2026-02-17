@@ -1,0 +1,55 @@
+{
+  "title": "Bookmarks Manager",
+  "description": "A modern bookmark management app with collections, tags, favorites, and archive/trash views.",
+  "category": "productivity",
+  "tags": ["bookmarks", "organization", "dashboard"],
+  "isNew": true,
+  "files": [
+    {
+      "path": "app/page.tsx",
+      "type": "page"
+    },
+    {
+      "path": "app/layout.tsx",
+      "type": "layout"
+    },
+    {
+      "path": "components/dashboard/sidebar.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/header.tsx",
+      "type": "component"
+    },
+    {
+      "path": "components/dashboard/content.tsx",
+      "type": "component"
+    },
+    {
+      "path": "store/bookmarks-store.ts",
+      "type": "lib"
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "All Bookmarks",
+      "description": "Main bookmarks view with filtering and collections"
+    },
+    {
+      "path": "/favorites",
+      "title": "Favorites",
+      "description": "Favorite bookmarks"
+    },
+    {
+      "path": "/archive",
+      "title": "Archive",
+      "description": "Archived bookmarks"
+    },
+    {
+      "path": "/trash",
+      "title": "Trash",
+      "description": "Deleted bookmarks"
+    }
+  ]
+}

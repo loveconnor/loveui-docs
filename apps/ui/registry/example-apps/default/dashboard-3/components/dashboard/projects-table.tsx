@@ -36,7 +36,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
   DropdownMenuSeparator,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Search01Icon,
@@ -244,7 +244,7 @@ export function ProjectsTable() {
         <h3 className="font-medium text-base">List Projects</h3>
         <div className="flex items-center gap-2">
           <div className="relative">
-            <HugeiconsIcon icon={Search01Icon} className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+            <HugeiconsIcon icon={Search01Icon} className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
             <Input
               placeholder="Search here..."
               value={projectsSearchQuery}

@@ -21,7 +21,7 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuSeparator,
   DropdownMenuGroup,
-} from "../ui/dropdown-menu";
+} from "@loveui/ui/ui/menu";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   UserGroupIcon,
@@ -145,7 +145,7 @@ export function EmployeesTable() {
           <div className="relative flex-1 sm:flex-none">
             <HugeiconsIcon
               icon={Search01Icon}
-              className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground"
+              className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
             />
             <Input
               placeholder="Search Anything..."

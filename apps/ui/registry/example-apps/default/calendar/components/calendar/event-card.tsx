@@ -8,7 +8,7 @@ import { getEventDuration } from "./calendar-utils";
 
 interface EventCardProps {
   event: Event;
-  style: React.CSSProperties;
+  style: any;
   onClick?: () => void;
 }
 

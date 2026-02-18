@@ -1,4 +1,5 @@
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@loveui/ui/lib/utils"
@@ -35,7 +36,7 @@ function Card({ className, variant, ...props }: CardProps) {
   )
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+function CardHeader({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="card-header"
@@ -48,7 +49,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="card-title"
@@ -58,7 +59,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function CardDescription({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="card-description"
@@ -68,7 +69,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
+function CardAction({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="card-action"
@@ -81,7 +82,7 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardPanel({ className, ...props }: React.ComponentProps<"div">) {
+function CardPanel({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="card-content"
@@ -91,7 +92,7 @@ function CardPanel({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
+function CardFooter({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="card-footer"

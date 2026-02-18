@@ -266,7 +266,7 @@ export function EventCalendar({
           "--event-height": `${EventHeight}px`,
           "--event-gap": `${EventGap}px`,
           "--week-cells-height": `${WeekCellsHeight}px`,
-        } as React.CSSProperties
+        } as any
       }
     >
       <CalendarDndProvider onEventUpdate={handleEventUpdate}>

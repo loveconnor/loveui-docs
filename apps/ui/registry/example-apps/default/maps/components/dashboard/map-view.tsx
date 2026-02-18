@@ -513,7 +513,7 @@ export function MapView() {
   return (
     <>
       <div ref={containerRef} className="absolute inset-0 h-full w-full" />
-      <style jsx global>{`
+      <style>{`
         .maplibregl-popup-content {
           background-color: var(--background) !important;
           color: var(--foreground) !important;

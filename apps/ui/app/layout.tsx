@@ -1,24 +1,12 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
-import { Cal_Sans as FontHeading, Inter as FontSans } from "next/font/google"
 
 import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
 import { SiteHeader } from "@/components/site-header"
 import { ToastProvider } from "@/registry/default/ui/toast"
 import { Toaster } from "@loveui/gooey-toast"
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const fontHeading = FontHeading({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: "400",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://loveui.dev"),
@@ -35,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${fontSans.variable} ${fontHeading.variable} bg-sidebar font-sans text-foreground antialiased`}
-      >
+      <body className="bg-sidebar font-sans text-foreground antialiased">
         <ThemeProvider defaultTheme="dark">
           <ToastProvider>
             <div className="relative flex min-h-svh flex-col overflow-clip [--header-height:4rem] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-sidebar">

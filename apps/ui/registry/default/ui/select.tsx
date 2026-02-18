@@ -39,13 +39,22 @@ function SelectTrigger({
   )
 }
 
-function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
+function SelectValue({
+  className,
+  placeholder,
+  children,
+  ...props
+}: SelectPrimitive.Value.Props & { placeholder?: string }) {
+  const resolvedChildren = children ?? ((value: unknown) => value ?? placeholder)
+
   return (
     <SelectPrimitive.Value
       data-slot="select-value"
       className={cn("truncate", className)}
       {...props}
-    />
+    >
+      {resolvedChildren as any}
+    </SelectPrimitive.Value>
   )
 }
 

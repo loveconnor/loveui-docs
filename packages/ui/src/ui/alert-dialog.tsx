@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef } from "react"
 "use client"
 
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui-components/react/alert-dialog"
@@ -61,7 +62,7 @@ function AlertDialogPopup({
 function AlertDialogHeader({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="alert-dialog-header"
@@ -74,7 +75,7 @@ function AlertDialogHeader({
 function AlertDialogFooter({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="alert-dialog-footer"

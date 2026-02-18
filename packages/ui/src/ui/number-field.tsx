@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { NumberField as NumberFieldPrimitive } from "@base-ui-components/react/number-field"
 import { MinusIcon, PlusIcon } from "lucide-react"
 
@@ -134,7 +135,7 @@ function NumberFieldScrubArea({
   )
 }
 
-function CursorGrowIcon(props: React.ComponentProps<"svg">) {
+function CursorGrowIcon(props: ComponentPropsWithoutRef<"svg">) {
   return (
     <svg
       width="26"

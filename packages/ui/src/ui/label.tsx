@@ -1,8 +1,9 @@
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 
 import { cn } from "@loveui/ui/lib/utils"
 
-function Label({ className, ...props }: React.ComponentProps<"label">) {
+function Label({ className, ...props }: ComponentPropsWithoutRef<"label">) {
   return (
     <label
       data-slot="label"

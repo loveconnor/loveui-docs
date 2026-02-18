@@ -1,6 +1,7 @@
+import type { ComponentPropsWithoutRef } from "react"
 import { cn } from "@loveui/ui/lib/utils"
 
-function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
+function Kbd({ className, ...props }: ComponentPropsWithoutRef<"kbd">) {
   return (
     <kbd
       data-slot="kbd"
@@ -13,7 +14,7 @@ function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   )
 }
 
-function KbdGroup({ className, ...props }: React.ComponentProps<"div">) {
+function KbdGroup({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <kbd
       data-slot="kbd-group"

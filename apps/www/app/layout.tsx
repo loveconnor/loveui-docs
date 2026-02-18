@@ -1,23 +1,11 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
-import { Cal_Sans as FontHeading, Inter as FontSans } from "next/font/google"
 
 import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
 import { SiteHeader } from "@/components/site-header"
 import { Footer } from "@/components/footer"
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const fontHeading = FontHeading({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: "400",
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://loveui.dev"),
@@ -32,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${fontSans.variable} ${fontHeading.variable} bg-sidebar font-sans text-foreground antialiased`}
-      >
+      <body className="bg-sidebar font-sans text-foreground antialiased">
         <ThemeProvider forcedTheme="dark">
           <div className="relative flex min-h-svh flex-col [--header-height:4rem] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-sidebar overflow-clip">
             <div className="absolute inset-0 z-60 pointer-events-none container before:absolute before:inset-y-0 before:-left-3 before:w-px before:bg-border/50 after:absolute after:inset-y-0 after:-right-3 after:w-px after:bg-border/50" aria-hidden="true"></div>

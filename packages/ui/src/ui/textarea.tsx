@@ -1,4 +1,5 @@
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 
 import { cn } from "@loveui/ui/lib/utils"
 
@@ -6,7 +7,7 @@ function Textarea({
   className,
   size = "default",
   ...props
-}: React.ComponentProps<"textarea"> & {
+}: ComponentPropsWithoutRef<"textarea"> & {
   size?: "sm" | "default" | "lg" | number
 }) {
   return (

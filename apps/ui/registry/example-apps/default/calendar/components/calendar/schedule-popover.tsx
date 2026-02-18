@@ -22,7 +22,7 @@ import { cn } from "../../lib/utils";
 import { Separator } from "@loveui/ui/ui/separator";
 
 interface SchedulePopoverProps {
-  children: React.ReactNode;
+  children: React.ReactElement<Record<string, unknown>>;
 }
 
 export function SchedulePopover({ children }: SchedulePopoverProps) {
@@ -44,7 +44,7 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger render={children as React.ReactElement} />
+      <PopoverTrigger render={children} />
       <PopoverContent className="w-80 p-4" align="end">
         <div className="space-y-4">
           <div>

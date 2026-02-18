@@ -1,4 +1,5 @@
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { mergeProps } from "@base-ui-components/react/merge-props"
 import { useRender } from "@base-ui-components/react/use-render"
 import {
@@ -10,7 +11,7 @@ import {
 import { cn } from "@loveui/ui/lib/utils"
 import { Button, buttonVariants } from "@loveui/ui/ui/button"
 
-function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
+function Pagination({ className, ...props }: ComponentPropsWithoutRef<"nav">) {
   return (
     <nav
       role="navigation"
@@ -25,7 +26,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
 function PaginationContent({
   className,
   ...props
-}: React.ComponentProps<"ul">) {
+}: ComponentPropsWithoutRef<"ul">) {
   return (
     <ul
       data-slot="pagination-content"
@@ -35,7 +36,7 @@ function PaginationContent({
   )
 }
 
-function PaginationItem({ ...props }: React.ComponentProps<"li">) {
+function PaginationItem({ ...props }: ComponentPropsWithoutRef<"li">) {
   return <li data-slot="pagination-item" {...props} />
 }
 
@@ -110,7 +111,7 @@ function PaginationNext({
 function PaginationEllipsis({
   className,
   ...props
-}: React.ComponentProps<"span">) {
+}: ComponentPropsWithoutRef<"span">) {
   return (
     <span
       aria-hidden

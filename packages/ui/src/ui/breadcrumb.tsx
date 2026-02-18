@@ -1,15 +1,16 @@
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { mergeProps } from "@base-ui-components/react/merge-props"
 import { useRender } from "@base-ui-components/react/use-render"
 import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "@loveui/ui/lib/utils"
 
-function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
+function Breadcrumb({ ...props }: ComponentPropsWithoutRef<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />
 }
 
-function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
+function BreadcrumbList({ className, ...props }: ComponentPropsWithoutRef<"ol">) {
   return (
     <ol
       data-slot="breadcrumb-list"
@@ -22,7 +23,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   )
 }
 
-function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
+function BreadcrumbItem({ className, ...props }: ComponentPropsWithoutRef<"li">) {
   return (
     <li
       data-slot="breadcrumb-item"
@@ -49,7 +50,7 @@ function BreadcrumbLink({
   })
 }
 
-function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
+function BreadcrumbPage({ className, ...props }: ComponentPropsWithoutRef<"span">) {
   return (
     <span
       data-slot="breadcrumb-page"
@@ -66,7 +67,7 @@ function BreadcrumbSeparator({
   children,
   className,
   ...props
-}: React.ComponentProps<"li">) {
+}: ComponentPropsWithoutRef<"li">) {
   return (
     <li
       data-slot="breadcrumb-separator"
@@ -83,7 +84,7 @@ function BreadcrumbSeparator({
 function BreadcrumbEllipsis({
   className,
   ...props
-}: React.ComponentProps<"span">) {
+}: ComponentPropsWithoutRef<"span">) {
   return (
     <span
       data-slot="breadcrumb-ellipsis"

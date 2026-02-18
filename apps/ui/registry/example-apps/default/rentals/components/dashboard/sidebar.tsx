@@ -228,9 +228,12 @@ export function RentalsSidebar({
                   <div className="px-2">
                     <Slider
                       value={[priceRange[0], priceRange[1]]}
-                      onValueChange={(value) =>
-                        setPriceRange([value[0], value[1]])
-                      }
+                      onValueChange={(value) => {
+                        const range = (
+                          Array.isArray(value) ? value : [value, value]
+                        ) as readonly number[];
+                        setPriceRange([range[0] ?? 0, range[1] ?? range[0] ?? 0]);
+                      }}
                       min={0}
                       max={500}
                       step={10}

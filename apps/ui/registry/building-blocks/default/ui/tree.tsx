@@ -42,7 +42,7 @@ function Tree({ indent = 20, tree, className, ...props }: TreeProps) {
   const mergedStyle = {
     ...propStyle,
     "--tree-indent": `${indent}px`,
-  } as React.CSSProperties
+  } as any
 
   return (
     <TreeContext.Provider value={{ indent, tree }}>
@@ -82,7 +82,7 @@ function TreeItem<T = any>({
   const mergedStyle = {
     ...propStyle,
     "--tree-padding": `${item.getItemMeta().level * indent}px`,
-  } as React.CSSProperties
+  } as any
 
   const Comp = asChild ? Slot.Root : "button"
 

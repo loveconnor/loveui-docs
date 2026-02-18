@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
 
 import { cn } from "../../lib/utils"
@@ -56,7 +57,7 @@ function DialogContent({
 function DialogHeader({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="dialog-header"
@@ -72,7 +73,7 @@ function DialogHeader({
 function DialogFooter({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="dialog-footer"

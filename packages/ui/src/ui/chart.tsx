@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import * as RechartsPrimitive from "recharts"
 
 import { cn } from "@loveui/ui/lib/utils"
@@ -40,7 +41,7 @@ function ChartContainer({
   children,
   config,
   ...props
-}: React.ComponentProps<"div"> & {
+}: ComponentPropsWithoutRef<"div"> & {
   config: ChartConfig
   children: React.ComponentProps<
     typeof RechartsPrimitive.ResponsiveContainer
@@ -118,7 +119,7 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<"div"> &
+}: ComponentPropsWithoutRef<"div"> &
   Partial<
     Pick<
       RechartsPrimitive.TooltipContentProps<any, any>,
@@ -265,7 +266,7 @@ function ChartLegendContent({
   payload,
   verticalAlign = "bottom",
   nameKey,
-}: React.ComponentProps<"div"> &
+}: ComponentPropsWithoutRef<"div"> &
   Pick<
     RechartsPrimitive.DefaultLegendContentProps,
     "payload" | "verticalAlign"

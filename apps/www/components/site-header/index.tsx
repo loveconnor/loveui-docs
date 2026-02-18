@@ -22,7 +22,8 @@ const baseNavItems: ReadonlyArray<{ path: string; label: string }> = [
   { path: "/docs", label: "Docs" },
   { path: "/docs/features/avatar-stack", label: "Features" },
   { path: "/building-blocks", label: "Building Blocks" },
-  { path: "/page-templates", label: "Page Templates" },
+  { path: "/templates", label: "Templates" },
+  { path: "/examples", label: "Examples" },
   { path: "/docs/backgrounds/ether", label: "Backgrounds" },
 ] as const;
 

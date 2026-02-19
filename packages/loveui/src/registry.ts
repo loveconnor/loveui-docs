@@ -159,10 +159,20 @@ const ensureExists = async (targetPath: string) => {
 };
 
 const isInternalDependency = (dependency: string) =>
-  dependency.startsWith("@loveui/") || dependency.startsWith("@repo/");
+  dependency.startsWith("@loveui/") ||
+  dependency.startsWith("@love-ui/") ||
+  dependency.startsWith("@repo/");
 
 const normalizeInternalPackage = (dependency: string) =>
-  dependency.replace(/^@repo\//, "").replace(/^@loveui\//, "");
+  dependency
+    .replace(/^@repo\//, "")
+    .replace(/^@loveui\//, "")
+    .replace(/^@love-ui\//, "");
+
+const INTERNAL_DEPENDENCY_EXCLUSIONS = new Set([
+  "@loveui/shadcn-ui",
+  "@love-ui/shadcn-ui"
+]);
 
 export const listRegistryPackages = async (): Promise<string[]> => {
   const entries = await readdir(PACKAGES_ROOT, { withFileTypes: true });
@@ -192,18 +202,20 @@ export const loadRegistryItem = async (packageName: string): Promise<LoveUIRegis
   const internalDependencies = new Set(
     [...dependencyEntries, ...peerEntries, ...devEntries]
       .filter(isInternalDependency)
-      .filter((dep) => dep !== "@loveui/shadcn-ui")
+      .filter((dep) => !INTERNAL_DEPENDENCY_EXCLUSIONS.has(dep))
   );
 
   const dependencies = [
-    ...new Set([...dependencyEntries, ...peerEntries].filter((dep) => !internalDependencies.has(dep)))
+    ...new Set(
+      [...dependencyEntries, ...peerEntries].filter((dep) => !isInternalDependency(dep))
+    )
   ];
 
   const devDependencies = [
     ...new Set(
       devEntries.filter(
         (dep) =>
-          !internalDependencies.has(dep) &&
+          !isInternalDependency(dep) &&
           ![
             "@loveui/typescript-config",
             "@types/react",

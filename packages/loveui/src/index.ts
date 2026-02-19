@@ -25,6 +25,8 @@ type RegistryPayload = {
 type ComponentsConfig = {
   aliases?: {
     components?: string;
+    utils?: string;
+    lib?: string;
   };
 };
 
@@ -105,6 +107,18 @@ const LOVE_UI_COMPONENTS = new Set([
   "tooltip"
 ]);
 
+const SCRIPT_EXTENSIONS = [".ts", ".tsx", ".js", ".jsx"] as const;
+const UTILS_TARGET_PATTERN = /(^|\/)lib\/utils(?:\.[a-z]+)?$/i;
+const UTILS_IMPORT_PATTERN =
+  /@loveui\/ui\/lib\/utils|@loveui\/shadcn-ui\/lib\/utils|@love-ui\/shadcn-ui\/lib\/utils|@\/lib\/utils|~\/lib\/utils|(?:\.\.\/)+ui\/src\/lib\/utils/;
+const DEFAULT_UTILS_TEMPLATE = `import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+`;
+
 type TargetResolution = {
   base: string;
   includePackageName: boolean;
@@ -132,6 +146,26 @@ function normalizeAliasPath(alias: string): string {
   normalized = normalized.replace(/\/+$/, "");
 
   return normalized;
+}
+
+function normalizeImportPath(value: string): string {
+  return value.trim().replace(/\/+$/, "");
+}
+
+function stripScriptExtension(value: string): string {
+  return value.replace(/\.(?:ts|tsx|js|jsx)$/i, "");
+}
+
+function withScriptExtensions(filePath: string): string[] {
+  const normalized = stripScriptExtension(filePath);
+  return SCRIPT_EXTENSIONS.map((extension) => `${normalized}${extension}`);
+}
+
+function resolveBasePrefix(componentsDir: string): "src" | "app" | null {
+  const normalized = componentsDir.replace(/\/+$/, "");
+  if (normalized === "src" || normalized.startsWith("src/")) return "src";
+  if (normalized === "app" || normalized.startsWith("app/")) return "app";
+  return null;
 }
 
 function normalizePackageDirectory(packageName: string): string {
@@ -189,50 +223,97 @@ function adjustPathForConfig(
   return { cleanedPath, target };
 }
 
-async function loadComponentsConfig(root: string): Promise<string | null> {
+async function loadComponentsConfig(root: string): Promise<ComponentsConfig["aliases"] | null> {
   const configPath = path.join(root, "components.json");
   try {
     const raw = await readFile(configPath, "utf8");
     const parsed = JSON.parse(raw) as ComponentsConfig;
-    const alias = parsed.aliases?.components;
-    if (!alias) return null;
-    return normalizeAliasPath(alias);
+    return parsed.aliases ?? null;
   } catch {
     return null;
   }
 }
 
-async function detectDefaultComponentsDir(root: string): Promise<string> {
-  const tsConfigPath = ["tsconfig.json", "jsconfig.json"]
+async function loadCompilerPaths(
+  root: string
+): Promise<Record<string, string[]> | null> {
+  const configPath = ["tsconfig.json", "jsconfig.json"]
     .map((file) => path.join(root, file))
     .find((file) => existsSync(file));
 
-  if (tsConfigPath) {
-    try {
-      const raw = await readFile(tsConfigPath, "utf8");
-      const parsed = JSON.parse(raw);
-      const paths = parsed.compilerOptions?.paths;
-      if (paths && typeof paths === "object") {
-        for (const key of Object.keys(paths)) {
-          const values = paths[key];
-          if (
-            key === "@/*" &&
-            Array.isArray(values) &&
-            values.some((v: string) => v.startsWith("src/") || v.startsWith("./src/"))
-          ) {
-            return "src/components";
-          }
-          if (
-            key === "@/*" &&
-            Array.isArray(values) &&
-            values.some((v: string) => v.startsWith("app/") || v.startsWith("./app/"))
-          ) {
-            return "app/components";
-          }
-        }
-      }
-    } catch {
-      /* ignore parsing errors */
+  if (!configPath) return null;
+
+  try {
+    const raw = await readFile(configPath, "utf8");
+    const parsed = JSON.parse(raw) as Record<string, any>;
+    const paths = parsed.compilerOptions?.paths;
+    if (!paths || typeof paths !== "object") {
+      return null;
+    }
+
+    return paths as Record<string, string[]>;
+  } catch {
+    return null;
+  }
+}
+
+function resolveAliasPrefix(
+  componentAlias: string | undefined,
+  compilerPaths: Record<string, string[]> | null
+): "@/" | "~/" {
+  if (typeof componentAlias === "string") {
+    if (componentAlias.trim().startsWith("~/")) return "~/";
+    if (componentAlias.trim().startsWith("@/")) return "@/";
+  }
+
+  if (compilerPaths) {
+    if (Object.prototype.hasOwnProperty.call(compilerPaths, "~/*")) {
+      return "~/";
+    }
+    if (Object.prototype.hasOwnProperty.call(compilerPaths, "@/*")) {
+      return "@/";
+    }
+  }
+
+  return "@/";
+}
+
+async function detectComponentsDir(
+  root: string,
+  configuredComponentsDir: string | null,
+  compilerPaths: Record<string, string[]> | null
+): Promise<string> {
+  if (configuredComponentsDir && configuredComponentsDir.length > 0) {
+    return configuredComponentsDir;
+  }
+
+  const existingUiDirs = ["src/components/ui", "app/components/ui", "components/ui"];
+  for (const uiDir of existingUiDirs) {
+    if (existsSync(path.join(root, uiDir))) {
+      return uiDir.replace(/\/ui$/, "");
+    }
+  }
+
+  const existingComponentsDirs = ["src/components", "app/components", "components"];
+  for (const componentsDir of existingComponentsDirs) {
+    if (existsSync(path.join(root, componentsDir))) {
+      return componentsDir;
+    }
+  }
+
+  if (compilerPaths) {
+    const aliasPaths = compilerPaths["@/*"] ?? compilerPaths["~/*"] ?? [];
+    if (
+      Array.isArray(aliasPaths) &&
+      aliasPaths.some((candidate) => /^\.?\/?src\//.test(candidate))
+    ) {
+      return "src/components";
+    }
+    if (
+      Array.isArray(aliasPaths) &&
+      aliasPaths.some((candidate) => /^\.?\/?app\//.test(candidate))
+    ) {
+      return "app/components";
     }
   }
 
@@ -247,7 +328,64 @@ async function detectDefaultComponentsDir(root: string): Promise<string> {
   return "components";
 }
 
-function adjustTargetPath(target: string, componentsDir: string, useExactTarget: boolean): string {
+async function resolveUtilsLocation(
+  root: string,
+  componentsDir: string,
+  aliasPrefix: "@/" | "~/",
+  aliases: ComponentsConfig["aliases"] | null
+): Promise<{ utilsImportPath: string; utilsFilePath: string }> {
+  const configuredUtilsAlias =
+    aliases?.utils ??
+    (aliases?.lib ? `${aliases.lib.replace(/\/+$/, "")}/utils` : undefined);
+
+  if (configuredUtilsAlias && configuredUtilsAlias.trim().length > 0) {
+    const importPath = stripScriptExtension(normalizeImportPath(configuredUtilsAlias));
+    const configuredPath = stripScriptExtension(normalizeAliasPath(configuredUtilsAlias));
+
+    for (const candidate of withScriptExtensions(configuredPath)) {
+      if (existsSync(path.join(root, candidate))) {
+        return {
+          utilsImportPath: importPath,
+          utilsFilePath: candidate
+        };
+      }
+    }
+
+    return {
+      utilsImportPath: importPath,
+      utilsFilePath: `${configuredPath}.ts`
+    };
+  }
+
+  const basePrefix = resolveBasePrefix(componentsDir);
+  const preferredBase = basePrefix ? `${basePrefix}/lib/utils` : "lib/utils";
+  const searchBases = Array.from(
+    new Set([
+      preferredBase,
+      "src/lib/utils",
+      "app/lib/utils",
+      "lib/utils"
+    ])
+  );
+
+  for (const base of searchBases) {
+    for (const candidate of withScriptExtensions(base)) {
+      if (existsSync(path.join(root, candidate))) {
+        return {
+          utilsImportPath: `${aliasPrefix}lib/utils`,
+          utilsFilePath: candidate
+        };
+      }
+    }
+  }
+
+  return {
+    utilsImportPath: `${aliasPrefix}lib/utils`,
+    utilsFilePath: `${preferredBase}.ts`
+  };
+}
+
+function adjustTargetPath(target: string, componentsDir: string, utilsFilePath: string): string {
   const collapse = (value: string) => {
     const lead = value.startsWith("/");
     const trail = value.endsWith("/");
@@ -261,42 +399,131 @@ function adjustTargetPath(target: string, componentsDir: string, useExactTarget:
     return `${lead ? "/" : ""}${body}${trail ? "/" : ""}`;
   };
 
-  if (useExactTarget) return collapse(target);
-
   const normalizedDir = componentsDir.replace(/\/+$/, "");
+  const normalizedTarget = target.replace(/^\.?\//, "");
 
-  // Handle components/ paths - replace "components" with the configured directory
-  if (target.startsWith("components/")) {
-    const remainder = target.slice("components".length);
+  if (UTILS_TARGET_PATTERN.test(normalizedTarget)) {
+    return collapse(utilsFilePath);
+  }
+
+  // Handle components/ paths - replace "components" with the resolved directory
+  if (normalizedTarget.startsWith("components/")) {
+    const remainder = normalizedTarget.slice("components".length);
     return collapse(`${normalizedDir}${remainder}`.replace(/^\//, ""));
   }
 
   // Handle lib/ paths - prepend the base directory (src/, app/, or nothing) to lib paths
-  if (target.startsWith("lib/")) {
+  if (normalizedTarget.startsWith("lib/")) {
     if (normalizedDir.startsWith("src/")) {
-      return collapse(`src/${target}`);
+      return collapse(`src/${normalizedTarget}`);
     }
     if (normalizedDir.startsWith("app/")) {
-      return collapse(`app/${target}`);
+      return collapse(`app/${normalizedTarget}`);
     }
   }
 
   // Handle hooks/ paths - prepend the base directory (src/, app/, or nothing) to hooks paths
-  if (target.startsWith("hooks/")) {
+  if (normalizedTarget.startsWith("hooks/")) {
     if (normalizedDir.startsWith("src/")) {
-      return collapse(`src/${target}`);
+      return collapse(`src/${normalizedTarget}`);
     }
     if (normalizedDir.startsWith("app/")) {
-      return collapse(`app/${target}`);
+      return collapse(`app/${normalizedTarget}`);
     }
   }
 
   // Handle ui/ paths - these should go to components/ui/
-  if (target.startsWith("ui/")) {
-    return collapse(`${normalizedDir}/${target}`);
+  if (normalizedTarget.startsWith("ui/")) {
+    return collapse(`${normalizedDir}/${normalizedTarget}`);
   }
 
-  return collapse(target);
+  return collapse(normalizedTarget);
+}
+
+function normalizeComponentContent(content: string, utilsImportPath: string): string {
+  const aliasPrefix = utilsImportPath.startsWith("~/") ? "~/" : "@/";
+
+  let normalized = content;
+  normalized = normalized.replace(
+    /@\/registry\/building-blocks\/default\/components\//g,
+    `${aliasPrefix}components/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/building-blocks\/default\/ui\//g,
+    `${aliasPrefix}components/ui/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/building-blocks\/default\/lib\//g,
+    `${aliasPrefix}lib/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/building-blocks\/default\/hooks\//g,
+    `${aliasPrefix}hooks/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/components\//g,
+    `${aliasPrefix}components/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/ui\//g,
+    `${aliasPrefix}components/ui/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/lib\//g,
+    `${aliasPrefix}lib/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/hooks\//g,
+    `${aliasPrefix}hooks/`
+  );
+
+  normalized = normalized.replace(
+    /from\s+["']@loveui\/ui\/lib\/utils["']/g,
+    `from "${utilsImportPath}"`
+  );
+  normalized = normalized.replace(
+    /from\s+["']@loveui\/shadcn-ui\/lib\/utils["']/g,
+    `from "${utilsImportPath}"`
+  );
+  normalized = normalized.replace(
+    /from\s+["']@love-ui\/shadcn-ui\/lib\/utils["']/g,
+    `from "${utilsImportPath}"`
+  );
+  normalized = normalized.replace(
+    /from\s+["']@\/lib\/utils["']/g,
+    `from "${utilsImportPath}"`
+  );
+  normalized = normalized.replace(
+    /from\s+["']~\/lib\/utils["']/g,
+    `from "${utilsImportPath}"`
+  );
+  normalized = normalized.replace(
+    /from\s+["'](?:\.\.\/)+ui\/src\/lib\/utils["']/g,
+    `from "${utilsImportPath}"`
+  );
+
+  return normalized;
+}
+
+async function ensureUtilsFile(root: string, utilsFilePath: string): Promise<boolean> {
+  if (existsSync(path.join(root, utilsFilePath))) {
+    return false;
+  }
+
+  let content = DEFAULT_UTILS_TEMPLATE;
+  const bundledUtilsPath = path.join(BUNDLED_PACKAGES_ROOT, "love-ui", "src", "lib", "utils.ts");
+  if (existsSync(bundledUtilsPath)) {
+    try {
+      content = await readFile(bundledUtilsPath, "utf8");
+    } catch {
+      /* ignore and fall back to default template */
+    }
+  }
+
+  await ensureDirectory(utilsFilePath, root);
+  await writeFile(path.join(root, utilsFilePath), content, "utf8");
+
+  return true;
 }
 
 async function ensureDirectory(filePath: string, root: string) {
@@ -354,7 +581,10 @@ async function collectBundledFiles(packageDir: string, packageName: string): Pro
   return files;
 }
 
-async function getLoveUiComponent(componentName: string): Promise<RegistryFile[] | null> {
+async function getLoveUiComponent(
+  componentName: string,
+  utilsImportPath: string
+): Promise<RegistryFile[] | null> {
   // Love-ui components use Base UI
   const loveUiDir = path.join(BUNDLED_PACKAGES_ROOT, "love-ui");
   const componentFile = path.join(loveUiDir, "src", "ui", `${componentName}.tsx`);
@@ -369,11 +599,8 @@ async function getLoveUiComponent(componentName: string): Promise<RegistryFile[]
     // Read component file
     let content = await readFile(componentFile, "utf8");
 
-    // Fix import paths to use local lib/utils instead of package import
-    content = content.replace(
-      /from\s+["']@loveui\/ui\/lib\/utils["']/g,
-      'from "@/lib/utils"'
-    );
+    // Fix import paths to use local utils import alias
+    content = normalizeComponentContent(content, utilsImportPath);
 
     files.push({
       path: `src/ui/${componentName}.tsx`,
@@ -399,10 +626,13 @@ async function getLoveUiComponent(componentName: string): Promise<RegistryFile[]
   }
 }
 
-async function getBundledRegistryFiles(packageName: string): Promise<RegistryFile[] | null> {
+async function getBundledRegistryFiles(
+  packageName: string,
+  utilsImportPath: string
+): Promise<RegistryFile[] | null> {
   // Check if it's a love-ui component (Base UI)
   if (LOVE_UI_COMPONENTS.has(packageName)) {
-    return await getLoveUiComponent(packageName);
+    return await getLoveUiComponent(packageName, utilsImportPath);
   }
 
   const directory = normalizePackageDirectory(packageName);
@@ -507,11 +737,30 @@ export async function run(argv: string[] = process.argv.slice(2)) {
 
   const packageNames = argv.slice(1);
   const projectRoot = process.cwd();
-  const configDir = await loadComponentsConfig(projectRoot);
-  const fallbackDir = await detectDefaultComponentsDir(projectRoot);
-  const componentsDir = configDir ?? fallbackDir;
-  const hasCustomConfig = configDir !== null;
+  const aliases = await loadComponentsConfig(projectRoot);
+  const compilerPaths = await loadCompilerPaths(projectRoot);
+  const configuredComponentsDir = aliases?.components
+    ? normalizeAliasPath(aliases.components)
+    : null;
+  const componentsDir = await detectComponentsDir(
+    projectRoot,
+    configuredComponentsDir,
+    compilerPaths
+  );
+  const aliasPrefix = resolveAliasPrefix(aliases?.components, compilerPaths);
+  const { utilsImportPath, utilsFilePath } = await resolveUtilsLocation(
+    projectRoot,
+    componentsDir,
+    aliasPrefix,
+    aliases
+  );
   const packageManager = await detectPackageManager(projectRoot);
+  const componentsUiDir = componentsDir.endsWith("/ui")
+    ? componentsDir
+    : `${componentsDir}/ui`;
+
+  await mkdir(path.join(projectRoot, componentsDir), { recursive: true });
+  await mkdir(path.join(projectRoot, componentsUiDir), { recursive: true });
 
   const allDependencies: Record<string, string> = {};
 
@@ -560,7 +809,7 @@ export async function run(argv: string[] = process.argv.slice(2)) {
       }
 
       // Use bundled files as primary source for named components
-      bundledFiles = await getBundledRegistryFiles(packageName);
+      bundledFiles = await getBundledRegistryFiles(packageName, utilsImportPath);
     }
 
     // Get files and normalize them (building blocks use 'path' instead of 'target')
@@ -621,9 +870,14 @@ export async function run(argv: string[] = process.argv.slice(2)) {
       continue;
     }
 
-    // Ensure components directory exists
-    if (!hasCustomConfig) {
-      await mkdir(path.join(projectRoot, componentsDir), { recursive: true });
+    const needsUtilsFile = definitions.some(
+      (file) =>
+        UTILS_TARGET_PATTERN.test(file.target) ||
+        (typeof file.content === "string" && UTILS_IMPORT_PATTERN.test(file.content))
+    );
+
+    if (needsUtilsFile) {
+      await ensureUtilsFile(projectRoot, utilsFilePath);
     }
 
     // Copy component files
@@ -633,45 +887,16 @@ export async function run(argv: string[] = process.argv.slice(2)) {
     for (const file of definitions) {
       if (!file.content) continue;
 
-      const desiredPath = adjustTargetPath(file.target, componentsDir, hasCustomConfig);
+      const desiredPath = adjustTargetPath(file.target, componentsDir, utilsFilePath);
       const absolutePath = path.join(projectRoot, desiredPath);
       const alreadyExists = existsSync(absolutePath);
+      const isUtilsFile = stripScriptExtension(desiredPath) === stripScriptExtension(utilsFilePath);
 
-      // Fix import paths in building blocks
-      // Replace all @/registry paths with standard project paths
-      let content = file.content;
-      content = content.replace(
-        /@\/registry\/building-blocks\/default\/components\//g,
-        '@/components/'
-      );
-      content = content.replace(
-        /@\/registry\/building-blocks\/default\/ui\//g,
-        '@/components/ui/'
-      );
-      content = content.replace(
-        /@\/registry\/building-blocks\/default\/lib\//g,
-        '@/lib/'
-      );
-      content = content.replace(
-        /@\/registry\/building-blocks\/default\/hooks\//g,
-        '@/hooks/'
-      );
-      content = content.replace(
-        /@\/registry\/default\/components\//g,
-        '@/components/'
-      );
-      content = content.replace(
-        /@\/registry\/default\/ui\//g,
-        '@/components/ui/'
-      );
-      content = content.replace(
-        /@\/registry\/default\/lib\//g,
-        '@/lib/'
-      );
-      content = content.replace(
-        /@\/registry\/default\/hooks\//g,
-        '@/hooks/'
-      );
+      if (isUtilsFile && alreadyExists) {
+        continue;
+      }
+
+      let content = normalizeComponentContent(file.content, utilsImportPath);
 
       if (alreadyExists) {
         try {
@@ -733,20 +958,17 @@ export async function run(argv: string[] = process.argv.slice(2)) {
             for (const file of normalizedDepFiles) {
               if (!file.content) continue;
 
-              const desiredPath = adjustTargetPath(file.target, componentsDir, hasCustomConfig);
+              const desiredPath = adjustTargetPath(file.target, componentsDir, utilsFilePath);
               const absolutePath = path.join(projectRoot, desiredPath);
               const alreadyExists = existsSync(absolutePath);
+              const isUtilsFile =
+                stripScriptExtension(desiredPath) === stripScriptExtension(utilsFilePath);
 
-              // Fix import paths in dependency files too
-              let content = file.content;
-              content = content.replace(/@\/registry\/building-blocks\/default\/components\//g, '@/components/');
-              content = content.replace(/@\/registry\/building-blocks\/default\/ui\//g, '@/components/ui/');
-              content = content.replace(/@\/registry\/building-blocks\/default\/lib\//g, '@/lib/');
-              content = content.replace(/@\/registry\/building-blocks\/default\/hooks\//g, '@/hooks/');
-              content = content.replace(/@\/registry\/default\/components\//g, '@/components/');
-              content = content.replace(/@\/registry\/default\/ui\//g, '@/components/ui/');
-              content = content.replace(/@\/registry\/default\/lib\//g, '@/lib/');
-              content = content.replace(/@\/registry\/default\/hooks\//g, '@/hooks/');
+              if (isUtilsFile && alreadyExists) {
+                continue;
+              }
+
+              let content = normalizeComponentContent(file.content, utilsImportPath);
 
               if (alreadyExists) {
                 try {

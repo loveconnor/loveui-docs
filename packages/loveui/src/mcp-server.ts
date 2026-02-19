@@ -22,6 +22,14 @@ import { listRegistryPackages, loadRegistryItem } from "./registry.js";
 const LOVEUI_REGISTRY_SCHEME = "loveui://registry/";
 const LOVEUI_RESOURCE_TEMPLATE = "loveui://registry/{package}";
 const GET_PACKAGE_TOOL_NAME = "get-loveui-package";
+const EXCLUDED_REGISTRY_NAMES = new Set([
+  "shadcn-ui",
+  "typescript-config",
+  "eslint-config",
+  "patterns",
+  "loveui",
+  "love-ui"
+]);
 
 type RegistrySnapshot = {
   dir: string;
@@ -34,6 +42,19 @@ type RegistrySnapshotIndex = {
     name?: string;
   }>;
 };
+
+type RegistryItem = Record<string, unknown> & {
+  name?: string;
+  dependencies?: unknown;
+  devDependencies?: unknown;
+  registryDependencies?: unknown;
+};
+
+const INTERNAL_DEPENDENCY_PREFIXES = ["@loveui/", "@love-ui/", "@repo/"];
+const EXCLUDED_INTERNAL_PACKAGES = new Set([
+  "@loveui/shadcn-ui",
+  "@love-ui/shadcn-ui"
+]);
 
 const createResourceUri = (packageName: string) => `${LOVEUI_REGISTRY_SCHEME}${packageName}`;
 
@@ -52,6 +73,126 @@ const ensureReadable = async (targetPath: string) => {
   } catch {
     return false;
   }
+};
+
+const isInternalDependency = (dependency: string) =>
+  INTERNAL_DEPENDENCY_PREFIXES.some((prefix) => dependency.startsWith(prefix));
+
+const normalizeInternalDependency = (dependency: string) =>
+  dependency
+    .replace(/^@repo\//, "")
+    .replace(/^@loveui\//, "")
+    .replace(/^@love-ui\//, "");
+
+const toDependencyList = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value.filter((dep): dep is string => typeof dep === "string");
+  }
+
+  if (value && typeof value === "object") {
+    return Object.keys(value as Record<string, unknown>);
+  }
+
+  return [];
+};
+
+const sanitizeDependencies = (value: unknown) => {
+  const sanitized = Array.from(
+    new Set(
+      toDependencyList(value).filter(
+        (dependency) =>
+          !isInternalDependency(dependency) && !EXCLUDED_INTERNAL_PACKAGES.has(dependency)
+      )
+    )
+  );
+
+  return sanitized.length > 0 ? sanitized : undefined;
+};
+
+const sanitizeRegistryDependencies = (value: unknown) => {
+  const sanitized = Array.from(
+    new Set(
+      toDependencyList(value)
+        .map((dependency) => dependency.trim())
+        .filter(Boolean)
+        .filter((dependency) => !EXCLUDED_INTERNAL_PACKAGES.has(dependency))
+        .map((dependency) =>
+          isInternalDependency(dependency)
+            ? `https://www.loveui.dev/r/${normalizeInternalDependency(dependency)}.json`
+            : dependency
+        )
+    )
+  );
+
+  return sanitized.length > 0 ? sanitized : undefined;
+};
+
+const normalizeRegistryName = (name: string) =>
+  name
+    .trim()
+    .replace(/^@repo\//, "")
+    .replace(/^@loveui\//, "")
+    .replace(/^@love-ui\//, "");
+
+const assertSupportedRegistryName = (name: string) => {
+  const normalized = normalizeRegistryName(name);
+  if (EXCLUDED_REGISTRY_NAMES.has(normalized)) {
+    throw new McpError(
+      ErrorCode.InvalidParams,
+      `${normalized} is an internal package and should not be used directly. Use \`npx love-ui add <component>\` with a public component name.`
+    );
+  }
+
+  return normalized;
+};
+
+const normalizeRegistryItemForMcp = (item: unknown): RegistryItem => {
+  if (!item || typeof item !== "object") {
+    return {
+      mcpHints: {
+        installPattern: "npx love-ui add <component>",
+        neverInstall: ["@loveui/*", "@love-ui/*", "@repo/*"]
+      }
+    };
+  }
+
+  const baseItem = { ...(item as RegistryItem) };
+  const dependencies = sanitizeDependencies(baseItem.dependencies);
+  const devDependencies = sanitizeDependencies(baseItem.devDependencies);
+  const registryDependencies = sanitizeRegistryDependencies(baseItem.registryDependencies);
+  const componentName =
+    typeof baseItem.name === "string" && baseItem.name.trim().length > 0
+      ? baseItem.name.trim()
+      : "<component>";
+
+  const normalized: RegistryItem = {
+    ...baseItem,
+    mcpHints: {
+      installPattern: "npx love-ui add <component>",
+      installCommand: `npx love-ui add ${componentName}`,
+      neverInstall: ["@loveui/*", "@love-ui/*", "@repo/*", "@loveui/shadcn-ui"]
+    }
+  };
+
+  if (dependencies) {
+    normalized.dependencies = dependencies;
+  } else {
+    delete normalized.dependencies;
+  }
+
+  if (devDependencies) {
+    normalized.devDependencies = devDependencies;
+  } else {
+    delete normalized.devDependencies;
+  }
+
+  if (registryDependencies) {
+    normalized.registryDependencies = registryDependencies;
+  } else {
+    delete normalized.registryDependencies;
+  }
+
+  return normalized;
 };
 
 let registrySnapshotPromise: Promise<RegistrySnapshot | null> | null = null;
@@ -105,7 +246,10 @@ const listAvailableRegistryNames = async () => {
     names.add(name);
   }
 
-  return Array.from(names).sort((a, b) => a.localeCompare(b));
+  return Array.from(names)
+    .map((name) => normalizeRegistryName(name))
+    .filter((name) => !EXCLUDED_REGISTRY_NAMES.has(name))
+    .sort((a, b) => a.localeCompare(b));
 };
 
 const readSnapshotRegistryItem = async (packageName: string) => {
@@ -137,13 +281,18 @@ const getPackageNameFromUri = (uri: string) => {
 
 const readRegistryItem = async (packageName: string) => {
   try {
-    const snapshotItem = await readSnapshotRegistryItem(packageName);
+    const normalizedName = assertSupportedRegistryName(packageName);
+    const snapshotItem = await readSnapshotRegistryItem(normalizedName);
     if (snapshotItem) {
-      return snapshotItem;
+      return normalizeRegistryItemForMcp(snapshotItem);
     }
 
-    return await loadRegistryItem(packageName);
+    return normalizeRegistryItemForMcp(await loadRegistryItem(normalizedName));
   } catch (error) {
+    if (error instanceof McpError) {
+      throw error;
+    }
+
     throw new McpError(
       ErrorCode.InvalidParams,
       error instanceof Error ? error.message : String(error)
@@ -215,7 +364,8 @@ async function main() {
       tools: [
         {
           name: GET_PACKAGE_TOOL_NAME,
-          description: "Fetch a loveui registry definition by package name.",
+          description:
+            "Fetch a loveui registry definition by package name. Always install with `npx love-ui add <component>` and never install @loveui/* packages directly.",
           inputSchema: {
             type: "object",
             additionalProperties: false,

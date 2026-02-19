@@ -132,6 +132,17 @@ const ensureExists = async (path: string) => {
   }
 };
 
+const isInternalDependency = (dep: string) =>
+  dep.startsWith("@loveui/") || dep.startsWith("@love-ui/") || dep.startsWith("@repo/");
+
+const normalizeInternalDependency = (dep: string) =>
+  dep.replace(/^@repo\//, "").replace(/^@loveui\//, "").replace(/^@love-ui\//, "");
+
+const INTERNAL_DEPENDENCY_EXCLUSIONS = new Set([
+  "@loveui/shadcn-ui",
+  "@love-ui/shadcn-ui",
+]);
+
 export const getPackage = async (packageName: string) => {
   const packageDir = join(process.cwd(), "..", "..", "packages", packageName);
   const packagePath = join(packageDir, "package.json");
@@ -148,14 +159,14 @@ export const getPackage = async (packageName: string) => {
 
   const internalDependencies = new Set(
     [...dependencyEntries, ...peerDependencyEntries, ...devDependencyEntries]
-      .filter((dep) => dep.startsWith("@loveui/") || dep.startsWith("@loveui/"))
-      .filter((dep) => dep !== "@loveui/shadcn-ui")
+      .filter(isInternalDependency)
+      .filter((dep) => !INTERNAL_DEPENDENCY_EXCLUSIONS.has(dep))
   );
 
   const dependencies = [
     ...new Set(
       [...dependencyEntries, ...peerDependencyEntries].filter(
-        (dep) => !internalDependencies.has(dep)
+        (dep) => !isInternalDependency(dep)
       )
     ),
   ];
@@ -164,7 +175,7 @@ export const getPackage = async (packageName: string) => {
     ...new Set(
       devDependencyEntries.filter(
         (dep) =>
-          !internalDependencies.has(dep) &&
+          !isInternalDependency(dep) &&
           ![
             "@loveui/typescript-config",
             "@types/react",
@@ -178,7 +189,7 @@ export const getPackage = async (packageName: string) => {
   const registryDependencies: string[] = [];
 
   for (const dep of internalDependencies) {
-    const normalized = dep.replace(/^@repo\//, "").replace(/^@loveui\//, "");
+    const normalized = normalizeInternalDependency(dep);
     registryDependencies.push(`https://www.loveui.dev/r/${normalized}.json`);
   }
 

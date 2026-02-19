@@ -7,17 +7,25 @@ The Love UI MCP server exposes the entire local registry over the [Model Context
 
 ## Getting Started
 
-Run the server directly via `npx`:
+Run the published server via `npx`:
 
 ```bash
-npx loveui-mcp
+npx -y --package=love-ui@latest loveui-mcp
 ```
 
-The server runs over stdio, which means any MCP-compatible client can talk to it with no extra configuration.
+For local development in this repository:
+
+```bash
+cd /Users/connorlove/projects/loveui-docs/packages/loveui
+bun run build
+node dist/mcp-server.js
+```
+
+The server runs over stdio, so any MCP-compatible client can talk to it directly.
 
 ## Resources
 
-Each registry item is published as a resource using the `loveui://registry/{name}` scheme. When `apps/ui/public/r` is available, the MCP server serves every generated registry entry (components, feature variants, and examples). It also falls back to package-based generation when those files are not present.
+Each registry item is published as a resource using the `loveui://registry/{name}` scheme. The server prefers the registry snapshot (`public/r`) and falls back to package-based generation when needed.
 
 For example, the base badge definition is available at:
 
@@ -25,7 +33,7 @@ For example, the base badge definition is available at:
 loveui://registry/badge
 ```
 
-Reading the resource returns the same JSON schema used by `https://www.loveui.dev/r/{name}.json`, so your AI tools can hydrate files exactly as the CLI would.
+Reading the resource returns the same JSON schema used by `https://www.loveui.dev/r/{name}.json`, with MCP-specific safety normalization (internal package dependencies are filtered and install hints are included).
 
 ## Tools
 
@@ -40,10 +48,12 @@ The server also provides a `get-loveui-package` tool for programmatic access by 
 
 Calling the tool returns a single text response containing the registry JSON for the requested package.
 
+Internal packages (such as `shadcn-ui`, `typescript-config`, and similar workspace-only packages) are intentionally excluded from MCP listing and direct lookup.
+
 ## Client Configuration
 
-- **Claude Desktop** – Add a custom server pointing to `npx loveui-mcp`.
-- **Cursor / Windsurf** – Use the MCP integration and register the command `npx loveui-mcp`.
+- **Claude Desktop** – Add a custom server pointing to `npx -y --package=love-ui@latest loveui-mcp`.
+- **Cursor / Windsurf** – Use MCP integration and register `npx -y --package=love-ui@latest loveui-mcp`.
 - **Custom agents** – Use `@modelcontextprotocol/client` and connect over stdio to reuse the resource and tool endpoints.
 
-Because the server generates registry data from the checked-in packages, it always reflects the latest local changes (including unpublished components).
+When running from npm, MCP uses the published package snapshot. When running locally from this repo, MCP reflects local changes after rebuilding.

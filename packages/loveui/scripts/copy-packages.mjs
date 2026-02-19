@@ -1,4 +1,5 @@
-import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
+import { constants } from "node:fs";
+import { access, cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,6 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.resolve(__dirname, "..");
 const sourcePackagesRoot = path.resolve(packageRoot, "..");
 const targetPackagesRoot = path.join(packageRoot, "packages");
+const sourceRegistryRoot = path.resolve(packageRoot, "..", "..", "apps", "ui", "public", "r");
+const targetRegistryRoot = path.join(packageRoot, "public", "r");
 
 const EXCLUDED_DIRS = new Set([
   "loveui",
@@ -50,3 +53,11 @@ export { run } from "../../dist/index.js";
 `;
 
 await writeFile(aggregatorPath, aggregatorContents);
+
+await access(sourceRegistryRoot, constants.R_OK);
+await rm(targetRegistryRoot, { recursive: true, force: true });
+await mkdir(path.dirname(targetRegistryRoot), { recursive: true });
+await cp(sourceRegistryRoot, targetRegistryRoot, {
+  recursive: true,
+  force: true
+});

@@ -2,7 +2,8 @@
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL, fileURLToPath } from "node:url";
 
@@ -675,6 +676,48 @@ async function getBundledRegistryFiles(
   }
 }
 
+async function getBundledSkillSourceDir(packageName: string): Promise<string | null> {
+  const directory = normalizePackageDirectory(packageName);
+  const sourceDir = path.join(BUNDLED_PACKAGES_ROOT, directory);
+  if (!existsSync(sourceDir)) return null;
+  if (!existsSync(path.join(sourceDir, "SKILL.md"))) return null;
+  return sourceDir;
+}
+
+function resolveCodexHome(): string {
+  const codexHome = process.env.CODEX_HOME?.trim();
+  if (codexHome) return codexHome;
+  return path.join(os.homedir(), ".codex");
+}
+
+async function installBundledSkill(packageName: string): Promise<"installed" | "exists" | "missing"> {
+  const sourceDir = await getBundledSkillSourceDir(packageName);
+  if (!sourceDir) return "missing";
+
+  const codexHome = resolveCodexHome();
+  const skillsRoot = path.join(codexHome, "skills");
+  const skillName = getPackageSlug(packageName);
+  const destinationDir = path.join(skillsRoot, skillName);
+
+  await mkdir(skillsRoot, { recursive: true });
+
+  if (existsSync(destinationDir)) {
+    return "exists";
+  }
+
+  await cp(sourceDir, destinationDir, {
+    recursive: true,
+    force: false,
+    filter: (src) => {
+      const base = path.basename(src);
+      if (EXCLUDED_DIRS.has(base)) return false;
+      return true;
+    }
+  });
+
+  return "installed";
+}
+
 // Core dependencies that all love-ui components need
 const LOVE_UI_CORE_DEPS: Record<string, string> = {
   "@base-ui-components/react": "1.0.0-beta.4",
@@ -787,8 +830,8 @@ export async function run(argv: string[] = process.argv.slice(2)) {
     ? componentsDir
     : `${componentsDir}/ui`;
 
-  await mkdir(path.join(projectRoot, componentsDir), { recursive: true });
-  await mkdir(path.join(projectRoot, componentsUiDir), { recursive: true });
+  let projectDirectoriesPrepared = false;
+  let installedAnyProjectPackage = false;
 
   const allDependencies: Record<string, string> = {};
 
@@ -798,6 +841,25 @@ export async function run(argv: string[] = process.argv.slice(2)) {
     }
 
     console.log(`\nAdding ${packageName}...`);
+
+    const skillInstallResult = await installBundledSkill(packageName);
+    if (skillInstallResult === "installed") {
+      console.log(`✓ Installed skill "${packageName}" to ${path.join(resolveCodexHome(), "skills", getPackageSlug(packageName))}`);
+      console.log("Restart Codex to pick up new skills.");
+      continue;
+    }
+    if (skillInstallResult === "exists") {
+      console.log(`✓ Skill "${packageName}" is already installed.`);
+      console.log("Restart Codex if you do not see it yet.");
+      continue;
+    }
+
+    if (!projectDirectoriesPrepared) {
+      await mkdir(path.join(projectRoot, componentsDir), { recursive: true });
+      await mkdir(path.join(projectRoot, componentsUiDir), { recursive: true });
+      projectDirectoriesPrepared = true;
+    }
+    installedAnyProjectPackage = true;
 
     let payload: RegistryPayload | null = null;
     let bundledFiles: RegistryFile[] | null = null;
@@ -1071,7 +1133,11 @@ export async function run(argv: string[] = process.argv.slice(2)) {
     await installDependencies(allDependencies, packageManager, projectRoot);
   }
 
-  console.log(`\n✓ Done! You can now import and use the components in your app.`);
+  if (installedAnyProjectPackage) {
+    console.log(`\n✓ Done! You can now import and use the components in your app.`);
+  } else {
+    console.log(`\n✓ Done! Skill installation complete.`);
+  }
 }
 
 // Run when executed as a CLI (via bin or direct node execution)

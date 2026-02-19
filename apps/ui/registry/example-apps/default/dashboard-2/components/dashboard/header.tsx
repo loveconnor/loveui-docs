@@ -32,7 +32,7 @@ export function DashboardHeader() {
         <SidebarTrigger className="-ml-2" />
         <div className="hidden sm:flex items-center gap-2 text-muted-foreground">
           <HugeiconsIcon icon={DashboardSquare01Icon} className="size-4" />
-          <span className="text-sm font-medium">Dashboard</span>
+          <span className="text-sm font-medium">Realty Pipeline</span>
         </div>
       </div>
 
@@ -72,21 +72,21 @@ export function DashboardHeader() {
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user1" />
                     <AvatarFallback>U1</AvatarFallback>
                   </Avatar>
-                  <span>Sarah M.</span>
+                  <span>Maya R.</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Avatar className="size-5 mr-2">
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user2" />
                     <AvatarFallback>U2</AvatarFallback>
                   </Avatar>
-                  <span>James K.</span>
+                  <span>Jordan F.</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Avatar className="size-5 mr-2">
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user3" />
                     <AvatarFallback>U3</AvatarFallback>
                   </Avatar>
-                  <span>Emily R.</span>
+                  <span>Evan K.</span>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
@@ -124,9 +124,9 @@ export function DashboardHeader() {
           />
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
-              <DropdownMenuItem>Generate report</DropdownMenuItem>
-              <DropdownMenuItem>Analyze leads</DropdownMenuItem>
-              <DropdownMenuItem>Suggest follow-ups</DropdownMenuItem>
+              <DropdownMenuItem>Summarize pipeline risks</DropdownMenuItem>
+              <DropdownMenuItem>Flag tour-ready buyers</DropdownMenuItem>
+              <DropdownMenuItem>Draft open-house follow-up</DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -146,11 +146,11 @@ export function DashboardHeader() {
           />
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
-              <DropdownMenuItem>Copy link</DropdownMenuItem>
-              <DropdownMenuItem>Export as PDF</DropdownMenuItem>
+              <DropdownMenuItem>Copy listing board link</DropdownMenuItem>
+              <DropdownMenuItem>Export weekly market snapshot</DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Share with team</DropdownMenuItem>
+            <DropdownMenuItem>Share with brokerage team</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
@@ -166,10 +166,10 @@ export function WelcomeSection() {
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
-          Welcome Back Connor!
+          Good to see you, Connor
         </h1>
         <p className="text-sm text-muted-foreground mt-0.5">
-          Let&apos;s tackle down some work
+          Buyer activity is up ahead of this weekend&apos;s showings
         </p>
       </div>
 
@@ -179,11 +179,11 @@ export function WelcomeSection() {
           className="h-9 gap-1.5 bg-card hover:bg-card/80 border-border/50"
         >
           <HugeiconsIcon icon={FileAddIcon} className="size-4" />
-          <span className="hidden sm:inline">Add Project</span>
+          <span className="hidden sm:inline">Add Listing</span>
         </Button>
         <Button className="h-9 gap-1.5 bg-neutral-800 hover:bg-neutral-700 text-white border border-border/50">
           <HugeiconsIcon icon={UserAdd01Icon} className="size-4" />
-          <span className="hidden sm:inline">New Client</span>
+          <span className="hidden sm:inline">New Buyer</span>
         </Button>
       </div>
     </div>

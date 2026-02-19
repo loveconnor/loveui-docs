@@ -3,8 +3,8 @@ import { ThemeProvider } from "../components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Files - LoveUI",
-  description: "A modern file manager template",
+  title: "Documentary Asset Vault - LoveUI",
+  description: "A production asset vault for footage, audio, edits, and deliverables",
 };
 
 export default function RootLayout({

@@ -43,16 +43,16 @@ import {
 
 const navItems = [
   { title: "Search", icon: Search01Icon, shortcut: "/", iconColor: "text-muted-foreground" },
-  { title: "Taskplus AI", icon: SparklesIcon, iconColor: "text-violet-500" },
-  { title: "Templates", icon: Layers01Icon, iconColor: "text-blue-500" },
-  { title: "Notification", icon: Notification01Icon, iconColor: "text-amber-500" },
-  { title: "Dashboard", icon: DashboardSquare01Icon, isActive: true, iconColor: "text-primary" },
-  { title: "Inbox", icon: Mail01Icon, iconColor: "text-cyan-500" },
-  { title: "Project", icon: Task01Icon, iconColor: "text-emerald-500" },
-  { title: "Calendar", icon: Calendar01Icon, iconColor: "text-orange-500" },
-  { title: "Reports", icon: ChartLineData01Icon, iconColor: "text-rose-500" },
-  { title: "Help & Center", icon: HelpCircleIcon, iconColor: "text-sky-500" },
-  { title: "Settings", icon: Settings01Icon, iconColor: "text-muted-foreground" },
+  { title: "Advisor AI", icon: SparklesIcon, iconColor: "text-violet-500" },
+  { title: "Course Templates", icon: Layers01Icon, iconColor: "text-blue-500" },
+  { title: "Campus Alerts", icon: Notification01Icon, iconColor: "text-amber-500" },
+  { title: "Academic Hub", icon: DashboardSquare01Icon, isActive: true, iconColor: "text-primary" },
+  { title: "Faculty Inbox", icon: Mail01Icon, iconColor: "text-cyan-500" },
+  { title: "Assignments", icon: Task01Icon, iconColor: "text-emerald-500" },
+  { title: "Class Calendar", icon: Calendar01Icon, iconColor: "text-orange-500" },
+  { title: "Program Insights", icon: ChartLineData01Icon, iconColor: "text-rose-500" },
+  { title: "Student Support", icon: HelpCircleIcon, iconColor: "text-sky-500" },
+  { title: "Preferences", icon: Settings01Icon, iconColor: "text-muted-foreground" },
 ];
 
 export function DashboardSidebar(
@@ -67,10 +67,10 @@ export function DashboardSidebar(
               render={
                 <button className="flex items-center gap-2 outline-none w-full justify-start">
                   <div className="size-8 rounded-md bg-primary flex items-center justify-center text-primary-foreground shrink-0">
-                    <span className="text-sm font-bold">T+</span>
+                    <span className="text-sm font-bold">AU</span>
                   </div>
                   <span className="font-semibold text-sidebar-foreground truncate">
-                    Taskplus
+                    Aurora University
                   </span>
                   <HugeiconsIcon icon={ArrowDown01Icon} className="size-3 text-muted-foreground shrink-0" />
                 </button>
@@ -83,22 +83,22 @@ export function DashboardSidebar(
                 </p>
                 <DropdownMenuItem>
                   <div className="size-5 rounded bg-primary/20 mr-2 flex items-center justify-center text-xs font-bold text-primary">
-                    T+
+                    AU
                   </div>
-                  Taskplus
+                  Aurora University
                   <HugeiconsIcon icon={Tick01Icon} className="size-4 ml-auto" />
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="size-5 rounded bg-blue-500/20 mr-2 flex items-center justify-center text-xs font-bold text-blue-600 dark:text-blue-400">
-                    M
+                    SC
                   </div>
-                  Marketing Team
+                  Science College
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="size-5 rounded bg-emerald-500/20 mr-2 flex items-center justify-center text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                    D
+                    AR
                   </div>
-                  Design Studio
+                  Arts & Research
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />

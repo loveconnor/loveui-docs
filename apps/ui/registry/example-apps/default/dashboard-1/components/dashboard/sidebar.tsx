@@ -50,18 +50,18 @@ import {
 
 const menuItems = [
   { icon: DashboardSquare01Icon, label: "Dashboard", active: true },
-  { icon: Notification01Icon, label: "Notification", badge: "9+" },
-  { icon: UserGroupIcon, label: "Employees" },
-  { icon: Calendar01Icon, label: "Attendance" },
-  { icon: Coins01Icon, label: "Payroll" },
-  { icon: Invoice01Icon, label: "Invoices" },
-  { icon: Task01Icon, label: "Performance" },
+  { icon: Notification01Icon, label: "Clinical Alerts", badge: "6" },
+  { icon: UserGroupIcon, label: "Care Teams" },
+  { icon: Calendar01Icon, label: "Shift Planner" },
+  { icon: Coins01Icon, label: "Unit Budgets" },
+  { icon: Invoice01Icon, label: "Claims" },
+  { icon: Task01Icon, label: "Safety Checks" },
 ];
 
 const favorites = [
-  { icon: Folder01Icon, label: "Reimbursements" },
-  { icon: Folder01Icon, label: "Timesheets" },
-  { icon: Folder01Icon, label: "Overtime Logs" },
+  { icon: Folder01Icon, label: "ER Coverage" },
+  { icon: Folder01Icon, label: "ICU Staffing" },
+  { icon: Folder01Icon, label: "Discharge Ops" },
 ];
 
 const footerItems = [
@@ -84,7 +84,7 @@ export function DashboardSidebar({
             <DropdownMenuTrigger className="flex items-center gap-2 outline-none">
               <div className="size-7 rounded-full overflow-hidden bg-linear-to-br from-purple-400 via-pink-500 to-red-500 flex items-center justify-center ring-1 ring-white/40 shadow-lg" />
               <span className="font-medium text-muted-foreground">
-                Workspace
+                Riverbend Health
               </span>
               <HugeiconsIcon
                 icon={ArrowDown01Icon}
@@ -98,16 +98,16 @@ export function DashboardSidebar({
                 </p>
                 <DropdownMenuItem>
                   <div className="size-5 rounded-full bg-linear-to-br from-purple-400 via-pink-500 to-red-500 mr-2" />
-                  Workspace
+                  Main Campus
                   <HugeiconsIcon icon={Tick01Icon} className="size-4 ml-auto" />
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="size-5 rounded-full bg-linear-to-br from-blue-400 to-cyan-500 mr-2" />
-                  Marketing Team
+                  East Wing
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <div className="size-5 rounded-full bg-linear-to-br from-green-400 to-emerald-500 mr-2" />
-                  Design Studio
+                  Outpatient Center
                 </DropdownMenuItem>
               </DropdownMenuGroup>
 
@@ -240,18 +240,18 @@ export function DashboardSidebar({
             >
               <HugeiconsIcon icon={Cancel01Icon} className="size-3" />
             </Button>
-            <p className="font-semibold text-sm mb-2">🗓️ 5 Days left !</p>
+            <p className="font-semibold text-sm mb-2">🏥 3 high-priority units</p>
             <div className="w-full bg-muted rounded-sm h-1.5 mb-2">
-              <div className="bg-foreground h-full rounded-sm w-[60%]" />
+              <div className="bg-foreground h-full rounded-sm w-[62%]" />
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Select best plan now and unlock all special features
+              Reassign floating nurses to maintain patient-to-staff ratios
             </p>
             <Link
               href="#"
               className="flex items-center gap-1 text-sm font-medium"
             >
-              Select plan
+              Optimize coverage
               <HugeiconsIcon icon={ArrowRight01Icon} className="size-3.5" />
             </Link>
           </div>

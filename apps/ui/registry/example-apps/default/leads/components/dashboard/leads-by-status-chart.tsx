@@ -40,55 +40,55 @@ const periodData: Record<
   }
 > = {
   month: {
-    total: 3612,
-    totalChange: 20,
-    totalChangeValue: 244,
+    total: 128,
+    totalChange: 11,
+    totalChangeValue: 13,
     data: [
-      { name: "New Leads", value: 1420, color: "#375dfb" },
-      { name: "Contacted", value: 980, color: "#6985fc" },
-      { name: "Qualified", value: 620, color: "#9baefd" },
-      { name: "Negotiation", value: 280, color: "#7f69fc" },
-      { name: "Inactive", value: 190, color: "#aa9bfd" },
-      { name: "Recycled", value: 122, color: "#b069fc" },
+      { name: "Prospect", value: 42, color: "#375dfb" },
+      { name: "Contacted", value: 28, color: "#6985fc" },
+      { name: "Deck Sent", value: 24, color: "#9baefd" },
+      { name: "Contract Review", value: 14, color: "#7f69fc" },
+      { name: "On Hold", value: 11, color: "#aa9bfd" },
+      { name: "Re-engage", value: 9, color: "#b069fc" },
     ],
   },
   quarter: {
-    total: 9840,
-    totalChange: 15,
-    totalChangeValue: 620,
+    total: 362,
+    totalChange: 14,
+    totalChangeValue: 44,
     data: [
-      { name: "New Leads", value: 3800, color: "#375dfb" },
-      { name: "Contacted", value: 2650, color: "#6985fc" },
-      { name: "Qualified", value: 1720, color: "#9baefd" },
-      { name: "Negotiation", value: 780, color: "#7f69fc" },
-      { name: "Inactive", value: 520, color: "#aa9bfd" },
-      { name: "Recycled", value: 370, color: "#b069fc" },
+      { name: "Prospect", value: 118, color: "#375dfb" },
+      { name: "Contacted", value: 82, color: "#6985fc" },
+      { name: "Deck Sent", value: 66, color: "#9baefd" },
+      { name: "Contract Review", value: 42, color: "#7f69fc" },
+      { name: "On Hold", value: 31, color: "#aa9bfd" },
+      { name: "Re-engage", value: 23, color: "#b069fc" },
     ],
   },
   "6months": {
-    total: 18650,
-    totalChange: 18,
-    totalChangeValue: 1240,
+    total: 710,
+    totalChange: 16,
+    totalChangeValue: 98,
     data: [
-      { name: "New Leads", value: 7200, color: "#375dfb" },
-      { name: "Contacted", value: 5100, color: "#6985fc" },
-      { name: "Qualified", value: 3250, color: "#9baefd" },
-      { name: "Negotiation", value: 1500, color: "#7f69fc" },
-      { name: "Inactive", value: 980, color: "#aa9bfd" },
-      { name: "Recycled", value: 620, color: "#b069fc" },
+      { name: "Prospect", value: 226, color: "#375dfb" },
+      { name: "Contacted", value: 172, color: "#6985fc" },
+      { name: "Deck Sent", value: 138, color: "#9baefd" },
+      { name: "Contract Review", value: 79, color: "#7f69fc" },
+      { name: "On Hold", value: 53, color: "#aa9bfd" },
+      { name: "Re-engage", value: 42, color: "#b069fc" },
     ],
   },
   year: {
-    total: 42300,
-    totalChange: 25,
-    totalChangeValue: 3200,
+    total: 1482,
+    totalChange: 19,
+    totalChangeValue: 236,
     data: [
-      { name: "New Leads", value: 16500, color: "#375dfb" },
-      { name: "Contacted", value: 11200, color: "#6985fc" },
-      { name: "Qualified", value: 7400, color: "#9baefd" },
-      { name: "Negotiation", value: 3800, color: "#7f69fc" },
-      { name: "Inactive", value: 2100, color: "#aa9bfd" },
-      { name: "Recycled", value: 1300, color: "#b069fc" },
+      { name: "Prospect", value: 468, color: "#375dfb" },
+      { name: "Contacted", value: 356, color: "#6985fc" },
+      { name: "Deck Sent", value: 284, color: "#9baefd" },
+      { name: "Contract Review", value: 166, color: "#7f69fc" },
+      { name: "On Hold", value: 116, color: "#aa9bfd" },
+      { name: "Re-engage", value: 92, color: "#b069fc" },
     ],
   },
 };
@@ -106,12 +106,12 @@ export function LeadsByStatusChart() {
   const [visibleStatuses, setVisibleStatuses] = useState<
     Record<string, boolean>
   >({
-    "New Leads": true,
+    Prospect: true,
     Contacted: true,
-    Qualified: true,
-    Negotiation: true,
-    Inactive: true,
-    Recycled: true,
+    "Deck Sent": true,
+    "Contract Review": true,
+    "On Hold": true,
+    "Re-engage": true,
   });
 
   const currentData = periodData[period];
@@ -156,12 +156,12 @@ export function LeadsByStatusChart() {
     setPeriod("month");
     setSortBy("value_desc");
     setVisibleStatuses({
-      "New Leads": true,
+      Prospect: true,
       Contacted: true,
-      Qualified: true,
-      Negotiation: true,
-      Inactive: true,
-      Recycled: true,
+      "Deck Sent": true,
+      "Contract Review": true,
+      "On Hold": true,
+      "Re-engage": true,
     });
   };
 
@@ -172,7 +172,7 @@ export function LeadsByStatusChart() {
           <Button variant="outline" size="icon" className="size-8">
             <HugeiconsIcon icon={Notification01Icon} className="size-4 text-muted-foreground" />
           </Button>
-          <h3 className="font-medium text-sm sm:text-base">Leads by Status</h3>
+          <h3 className="font-medium text-sm sm:text-base">Sponsors by Stage</h3>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger
@@ -259,7 +259,7 @@ export function LeadsByStatusChart() {
               +{currentData.totalChange}%({currentData.totalChangeValue})
             </span>
             <span className="text-muted-foreground hidden sm:inline">
-              vs Last Months
+              vs Last Month
             </span>
           </div>
         </div>

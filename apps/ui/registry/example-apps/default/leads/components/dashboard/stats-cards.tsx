@@ -6,28 +6,28 @@ import { Invoice01Icon, UserGroupIcon, Task01Icon, Notification01Icon } from "@h
 
 const stats = [
   {
-    title: "Total Leads This Month",
+    title: "Sponsor Prospects",
     value: leadStats.totalLeads,
     change: leadStats.totalLeadsChange,
     changeValue: leadStats.totalLeadsChangeValue,
     icon: Invoice01Icon,
   },
   {
-    title: "Contacted Leads",
+    title: "Contacted Sponsors",
     value: leadStats.contactedLeads,
     change: leadStats.contactedLeadsChange,
     changeValue: leadStats.contactedLeadsChangeValue,
     icon: UserGroupIcon,
   },
   {
-    title: "Qualified Leads",
+    title: "Deck Sent",
     value: leadStats.qualifiedLeads,
     change: leadStats.qualifiedLeadsChange,
     changeValue: leadStats.qualifiedLeadsChangeValue,
     icon: Task01Icon,
   },
   {
-    title: "Hot Leads",
+    title: "Contract Ready",
     value: leadStats.hotLeads,
     change: leadStats.hotLeadsChange,
     changeValue: leadStats.hotLeadsChangeValue,
@@ -60,7 +60,7 @@ export function StatsCards() {
               </span>
               <span className="size-1 rounded-full bg-muted-foreground" />
               <span className="text-muted-foreground hidden sm:inline">
-                vs Last Months
+                vs Last Month
               </span>
             </div>
           </div>

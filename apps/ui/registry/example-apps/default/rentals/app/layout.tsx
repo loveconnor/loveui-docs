@@ -3,8 +3,8 @@ import { ThemeProvider } from "../components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Rentals - LoveUI",
-  description: "A beautiful property rental explorer with interactive maps by LoveUI",
+  title: "Gear Marketplace - LoveUI",
+  description: "A map-based gear marketplace with product discovery, filters, and favorites by LoveUI",
 };
 
 export default function RootLayout({

@@ -7,20 +7,20 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Add01Icon } from "@hugeicons/core-free-icons";
 
 const sharedUsers = [
-  { name: "Sarah Chen", avatar: "sarah", initials: "SC" },
-  { name: "Alex Kim", avatar: "alex", initials: "AK" },
-  { name: "Marie Dupont", avatar: "marie", initials: "MD" },
-  { name: "John Doe", avatar: "john", initials: "JD" },
-  { name: "Emma Wilson", avatar: "emma", initials: "EW" },
+  { name: "Maya Ortiz", avatar: "maya", initials: "MO" },
+  { name: "Liam Carter", avatar: "liam", initials: "LC" },
+  { name: "Nora Singh", avatar: "nora", initials: "NS" },
+  { name: "Theo Bennett", avatar: "theo", initials: "TB" },
+  { name: "Ari Kim", avatar: "ari", initials: "AK" },
 ];
 
 export function SharedWithMe() {
   return (
     <div className="rounded-xl border bg-card p-4">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-medium text-sm">Team Members</h3>
+        <h3 className="font-medium text-sm">Field Crew</h3>
         <span className="text-xs text-muted-foreground">
-          {sharedUsers.length} people
+          {sharedUsers.length} collaborators
         </span>
       </div>
       <div className="flex items-center">
@@ -69,4 +69,3 @@ export function SharedWithMe() {
     </div>
   );
 }
-

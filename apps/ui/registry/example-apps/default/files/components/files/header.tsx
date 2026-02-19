@@ -50,7 +50,7 @@ export function FilesHeader() {
           className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
         />
         <Input
-          placeholder="Search files..."
+          placeholder="Search assets..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="pl-9 h-9 bg-card border"

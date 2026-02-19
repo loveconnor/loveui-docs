@@ -48,10 +48,10 @@ export function DashboardHeader() {
       </SidebarTrigger>
 
       <HugeiconsIcon icon={DashboardSquare01Icon} className="size-6" />
-      <h1 className="flex-1 font-medium text-base">Dashboard</h1>
+      <h1 className="flex-1 font-medium text-base">Care Workforce</h1>
 
       <span className="hidden sm:block text-sm text-muted-foreground">
-        Last update 12 min ago
+        Last update 5 min ago
       </span>
 
       <div className="flex items-center -space-x-2">

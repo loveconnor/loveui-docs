@@ -100,7 +100,7 @@ export function TopPerformers() {
   return (
     <div className="bg-card text-card-foreground rounded-lg border w-full lg:w-[332px] shrink-0">
       <div className="flex items-center justify-between p-4 border-b border-border/50">
-        <h3 className="font-medium text-sm sm:text-base">Top Performers</h3>
+        <h3 className="font-medium text-sm sm:text-base">Top Agents</h3>
         <div className="flex items-center gap-1">
           <HugeiconsIcon icon={Award01Icon} className="size-4 text-muted-foreground" />
           <DropdownMenu>
@@ -214,4 +214,3 @@ export function TopPerformers() {
     </div>
   );
 }
-

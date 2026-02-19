@@ -1,8 +1,8 @@
 {
-  "title": "Maps Explorer",
-  "description": "An interactive map explorer with categories, filters, and location details.",
+  "title": "Social Pulse Map",
+  "description": "A social media map for check-ins, saved spots, and creator discovery.",
   "category": "social",
-  "tags": ["maps", "locations", "explorer"],
+  "tags": ["social", "creator", "check-ins", "maps"],
   "isNew": true,
   "files": [
     {
@@ -37,18 +37,18 @@
   "routes": [
     {
       "path": "/",
-      "title": "Explore",
-      "description": "All locations map view"
+      "title": "Explore Feed",
+      "description": "All social spots map view"
     },
     {
       "path": "/favorites",
-      "title": "Favorites",
-      "description": "Favorite locations"
+      "title": "Saved Spots",
+      "description": "Saved social spots"
     },
     {
       "path": "/recents",
-      "title": "Recents",
-      "description": "Recently viewed locations"
+      "title": "Recent Check-ins",
+      "description": "Most recent social check-ins"
     }
   ]
 }

@@ -48,28 +48,28 @@ interface MapsPanelProps {
 
 const panelConfig = {
   all: {
-    title: "All Locations",
+    title: "Explore Feed",
     emptyIcon: Location01Icon,
-    emptyTitle: "No locations found",
+    emptyTitle: "No spots found",
     emptyDescription: null,
     getSubtitle: (count: number) =>
-      `${count} location${count !== 1 ? "s" : ""}`,
+      `${count} spot${count !== 1 ? "s" : ""}`,
   },
   favorites: {
-    title: "Favorites",
+    title: "Saved Spots",
     emptyIcon: FavouriteIcon,
-    emptyTitle: "No favorites yet",
+    emptyTitle: "No saved spots yet",
     emptyDescription:
-      "Click the heart icon on a location to add it to favorites",
+      "Tap the heart icon on a spot to save it",
     getSubtitle: (count: number) =>
-      `${count} favorite${count !== 1 ? "s" : ""}`,
+      `${count} saved spot${count !== 1 ? "s" : ""}`,
   },
   recents: {
-    title: "Recent Locations",
+    title: "Recent Check-ins",
     emptyIcon: Clock01Icon,
-    emptyTitle: "No recent locations",
+    emptyTitle: "No recent check-ins",
     emptyDescription: null,
-    getSubtitle: (count: number) => `Last ${count} added locations`,
+    getSubtitle: (count: number) => `Last ${count} check-ins`,
   },
 };
 
@@ -350,7 +350,7 @@ export function MapsPanel({ mode = "all" }: MapsPanelProps) {
               className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
             />
             <Input
-              placeholder="Search locations..."
+              placeholder="Search spots, creators, or tags..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={cn("pl-8 h-9", searchQuery && "pr-8")}
@@ -401,7 +401,7 @@ export function MapsPanel({ mode = "all" }: MapsPanelProps) {
                   className="gap-2"
                 >
                   <HugeiconsIcon icon={ChartIncreaseIcon} className="size-4" />
-                  <span className="flex-1">Most visited</span>
+                  <span className="flex-1">Most check-ins</span>
                   {sortBy === "visits" && (
                     <HugeiconsIcon icon={Tick01Icon} className="size-4" />
                   )}
@@ -562,7 +562,7 @@ export function MapsPanel({ mode = "all" }: MapsPanelProps) {
                             className="size-4 text-muted-foreground"
                           />
                           <span className="text-sm text-muted-foreground">
-                            {location.visitCount} visits
+                            {location.visitCount} check-ins
                           </span>
                         </div>
                         <div className="flex items-center gap-1.5">
@@ -607,7 +607,7 @@ export function MapsPanel({ mode = "all" }: MapsPanelProps) {
                               location.isFavorite && "fill-red-500 text-red-500"
                             )}
                           />
-                          {location.isFavorite ? "Unfavorite" : "Favorite"}
+                          {location.isFavorite ? "Unsave" : "Save"}
                         </Button>
                         <Button
                           size="sm"
@@ -729,7 +729,8 @@ export function MapsPanel({ mode = "all" }: MapsPanelProps) {
                           className="size-3 text-muted-foreground"
                         />
                         <span className="text-xs text-muted-foreground">
-                          {location.visitCount} {mode !== "recents" && "visits"}
+                          {location.visitCount}{" "}
+                          {mode !== "recents" && "check-ins"}
                         </span>
                       </div>
                     </div>

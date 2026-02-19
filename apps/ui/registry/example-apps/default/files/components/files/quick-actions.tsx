@@ -11,10 +11,10 @@ import { Button } from "@loveui/ui/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@loveui/ui/ui/tooltip";
 
 const actions = [
-  { icon: Upload01Icon, label: "Upload File", shortcut: "⌘U" },
-  { icon: FolderAddIcon, label: "New Folder", shortcut: "⌘N" },
-  { icon: Link01Icon, label: "Share Link", shortcut: "⌘L" },
-  { icon: FileImportIcon, label: "Import", shortcut: "⌘I" },
+  { icon: Upload01Icon, label: "Upload Clip", shortcut: "⌘U" },
+  { icon: FolderAddIcon, label: "New Collection", shortcut: "⌘N" },
+  { icon: Link01Icon, label: "Share Review Link", shortcut: "⌘L" },
+  { icon: FileImportIcon, label: "Import Dailies", shortcut: "⌘I" },
 ];
 
 export function QuickActions() {
@@ -44,4 +44,3 @@ export function QuickActions() {
     </div>
   );
 }
-

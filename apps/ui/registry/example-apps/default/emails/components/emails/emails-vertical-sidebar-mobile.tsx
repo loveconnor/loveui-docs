@@ -24,19 +24,19 @@ export function EmailsVerticalSidebarMobile({
   onItemClick,
 }: EmailsVerticalSidebarMobileProps = {}) {
   const topItems = [
-    { icon: IconSparkles, label: "Sparkles", active: false },
-    { icon: IconLayoutDashboard, label: "Gallery", active: false },
-    { icon: IconMail, label: "Inbox", active: true },
-    { icon: IconFolder, label: "Drafts", active: false },
-    { icon: IconWaveSine, label: "Sent", active: false },
-    { icon: IconGitFork, label: "Junk", active: false },
-    { icon: IconFiles, label: "Trash", active: false },
+    { icon: IconSparkles, label: "Automation", active: false },
+    { icon: IconLayoutDashboard, label: "Status", active: false },
+    { icon: IconMail, label: "Active Alerts", active: true },
+    { icon: IconFolder, label: "Runbooks", active: false },
+    { icon: IconWaveSine, label: "Escalated", active: false },
+    { icon: IconGitFork, label: "Low Priority", active: false },
+    { icon: IconFiles, label: "Resolved", active: false },
   ];
 
   const bottomItems = [
     { icon: IconShield, label: "Security" },
-    { icon: IconPlugConnected, label: "Disconnect" },
-    { icon: IconLifebuoy, label: "Help" },
+    { icon: IconPlugConnected, label: "Integrations" },
+    { icon: IconLifebuoy, label: "Support" },
   ];
 
   return (
@@ -66,8 +66,8 @@ export function EmailsVerticalSidebarMobile({
           </svg>
         </Button>
         <div className="flex flex-col justify-center">
-          <span className="text-sm font-semibold text-foreground">LoveUI</span>
-          <span className="text-xs text-muted-foreground">loveui.dev</span>
+          <span className="text-sm font-semibold text-foreground">OpsBridge</span>
+          <span className="text-xs text-muted-foreground">incident center</span>
         </div>
       </div>
 
@@ -115,13 +115,12 @@ export function EmailsVerticalSidebarMobile({
           <AvatarFallback>U</AvatarFallback>
         </Avatar>
         <div className="flex flex-col items-start text-left">
-          <span className="text-xs font-medium text-foreground">John Doe</span>
+          <span className="text-xs font-medium text-foreground">Ava Patel</span>
           <span className="text-[10px] text-muted-foreground">
-            john@example.com
+            ava.patel@opsbridge.io
           </span>
         </div>
       </Button>
     </div>
   );
 }
-

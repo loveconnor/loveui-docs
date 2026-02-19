@@ -123,7 +123,7 @@ export function EmailDetail() {
     return (
       <div className="flex h-full items-center justify-center bg-card">
         <div className="text-center text-muted-foreground">
-          <p>Select an email to read</p>
+          <p>Select an alert to review</p>
         </div>
       </div>
     );
@@ -162,7 +162,7 @@ export function EmailDetail() {
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Mark as spam</p>
+              <p>Mark as noise</p>
             </TooltipContent>
           </Tooltip>
 
@@ -225,10 +225,10 @@ export function EmailDetail() {
                   Label as
                 </DropdownMenuSubTrigger>
                 <DropdownMenuSubContent>
-                  <DropdownMenuItem>Work</DropdownMenuItem>
-                  <DropdownMenuItem>Personal</DropdownMenuItem>
-                  <DropdownMenuItem>Important</DropdownMenuItem>
-                  <DropdownMenuItem>Travel</DropdownMenuItem>
+                  <DropdownMenuItem>Ops</DropdownMenuItem>
+                  <DropdownMenuItem>Investigation</DropdownMenuItem>
+                  <DropdownMenuItem>SEV-1</DropdownMenuItem>
+                  <DropdownMenuItem>Postmortem</DropdownMenuItem>
                 </DropdownMenuSubContent>
               </DropdownMenuSub>
               <DropdownMenuItem>
@@ -265,7 +265,7 @@ export function EmailDetail() {
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconSettings className="size-4" stroke={1.5} />
-                <span>Settings</span>
+                <span>Mark as noise</span>
               </DropdownMenuItem>
               <DropdownMenuItem variant="destructive">
                 <IconTrash className="size-4" stroke={1.5} />
@@ -520,4 +520,3 @@ export function EmailDetail() {
     </div>
   );
 }
-

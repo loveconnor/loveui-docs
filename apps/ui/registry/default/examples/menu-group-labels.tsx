@@ -1,8 +1,6 @@
 import { Button } from "@/registry/default/ui/button"
 import {
   Menu,
-  MenuGroup,
-  MenuGroupLabel,
   MenuItem,
   MenuPopup,
   MenuSeparator,
@@ -14,17 +12,13 @@ export default function MenuGroupLabelsDemo() {
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
       <MenuPopup>
-        <MenuGroup>
-          <MenuGroupLabel>Updated Account</MenuGroupLabel>
-          <MenuItem>Updated Profile</MenuItem>
-          <MenuItem>Updated Billing</MenuItem>
-        </MenuGroup>
+        <MenuItem disabled>Updated Account</MenuItem>
+        <MenuItem>Updated Profile</MenuItem>
+        <MenuItem>Updated Billing</MenuItem>
         <MenuSeparator />
-        <MenuGroup>
-          <MenuGroupLabel>Updated Support</MenuGroupLabel>
-          <MenuItem>Updated Docs</MenuItem>
-          <MenuItem>Updated Contact</MenuItem>
-        </MenuGroup>
+        <MenuItem disabled>Updated Support</MenuItem>
+        <MenuItem>Updated Docs</MenuItem>
+        <MenuItem>Updated Contact</MenuItem>
       </MenuPopup>
     </Menu>
   )

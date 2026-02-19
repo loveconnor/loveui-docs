@@ -6,19 +6,18 @@ export interface Label {
 
 export const labels: Label[] = [
   {
-    id: "work",
-    name: "Work",
+    id: "ops",
+    name: "Ops",
     color: "bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-400",
   },
   {
-    id: "personal",
-    name: "Personal",
+    id: "investigation",
+    name: "Investigation",
     color: "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-400",
   },
   {
-    id: "important",
-    name: "Important",
+    id: "sev1",
+    name: "SEV-1",
     color: "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-400",
   },
 ];
-

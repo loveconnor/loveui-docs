@@ -42,18 +42,18 @@ import {
 } from "@loveui/ui/ui/menu";
 
 const fullYearData = [
-  { month: "Jan", moneyIn: 155000, moneyOut: 25000, moneyInChange: 8.5, moneyOutChange: -5.2 },
-  { month: "Feb", moneyIn: 200000, moneyOut: 100000, moneyInChange: 12.3, moneyOutChange: 8.7 },
-  { month: "Mar", moneyIn: 210000, moneyOut: 100000, moneyInChange: 5.0, moneyOutChange: 0.0 },
-  { month: "Apr", moneyIn: 280000, moneyOut: 175000, moneyInChange: 15.2, moneyOutChange: 12.7 },
-  { month: "May", moneyIn: 265000, moneyOut: 120000, moneyInChange: -5.4, moneyOutChange: -8.3 },
-  { month: "Jun", moneyIn: 210000, moneyOut: 100000, moneyInChange: -10.2, moneyOutChange: -6.5 },
-  { month: "Jul", moneyIn: 210000, moneyOut: 170000, moneyInChange: 0.0, moneyOutChange: 14.2 },
-  { month: "Aug", moneyIn: 265000, moneyOut: 175000, moneyInChange: 11.8, moneyOutChange: 2.9 },
-  { month: "Sep", moneyIn: 265000, moneyOut: 135000, moneyInChange: 0.0, moneyOutChange: -9.1 },
-  { month: "Oct", moneyIn: 265000, moneyOut: 135000, moneyInChange: 0.0, moneyOutChange: 0.0 },
-  { month: "Nov", moneyIn: 265000, moneyOut: 135000, moneyInChange: 0.0, moneyOutChange: 0.0 },
-  { month: "Dec", moneyIn: 210000, moneyOut: 100000, moneyInChange: -7.5, moneyOutChange: -6.2 },
+  { month: "Jan", moneyIn: 198000, moneyOut: 142000, moneyInChange: 6.4, moneyOutChange: -2.1 },
+  { month: "Feb", moneyIn: 205000, moneyOut: 151000, moneyInChange: 3.5, moneyOutChange: 6.3 },
+  { month: "Mar", moneyIn: 226000, moneyOut: 158000, moneyInChange: 10.2, moneyOutChange: 4.6 },
+  { month: "Apr", moneyIn: 232000, moneyOut: 163000, moneyInChange: 2.7, moneyOutChange: 3.1 },
+  { month: "May", moneyIn: 241000, moneyOut: 169000, moneyInChange: 3.9, moneyOutChange: 3.6 },
+  { month: "Jun", moneyIn: 248000, moneyOut: 172000, moneyInChange: 2.9, moneyOutChange: 1.8 },
+  { month: "Jul", moneyIn: 256000, moneyOut: 178000, moneyInChange: 3.2, moneyOutChange: 3.4 },
+  { month: "Aug", moneyIn: 264000, moneyOut: 181000, moneyInChange: 3.1, moneyOutChange: 1.7 },
+  { month: "Sep", moneyIn: 258000, moneyOut: 176000, moneyInChange: -2.2, moneyOutChange: -2.8 },
+  { month: "Oct", moneyIn: 271000, moneyOut: 184000, moneyInChange: 5.0, moneyOutChange: 4.5 },
+  { month: "Nov", moneyIn: 279000, moneyOut: 191000, moneyInChange: 3.0, moneyOutChange: 3.8 },
+  { month: "Dec", moneyIn: 292000, moneyOut: 198000, moneyInChange: 4.7, moneyOutChange: 3.7 },
 ];
 
 type ChartType = "bar" | "line" | "area";
@@ -104,7 +104,7 @@ function CustomTooltip({
 
   return (
     <div className="bg-popover border border-border rounded-lg p-3 shadow-lg min-w-[160px]">
-      <p className="text-sm font-medium text-foreground mb-3">{label}, 2024</p>
+      <p className="text-sm font-medium text-foreground mb-3">{label}, 2025</p>
       <div className="space-y-2">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
@@ -167,7 +167,7 @@ export function FinancialFlowChart() {
             className="size-5 text-muted-foreground"
           />
           <span className="font-medium text-muted-foreground">
-            Financial Flow
+            Staffing Budget Flow
           </span>
         </div>
 
@@ -176,13 +176,13 @@ export function FinancialFlowChart() {
             <div className="flex items-center gap-1.5">
               <div className="size-3 rounded-full bg-emerald-500" />
               <span className="text-xs font-medium text-muted-foreground">
-                Money in
+                Budget Allocated
               </span>
             </div>
             <div className="flex items-center gap-1.5">
               <div className="size-3 rounded-full bg-[#162664] dark:bg-indigo-500" />
               <span className="text-xs font-medium text-muted-foreground">
-                Money Out
+                Budget Used
               </span>
             </div>
           </div>

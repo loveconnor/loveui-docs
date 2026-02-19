@@ -29,19 +29,19 @@ export function EmailsVerticalSidebar({
   onItemClick,
 }: EmailsVerticalSidebarProps = {}) {
   const topIcons = [
-    { icon: IconSparkles, label: "Sparkles", active: false },
-    { icon: IconLayoutDashboard, label: "Gallery", active: false },
-    { icon: IconMail, label: "Mail", active: true },
-    { icon: IconFolder, label: "Folders", active: false },
-    { icon: IconWaveSine, label: "Audio", active: false },
-    { icon: IconGitFork, label: "Git", active: false },
-    { icon: IconFiles, label: "Files", active: false },
+    { icon: IconSparkles, label: "Automation", active: false },
+    { icon: IconLayoutDashboard, label: "Status", active: false },
+    { icon: IconMail, label: "Incidents", active: true },
+    { icon: IconFolder, label: "Runbooks", active: false },
+    { icon: IconWaveSine, label: "Metrics", active: false },
+    { icon: IconGitFork, label: "Deploys", active: false },
+    { icon: IconFiles, label: "Reports", active: false },
   ];
 
   const bottomIcons = [
-    { icon: IconShield, label: "Shield" },
-    { icon: IconPlugConnected, label: "Unplug" },
-    { icon: IconLifebuoy, label: "Help" },
+    { icon: IconShield, label: "Security" },
+    { icon: IconPlugConnected, label: "Integrations" },
+    { icon: IconLifebuoy, label: "Support" },
   ];
 
   return (

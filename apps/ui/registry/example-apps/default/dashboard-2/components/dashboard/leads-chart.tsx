@@ -136,7 +136,7 @@ export function LeadsChart() {
   return (
     <div className="bg-card text-card-foreground rounded-lg border flex-1">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 border-b border-border/50">
-        <h3 className="font-medium text-sm sm:text-base">Leads Gathered</h3>
+        <h3 className="font-medium text-sm sm:text-base">Buyer Inquiry Trend</h3>
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -327,5 +327,3 @@ export function LeadsChart() {
     </div>
   );
 }
-
-

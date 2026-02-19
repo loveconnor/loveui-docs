@@ -1,8 +1,8 @@
 {
-  "title": "Files Workspace",
-  "description": "A modern file manager with storage insights, folder navigation, and recent activity.",
+  "title": "Documentary Asset Vault",
+  "description": "A production asset manager with storage insights, collection navigation, and crew activity.",
   "category": "productivity",
-  "tags": ["files", "storage", "folders"],
+  "tags": ["assets", "documentary", "storage", "collections"],
   "isNew": true,
   "files": [
     {
@@ -33,33 +33,33 @@
   "routes": [
     {
       "path": "/",
-      "title": "All Files",
-      "description": "Main file explorer"
+      "title": "All Assets",
+      "description": "Main production asset explorer"
     },
     {
       "path": "/recent",
-      "title": "Recent",
-      "description": "Recently accessed files"
+      "title": "Latest",
+      "description": "Recently accessed assets"
     },
     {
       "path": "/shared",
       "title": "Shared",
-      "description": "Shared files and folders"
+      "description": "Shared assets and collections"
     },
     {
       "path": "/starred",
-      "title": "Starred",
-      "description": "Starred files"
+      "title": "Pinned",
+      "description": "Pinned assets"
     },
     {
       "path": "/trash",
-      "title": "Trash",
-      "description": "Deleted files"
+      "title": "Archive Bin",
+      "description": "Removed assets"
     },
     {
       "path": "/folder/[id]",
-      "title": "Folder",
-      "description": "Dynamic folder view"
+      "title": "Collection",
+      "description": "Dynamic collection view"
     }
   ]
 }

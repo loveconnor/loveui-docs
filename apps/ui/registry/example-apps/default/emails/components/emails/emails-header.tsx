@@ -40,13 +40,13 @@ export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
         <div className="flex items-center gap-2 md:gap-2.5">
           <IconMail className="size-4 text-foreground" stroke={1.5} />
           <p className="text-sm md:text-base font-normal tracking-tight text-foreground">
-            Emails
+            Incident Mailbox
           </p>
         </div>
         <div className="hidden sm:flex items-center gap-2.5">
           <div className="size-1 rounded-full bg-muted-foreground/20" />
           <p className="text-sm md:text-base font-normal tracking-tight text-foreground">
-            {emails.length} emails
+            {emails.length} alerts
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
       <div className="hidden md:flex items-center gap-4">
         <div className="flex items-center gap-2">
           <p className="text-[13px] text-muted-foreground">
-            Last update 3 days ago
+            Last triage 20 min ago
           </p>
           <div className="flex items-center">
             {[1, 2, 3, 4].map((i) => (
@@ -106,10 +106,10 @@ export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
             <DropdownMenuSeparator />
             <div className="px-2 py-1.5">
               <p className="text-xs text-muted-foreground">
-                {emails.length} emails
+                {emails.length} alerts
               </p>
               <p className="text-xs text-muted-foreground">
-                Last update 3 days ago
+                Last triage 20 min ago
               </p>
             </div>
           </DropdownMenuContent>

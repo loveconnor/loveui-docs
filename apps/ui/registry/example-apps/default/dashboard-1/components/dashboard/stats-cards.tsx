@@ -12,23 +12,23 @@ import {
 
 const stats = [
   {
-    title: "Total Employees",
-    value: "150",
-    subtitle: "Active: 140, Inactive: 10",
+    title: "On-Duty Staff",
+    value: "182",
+    subtitle: "27 currently on night shift",
     icon: UserGroupIcon,
     subtitleIcon: File01Icon,
   },
   {
-    title: "Upcoming Payroll",
-    value: "$250,000",
-    subtitle: "Processing in 3 days",
+    title: "Shift Budget",
+    value: "$412,800",
+    subtitle: "Weekly staffing spend",
     icon: Invoice01Icon,
     subtitleIcon: File01Icon,
   },
   {
-    title: "Attendance Rate",
-    value: "85%",
-    subtitle: "Last 30 Days",
+    title: "Patient Coverage",
+    value: "96.3%",
+    subtitle: "Across all care units",
     icon: Calendar01Icon,
     subtitleIcon: InformationCircleIcon,
   },
@@ -65,4 +65,3 @@ export function StatsCards() {
     </div>
   );
 }
-

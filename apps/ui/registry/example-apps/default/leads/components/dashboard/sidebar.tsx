@@ -51,7 +51,7 @@ import {
 
 const menuItems = [
   {
-    title: "AI Assistant",
+    title: "Sponsor AI",
     icon: Invoice01Icon,
     href: "#",
     isGradient: true,
@@ -62,37 +62,37 @@ const menuItems = [
     href: "#",
   },
   {
-    title: "Leads",
+    title: "Sponsors",
     icon: ChartLineData01Icon,
     href: "#",
     isActive: true,
   },
   {
-    title: "Emails",
+    title: "Outreach",
     icon: Notification01Icon,
     href: "#",
   },
   {
-    title: "Calendar",
+    title: "Event Schedule",
     icon: Calendar01Icon,
     href: "#",
   },
   {
-    title: "Tasks",
+    title: "Deliverables",
     icon: Task01Icon,
     href: "#",
   },
   {
-    title: "Contacts",
+    title: "Partners",
     icon: UserGroupIcon,
     href: "#",
   },
 ];
 
 const folders = [
-  { name: "TechCorp Upgrade", hasNotification: true },
-  { name: "Fintra Expansion", hasNotification: true },
-  { name: "Nova Redesign", hasNotification: true },
+  { name: "Title Sponsors", hasNotification: true },
+  { name: "Booth Partners", hasNotification: true },
+  { name: "Media Sponsors", hasNotification: true },
 ];
 
 export function DashboardSidebar({
@@ -107,7 +107,7 @@ export function DashboardSidebar({
           <div className="flex size-5 items-center justify-center rounded bg-linear-to-b from-[#6e3ff3] to-[#aa8ef9] text-white">
             <HugeiconsIcon icon={Invoice01Icon} className="size-3" />
           </div>
-          <span className="font-semibold text-base sm:text-lg">LoveUI</span>
+          <span className="font-semibold text-base sm:text-lg">SummitOps</span>
         </div>
       </SidebarHeader>
 
@@ -117,10 +117,10 @@ export function DashboardSidebar({
             <HugeiconsIcon icon={Invoice01Icon} className="size-4 sm:size-5" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-xs sm:text-sm">Synclead</p>
+            <p className="font-semibold text-xs sm:text-sm">Sponsorship Desk</p>
             <div className="flex items-center gap-1 text-muted-foreground">
               <HugeiconsIcon icon={UserGroupIcon} className="size-3 sm:size-3.5" />
-              <span className="text-[10px] sm:text-xs">16 Members</span>
+              <span className="text-[10px] sm:text-xs">12 Coordinators</span>
             </div>
           </div>
         </div>

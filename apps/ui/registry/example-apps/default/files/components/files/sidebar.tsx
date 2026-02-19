@@ -58,11 +58,11 @@ import { useFilesStore } from "../../store/files-store";
 import { storageData } from "../../mock-data/files";
 
 const menuItems = [
-  { icon: Home01Icon, label: "All Files", href: "/" },
-  { icon: FavouriteIcon, label: "Starred", href: "/starred" },
-  { icon: Clock01Icon, label: "Recent", href: "/recent" },
+  { icon: Home01Icon, label: "All Assets", href: "/" },
+  { icon: FavouriteIcon, label: "Pinned", href: "/starred" },
+  { icon: Clock01Icon, label: "Latest", href: "/recent" },
   { icon: Share01Icon, label: "Shared", href: "/shared" },
-  { icon: Delete01Icon, label: "Trash", href: "/trash" },
+  { icon: Delete01Icon, label: "Archive Bin", href: "/trash" },
 ];
 
 export function FilesSidebar({
@@ -81,7 +81,7 @@ export function FilesSidebar({
           <div className="flex size-8 items-center justify-center rounded-lg bg-linear-to-br from-violet-500 to-fuchsia-500">
             <HugeiconsIcon icon={HardDriveIcon} className="size-4 text-white" />
           </div>
-          <span className="font-semibold text-base">Connor Drive</span>
+          <span className="font-semibold text-base">DocuVault</span>
         </div>
       </SidebarHeader>
 
@@ -91,7 +91,7 @@ export function FilesSidebar({
             render={
               <Button className="w-full mb-4 gap-2">
                 <HugeiconsIcon icon={Add01Icon} className="size-4" />
-                New
+                Add Asset
               </Button>
             }
           />
@@ -99,29 +99,29 @@ export function FilesSidebar({
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <HugeiconsIcon icon={Upload01Icon} className="size-4 mr-2" />
-                Upload File
+                Upload Clip
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <HugeiconsIcon icon={FolderAddIcon} className="size-4 mr-2" />
-                New Folder
+                New Collection
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <HugeiconsIcon icon={File01Icon} className="size-4 mr-2" />
-                New Document
+                New Log
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <HugeiconsIcon icon={Image01Icon} className="size-4 mr-2" />
-                New Image
+                New Still
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <HugeiconsIcon icon={Link01Icon} className="size-4 mr-2" />
-                Add Link
+                Add Reference Link
               </DropdownMenuItem>
             </DropdownMenuGroup>
           </DropdownMenuContent>
@@ -205,7 +205,7 @@ export function FilesSidebar({
 
         <div className="mt-6 p-3 rounded-xl border bg-card">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium">Storage</span>
+            <span className="text-sm font-medium">Vault Storage</span>
             <span className="text-xs text-muted-foreground">
               {storageData.used} GB / {storageData.total} GB
             </span>
@@ -234,12 +234,12 @@ export function FilesSidebar({
               <div className="flex items-center gap-3 p-2 rounded-lg cursor-pointer hover:bg-accent transition-colors mt-2">
                 <Avatar className="size-8">
                   <AvatarImage src="/ln.png" />
-                  <AvatarFallback className="text-xs">CL</AvatarFallback>
+                  <AvatarFallback className="text-xs">AP</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-sm">Connor Love</p>
+                  <p className="font-medium text-sm">Ava Patel</p>
                   <p className="text-xs text-muted-foreground truncate">
-                    connorlove@gmail.com
+                    archive@docuvault.studio
                   </p>
                 </div>
                 <HugeiconsIcon

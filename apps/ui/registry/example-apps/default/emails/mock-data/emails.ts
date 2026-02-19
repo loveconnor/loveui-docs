@@ -23,164 +23,107 @@ export interface Email {
 export const emails: Email[] = [
   {
     id: "1",
-    from: users[0],
-    to: [users[1]],
-    subject: "We Need Your UX Feedback!",
-    body: `Hi Team,
+    from: users[1],
+    to: [users[0]],
+    subject: "[SEV-1] Checkout API latency above 2.8s",
+    body: `Trigger: p95 latency crossed 2.8s for 7 minutes in us-east-1.
 
-We're refining our product and need your insights on our user experience (UX) design. Please share any additional comments or suggestions. Your feedback is crucial in helping us exceed user expectations.
+Current impact:
+- 14% of requests timing out
+- Retries up 3.2x
+- Cart updates delayed for mobile users
 
-Specifically, I would love to hear your thoughts on the following:
-
-1. Usability: How intuitive do you find our interface? Are there any features or processes that you feel could be simplified?
-2. Aesthetics: What are your impressions of our visual design? Is there anything you think could be improved in terms of color schemes, fonts, or overall layout?
-3. Functionality: Are there any functionalities you feel are missing or could be enhanced? How can we make the product more effective for our users?
-
-Please feel free to share any additional comments or suggestions that you think might help us improve our UX design.
-
-Thank you in advance for your time and input. Your feedback is invaluable in helping us create a product that not only meets but exceeds our users' expectations.
-
-Best regards,
-Rico`,
-    date: new Date("2024-06-30T05:16:00"),
+Primary runbook and dashboards are attached.
+Please acknowledge within 5 minutes.`,
+    date: new Date("2026-02-18T09:12:00"),
     read: false,
     starred: true,
-    labels: [labels[0]],
+    labels: [labels[2], labels[0]],
     hasAttachments: true,
     attachments: [
       {
         id: "att1",
-        name: "designpr.pptx",
-        size: "2 MB",
-        type: "application/vnd.ms-powerpoint",
+        name: "checkout-latency-runbook.pdf",
+        size: "1.1 MB",
+        type: "application/pdf",
       },
       {
         id: "att2",
-        name: "designdocs.docx",
-        size: "1.5 MB",
-        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      },
-      {
-        id: "att3",
-        name: "designdata.xlsx",
-        size: "234 KB",
-        type: "application/vnd.ms-excel",
+        name: "grafana-snapshot.png",
+        size: "2.6 MB",
+        type: "image/png",
       },
     ],
   },
   {
     id: "2",
-    from: users[1],
+    from: users[3],
     to: [users[0]],
-    subject: "Q4 Marketing Campaign Strategy Review",
-    body: `Hi Team,
+    subject: "Mitigation applied: cache warm-up completed",
+    body: `Quick update from SRE:
 
-I hope this email finds you well. I wanted to take a moment to share our comprehensive Q4 marketing campaign strategy and gather your thoughts before we move forward with implementation.
+- Increased edge cache TTL for product metadata
+- Warmed top 5,000 keys
+- Error rate dropped from 5.6% to 1.2%
 
-Our analysis of Q3 performance has revealed several key insights that we're leveraging for this upcoming quarter:
-
-Performance Highlights from Q3:
-- 45% increase in social media engagement
-- 28% boost in conversion rates
-- Successful A/B testing on email campaigns
-- Strong ROI on influencer partnerships
-
-I've attached detailed campaign plans, budget breakdowns, and preliminary creative concepts. Please review these materials and share your feedback by end of week.
-
-Looking forward to your thoughts and to a successful Q4!
-
-Best regards,
-Sarah`,
-    date: new Date("2024-06-29T14:20:00"),
-    read: true,
-    starred: false,
+Continuing to monitor for the next 30 minutes before full resolution call.`,
+    date: new Date("2026-02-18T09:34:00"),
+    read: false,
+    starred: true,
     labels: [labels[0]],
-    hasAttachments: true,
-    attachments: [
-      {
-        id: "att4",
-        name: "Q4-strategy.pdf",
-        size: "3.2 MB",
-        type: "application/pdf",
-      },
-      {
-        id: "att5",
-        name: "budget-breakdown.xlsx",
-        size: "856 KB",
-        type: "application/vnd.ms-excel",
-      },
-    ],
+    hasAttachments: false,
   },
   {
     id: "3",
     from: users[2],
     to: [users[0]],
-    subject: "Technical Architecture Review - New Features",
-    body: `Hello Development Team,
+    subject: "CPU anomaly detected on payments-worker-04",
+    body: `CloudWatch detected sustained CPU > 92% on payments-worker-04.
 
-I'm reaching out to discuss the technical architecture for our upcoming feature releases and to ensure we're all aligned on our approach moving forward.
+Timeline:
+- Spike began at 08:41 UTC
+- Queue depth currently 11,238 messages
+- No packet loss observed
 
-Background:
-As you know, we're planning to roll out several major features in the next quarter, including real-time collaboration, advanced search capabilities, and an AI-powered recommendation engine.
-
-I've prepared detailed technical specifications and architecture diagrams. Let's schedule a meeting next week to dive deeper into these proposals and address any concerns.
-
-Please review the attached documents and come prepared with questions and suggestions.
-
-Best regards,
-Michael`,
-    date: new Date("2024-06-29T08:00:00"),
-    read: false,
+Suggested action: drain node and shift traffic to warm standby.`,
+    date: new Date("2026-02-18T08:47:00"),
+    read: true,
     starred: false,
     labels: [labels[1]],
     hasAttachments: true,
     attachments: [
       {
-        id: "att6",
-        name: "architecture-diagram.png",
-        size: "1.8 MB",
-        type: "image/png",
-      },
-      {
-        id: "att7",
-        name: "tech-specs.pdf",
-        size: "2.4 MB",
-        type: "application/pdf",
+        id: "att3",
+        name: "cw-metrics-export.csv",
+        size: "486 KB",
+        type: "text/csv",
       },
     ],
   },
   {
     id: "4",
-    from: users[3],
+    from: users[5],
     to: [users[0]],
-    subject: "Customer Success Report - Outstanding Results!",
-    body: `Dear Team,
+    subject: "Security watch: suspicious auth bursts blocked",
+    body: `SOC bot blocked 1,842 suspicious auth attempts in 12 minutes.
 
-I'm thrilled to share our customer success metrics for the past quarter. The numbers speak for themselves, and I couldn't be prouder of what we've accomplished together!
+Notes:
+- Source ASN matches previously flagged botnet
+- No successful account takeover observed
+- Temporary WAF rule auto-deployed
 
-Key Metrics Overview:
-
-Customer Satisfaction:
-- Overall CSAT score: 94% (up from 87%)
-- Net Promoter Score: 72 (industry average is 45)
-- Customer retention rate: 96%
-- Average support rating: 4.8/5 stars
-
-Please find the detailed metrics dashboard and analysis attached.
-
-Best regards,
-Jennifer`,
-    date: new Date("2024-06-28T16:45:00"),
+Please review the incident card for rule expiry timing.`,
+    date: new Date("2026-02-18T07:58:00"),
     read: true,
     starred: false,
-    labels: [labels[0]],
+    labels: [labels[1], labels[0]],
     hasAttachments: true,
     attachments: [
       {
-        id: "att8",
-        name: "customer-success-report.pdf",
-        size: "4.1 MB",
-        type: "application/pdf",
+        id: "att4",
+        name: "waf-rule-diff.json",
+        size: "92 KB",
+        type: "application/json",
       },
     ],
   },
@@ -188,405 +131,200 @@ Jennifer`,
     id: "5",
     from: users[4],
     to: [users[0]],
-    subject: "Product Roadmap Update - Q4 2024",
-    body: `Hi Everyone,
+    subject: "On-call handoff notes for Feb 18",
+    body: `Good morning team,
 
-I wanted to share an exciting update on our product roadmap for Q4 2024 and get your feedback on our proposed direction.
+Handoff summary:
+- Active: checkout latency (SEV-1) with mitigation in progress
+- Monitoring: auth burst pattern, no customer impact
+- Planned: rotate Redis credentials at 14:00 UTC
 
-Executive Summary:
-We're focusing on three key themes this quarter: Performance, Intelligence, and Integration.
-
-I've attached the full roadmap document with technical specifications, user stories, and design mockups.
-
-Excited about what we're building together!
-
-Best regards,
-Alex`,
-    date: new Date("2024-06-28T09:00:00"),
+Escalation tree and backup contacts attached.`,
+    date: new Date("2026-02-18T07:15:00"),
     read: false,
-    starred: true,
-    labels: [labels[1]],
+    starred: false,
+    labels: [labels[0]],
     hasAttachments: true,
     attachments: [
       {
-        id: "att9",
-        name: "roadmap-Q4.pdf",
-        size: "5.6 MB",
-        type: "application/pdf",
+        id: "att5",
+        name: "handoff-sheet-feb18.xlsx",
+        size: "214 KB",
+        type: "application/vnd.ms-excel",
       },
       {
-        id: "att10",
-        name: "mockups.zip",
-        size: "12 MB",
-        type: "application/zip",
+        id: "att6",
+        name: "escalation-tree.pdf",
+        size: "744 KB",
+        type: "application/pdf",
       },
     ],
   },
   {
     id: "6",
-    from: users[5],
-    to: [users[0]],
-    subject: "Security Audit Findings and Action Plan",
-    body: `Team,
-
-I'm writing to share the results of our recent comprehensive security audit and outline our action plan to address the findings.
-
-Executive Summary:
-Overall, our security posture is strong. The audit identified no critical vulnerabilities, but we have several areas where we can improve our security practices.
-
-I've attached:
-- Full audit report (confidential)
-- Detailed remediation plan
-- Security best practices guide
-
-Thank you for your continued commitment to security.
-
-Best regards,
-James`,
-    date: new Date("2024-06-27T11:30:00"),
-    read: true,
-    starred: false,
-    labels: [labels[2]],
-    hasAttachments: true,
-    attachments: [
-      {
-        id: "att11",
-        name: "security-audit.pdf",
-        size: "3.8 MB",
-        type: "application/pdf",
-      },
-      {
-        id: "att12",
-        name: "remediation-plan.xlsx",
-        size: "942 KB",
-        type: "application/vnd.ms-excel",
-      },
-    ],
-  },
-  {
-    id: "7",
     from: users[0],
-    to: [users[1]],
-    subject: "Your feedback is needed: Design system review",
-    body: `Hi Sarah,
+    to: [users[3]],
+    subject: "Need confirmation: rollback window at 09:45 UTC",
+    body: `Kim,
 
-I hope you're doing well! I'm reaching out because we're conducting a comprehensive review of our design system, and your expertise in visual design would be incredibly valuable to this process.
+Please confirm if we can safely open a rollback window at 09:45 UTC for checkout-service.
+I need your go/no-go note before I notify leadership.
 
-Thank you so much for your time and expertise!
-
-Best regards,
-Rico`,
-    date: new Date("2024-06-27T09:15:00"),
-    read: false,
+Thanks,
+Ava`,
+    date: new Date("2026-02-18T06:58:00"),
+    read: true,
     starred: false,
     labels: [labels[0]],
     hasAttachments: false,
   },
   {
-    id: "8",
+    id: "7",
     from: users[1],
     to: [users[0]],
-    subject: "Team Offsite Planning - October 2024",
-    body: `Hi Rico,
+    subject: "Resolved: search cluster memory pressure",
+    body: `Incident RES-4821 closed.
 
-Hope you're having a great week! I'm excited to start planning our team offsite for October.
+Root cause:
+- Memory leak in query expansion worker after dependency update.
 
-Proposed Dates:
-- October 15-17 (Monday-Wednesday)
-- October 22-24 (Monday-Wednesday)
+Fix:
+- Rolled back worker image to 2.9.14
+- Added guardrail alert on heap delta > 12%
 
-I'm really excited about this opportunity to bring the team together!
-
-Best regards,
-Sarah`,
-    date: new Date("2024-06-26T14:30:00"),
+Postmortem scheduled for Friday.`,
+    date: new Date("2026-02-17T18:20:00"),
     read: true,
     starred: false,
     labels: [labels[1]],
-    hasAttachments: false,
+    hasAttachments: true,
+    attachments: [
+      {
+        id: "att7",
+        name: "res-4821-postmortem-draft.docx",
+        size: "136 KB",
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      },
+    ],
+  },
+  {
+    id: "8",
+    from: users[5],
+    to: [users[0]],
+    subject: "Credential rotation reminder: staging + production",
+    body: `Reminder from Security Response Bot:
+
+Quarterly credential rotation is due this week.
+Targets:
+- staging/api-gateway
+- prod/redis-cache
+- prod/payments-webhook
+
+Runbook includes zero-downtime sequence.`,
+    date: new Date("2026-02-17T14:05:00"),
+    read: false,
+    starred: true,
+    labels: [labels[0]],
+    hasAttachments: true,
+    attachments: [
+      {
+        id: "att8",
+        name: "credential-rotation-runbook.pdf",
+        size: "928 KB",
+        type: "application/pdf",
+      },
+    ],
   },
   {
     id: "9",
     from: users[2],
     to: [users[0]],
-    subject: "API Rate Limit Increase Request",
-    body: `Hi Rico,
+    subject: "Daily uptime digest",
+    body: `24h platform digest:
 
-I'm reaching out regarding our current API rate limits and to request an increase based on our growing usage patterns.
+- API availability: 99.96%
+- Mean incident acknowledgment: 4m 13s
+- Mean incident resolution: 31m 42s
+- Error budget burn: 12.4%
 
-Current Situation:
-We're consistently hitting our rate limits, particularly during peak hours.
-
-Please let me know if you need any additional information.
-
-Best regards,
-Michael`,
-    date: new Date("2024-06-26T10:45:00"),
+No unresolved critical alerts at report generation time.`,
+    date: new Date("2026-02-17T09:00:00"),
     read: true,
     starred: false,
-    labels: [labels[2]],
-    hasAttachments: true,
-    attachments: [
-      {
-        id: "att13",
-        name: "usage-analysis.xlsx",
-        size: "654 KB",
-        type: "application/vnd.ms-excel",
-      },
-    ],
+    labels: [labels[0]],
+    hasAttachments: false,
   },
   {
     id: "10",
     from: users[3],
     to: [users[0]],
-    subject: "Newsletter: This Week in Tech",
-    body: `Hello Rico,
+    subject: "Request: add runbook step for feature flag fallback",
+    body: `During yesterday's incident we lost 6 minutes deciding between rollback and feature flag fallback.
 
-Welcome to this week's tech newsletter! Here are the most interesting developments in technology, product design, and innovation.
+Proposal:
+1. Add explicit flag fallback step after cache purge.
+2. Include owner + confirmation checklist.
+3. Add command snippets for both regions.
 
-🚀 Industry News
-
-1. AI Breakthroughs
-OpenAI announced GPT-5 capabilities, including improved reasoning and multimodal understanding.
-
-2. Design Trends
-Minimalist interfaces are making a comeback, but with more focus on accessibility.
-
-Until next week,
-The Tech Team`,
-    date: new Date("2024-06-25T08:00:00"),
+Can you review by end of day?`,
+    date: new Date("2026-02-16T17:25:00"),
     read: false,
     starred: false,
-    labels: [],
+    labels: [labels[1]],
     hasAttachments: false,
   },
   {
     id: "11",
     from: users[4],
     to: [users[0]],
-    subject: "Urgent: Production Server Alert",
-    body: `Hi Rico,
+    subject: "Coverage update: weekend on-call swap approved",
+    body: `Coverage update:
 
-We're experiencing elevated error rates on our production servers. The team is investigating.
+- Saturday primary: Kim
+- Saturday backup: Ava
+- Sunday primary: Nora
+- Sunday backup: Theo
 
-Current Status:
-- Error rate: 5% (normal is <0.1%)
-- Affected region: US-East
-- User impact: Intermittent failures on checkout flow
-
-We'll send updates every 15 minutes until resolved.
-
-Alex`,
-    date: new Date("2024-06-25T06:30:00"),
+Calendar and pager routing are now synced.`,
+    date: new Date("2026-02-16T12:10:00"),
     read: true,
-    starred: true,
-    labels: [labels[2]],
-    hasAttachments: false,
+    starred: false,
+    labels: [labels[0]],
+    hasAttachments: true,
+    attachments: [
+      {
+        id: "att9",
+        name: "weekend-coverage.ics",
+        size: "9 KB",
+        type: "text/calendar",
+      },
+    ],
   },
   {
     id: "12",
-    from: users[5],
-    to: [users[0]],
-    subject: "Reminder: All-Hands Meeting Tomorrow",
-    body: `Hi Team,
-
-This is a friendly reminder about our all-hands meeting tomorrow:
-
-📅 When: Tomorrow, June 27th at 10:00 AM EST
-⏰ Duration: 90 minutes
-📍 Where: Main Conference Room / Zoom link below
-
-See you there!
-
-James`,
-    date: new Date("2024-06-24T16:00:00"),
-    read: false,
-    starred: false,
-    labels: [labels[1]],
-    hasAttachments: false,
-  },
-  {
-    id: "13",
     from: users[0],
-    to: [users[1]],
-    subject: "Follow-up: Design Review Session",
-    body: `Hi Sarah,
+    to: [users[1], users[3]],
+    subject: "Post-incident action items approved",
+    body: `Approved action items for checkout latency incident:
 
-Thank you for the productive design review session this morning! I wanted to recap our discussion and confirm next steps.
+1. Add queue depth saturation alert at 8k.
+2. Add canary gate for cache dependency changes.
+3. Document fallback query path in on-call handbook.
+4. Run chaos replay in staging on Wednesday.
 
-Key Decisions:
-1. Moving forward with Option B for the navigation redesign
-2. Will implement the suggested color contrast improvements
-3. Postponing the mobile layout changes until next sprint
-
-I've attached the annotated mockups with all the feedback incorporated.
-
-Best,
-Rico`,
-    date: new Date("2024-06-24T11:20:00"),
+Please confirm owners in the tracker thread.`,
+    date: new Date("2026-02-16T08:42:00"),
     read: true,
-    starred: false,
-    labels: [labels[0]],
-    hasAttachments: true,
-    attachments: [
-      {
-        id: "att14",
-        name: "design-mockups.pdf",
-        size: "6.2 MB",
-        type: "application/pdf",
-      },
-    ],
-  },
-  {
-    id: "14",
-    from: users[1],
-    to: [users[0]],
-    subject: "Congratulations on Your Work Anniversary!",
-    body: `Hi Rico,
-
-Happy 3-year work anniversary! 🎉
-
-It's hard to believe it's been three years since you joined the team. Your contributions have been invaluable.
-
-Cheers,
-Sarah`,
-    date: new Date("2024-06-23T09:00:00"),
-    read: false,
     starred: true,
-    labels: [],
-    hasAttachments: false,
-  },
-  {
-    id: "15",
-    from: users[2],
-    to: [users[0]],
-    subject: "Code Review: PR #2847",
-    body: `Hi Rico,
-
-I've reviewed your PR #2847 for the new authentication flow. Overall looks great! Just a few minor comments.
-
-Once those small changes are made, I'll approve.
-
-Michael`,
-    date: new Date("2024-06-23T15:30:00"),
-    read: true,
-    starred: false,
-    labels: [labels[1]],
-    hasAttachments: false,
-  },
-  {
-    id: "16",
-    from: users[3],
-    to: [users[0]],
-    subject: "Welcome to the Beta Program!",
-    body: `Hi Rico,
-
-Congratulations! You've been selected for our exclusive Beta Program.
-
-As a beta tester, you'll get:
-✅ Early access to new features
-✅ Direct line to our product team
-✅ Influence product direction
-
-Thank you for being an early adopter!
-
-Jennifer`,
-    date: new Date("2024-06-22T10:00:00"),
-    read: true,
-    starred: false,
-    labels: [],
-    hasAttachments: false,
-  },
-  {
-    id: "17",
-    from: users[4],
-    to: [users[0]],
-    subject: "Invoice #INV-2024-06-0789",
-    body: `Dear Rico,
-
-Thank you for your business! Please find attached your invoice for June 2024.
-
-Invoice Details:
-- Invoice Number: INV-2024-06-0789
-- Date: June 22, 2024
-- Amount Due: $1,299.00
-- Due Date: July 6, 2024
-
-Thank you for choosing our services!
-
-Accounts Team`,
-    date: new Date("2024-06-22T08:15:00"),
-    read: false,
-    starred: false,
-    labels: [labels[0]],
+    labels: [labels[2], labels[1]],
     hasAttachments: true,
     attachments: [
       {
-        id: "att15",
-        name: "invoice-june-2024.pdf",
-        size: "245 KB",
-        type: "application/pdf",
+        id: "att10",
+        name: "action-items-checkout.md",
+        size: "22 KB",
+        type: "text/markdown",
       },
     ],
-  },
-  {
-    id: "18",
-    from: users[5],
-    to: [users[0]],
-    subject: "Webinar Invitation: Advanced Product Design Techniques",
-    body: `Hi Rico,
-
-You're invited to our exclusive webinar on Advanced Product Design Techniques!
-
-📅 Date: July 10, 2024
-🕐 Time: 2:00 PM EST
-⏱ Duration: 60 minutes
-
-We look forward to seeing you there!
-
-Events Team`,
-    date: new Date("2024-06-21T13:00:00"),
-    read: true,
-    starred: false,
-    labels: [labels[1]],
-    hasAttachments: false,
-  },
-  {
-    id: "19",
-    from: users[0],
-    to: [users[2]],
-    subject: "Quick Question: Component Library",
-    body: `Hey Michael,
-
-Quick question about the component library - what's the best way to handle conditional styling based on props?
-
-Would love your thoughts when you have a minute!
-
-Thanks,
-Rico`,
-    date: new Date("2024-06-21T11:45:00"),
-    read: false,
-    starred: false,
-    labels: [],
-    hasAttachments: false,
-  },
-  {
-    id: "20",
-    from: users[1],
-    to: [users[0]],
-    subject: "Team Lunch Next Friday?",
-    body: `Hi Rico,
-
-Want to organize a team lunch next Friday? It's been a while since we all got together outside of meetings.
-
-Let me know if you're interested and if Friday works for you!
-
-Sarah`,
-    date: new Date("2024-06-20T16:20:00"),
-    read: true,
-    starred: false,
-    labels: [],
-    hasAttachments: false,
   },
 ];
-

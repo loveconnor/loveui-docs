@@ -14,9 +14,9 @@ export function AlertBanner() {
         <span className="text-4xl">🗒️</span>
         <p className="text-sm sm:text-base leading-relaxed">
           <span className="text-muted-foreground">You have </span>
-          <span className="font-semibold">12 Pending Leave Requests,</span>
+          <span className="font-semibold">9 ICU Coverage Gaps,</span>
           <span> and </span>
-          <span className="font-semibold">5 Overtime Approvals</span>
+          <span className="font-semibold">4 Critical Lab Escalations</span>
           <span className="text-muted-foreground"> that need action!</span>
         </p>
       </div>
@@ -34,4 +34,3 @@ export function AlertBanner() {
     </div>
   );
 }
-

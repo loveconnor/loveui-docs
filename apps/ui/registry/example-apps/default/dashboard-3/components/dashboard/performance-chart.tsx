@@ -73,7 +73,7 @@ export function PerformanceChart() {
   return (
     <div className="rounded-xl border border-border bg-card overflow-hidden">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 border-b">
-        <h3 className="font-medium text-base">Performance</h3>
+        <h3 className="font-medium text-base">Course Completion Score</h3>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
@@ -130,7 +130,7 @@ export function PerformanceChart() {
         <div className="flex items-baseline gap-2 mb-4">
           <span className="text-3xl font-semibold">{performanceScore}%</span>
           <span className="text-sm text-muted-foreground">
-            +{performanceChange}% vs last Week
+            +{performanceChange}% vs previous week
           </span>
         </div>
         <ChartContainer config={chartConfig} className="h-[175px] w-full">
@@ -200,4 +200,3 @@ export function PerformanceChart() {
     </div>
   );
 }
-

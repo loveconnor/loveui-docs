@@ -30,25 +30,25 @@ export function EmailsHorizontalNav() {
   const mainFolders = [
     {
       id: "inbox",
-      label: "Inbox",
+      label: "Active Alerts",
       icon: IconInbox,
       count: emails.length.toString() as string | undefined,
     },
-    { id: "sent", label: "Sent items", icon: IconSend, count: undefined },
+    { id: "sent", label: "Escalated", icon: IconSend, count: undefined },
     {
       id: "drafts",
-      label: "Drafts",
+      label: "Draft Notes",
       icon: IconFileText,
       count: undefined,
     },
-    { id: "starred", label: "Favorites", icon: IconStar, count: undefined },
-    { id: "archive", label: "Archive", icon: IconArchive, count: undefined },
+    { id: "starred", label: "Watchlist", icon: IconStar, count: undefined },
+    { id: "archive", label: "Resolved", icon: IconArchive, count: undefined },
   ];
 
   const additionalFolders = [
-    { id: "deleted", label: "Deleted", icon: IconTrash, count: undefined },
-    { id: "spam", label: "Spam", icon: IconAlertTriangle, count: undefined },
-    { id: "junk", label: "Junk", icon: IconAsterisk, count: undefined },
+    { id: "deleted", label: "Discarded", icon: IconTrash, count: undefined },
+    { id: "spam", label: "Noise", icon: IconAlertTriangle, count: undefined },
+    { id: "junk", label: "Low Priority", icon: IconAsterisk, count: undefined },
   ];
 
   const allFolders = [...mainFolders, ...additionalFolders];
@@ -62,7 +62,7 @@ export function EmailsHorizontalNav() {
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(205,175,250,1),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(129,169,248,1),transparent_50%),radial-gradient(ellipse_at_top_left,rgba(247,203,191,1),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(164,252,245,1),transparent_50%)]" />
           <IconMailPlus className="relative size-4 text-black" stroke={1.5} />
-          <span className="relative hidden sm:inline text-black">Compose</span>
+          <span className="relative hidden sm:inline text-black">Escalate</span>
         </Button>
 
         <Separator orientation="vertical" className="h-5 hidden sm:block" />
@@ -340,4 +340,3 @@ export function EmailsHorizontalNav() {
     </div>
   );
 }
-

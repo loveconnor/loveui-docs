@@ -14,28 +14,28 @@ import { cn } from "../../lib/utils";
 
 const stats = [
   {
-    title: "Generated Revenue",
+    title: "Closed Volume",
     value: dashboardStats.generatedRevenue.value,
     change: dashboardStats.generatedRevenue.change,
     icon: DollarSquareIcon,
     trend: "up" as const,
   },
   {
-    title: "Signed Clients",
+    title: "Signed Buyers",
     value: dashboardStats.signedClients.value,
     change: dashboardStats.signedClients.change,
     icon: UserGroupIcon,
-    trend: "down" as const,
+    trend: "up" as const,
   },
   {
-    title: "Total Leads",
+    title: "Active Buyer Leads",
     value: dashboardStats.totalLeads.value,
     change: dashboardStats.totalLeads.change,
     icon: Comment01Icon,
     trend: "up" as const,
   },
   {
-    title: "Team Members",
+    title: "Active Agents",
     value: dashboardStats.teamMembers.value,
     extra: { active: dashboardStats.teamMembers.activeCount },
     icon: Building02Icon,
@@ -98,4 +98,3 @@ export function StatsCards() {
     </div>
   );
 }
-

@@ -117,11 +117,10 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
       <div className="p-3 border-b flex items-center justify-between">
         <div>
           <h2 className="font-semibold text-base">
-            {mode === "favorites" ? "Favorites" : "All Properties"}
+            {mode === "favorites" ? "Favorites" : "All Gear"}
           </h2>
           <p className="text-xs text-muted-foreground">
-            {listings.length}{" "}
-            {listings.length === 1 ? "property" : "properties"}
+            {listings.length} {listings.length === 1 ? "listing" : "listings"}
           </p>
         </div>
         <div className="flex items-center gap-1">
@@ -142,7 +141,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
           <div className="relative flex-1">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
             <Input
-              placeholder="Search properties..."
+              placeholder="Search gear..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={cn("pl-8 h-9", searchQuery && "pr-8")}
@@ -269,7 +268,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
         {listings.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 text-center">
             <Search className="size-8 text-muted-foreground mb-2" />
-            <p className="text-sm font-medium">No properties found</p>
+            <p className="text-sm font-medium">No products found</p>
             <p className="text-xs text-muted-foreground mt-1">
               Try adjusting your search or filters
             </p>
@@ -301,7 +300,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 target.src =
-                                  "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop";
+                                  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop";
                               }}
                             />
                           </CarouselItem>
@@ -346,7 +345,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                           variant="secondary"
                           className="bg-background/80 backdrop-blur-sm text-xs"
                         >
-                          Instant Book
+                          Fast Checkout
                         </Badge>
                       </div>
                     )}
@@ -386,20 +385,19 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                           ${listing.pricePerNight}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          {" "}
-                          / night
+                          {" "}/ day
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         {listing.bedrooms > 0 && (
                           <span>
-                            {listing.bedrooms} bed
+                            {listing.bedrooms} kit
                             {listing.bedrooms > 1 ? "s" : ""}
                           </span>
                         )}
                         {listing.bathrooms > 0 && (
                           <span>
-                            • {listing.bathrooms} bath
+                            • {listing.bathrooms} add-on
                             {listing.bathrooms > 1 ? "s" : ""}
                           </span>
                         )}
@@ -434,7 +432,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src =
-                          "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop";
+                          "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop";
                       }}
                     />
                     <div className="absolute top-2 right-2">
@@ -506,7 +504,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                               variant="secondary"
                               className="text-[10px] px-1.5 py-0"
                             >
-                              Instant
+                              Fast
                             </Badge>
                           </>
                         )}
@@ -518,14 +516,13 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                           ${listing.pricePerNight}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          {" "}
-                          / night
+                          {" "}/ day
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-muted-foreground flex-shrink-0">
                         {listing.bedrooms > 0 && (
                           <span className="whitespace-nowrap">
-                            {listing.bedrooms} bed
+                            {listing.bedrooms} kit
                             {listing.bedrooms > 1 ? "s" : ""}
                           </span>
                         )}
@@ -533,7 +530,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                           <>
                             <span className="hidden sm:inline">•</span>
                             <span className="whitespace-nowrap">
-                              {listing.bathrooms} bath
+                              {listing.bathrooms} add-on
                               {listing.bathrooms > 1 ? "s" : ""}
                             </span>
                           </>

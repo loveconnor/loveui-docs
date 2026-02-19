@@ -241,12 +241,12 @@ export function ProjectsTable() {
   return (
     <div className="rounded-xl border border-border bg-card overflow-hidden">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 border-b">
-        <h3 className="font-medium text-base">List Projects</h3>
+        <h3 className="font-medium text-base">Course Board</h3>
         <div className="flex items-center gap-2">
           <div className="relative">
             <HugeiconsIcon icon={Search01Icon} className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
             <Input
-              placeholder="Search here..."
+              placeholder="Search courses..."
               value={projectsSearchQuery}
               onChange={(e) => setProjectsSearchQuery(e.target.value)}
               className="pl-8 h-9 w-full sm:w-[200px] text-sm bg-muted/50"
@@ -324,7 +324,7 @@ export function ProjectsTable() {
                   colSpan={columns.length}
                   className="text-center text-muted-foreground py-8"
                 >
-                  No projects found.
+                  No courses found.
                 </TableCell>
               </TableRow>
             ) : (
@@ -351,8 +351,8 @@ export function ProjectsTable() {
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
           <span>
             {totalRows === 0
-              ? "0 projects"
-              : `Showing ${from} to ${to} of ${totalRows} projects`}
+              ? "0 courses"
+              : `Showing ${from} to ${to} of ${totalRows} courses`}
           </span>
           <div className="flex items-center gap-2">
             <span className="hidden sm:inline">Rows per page</span>

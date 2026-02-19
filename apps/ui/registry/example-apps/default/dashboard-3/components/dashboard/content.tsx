@@ -17,21 +17,21 @@ function WelcomeSection() {
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
-          Welcome Back, {userName}! 👋
+          Semester operations overview, {userName}
         </h1>
         <p className="text-sm text-muted-foreground mt-0.5">
           {tasksDueToday} Tasks Due Today, {overdueTasks} Overdue Tasks,{" "}
-          {upcomingDeadlines} Upcoming Deadlines (This Week)
+          {upcomingDeadlines} Upcoming Deadlines (Next 7 Days)
         </p>
       </div>
       <div className="flex items-center gap-2">
         <Button variant="outline" size="sm" className="h-9 gap-1.5">
           <HugeiconsIcon icon={Download01Icon} className="size-4" />
-          Export
+          Export Roster
         </Button>
         <Button size="sm" className="h-9 gap-1.5 bg-primary hover:bg-primary/90">
           <HugeiconsIcon icon={Add01Icon} className="size-4" />
-          New
+          New Course Task
         </Button>
       </div>
     </div>

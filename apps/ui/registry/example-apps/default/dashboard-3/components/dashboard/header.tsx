@@ -15,7 +15,7 @@ export function DashboardHeader() {
         <SidebarTrigger className="-ml-2" />
         <div className="flex items-center gap-2 text-muted-foreground">
           <HugeiconsIcon icon={Folder01Icon} className="size-4" />
-          <span className="text-sm font-medium">Dashboard</span>
+          <span className="text-sm font-medium">Academic Operations</span>
         </div>
       </div>
 

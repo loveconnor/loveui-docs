@@ -59,7 +59,7 @@ export function TodaysTasks() {
   return (
     <div className="rounded-xl border border-border bg-card overflow-hidden">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 border-b">
-        <h3 className="font-medium text-base">Today&apos;s Tasks</h3>
+        <h3 className="font-medium text-base">Today&apos;s Academic Tasks</h3>
         <div className="flex items-center gap-2">
           <div className="relative">
             <HugeiconsIcon icon={Search01Icon} className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
@@ -114,7 +114,7 @@ export function TodaysTasks() {
       <div className="divide-y">
         {filteredTasks.length === 0 ? (
           <div className="px-4 py-8 text-center text-sm text-muted-foreground">
-            No tasks match your search.
+            No academic tasks match your search.
           </div>
         ) : (
           filteredTasks.map((task) => (

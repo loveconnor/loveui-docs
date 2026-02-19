@@ -59,11 +59,11 @@ function getMeetingCode(link?: string): string {
 
 function getParticipantName(participantId: string): string {
   const names: Record<string, string> = {
-    user1: "James Brown",
-    user2: "Sophia Williams",
-    user3: "Arthur Taylor",
-    user4: "Emma Wright",
-    user5: "Connor Love",
+    user1: "Maya Ortiz",
+    user2: "Liam Carter",
+    user3: "Nora Singh",
+    user4: "Theo Bennett",
+    user5: "Ari Kim",
   };
 
   return (
@@ -74,11 +74,11 @@ function getParticipantName(participantId: string): string {
 
 function getParticipantEmail(participantId: string): string {
   const emails: Record<string, string> = {
-    user1: "james11@gmail.com",
-    user2: "sophia.williams@gmail.com",
-    user3: "arthur@hotmail.com",
-    user4: "emma@outlook.com",
-    user5: "connorlove@gmail.com",
+    user1: "maya.ortiz@filmops.studio",
+    user2: "liam.carter@filmops.studio",
+    user3: "nora.singh@filmops.studio",
+    user4: "theo.bennett@filmops.studio",
+    user5: "ari.kim@filmops.studio",
   };
 
   return emails[participantId] || `${participantId}@gmail.com`;
@@ -98,7 +98,7 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
   const dateStr = formatDate(event.date);
   const startTimeStr = formatTime(event.startTime);
   const endTimeStr = formatTime(event.endTime);
-  const timezone = event.timezone || "GMT+7 Pontianak";
+  const timezone = event.timezone || "PST Los Angeles";
   const meetingCode = getMeetingCode(event.meetingLink);
 
   const organizer = event.participants[0] || "user1";
@@ -123,8 +123,8 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
     })),
     {
       id: "user5",
-      name: "Connor Love",
-      email: "connorlove@gmail.com",
+      name: "Ari Kim",
+      email: "ari.kim@filmops.studio",
       isOrganizer: false,
       rsvp: rsvpStatus || ("yes" as const),
       isYou: true,

@@ -16,9 +16,9 @@ import { cn } from "../../lib/utils";
 const activities = [
   {
     id: "1",
-    user: { name: "Connor Love", avatar: "leonel", initials: "CL" },
+    user: { name: "Ava Patel", avatar: "ava", initials: "AP" },
     action: "uploaded",
-    file: "Dashboard Mockup.fig",
+    file: "Kenya_Savannah_Day03_Acam_4K.mov",
     time: "2 min ago",
     icon: Upload01Icon,
     iconColor: "text-emerald-500",
@@ -26,9 +26,9 @@ const activities = [
   },
   {
     id: "2",
-    user: { name: "Sarah Chen", avatar: "sarah", initials: "SC" },
+    user: { name: "Nora Singh", avatar: "nora", initials: "NS" },
     action: "shared",
-    file: "Brand Guidelines.pdf",
+    file: "Narrative_BeatBoard.pdf",
     time: "15 min ago",
     icon: Share01Icon,
     iconColor: "text-blue-500",
@@ -36,9 +36,9 @@ const activities = [
   },
   {
     id: "3",
-    user: { name: "Alex Kim", avatar: "alex", initials: "AK" },
+    user: { name: "Theo Bennett", avatar: "theo", initials: "TB" },
     action: "edited",
-    file: "UI Components.sketch",
+    file: "Episode02_Edit_v14.prproj",
     time: "1 hour ago",
     icon: Edit01Icon,
     iconColor: "text-amber-500",
@@ -46,9 +46,9 @@ const activities = [
   },
   {
     id: "4",
-    user: { name: "Marie Dupont", avatar: "marie", initials: "MD" },
+    user: { name: "Liam Carter", avatar: "liam", initials: "LC" },
     action: "downloaded",
-    file: "Product Demo.mp4",
+    file: "Festival_Submission_Package.zip",
     time: "3 hours ago",
     icon: Download01Icon,
     iconColor: "text-violet-500",
@@ -56,9 +56,9 @@ const activities = [
   },
   {
     id: "5",
-    user: { name: "James Wilson", avatar: "james", initials: "JW" },
+    user: { name: "Maya Ortiz", avatar: "maya", initials: "MO" },
     action: "moved",
-    file: "Client Presentation.pptx",
+    file: "Camp_Ambience_Master.wav",
     time: "5 hours ago",
     icon: FolderTransferIcon,
     iconColor: "text-cyan-500",
@@ -66,9 +66,9 @@ const activities = [
   },
   {
     id: "6",
-    user: { name: "Emma Taylor", avatar: "emma", initials: "ET" },
+    user: { name: "Ari Kim", avatar: "ari", initials: "AK" },
     action: "commented on",
-    file: "App Icon.png",
+    file: "Interview_Transcript_DrSafi.pdf",
     time: "Yesterday",
     icon: Comment01Icon,
     iconColor: "text-pink-500",
@@ -76,9 +76,9 @@ const activities = [
   },
   {
     id: "7",
-    user: { name: "David Brown", avatar: "david", initials: "DB" },
+    user: { name: "Noah Reid", avatar: "noah", initials: "NR" },
     action: "deleted",
-    file: "Old Backup.zip",
+    file: "RoughCut_Archive_2025.zip",
     time: "Yesterday",
     icon: Delete01Icon,
     iconColor: "text-red-500",
@@ -134,4 +134,3 @@ export function RecentActivity() {
     </div>
   );
 }
-

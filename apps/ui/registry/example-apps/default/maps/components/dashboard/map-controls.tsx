@@ -70,8 +70,8 @@ export function MapControls() {
       setMapCenter(userLocation);
       setMapZoom(12);
     } else {
-      setMapCenter({ lat: 20, lng: 0 });
-      setMapZoom(2);
+      setMapCenter({ lat: 39.8283, lng: -98.5795 });
+      setMapZoom(4);
     }
   };
 

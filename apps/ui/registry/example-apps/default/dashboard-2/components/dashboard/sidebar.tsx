@@ -58,38 +58,38 @@ import { Button } from "@loveui/ui/ui/button";
 
 const navItems = [
   { title: "Search", icon: Search01Icon, shortcut: "/" },
-  { title: "Inbox", icon: Mail01Icon },
-  { title: "Dashboard", icon: DashboardSquare01Icon, isActive: true },
-  { title: "My Tasks", icon: Task01Icon },
-  { title: "Projects", icon: Layers01Icon },
-  { title: "Calendar", icon: Calendar01Icon },
-  { title: "Documents", icon: File01Icon },
-  { title: "Teams", icon: UserGroupIcon },
-  { title: "Company", icon: Building02Icon },
+  { title: "Client Inbox", icon: Mail01Icon },
+  { title: "Listings Board", icon: DashboardSquare01Icon, isActive: true },
+  { title: "Tours", icon: Task01Icon },
+  { title: "Neighborhoods", icon: Layers01Icon },
+  { title: "Open Houses", icon: Calendar01Icon },
+  { title: "Contracts", icon: File01Icon },
+  { title: "Agent Teams", icon: UserGroupIcon },
+  { title: "Brokerage", icon: Building02Icon },
 ];
 
 const workgroups = [
   {
     id: "all-work",
-    name: "All Work",
+    name: "Property Segments",
     icon: Globe02Icon,
     children: [
       {
-        id: "website-copy",
-        name: "Website Copy",
+        id: "luxury-homes",
+        name: "Luxury Homes",
         icon: Folder01Icon,
         children: [
-          { id: "client-website", name: "Client website", icon: FileEmpty01Icon },
-          { id: "personal-project", name: "Personal project", icon: FileEmpty01Icon },
+          { id: "waterfront", name: "Waterfront", icon: FileEmpty01Icon },
+          { id: "penthouse", name: "Penthouse", icon: FileEmpty01Icon },
         ],
       },
-      { id: "ux-research", name: "UX Research", icon: Folder01Icon },
-      { id: "assets-library", name: "Assets Library", icon: Folder01Icon },
+      { id: "suburban", name: "Suburban", icon: Folder01Icon },
+      { id: "investment", name: "Investment", icon: Folder01Icon },
     ],
   },
-  { id: "marketing", name: "Marketing", icon: Notification01Icon },
-  { id: "development", name: "Development", icon: SourceCodeIcon },
-  { id: "support", name: "Support", icon: HeadphonesIcon },
+  { id: "market-alerts", name: "Market Alerts", icon: Notification01Icon },
+  { id: "mls-sync", name: "MLS Sync", icon: SourceCodeIcon },
+  { id: "buyer-support", name: "Buyer Support", icon: HeadphonesIcon },
 ];
 
 export function DashboardSidebar({
@@ -97,7 +97,7 @@ export function DashboardSidebar({
 }: React.ComponentProps<typeof Sidebar>) {
   const [expandedItems, setExpandedItems] = React.useState<string[]>([
     "all-work",
-    "website-copy",
+    "luxury-homes",
   ]);
 
   const toggleItem = (id: string) => {
@@ -178,10 +178,10 @@ export function DashboardSidebar({
             render={
               <button className="flex items-center gap-2.5 w-full hover:bg-sidebar-accent rounded-md p-1 -m-1 transition-colors shrink-0">
                 <div className="flex size-7 items-center justify-center rounded-lg bg-foreground text-background shrink-0">
-                  <span className="text-sm font-bold">W</span>
+                  <span className="text-sm font-bold">R</span>
                 </div>
                 <div className="flex items-center gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="text-sm font-medium">Workspace</span>
+                  <span className="text-sm font-medium">Harbor Realty</span>
                   <HugeiconsIcon icon={UnfoldMoreIcon} className="size-3 text-muted-foreground" />
                 </div>
               </button>
@@ -195,7 +195,7 @@ export function DashboardSidebar({
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <HugeiconsIcon icon={UserAdd01Icon} className="size-4" />
-                <span>Invite members</span>
+                <span>Invite agents</span>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />

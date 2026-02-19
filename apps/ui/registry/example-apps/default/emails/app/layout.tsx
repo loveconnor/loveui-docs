@@ -3,8 +3,8 @@ import { ThemeProvider } from "../components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Emails - LoveUI",
-  description: "Modern email client interface",
+  title: "Incident Mailbox - LoveUI",
+  description: "Operations incident inbox with escalation and response workflows",
 };
 
 export default function RootLayout({

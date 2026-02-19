@@ -41,7 +41,7 @@ import { useLeadsStore, LeadStatus, LeadSource } from "../../store/leads-store";
 
 const statusConfig: Record<LeadStatus, { label: string; className: string }> = {
   new: {
-    label: "New Leads",
+    label: "Prospect",
     className:
       "bg-blue-100 text-blue-800 dark:bg-blue-950/30 dark:text-blue-400 border-blue-200 dark:border-blue-800",
   },
@@ -51,33 +51,33 @@ const statusConfig: Record<LeadStatus, { label: string; className: string }> = {
       "bg-purple-100 text-purple-800 dark:bg-purple-950/30 dark:text-purple-400 border-purple-200 dark:border-purple-800",
   },
   qualified: {
-    label: "Qualified",
+    label: "Deck Sent",
     className:
       "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800",
   },
   negotiation: {
-    label: "Negotiation",
+    label: "Contract Review",
     className:
       "bg-amber-100 text-amber-800 dark:bg-amber-950/30 dark:text-amber-400 border-amber-200 dark:border-amber-800",
   },
   inactive: {
-    label: "Inactive",
+    label: "On Hold",
     className:
       "bg-gray-100 text-gray-800 dark:bg-gray-950/30 dark:text-gray-400 border-gray-200 dark:border-gray-800",
   },
   recycled: {
-    label: "Recycled",
+    label: "Re-engage",
     className:
       "bg-pink-100 text-pink-800 dark:bg-pink-950/30 dark:text-pink-400 border-pink-200 dark:border-pink-800",
   },
 };
 
 const sourceConfig: Record<LeadSource, string> = {
-  website: "Website",
-  paid_ads: "Paid Ads",
-  referral: "Referral",
-  social: "Social",
-  email: "Email",
+  website: "Inbound Form",
+  paid_ads: "Campaign",
+  referral: "Partner Intro",
+  social: "Social DM",
+  email: "Email Outreach",
 };
 
 export function LeadsTable() {
@@ -142,7 +142,7 @@ export function LeadsTable() {
               className="size-4 text-muted-foreground"
             />
           </Button>
-          <h3 className="font-medium text-sm sm:text-base">Leads List</h3>
+          <h3 className="font-medium text-sm sm:text-base">Sponsor Pipeline</h3>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
@@ -152,7 +152,7 @@ export function LeadsTable() {
               className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
             />
             <Input
-              placeholder="Search here..."
+              placeholder="Search sponsors..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-9 h-9 w-full sm:w-[180px]"
@@ -257,7 +257,7 @@ export function LeadsTable() {
 
           <Button variant="outline" className="h-9 gap-2">
             <HugeiconsIcon icon={Invoice01Icon} className="size-4" />
-            <span className="hidden sm:inline">Import</span>
+            <span className="hidden sm:inline">Import List</span>
           </Button>
         </div>
       </div>
@@ -270,10 +270,10 @@ export function LeadsTable() {
                 <TableHead className="w-[120px]">
                   <div className="flex items-center gap-2">
                     <Checkbox />
-                    <span>Leads ID</span>
+                    <span>Sponsor ID</span>
                   </div>
                 </TableHead>
-                <TableHead className="min-w-[160px]">Lead Name</TableHead>
+                <TableHead className="min-w-[160px]">Contact Name</TableHead>
                 <TableHead className="min-w-[180px] hidden md:table-cell">
                   Email
                 </TableHead>
@@ -291,10 +291,10 @@ export function LeadsTable() {
               {paginatedLeads.map((lead) => (
                 <TableRow key={lead.id}>
                   <TableCell>
-                    <div className="flex items-center gap-2">
-                      <Checkbox />
-                      <span className="font-medium text-sm">{lead.leadId}</span>
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <Checkbox />
+                    <span className="font-medium text-sm">{lead.leadId}</span>
+                  </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
@@ -364,10 +364,10 @@ export function LeadsTable() {
                         />
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem>View Details</DropdownMenuItem>
-                          <DropdownMenuItem>Edit Lead</DropdownMenuItem>
+                          <DropdownMenuItem>Edit Sponsor</DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem className="text-destructive">
-                            Delete Lead
+                            Delete Sponsor
                           </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>

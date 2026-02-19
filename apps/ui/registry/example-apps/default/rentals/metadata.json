@@ -1,8 +1,8 @@
 {
-  "title": "Rentals Explorer",
-  "description": "A property rental explorer with map-based search, filters, and favorites.",
+  "title": "Gear Marketplace",
+  "description": "An e-commerce gear marketplace with map-based discovery, sorting, and favorites.",
   "category": "e-commerce",
-  "tags": ["rentals", "properties", "maps"],
+  "tags": ["e-commerce", "gear", "marketplace", "maps"],
   "isNew": true,
   "files": [
     {
@@ -37,13 +37,13 @@
   "routes": [
     {
       "path": "/",
-      "title": "Properties",
-      "description": "All properties map view"
+      "title": "All Gear",
+      "description": "All gear listings map view"
     },
     {
       "path": "/favorites",
       "title": "Favorites",
-      "description": "Favorite properties"
+      "description": "Saved gear listings"
     }
   ]
 }

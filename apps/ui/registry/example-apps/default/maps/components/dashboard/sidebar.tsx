@@ -45,9 +45,9 @@ import {
 } from "@hugeicons/core-free-icons";
 
 const navItems = [
-  { id: "all", title: "All Locations", icon: Location01Icon, href: "/" },
-  { id: "favorites", title: "Favorites", icon: FavouriteIcon, href: "/favorites" },
-  { id: "recents", title: "Recents", icon: Clock01Icon, href: "/recents" },
+  { id: "all", title: "Explore Feed", icon: Location01Icon, href: "/" },
+  { id: "favorites", title: "Saved", icon: FavouriteIcon, href: "/favorites" },
+  { id: "recents", title: "Check-ins", icon: Clock01Icon, href: "/recents" },
 ];
 
 const iconMap: Record<string, typeof Location01Icon> = {
@@ -91,7 +91,7 @@ export function LocationsSidebar({
                   <HugeiconsIcon icon={Location01Icon} className="size-4" />
                 </div>
                 <div className="flex items-center gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="text-sm font-medium">LoveUI - Maps</span>
+                  <span className="text-sm font-medium">LoveUI - Social Pulse</span>
                   <HugeiconsIcon
                     icon={UnfoldMoreIcon}
                     className="size-3 text-muted-foreground"
@@ -152,7 +152,7 @@ export function LocationsSidebar({
         <SidebarGroup className="p-0 mt-4">
           <SidebarGroupLabel className="px-0 h-6">
             <span className="text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
-              Categories
+              Vibes
             </span>
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -164,7 +164,7 @@ export function LocationsSidebar({
                   className="h-7"
                 >
                   <HugeiconsIcon icon={Location01Icon} className="size-3.5" />
-                  <span className="text-sm">All</span>
+                  <span className="text-sm">All spots</span>
                 </SidebarMenuButton>
                 <SidebarMenuBadge>{getCategoryCount("all")}</SidebarMenuBadge>
               </SidebarMenuItem>

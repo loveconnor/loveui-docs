@@ -32,7 +32,7 @@ export function DashboardHeader() {
 
       <div className="flex items-center gap-2 sm:gap-3 flex-1">
         <HugeiconsIcon icon={ChartLineData01Icon} className="size-5 sm:size-6 text-muted-foreground hidden sm:block" />
-        <h1 className="text-base sm:text-lg font-medium truncate">Leads</h1>
+        <h1 className="text-base sm:text-lg font-medium truncate">Sponsorships</h1>
       </div>
 
       <div className="hidden md:block relative">
@@ -76,9 +76,9 @@ export function DashboardHeader() {
                 <AvatarFallback>AR</AvatarFallback>
               </Avatar>
               <div className="flex-1 space-y-1">
-                <p className="text-sm font-medium">New lead assigned</p>
+                <p className="text-sm font-medium">New sponsor assigned</p>
                 <p className="text-xs text-muted-foreground">
-                  Alex Ray assigned you a new lead
+                  Mara Quinn assigned a new sponsor prospect
                 </p>
                 <p className="text-xs text-muted-foreground">2 min ago</p>
               </div>
@@ -90,9 +90,9 @@ export function DashboardHeader() {
                 <AvatarFallback>MS</AvatarFallback>
               </Avatar>
               <div className="flex-1 space-y-1">
-                <p className="text-sm font-medium">Lead status updated</p>
+                <p className="text-sm font-medium">Sponsor stage updated</p>
                 <p className="text-xs text-muted-foreground">
-                  Mina Swan changed status to Qualified
+                  Nora Chen moved sponsor to Deck Sent
                 </p>
                 <p className="text-xs text-muted-foreground">15 min ago</p>
               </div>
@@ -106,7 +106,7 @@ export function DashboardHeader() {
               <div className="flex-1 space-y-1">
                 <p className="text-sm font-medium">Comment added</p>
                 <p className="text-xs text-muted-foreground">
-                  John Kim commented on Lead #LD21305
+                  Dylan Park commented on Sponsor #SPN-0908
                 </p>
                 <p className="text-xs text-muted-foreground">1 hour ago</p>
               </div>
@@ -152,8 +152,7 @@ export function DashboardHeader() {
                   <span className="text-xs text-muted-foreground">5m</span>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">
-                  Hey, can you check the new lead from Acme Corp? They seem
-                  interested...
+                  Can you send updated booth benefits to NorthPeak before noon?
                 </p>
               </div>
               <span className="size-2 bg-blue-500 rounded-full mt-2" />
@@ -169,7 +168,7 @@ export function DashboardHeader() {
                   <span className="text-xs text-muted-foreground">1h</span>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">
-                  The meeting with TechStart is confirmed for tomorrow at 2 PM
+                  HarborLabs confirmed a call tomorrow at 2 PM to review tiers.
                 </p>
               </div>
             </DropdownMenuItem>
@@ -184,7 +183,7 @@ export function DashboardHeader() {
                   <span className="text-xs text-muted-foreground">2d</span>
                 </div>
                 <p className="text-xs text-muted-foreground line-clamp-2">
-                  Thanks for the update! I'll follow up with them next week.
+                  Great update. I will follow up on legal terms next week.
                 </p>
               </div>
             </DropdownMenuItem>

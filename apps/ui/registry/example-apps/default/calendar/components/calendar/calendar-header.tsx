@@ -55,9 +55,9 @@ export function CalendarHeader() {
                   {format(currentWeekStart, "MMMM dd, yyyy")}
                 </h1>
                 <p className="hidden md:block text-xs text-muted-foreground">
-                  You have {meetingsCount} meeting
-                  {meetingsCount !== 1 ? "s" : ""} and {eventsCount} event
-                  {eventsCount !== 1 ? "s" : ""} today 🗓️
+                  You have {meetingsCount} call
+                  {meetingsCount !== 1 ? "s" : ""} and {eventsCount} production
+                  block{eventsCount !== 1 ? "s" : ""} today 🎬
                 </p>
               </div>
             </div>
@@ -95,7 +95,7 @@ export function CalendarHeader() {
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground pl-6">
-                      Daily checkin has been confirmed for tomorrow at 9:00 AM
+                      Unit call is confirmed for tomorrow at 6:30 AM
                     </p>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex flex-col items-start gap-1 p-3 cursor-pointer">
@@ -112,7 +112,7 @@ export function CalendarHeader() {
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground pl-6">
-                      Team Standup starts in 30 minutes
+                      Scene 40 rehearsal starts in 30 minutes
                     </p>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex flex-col items-start gap-1 p-3 cursor-pointer">
@@ -129,7 +129,7 @@ export function CalendarHeader() {
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground pl-6">
-                      Design Workshop time has been changed to 2:00 PM
+                      Vendor status meeting moved to 11:30 AM
                     </p>
                   </DropdownMenuItem>
                   <DropdownMenuItem className="flex flex-col items-start gap-1 p-3 cursor-pointer">
@@ -146,7 +146,7 @@ export function CalendarHeader() {
                       </span>
                     </div>
                     <p className="text-xs text-muted-foreground pl-6">
-                      Sarah joined the Sprint Planning meeting
+                      Nora from post joined the teaser review call
                     </p>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
@@ -165,7 +165,7 @@ export function CalendarHeader() {
                   className="size-7 md:size-8 shrink-0 md:w-auto md:px-2 md:gap-1.5"
                 >
                   <HugeiconsIcon icon={Calendar01Icon} className="size-4" />
-                  <span className="hidden lg:inline">Schedule</span>
+                  <span className="hidden lg:inline">Call Sheet</span>
                 </Button>
               </SchedulePopover>
 
@@ -175,7 +175,7 @@ export function CalendarHeader() {
                 onClick={() => setCreateDialogOpen(true)}
               >
                 <HugeiconsIcon icon={Add01Icon} className="size-4" />
-                <span className="hidden lg:inline">Create Event</span>
+                <span className="hidden lg:inline">Create Block</span>
               </Button>
 
               <ThemeToggle />

@@ -38,7 +38,7 @@ export function Breadcrumb() {
         )}
       >
         <HugeiconsIcon icon={Home01Icon} className="size-4" />
-        <span>My Files</span>
+        <span>Asset Vault</span>
       </Link>
       {viewName && (
         <>
@@ -49,4 +49,3 @@ export function Breadcrumb() {
     </nav>
   );
 }
-

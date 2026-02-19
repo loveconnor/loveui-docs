@@ -58,13 +58,13 @@ export function CalendarSidebar({
         <div className="px-2 py-1.5">
             <div className="flex items-center gap-2">
               <div className="size-9 shrink-0 bg-linear-to-br from-purple-500 to-pink-600 rounded-md shadow flex items-center justify-center text-white text-xs font-semibold border border-border">
-                CL
+                FP
               </div>
               <div className="flex flex-col items-start">
-                <h1 className="font-semibold text-sm">Connor Love</h1>
+                <h1 className="font-semibold text-sm">Film Ops Team</h1>
                 <div className="flex items-center gap-1">
                   <HugeiconsIcon icon={Layers01Icon} className="size-3" />
-                  <span className="text-xs">4 workspaces</span>
+                  <span className="text-xs">6 active sets</span>
                 </div>
               </div>
             </div>
@@ -100,20 +100,20 @@ export function CalendarSidebar({
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={Home01Icon} className="size-4" />
-                  <span>Dashboard</span>
+                  <span>Production Board</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={UserGroupIcon} className="size-4" />
-                  <span>Candidates</span>
-                  <span className="ml-auto text-xs">146</span>
+                  <span>Crew Calls</span>
+                  <span className="ml-auto text-xs">18</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={FileEditIcon} className="size-4" />
-                  <span>Job Listings</span>
+                  <span>Shot List</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
@@ -128,19 +128,19 @@ export function CalendarSidebar({
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={ChartBarLineIcon} className="size-4" />
-                  <span>Reports</span>
+                  <span>Dailies</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={Location01Icon} className="size-4" />
-                  <span>Employees</span>
+                  <span>Locations</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={Folder01Icon} className="size-4" />
-                  <span>Files</span>
+                  <span>Assets</span>
                   <HugeiconsIcon
                     icon={SparklesIcon}
                     className="ml-auto size-3 text-cyan-500"
@@ -150,7 +150,7 @@ export function CalendarSidebar({
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={Share01Icon} className="size-4" />
-                  <span>Time Off</span>
+                  <span>Crew Time</span>
                   <HugeiconsIcon
                     icon={SparklesIcon}
                     className="ml-auto size-3 text-cyan-500"
@@ -160,7 +160,7 @@ export function CalendarSidebar({
               <SidebarMenuItem>
                 <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                   <HugeiconsIcon icon={Dollar01Icon} className="size-4" />
-                  <span>Payroll</span>
+                  <span>Vendors</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -175,7 +175,7 @@ export function CalendarSidebar({
               nativeButton={false}
               render={
                 <SidebarGroupLabel className="h-4 pb-4 pt-2 text-xs text-muted-foreground hover:text-foreground hover:bg-transparent cursor-pointer">
-                  <span>Featured job post</span>
+                  <span>Featured shoot day</span>
                   <HugeiconsIcon
                     icon={ArrowDown01Icon}
                     className={cn(
@@ -192,7 +192,7 @@ export function CalendarSidebar({
                   <SidebarMenuItem>
                     <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                       <HugeiconsIcon icon={FileEditIcon} className="size-4" />
-                      <span>Senior Product Design</span>
+                      <span>Downtown Rooftop Night Exterior</span>
                       <HugeiconsIcon
                         icon={SparklesIcon}
                         className="ml-auto size-3 text-cyan-500"
@@ -202,7 +202,7 @@ export function CalendarSidebar({
                   <SidebarMenuItem>
                     <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                       <HugeiconsIcon icon={FileEditIcon} className="size-4" />
-                      <span>Software Engineer</span>
+                      <span>Train Platform Dialogue</span>
                       <HugeiconsIcon
                         icon={SparklesIcon}
                         className="ml-auto size-3 text-cyan-500"
@@ -212,7 +212,7 @@ export function CalendarSidebar({
                   <SidebarMenuItem>
                     <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                       <HugeiconsIcon icon={FileEditIcon} className="size-4" />
-                      <span>Account Executive</span>
+                      <span>Harbor Chase Unit B</span>
                       <HugeiconsIcon
                         icon={SparklesIcon}
                         className="ml-auto size-3 text-cyan-500"
@@ -222,7 +222,7 @@ export function CalendarSidebar({
                   <SidebarMenuItem>
                     <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                       <HugeiconsIcon icon={FileEditIcon} className="size-4" />
-                      <span>Marketing Manager</span>
+                      <span>Studio Insert Pickups</span>
                       <HugeiconsIcon
                         icon={SparklesIcon}
                         className="ml-auto size-3 text-cyan-500"
@@ -232,7 +232,7 @@ export function CalendarSidebar({
                   <SidebarMenuItem>
                     <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                       <HugeiconsIcon icon={FileEditIcon} className="size-4" />
-                      <span>Data Analyst</span>
+                      <span>Closing Credits Pickup</span>
                       <HugeiconsIcon
                         icon={SparklesIcon}
                         className="ml-auto size-3 text-cyan-500"
@@ -258,19 +258,19 @@ export function CalendarSidebar({
             <SidebarMenuItem>
               <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                 <HugeiconsIcon icon={MortarboardIcon} className="size-4" />
-                <span>Staff University</span>
+                <span>Crew Academy</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                 <HugeiconsIcon icon={Key01Icon} className="size-4" />
-                <span>API Access</span>
+                <span>Gear Access</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton className="h-[26px] text-xs text-zinc-950 dark:text-muted-foreground hover:bg-neutral-100/50 dark:hover:bg-muted/50 hover:text-zinc-950 dark:hover:text-foreground">
                 <HugeiconsIcon icon={CrownIcon} className="size-4" />
-                <span>Plans</span>
+                <span>Run of Show</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -281,8 +281,8 @@ export function CalendarSidebar({
             <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user" />
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-medium text-foreground truncate">CL</p>
-            <p className="text-xs text-muted-foreground truncate">connorlove.com</p>
+            <p className="text-xs font-medium text-foreground truncate">FP</p>
+            <p className="text-xs text-muted-foreground truncate">filmops.studio</p>
           </div>
           <HugeiconsIcon
             icon={Settings01Icon}

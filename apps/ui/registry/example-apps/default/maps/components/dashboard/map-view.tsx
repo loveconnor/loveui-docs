@@ -249,7 +249,7 @@ export function MapView() {
               </div>
               <div class="popup-title-section">
                 <h3 class="popup-title">${location.name}</h3>
-                <p class="popup-category">${category?.name || "Location"}</p>
+                <p class="popup-category">${category?.name || "Spot"}</p>
               </div>
             </div>
 
@@ -278,17 +278,17 @@ export function MapView() {
                   <circle cx="12" cy="12" r="3"/>
                 </svg>
                 <span class="popup-stat-value">${location.visitCount}</span>
-                <span class="popup-stat-label">visits</span>
+                <span class="popup-stat-label">check-ins</span>
               </div>
             </div>
 
             <div class="popup-footer">
               ${
                 location.isFavorite
-                  ? '<span class="popup-favorite">❤️ Favorite</span>'
+                  ? '<span class="popup-favorite">❤️ Saved</span>'
                   : "<span></span>"
               }
-              <span class="popup-date">Added ${formatDate(location.createdAt)}</span>
+              <span class="popup-date">Posted ${formatDate(location.createdAt)}</span>
             </div>
           </div>
         `;

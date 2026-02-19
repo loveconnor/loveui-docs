@@ -22,7 +22,7 @@ export function EmailList({ onEmailClick }: EmailListProps) {
     return (
       <div className="flex h-full items-center justify-center bg-card">
         <div className="text-center text-muted-foreground">
-          <p>No emails found</p>
+          <p>No alerts found</p>
         </div>
       </div>
     );
@@ -33,7 +33,7 @@ export function EmailList({ onEmailClick }: EmailListProps) {
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
         <div className="flex items-center gap-2">
           <div className="size-3.5 rounded border border-border" />
-          <p className="text-sm font-medium text-foreground">Inbox</p>
+          <p className="text-sm font-medium text-foreground">Active Alerts</p>
         </div>
       </div>
 
@@ -106,4 +106,3 @@ export function EmailList({ onEmailClick }: EmailListProps) {
     </div>
   );
 }
-

@@ -173,7 +173,7 @@ export function EmployeesTable() {
                 <p className="text-muted-foreground px-2 py-1.5 text-xs font-medium">
                   Department
                 </p>
-                {["all", "IT", "HR", "Finance", "Marketing", "Sales"].map(
+                {["all", "Nursing", "Clinical", "Operations", "Admin", "Support"].map(
                   (dept) => (
                     <DropdownMenuCheckboxItem
                       key={dept}

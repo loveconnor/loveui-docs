@@ -31,46 +31,46 @@ import {
 import { useTheme } from "next-themes";
 
 const fullYearData = [
-  { month: "Jan", week: 1, leads: 210 },
-  { month: "", week: 2, leads: 220 },
-  { month: "", week: 3, leads: 310 },
-  { month: "", week: 4, leads: 420 },
-  { month: "Feb", week: 5, leads: 340 },
-  { month: "", week: 6, leads: 330 },
-  { month: "", week: 7, leads: 280 },
-  { month: "", week: 8, leads: 260 },
-  { month: "Mar", week: 9, leads: 210 },
-  { month: "", week: 10, leads: 230 },
-  { month: "", week: 11, leads: 270 },
-  { month: "", week: 12, leads: 290 },
-  { month: "Apr", week: 13, leads: 340 },
-  { month: "", week: 14, leads: 360 },
-  { month: "", week: 15, leads: 380 },
-  { month: "", week: 16, leads: 350 },
-  { month: "May", week: 17, leads: 370 },
-  { month: "", week: 18, leads: 390 },
-  { month: "", week: 19, leads: 400 },
-  { month: "", week: 20, leads: 380 },
-  { month: "Jun", week: 21, leads: 410 },
-  { month: "", week: 22, leads: 430 },
-  { month: "", week: 23, leads: 400 },
-  { month: "", week: 24, leads: 420 },
-  { month: "Jul", week: 25, leads: 390 },
-  { month: "", week: 26, leads: 380 },
-  { month: "", week: 27, leads: 400 },
-  { month: "", week: 28, leads: 390 },
-  { month: "Aug", week: 29, leads: 290 },
-  { month: "", week: 30, leads: 310 },
-  { month: "", week: 31, leads: 380 },
-  { month: "", week: 32, leads: 400 },
-  { month: "Sep", week: 33, leads: 370 },
-  { month: "", week: 34, leads: 390 },
-  { month: "", week: 35, leads: 360 },
-  { month: "", week: 36, leads: 380 },
-  { month: "Oct", week: 37, leads: 370 },
-  { month: "", week: 38, leads: 390 },
-  { month: "", week: 39, leads: 380 },
-  { month: "", week: 40, leads: 400 },
+  { month: "Jan", week: 1, leads: 74 },
+  { month: "", week: 2, leads: 86 },
+  { month: "", week: 3, leads: 92 },
+  { month: "", week: 4, leads: 101 },
+  { month: "Feb", week: 5, leads: 88 },
+  { month: "", week: 6, leads: 82 },
+  { month: "", week: 7, leads: 95 },
+  { month: "", week: 8, leads: 110 },
+  { month: "Mar", week: 9, leads: 98 },
+  { month: "", week: 10, leads: 104 },
+  { month: "", week: 11, leads: 112 },
+  { month: "", week: 12, leads: 118 },
+  { month: "Apr", week: 13, leads: 122 },
+  { month: "", week: 14, leads: 126 },
+  { month: "", week: 15, leads: 134 },
+  { month: "", week: 16, leads: 128 },
+  { month: "May", week: 17, leads: 132 },
+  { month: "", week: 18, leads: 139 },
+  { month: "", week: 19, leads: 142 },
+  { month: "", week: 20, leads: 136 },
+  { month: "Jun", week: 21, leads: 148 },
+  { month: "", week: 22, leads: 154 },
+  { month: "", week: 23, leads: 150 },
+  { month: "", week: 24, leads: 158 },
+  { month: "Jul", week: 25, leads: 146 },
+  { month: "", week: 26, leads: 140 },
+  { month: "", week: 27, leads: 152 },
+  { month: "", week: 28, leads: 149 },
+  { month: "Aug", week: 29, leads: 136 },
+  { month: "", week: 30, leads: 144 },
+  { month: "", week: 31, leads: 156 },
+  { month: "", week: 32, leads: 162 },
+  { month: "Sep", week: 33, leads: 151 },
+  { month: "", week: 34, leads: 159 },
+  { month: "", week: 35, leads: 147 },
+  { month: "", week: 36, leads: 154 },
+  { month: "Oct", week: 37, leads: 149 },
+  { month: "", week: 38, leads: 157 },
+  { month: "", week: 39, leads: 153 },
+  { month: "", week: 40, leads: 160 },
 ];
 
 type ChartType = "line" | "area" | "bar";
@@ -99,7 +99,7 @@ function CustomTooltip({ active, payload }: CustomTooltipProps) {
     
     return (
       <div className="bg-card border rounded-md p-2">
-        <p className="text-xs text-muted-foreground">{monthName}, 2025</p>
+        <p className="text-xs text-muted-foreground">{monthName}, 2026</p>
         <div className="flex items-center gap-2 mt-1">
           <span className="font-semibold text-sm">{data.value}</span>
           <span className="text-xs text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5">
@@ -152,7 +152,7 @@ export function MonthlyLeadGrowthChart() {
           <Button variant="outline" size="icon" className="size-8">
             <HugeiconsIcon icon={ChartLineData01Icon} className="size-4 text-muted-foreground" />
           </Button>
-          <h3 className="font-medium text-sm sm:text-base">Monthly Lead Growth</h3>
+          <h3 className="font-medium text-sm sm:text-base">Monthly Sponsor Pipeline</h3>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger

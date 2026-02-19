@@ -3,8 +3,8 @@ import { ThemeProvider } from "../components/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Maps - LoveUI",
-  description: "A beautiful map explorer with interactive maps by LoveUI",
+  title: "Social Pulse Map - LoveUI",
+  description: "A social-media check-in map with creator spots, categories, and route tools by LoveUI",
 };
 
 export default function RootLayout({

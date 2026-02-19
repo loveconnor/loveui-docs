@@ -11,25 +11,25 @@ import {
 
 const stats = [
   {
-    title: "Total Projects",
+    title: "Active Courses",
     value: dashboardStats.totalProjects.value,
     change: dashboardStats.totalProjects.change,
     icon: Folder01Icon,
   },
   {
-    title: "Total Task",
+    title: "Open Assignments",
     value: dashboardStats.totalTasks.value,
     change: dashboardStats.totalTasks.change,
     icon: Task01Icon,
   },
   {
-    title: "In Reviews",
+    title: "Pending Grading",
     value: dashboardStats.inReviews.value,
     change: dashboardStats.inReviews.change,
     icon: ViewIcon,
   },
   {
-    title: "Completed Tasks",
+    title: "Graded Items",
     value: dashboardStats.completedTasks.value,
     change: dashboardStats.completedTasks.change,
     icon: Tick01Icon,

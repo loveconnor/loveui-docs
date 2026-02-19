@@ -42,51 +42,51 @@ export function FileList({ view, folderId }: FileListProps) {
   } = useFilesStore();
 
   let files = getFilteredFiles();
-  let title = "All Files";
+  let title = "All Assets";
 
   if (view === "starred") {
     files = getStarredFiles();
-    title = "Starred Files";
+    title = "Pinned Assets";
   } else if (view === "recent") {
     files = getRecentFiles();
-    title = "Recent Files";
+    title = "Latest Assets";
   } else if (view === "shared") {
     files = getSharedFiles();
-    title = "Shared Files";
+    title = "Shared Assets";
   } else if (view === "trash") {
     files = [];
-    title = "Trash";
+    title = "Archive Bin";
   } else if (view === "folder" && folderId) {
     files = getFilesByFolder(folderId);
-    title = "Folder";
+    title = "Collection";
   }
 
   if (files.length === 0) {
     const emptyStates = {
       starred: {
         icon: FavouriteIcon,
-        title: "No starred files",
-        description: "Star important files to find them quickly",
+        title: "No pinned assets",
+        description: "Pin important assets to keep them on top",
       },
       recent: {
         icon: Clock01Icon,
-        title: "No recent files",
-        description: "Files you open will appear here",
+        title: "No recent assets",
+        description: "Assets you open will appear here",
       },
       shared: {
         icon: UserGroupIcon,
-        title: "No shared files",
-        description: "Files shared with you will appear here",
+        title: "No shared assets",
+        description: "Assets shared with you will appear here",
       },
       trash: {
         icon: Delete01Icon,
-        title: "Trash is empty",
-        description: "Deleted files will appear here for 30 days",
+        title: "Archive bin is empty",
+        description: "Removed assets will appear here for 30 days",
       },
       default: {
         icon: FolderOpenIcon,
-        title: "This folder is empty",
-        description: "Upload files or drag and drop them here",
+        title: "This collection is empty",
+        description: "Upload assets or drag and drop them here",
       },
     };
 
@@ -297,4 +297,3 @@ export function FileList({ view, folderId }: FileListProps) {
     </div>
   );
 }
-

@@ -3,8 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Calendar - LoveUI",
-  description: "A modern calendar application with event management",
+  title: "Film Production Calendar - LoveUI",
+  description: "A production scheduling calendar for shoot operations and crew planning",
 };
 
 export default function RootLayout({

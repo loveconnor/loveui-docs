@@ -163,7 +163,7 @@ export function MapView() {
                 src="${listing.images[0]}" 
                 alt="${listing.title}"
                 class="w-full h-full object-cover"
-                onerror="this.src='https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop'"
+                onerror="this.src='https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop'"
               />
               <button 
                 class="close-popup-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-sm hover:bg-white flex items-center justify-center transition-all shadow-md hover:shadow-lg z-10"
@@ -199,7 +199,7 @@ export function MapView() {
               <div class="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                 ${
                   listing.bedrooms > 0
-                    ? `<span>${listing.bedrooms} chambre${
+                    ? `<span>${listing.bedrooms} kit${
                         listing.bedrooms > 1 ? "s" : ""
                       }</span>`
                     : ""
@@ -211,9 +211,9 @@ export function MapView() {
                 }
                 ${
                   listing.bathrooms > 0
-                    ? `<span>${listing.bathrooms} salle${
+                    ? `<span>${listing.bathrooms} add-on${
                         listing.bathrooms > 1 ? "s" : ""
-                      } de bain</span>`
+                      }</span>`
                     : ""
                 }
               </div>
@@ -221,7 +221,7 @@ export function MapView() {
                 <span class="text-xl font-semibold">$${
                   listing.pricePerNight
                 }</span>
-                <span class="text-sm text-muted-foreground">/ nuit</span>
+                <span class="text-sm text-muted-foreground">/ day</span>
               </div>
             </div>
           </div>

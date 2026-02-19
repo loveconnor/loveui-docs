@@ -1,8 +1,8 @@
 {
-  "title": "Calendar Workspace",
-  "description": "A weekly calendar planner with event management, side navigation, and scheduling tools.",
+  "title": "Film Production Calendar",
+  "description": "A weekly production planner for shoot blocks, crew calls, and set operations.",
   "category": "productivity",
-  "tags": ["calendar", "schedule", "events"],
+  "tags": ["calendar", "production", "film", "operations"],
   "isNew": true,
   "files": [
     {
@@ -37,8 +37,8 @@
   "routes": [
     {
       "path": "/",
-      "title": "Calendar",
-      "description": "Weekly calendar overview and event scheduling"
+      "title": "Production Week",
+      "description": "Weekly production timeline and call scheduling"
     }
   ]
 }

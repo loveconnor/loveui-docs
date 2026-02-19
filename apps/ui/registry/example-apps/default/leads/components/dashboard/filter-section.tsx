@@ -60,22 +60,22 @@ export function FilterSection() {
           <DropdownMenuContent align="end">
             <DropdownMenuItem>
               <HugeiconsIcon icon={Invoice01Icon} className="size-4 mr-2" />
-              Import Leads
+              Import Sponsor Contacts
             </DropdownMenuItem>
             <DropdownMenuItem>
               <HugeiconsIcon icon={Invoice01Icon} className="size-4 mr-2" />
-              Export to CSV
+              Export Sponsor List (CSV)
             </DropdownMenuItem>
             <DropdownMenuItem>
               <HugeiconsIcon icon={Invoice01Icon} className="size-4 mr-2" />
-              Export to Excel
+              Export Sponsor List (Excel)
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
         <Button className="gap-2 bg-foreground text-background hover:bg-foreground/90">
           <HugeiconsIcon icon={Add01Icon} className="size-4" />
-          <span>Create New</span>
+          <span>Add Sponsor</span>
         </Button>
       </div>
     </div>

@@ -15,39 +15,73 @@ export interface Lead {
 }
 
 const firstNames = [
-  "John", "Jane", "Alex", "Emily", "Michael", "Sarah", "David", "Emma",
-  "James", "Olivia", "Robert", "Sophia", "William", "Isabella", "Thomas",
-  "Mia", "Daniel", "Charlotte", "Matthew", "Amelia", "Christopher", "Harper",
-  "Andrew", "Evelyn", "Joshua", "Abigail", "Ryan", "Lily", "Brandon", "Madison",
-  "Kevin", "Grace", "Justin", "Chloe", "Aaron", "Victoria", "Nathan", "Penelope",
-  "Jacob", "Riley", "Ethan", "Zoey", "Luke", "Natalie", "Benjamin", "Hannah",
-  "Henry", "Scarlett", "Sebastian", "Aria"
+  "Avery", "Blake", "Casey", "Dakota", "Elliot", "Finley", "Gray", "Hayden",
+  "Indigo", "Jules", "Kai", "Logan", "Morgan", "Noel", "Oakley", "Parker",
+  "Quincy", "Reese", "Sage", "Taylor", "Urban", "Vale", "Winter", "Xen",
+  "Yael", "Zion",
 ];
 
 const lastNames = [
-  "Doe", "Smith", "Johnson", "Davis", "Brown", "Wilson", "Moore", "Taylor",
-  "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson",
-  "Garcia", "Martinez", "Robinson", "Clark", "Rodriguez", "Lewis", "Lee",
-  "Walker", "Hall", "Allen", "Young", "Hernandez", "King", "Wright", "Lopez",
-  "Hill", "Scott", "Green", "Adams", "Baker", "Gonzalez", "Nelson", "Carter",
-  "Mitchell", "Perez", "Roberts", "Turner", "Phillips", "Campbell", "Parker",
-  "Evans", "Edwards", "Collins", "Stewart", "Sanchez"
+  "Adler", "Bennett", "Coleman", "Dalton", "Ellis", "Foster", "Greer", "Hayes",
+  "Iverson", "Jordan", "Keller", "Lane", "Monroe", "Nash", "Owens", "Perry",
+  "Quinn", "Reed", "Sullivan", "Turner", "Underwood", "Vasquez", "Walker", "Xu",
+  "Young", "Zimmerman",
+];
+
+const sponsorDomains = [
+  "northpeak.com",
+  "harborlabs.io",
+  "cedarworks.co",
+  "atlasgrid.com",
+  "summitforge.io",
+  "lumenbridge.ai",
+  "ravenpoint.dev",
+  "stonepath.co",
+  "beaconfield.com",
+  "wildshore.io",
 ];
 
 const owners = [
-  { name: "Alex Ray", initials: "AR" },
-  { name: "Mina Swan", initials: "MS" },
-  { name: "John Kim", initials: "JK" },
-  { name: "Sarah Lee", initials: "SL" },
+  { name: "Mara Quinn", initials: "MQ" },
+  { name: "Dylan Park", initials: "DP" },
+  { name: "Nora Chen", initials: "NC" },
+  { name: "Ibrahim Lee", initials: "IL" },
 ];
 
-const statuses: LeadStatus[] = ["new", "contacted", "qualified", "negotiation", "inactive", "recycled"];
-const sources: LeadSource[] = ["website", "paid_ads", "referral", "social", "email"];
+const statuses: LeadStatus[] = [
+  "new",
+  "contacted",
+  "qualified",
+  "negotiation",
+  "inactive",
+  "recycled",
+];
+
+const sources: LeadSource[] = [
+  "website",
+  "paid_ads",
+  "referral",
+  "social",
+  "email",
+];
 
 function getDateString(daysAgo: number): string {
   const date = new Date();
   date.setDate(date.getDate() - daysAgo);
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   return `${months[date.getMonth()]} ${date.getDate().toString().padStart(2, "0")}, ${date.getFullYear()}`;
 }
 
@@ -63,14 +97,15 @@ export const leads: Lead[] = Array.from({ length: 50 }, (_, index) => {
   const owner = owners[index % owners.length];
   const status = statuses[index % statuses.length];
   const source = sources[index % sources.length];
+  const domain = sponsorDomains[index % sponsorDomains.length];
   const daysAgo = index % 30;
 
   return {
     id: (index + 1).toString(),
-    leadId: `LD21${(301 + index).toString().padStart(3, "0")}`,
+    leadId: `SPN-${(901 + index).toString().padStart(4, "0")}`,
     name: `${firstName} ${lastName}`,
-    email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@email.com`,
-    avatar: `https://api.dicebear.com/9.x/glass/svg?seed=${firstName}${lastName}`,
+    email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`,
+    avatar: `https://api.dicebear.com/9.x/glass/svg?seed=sponsor-${firstName}${lastName}`,
     status,
     source,
     owner: owner.name,
@@ -81,45 +116,45 @@ export const leads: Lead[] = Array.from({ length: 50 }, (_, index) => {
 });
 
 export const leadStats = {
-  totalLeads: 340,
-  totalLeadsChange: 20,
-  totalLeadsChangeValue: 36,
-  contactedLeads: 92,
-  contactedLeadsChange: 20,
-  contactedLeadsChangeValue: 14,
-  qualifiedLeads: 38,
-  qualifiedLeadsChange: 20,
-  qualifiedLeadsChangeValue: 8,
-  hotLeads: 12,
+  totalLeads: 128,
+  totalLeadsChange: 11,
+  totalLeadsChangeValue: 13,
+  contactedLeads: 76,
+  contactedLeadsChange: 9,
+  contactedLeadsChangeValue: 6,
+  qualifiedLeads: 34,
+  qualifiedLeadsChange: 14,
+  qualifiedLeadsChangeValue: 4,
+  hotLeads: 18,
   hotLeadsChange: 20,
-  hotLeadsChangeValue: 4,
+  hotLeadsChangeValue: 3,
 };
 
 export const leadsByStatus = {
-  total: 3612,
-  totalChange: 20,
-  totalChangeValue: 244,
+  total: 128,
+  totalChange: 11,
+  totalChangeValue: 13,
   data: [
-    { name: "New Leads", value: 1420, color: "#375dfb" },
-    { name: "Contacted", value: 980, color: "#6985fc" },
-    { name: "Qualified", value: 620, color: "#9baefd" },
-    { name: "Negotiation", value: 280, color: "#7f69fc" },
-    { name: "Inactive", value: 190, color: "#aa9bfd" },
-    { name: "Recycled", value: 122, color: "#b069fc" },
+    { name: "Sponsor Prospects", value: 42, color: "#375dfb" },
+    { name: "Contacted", value: 28, color: "#6985fc" },
+    { name: "Deck Sent", value: 24, color: "#9baefd" },
+    { name: "Contract Review", value: 14, color: "#7f69fc" },
+    { name: "On Hold", value: 11, color: "#aa9bfd" },
+    { name: "Re-engage", value: 9, color: "#b069fc" },
   ],
 };
 
 export const monthlyLeadGrowth = [
-  { month: "Jan", leads: 120 },
-  { month: "Feb", leads: 180 },
-  { month: "Mar", leads: 240 },
-  { month: "Apr", leads: 340 },
-  { month: "May", leads: 280 },
-  { month: "Jun", leads: 320 },
-  { month: "Jul", leads: 0 },
-  { month: "Aug", leads: 380 },
-  { month: "Sep", leads: 420 },
-  { month: "Oct", leads: 460 },
-  { month: "Nov", leads: 0 },
-  { month: "Dec", leads: 0 },
+  { month: "Jan", leads: 14 },
+  { month: "Feb", leads: 18 },
+  { month: "Mar", leads: 22 },
+  { month: "Apr", leads: 27 },
+  { month: "May", leads: 24 },
+  { month: "Jun", leads: 30 },
+  { month: "Jul", leads: 34 },
+  { month: "Aug", leads: 38 },
+  { month: "Sep", leads: 42 },
+  { month: "Oct", leads: 46 },
+  { month: "Nov", leads: 40 },
+  { month: "Dec", leads: 48 },
 ];

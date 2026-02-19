@@ -42,7 +42,7 @@ import { Separator } from "@loveui/ui/ui/separator";
 import { cn } from "../../lib/utils";
 
 const navItems = [
-  { id: "all", title: "All Properties", icon: Home, href: "/" },
+  { id: "all", title: "All Gear", icon: Home, href: "/" },
   { id: "favorites", title: "Favorites", icon: Heart, href: "/favorites" },
 ];
 
@@ -97,7 +97,7 @@ export function RentalsSidebar({
                   <Home className="size-4" />
                 </div>
                 <div className="flex items-center gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="text-sm font-medium">LoveUI - Rentals</span>
+                  <span className="text-sm font-medium">LoveUI - Gear Market</span>
                   <ChevronsUpDown className="size-3 text-muted-foreground" />
                 </div>
               </button>
@@ -163,7 +163,7 @@ export function RentalsSidebar({
                 <Search className="absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground z-10 pointer-events-none" />
                 <Input
                   type="text"
-                  placeholder="Search destinations..."
+                  placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="h-8 pl-7 text-sm"
@@ -193,7 +193,7 @@ export function RentalsSidebar({
             <div className="px-2 space-y-4">
               <div>
                 <p className="text-xs font-medium mb-2 text-sidebar-foreground">
-                  Property type
+                  Category
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {propertyTypes.map((type) => (
@@ -222,7 +222,7 @@ export function RentalsSidebar({
 
               <div>
                 <p className="text-xs font-medium mb-2 text-sidebar-foreground">
-                  Price range
+                  Daily rate
                 </p>
                 <div className="space-y-2">
                   <div className="px-2">
@@ -255,12 +255,12 @@ export function RentalsSidebar({
 
               <div>
                 <p className="text-xs font-medium mb-2 text-sidebar-foreground">
-                  Rooms
+                  Inventory
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-sidebar-foreground">
-                      Bedrooms
+                      Kits
                     </span>
                     <div className="flex items-center gap-1">
                       <Button
@@ -292,7 +292,7 @@ export function RentalsSidebar({
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-sidebar-foreground">
-                      Bathrooms
+                      Add-ons
                     </span>
                     <div className="flex items-center gap-1">
                       <Button

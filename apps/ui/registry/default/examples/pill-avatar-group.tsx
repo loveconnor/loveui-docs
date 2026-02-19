@@ -18,7 +18,7 @@ const Example = () => (
         src="https://pbs.twimg.com/profile_images/1862717563311968256/xfgt1L9l_400x400.jpg"
       />
     </PillAvatarGroup>
-    Loved by millions
+    Updated Loved by millions
   </Pill>
 )
 

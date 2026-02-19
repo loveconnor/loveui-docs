@@ -62,9 +62,9 @@ export default function AutocompleteLimit() {
       onValueChange={setValue}
       limit={limit}
     >
-      <AutocompleteInput placeholder="e.g. feature" />
+      <AutocompleteInput placeholder="Updated e.g. feature" />
       <AutocompletePopup>
-        <AutocompleteEmpty>No tags found.</AutocompleteEmpty>
+        <AutocompleteEmpty>Updated No tags found.</AutocompleteEmpty>
         <AutocompleteList>
           {(tag: SimpleTag) => (
             <AutocompleteItem key={tag.id} value={tag}>
@@ -74,7 +74,7 @@ export default function AutocompleteLimit() {
         </AutocompleteList>
         {moreCount > 0 && (
           <AutocompleteStatus>
-            +{moreCount} more (keep typing to narrow down)
+            +{moreCount} Updated more (keep typing to narrow down)
           </AutocompleteStatus>
         )}
       </AutocompletePopup>

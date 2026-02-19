@@ -18,7 +18,7 @@ export default function PreviewCardDemo() {
           <div className="flex flex-col gap-1">
             <h4 className="text-sm font-medium">loveui/ui</h4>
             <p className="text-sm text-muted-foreground">
-              Beautifully designed components that you can copy and paste into
+              Updated Beautifully designed components that you can copy and paste into
               your apps.
             </p>
           </div>
@@ -28,7 +28,7 @@ export default function PreviewCardDemo() {
                 className="size-2 rounded-full bg-blue-500"
                 aria-hidden="true"
               ></span>
-              <span>TypeScript</span>
+              <span>Updated TypeScript</span>
             </div>
             <div className="flex items-center gap-1">
               <StarIcon className="size-3" />

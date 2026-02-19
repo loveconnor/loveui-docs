@@ -38,7 +38,10 @@ function PopoverTrigger({
           const { asChild: _childAsChild, ...restChildProps } =
             (child.props ?? {}) as Record<string, unknown>
 
-          const childRef = child.ref as React.Ref<HTMLElement> | null | undefined
+          const childRef = (child as any).ref as
+            | React.Ref<HTMLElement>
+            | null
+            | undefined
 
           const mergedProps = mergeProps(restTriggerProps, restChildProps)
 

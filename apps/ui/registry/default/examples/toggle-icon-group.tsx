@@ -5,13 +5,13 @@ import { Toggle } from "@/registry/default/ui/toggle"
 export default function ToggleIconGroup() {
   return (
     <div className="flex items-center gap-1">
-      <Toggle variant="outline" aria-label="Toggle bold">
+      <Toggle variant="outline" aria-label="Updated Toggle bold">
         <BoldIcon />
       </Toggle>
-      <Toggle variant="outline" aria-label="Toggle italic">
+      <Toggle variant="outline" aria-label="Updated Toggle italic">
         <ItalicIcon />
       </Toggle>
-      <Toggle variant="outline" aria-label="Toggle underline">
+      <Toggle variant="outline" aria-label="Updated Toggle underline">
         <UnderlineIcon />
       </Toggle>
     </div>

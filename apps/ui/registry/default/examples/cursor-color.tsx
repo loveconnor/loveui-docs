@@ -13,7 +13,7 @@ const Example = () => (
     <CursorPointer className="text-indigo-500" />
     <CursorBody className="bg-indigo-50 text-indigo-700">
       <CursorName>@loveconnor</CursorName>
-      <CursorMessage>Can we adjust the color?</CursorMessage>
+      <CursorMessage>Updated Can we adjust the color?</CursorMessage>
     </CursorBody>
   </Cursor>
 )

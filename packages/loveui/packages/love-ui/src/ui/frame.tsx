@@ -1,8 +1,9 @@
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 
 import { cn } from "@loveui/ui/lib/utils"
 
-function Frame({ className, ...props }: React.ComponentProps<"div">) {
+function Frame({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="frame"
@@ -15,7 +16,7 @@ function Frame({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function FramePanel({ className, ...props }: React.ComponentProps<"div">) {
+function FramePanel({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="frame-panel"
@@ -28,7 +29,7 @@ function FramePanel({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function FrameHeader({ className, ...props }: React.ComponentProps<"header">) {
+function FrameHeader({ className, ...props }: ComponentPropsWithoutRef<"header">) {
   return (
     <header
       data-slot="frame-panel-header"
@@ -38,7 +39,7 @@ function FrameHeader({ className, ...props }: React.ComponentProps<"header">) {
   )
 }
 
-function FrameTitle({ className, ...props }: React.ComponentProps<"div">) {
+function FrameTitle({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="frame-panel-title"
@@ -51,7 +52,7 @@ function FrameTitle({ className, ...props }: React.ComponentProps<"div">) {
 function FrameDescription({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="frame-panel-description"
@@ -61,7 +62,7 @@ function FrameDescription({
   )
 }
 
-function FrameFooter({ className, ...props }: React.ComponentProps<"footer">) {
+function FrameFooter({ className, ...props }: ComponentPropsWithoutRef<"footer">) {
   return (
     <footer
       data-slot="frame-panel-footer"

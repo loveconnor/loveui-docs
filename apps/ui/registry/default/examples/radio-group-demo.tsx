@@ -5,13 +5,13 @@ export default function RadioGroupDemo() {
   return (
     <RadioGroup defaultValue="next">
       <Label>
-        <Radio value="next" /> Next.js
+        <Radio value="next" /> Updated Next.js
       </Label>
       <Label>
-        <Radio value="vite" /> Vite
+        <Radio value="vite" /> Updated Vite
       </Label>
       <Label>
-        <Radio value="astro" /> Astro
+        <Radio value="astro" /> Updated Astro
       </Label>
     </RadioGroup>
   )

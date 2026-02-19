@@ -25,9 +25,9 @@ const Example = () => (
       <Banner>
         <BannerIcon icon={CircleAlert} />
         <BannerTitle>
-          Something's gone <strong>horribly</strong> wrong.
+          Updated Something's gone <strong>horribly</strong> wrong.
         </BannerTitle>
-        <BannerAction>Restart</BannerAction>
+        <BannerAction>Updated Restart</BannerAction>
         <BannerClose />
       </Banner>
     </div>
@@ -42,8 +42,8 @@ const Example = () => (
     >
       <Banner>
         <BannerIcon icon={CircleAlert} />
-        <BannerTitle>You're almost out of disk space.</BannerTitle>
-        <BannerAction>Upgrade</BannerAction>
+        <BannerTitle>Updated You're almost out of disk space.</BannerTitle>
+        <BannerAction>Updated Upgrade</BannerAction>
         <BannerClose />
       </Banner>
     </div>
@@ -58,8 +58,8 @@ const Example = () => (
     >
       <Banner>
         <BannerIcon icon={CircleAlert} />
-        <BannerTitle>You've been selected for a secret mission.</BannerTitle>
-        <BannerAction>Accept</BannerAction>
+        <BannerTitle>Updated You've been selected for a secret mission.</BannerTitle>
+        <BannerAction>Updated Accept</BannerAction>
         <BannerClose />
       </Banner>
     </div>

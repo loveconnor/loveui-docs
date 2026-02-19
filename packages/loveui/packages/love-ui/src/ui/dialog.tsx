@@ -1,5 +1,6 @@
 "use client"
 
+import type { ComponentPropsWithoutRef } from "react"
 import { Dialog as DialogPrimitive } from "@base-ui-components/react/dialog"
 import { XIcon } from "lucide-react"
 
@@ -72,17 +73,17 @@ function DialogPopup({
   )
 }
 
-function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
+function DialogHeader({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="dialog-header"
       className={cn("flex flex-col gap-1 text-center sm:text-left", className)}
-      {...props}
+      {...(props as any)}
     />
   )
 }
 
-function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
+function DialogFooter({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="dialog-footer"
@@ -90,7 +91,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
         "flex flex-col-reverse gap-2 sm:-mx-6 sm:mt-2 sm:-mb-6 sm:flex-row sm:justify-end sm:rounded-b-xl sm:border-t sm:bg-muted/50 sm:px-6 sm:py-4",
         className
       )}
-      {...props}
+      {...(props as any)}
     />
   )
 }

@@ -12,14 +12,14 @@ export default function FieldNumberFieldDemo() {
   return (
     <Field>
       <NumberField defaultValue={1} min={1} max={100}>
-        <NumberFieldScrubArea label="Quantity" />
+        <NumberFieldScrubArea label="Updated Quantity" />
         <NumberFieldGroup>
           <NumberFieldDecrement />
           <NumberFieldInput />
           <NumberFieldIncrement />
         </NumberFieldGroup>
       </NumberField>
-      <FieldDescription>Choose a value between 1 and 100.</FieldDescription>
+      <FieldDescription>Updated Choose a value between 1 and 100.</FieldDescription>
     </Field>
   )
 }

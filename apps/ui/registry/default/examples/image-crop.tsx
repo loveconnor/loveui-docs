@@ -14,15 +14,15 @@ import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const STOCK_IMAGES = [
   {
-    label: "Mountain sunrise",
+    label: "Updated Mountain sunrise",
     url: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    label: "City skyline",
+    label: "Updated City skyline",
     url: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    label: "Foggy forest",
+    label: "Updated Foggy forest",
     url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
   },
 ]
@@ -116,7 +116,7 @@ const Example = () => {
           ))}
         </div>
         <Image
-          alt="Cropped"
+          alt="Updated Cropped"
           height={180}
           src={croppedImage}
           unoptimized
@@ -129,7 +129,7 @@ const Example = () => {
             type="button"
             variant="outline"
           >
-            Crop again
+            Updated Crop again
           </Button>
           <Button
             onClick={() =>
@@ -139,7 +139,7 @@ const Example = () => {
             type="button"
             variant="outline"
           >
-            Use another photo
+            Updated Use another photo
           </Button>
         </div>
       </div>
@@ -170,14 +170,14 @@ const Example = () => {
         <div className="flex items-center gap-2 rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
           <span>{error}</span>
           <Button onClick={handleRetry} size="sm" variant="ghost">
-            Retry
+            Updated Retry
           </Button>
         </div>
       )}
 
       {!selectedFile && !isLoading && !error && (
         <p className="text-sm text-muted-foreground">
-          Select an image above to start cropping.
+          Updated Select an image above to start cropping.
         </p>
       )}
 

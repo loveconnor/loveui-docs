@@ -10,9 +10,9 @@ export default function AlertWarning() {
   return (
     <Alert variant="error">
       <CircleAlertIcon />
-      <AlertTitle>Heads up!</AlertTitle>
+      <AlertTitle>Updated Heads up!</AlertTitle>
       <AlertDescription>
-        Describe what can be done about it here.
+        Updated Describe what can be done about it here.
       </AlertDescription>
     </Alert>
   )

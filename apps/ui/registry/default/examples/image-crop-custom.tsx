@@ -13,15 +13,15 @@ import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const STOCK_IMAGES = [
   {
-    label: "Coffee shop",
+    label: "Updated Coffee shop",
     url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80",
   },
   {
-    label: "Workspace",
+    label: "Updated Workspace",
     url: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=1400&q=80",
   },
   {
-    label: "Outdoor cafe",
+    label: "Updated Outdoor cafe",
     url: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
   },
 ]
@@ -115,7 +115,7 @@ const Example = () => {
           ))}
         </div>
         <Image
-          alt="Cropped"
+          alt="Updated Cropped"
           className="rounded-lg border"
           height={200}
           src={croppedImage}
@@ -123,7 +123,7 @@ const Example = () => {
           width={200}
         />
         <Button onClick={handleReset} size="sm" type="button" variant="outline">
-          Start Over
+          Updated Start Over
         </Button>
       </div>
     )
@@ -153,14 +153,14 @@ const Example = () => {
         <div className="flex items-center gap-2 rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
           <span>{error}</span>
           <Button onClick={handleRetry} size="sm" variant="ghost">
-            Retry
+            Updated Retry
           </Button>
         </div>
       )}
 
       {!selectedFile && !isLoading && !error && (
         <p className="text-sm text-muted-foreground">
-          Choose a preset photo above to explore custom actions.
+          Updated Choose a preset photo above to explore custom actions.
         </p>
       )}
 
@@ -178,12 +178,12 @@ const Example = () => {
           <div className="flex items-center gap-2">
             <ImageCropApply asChild>
               <Button size="sm" variant="outline">
-                Apply Crop
+                Updated Apply Crop
               </Button>
             </ImageCropApply>
             <ImageCropReset asChild>
               <Button size="sm" variant="outline">
-                Reset
+                Updated Reset
               </Button>
             </ImageCropReset>
             <Button
@@ -192,7 +192,7 @@ const Example = () => {
               type="button"
               variant="outline"
             >
-              Load another photo
+              Updated Load another photo
             </Button>
           </div>
         </ImageCrop>

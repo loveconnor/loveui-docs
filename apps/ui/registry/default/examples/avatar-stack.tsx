@@ -12,19 +12,19 @@ const Example = () => (
   <AvatarStack>
     <Avatar>
       <AvatarImage src="https://github.com/loveconnor.png" />
-      <AvatarFallback>CL</AvatarFallback>
+      <AvatarFallback>Updated CL</AvatarFallback>
     </Avatar>
     <Avatar>
       <AvatarImage src="https://avatars.githubusercontent.com/u/91501317?v=4" />
-      <AvatarFallback>MO</AvatarFallback>
+      <AvatarFallback>Updated MO</AvatarFallback>
     </Avatar>
     <Avatar>
       <AvatarImage src="https://github.com/loveconnor.png" />
-      <AvatarFallback>CL</AvatarFallback>
+      <AvatarFallback>Updated CL</AvatarFallback>
     </Avatar>
     <Avatar>
       <AvatarImage src="https://avatars.githubusercontent.com/u/91501317?v=4" />
-      <AvatarFallback>MO</AvatarFallback>
+      <AvatarFallback>Updated MO</AvatarFallback>
     </Avatar>
   </AvatarStack>
 )

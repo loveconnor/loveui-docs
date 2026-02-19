@@ -10,7 +10,7 @@ export default function CollapsibleDemo() {
   return (
     <Collapsible>
       <CollapsibleTrigger className="inline-flex items-center gap-2 text-sm font-medium data-panel-open:[&_svg]:rotate-180">
-        Show recovery keys
+        Updated Show recovery keys
         <ChevronDownIcon className="size-4" />
       </CollapsibleTrigger>
       <CollapsiblePanel>

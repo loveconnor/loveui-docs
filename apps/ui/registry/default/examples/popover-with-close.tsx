@@ -14,20 +14,20 @@ export default function PopoverWithCloseDemo() {
   return (
     <Popover>
       <PopoverTrigger render={<Button variant="outline" />}>
-        Open Popover
+        Updated Open Popover
       </PopoverTrigger>
       <PopoverPopup className="w-80">
         <PopoverClose className="absolute end-2 top-2 inline-flex size-7 shrink-0 cursor-pointer items-center justify-center rounded-md border border-transparent opacity-72 transition-[color,background-color,box-shadow,opacity] outline-none hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 focus-visible:ring-offset-background pointer-coarse:after:absolute pointer-coarse:after:-inset-1 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
           <XIcon />
-          <span className="sr-only">Close</span>
+          <span className="sr-only">Updated Close</span>
         </PopoverClose>
         <div className="mb-2">
-          <PopoverTitle className="text-base">Notifications</PopoverTitle>
+          <PopoverTitle className="text-base">Updated Notifications</PopoverTitle>
           <PopoverDescription>
-            You are all caught up. Good job!
+            Updated You are all caught up. Good job!
           </PopoverDescription>
         </div>
-        <PopoverClose render={<Button variant="outline" />}>Close</PopoverClose>
+        <PopoverClose render={<Button variant="outline" />}>Updated Close</PopoverClose>
       </PopoverPopup>
     </Popover>
   )

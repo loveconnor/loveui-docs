@@ -10,22 +10,22 @@ export default function GooeyToastWithButton() {
       variant="outline"
       onClick={() => {
         const id = gooey.action({
-          title: "File deleted",
-          description: "Your file has been moved to trash.",
+          title: "Updated File deleted",
+          description: "Updated Your file has been moved to trash.",
           button: {
-            title: "Undo",
+            title: "Updated Undo",
             onClick: () => {
               gooey.dismiss(id)
               gooey.success({
-                title: "Restored",
-                description: "Your file has been restored.",
+                title: "Updated Restored",
+                description: "Updated Your file has been restored.",
               })
             },
           },
         })
       }}
     >
-      Delete File
+      Updated Delete File
     </Button>
   )
 }

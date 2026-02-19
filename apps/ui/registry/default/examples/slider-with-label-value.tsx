@@ -5,7 +5,7 @@ export default function SliderWithLabelValue() {
   return (
     <Slider defaultValue={50}>
       <div className="mb-2 flex items-center justify-between gap-1">
-        <Label className="text-sm font-medium">Opacity</Label>
+        <Label className="text-sm font-medium">Updated Opacity</Label>
         <SliderValue />
       </div>
     </Slider>

@@ -9,10 +9,10 @@ import {
 export default function MenuHoverDemo() {
   return (
     <Menu openOnHover>
-      <MenuTrigger render={<Button variant="outline" />}>Hover me</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>Updated Hover me</MenuTrigger>
       <MenuPopup>
-        <MenuItem>Item one</MenuItem>
-        <MenuItem>Item two</MenuItem>
+        <MenuItem>Updated Item one</MenuItem>
+        <MenuItem>Updated Item two</MenuItem>
       </MenuPopup>
     </Menu>
   )

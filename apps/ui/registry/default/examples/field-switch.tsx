@@ -6,7 +6,7 @@ export default function FieldSwitchDemo() {
     <Field>
       <FieldLabel>
         <Switch />
-        Email notifications
+        Updated Email notifications
       </FieldLabel>
     </Field>
   )

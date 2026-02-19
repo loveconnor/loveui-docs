@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import type { ComponentPropsWithoutRef } from "react"
 import * as RechartsPrimitive from "recharts"
 
 import { cn } from "@loveui/ui/lib/utils"
@@ -40,7 +41,7 @@ function ChartContainer({
   children,
   config,
   ...props
-}: React.ComponentProps<"div"> & {
+}: ComponentPropsWithoutRef<"div"> & {
   config: ChartConfig
   children: React.ComponentProps<
     typeof RechartsPrimitive.ResponsiveContainer
@@ -118,11 +119,21 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  React.ComponentProps<"div"> & {
+}: ComponentPropsWithoutRef<"div"> &
+  Partial<
+    Pick<
+      RechartsPrimitive.TooltipContentProps<any, any>,
+      "active" | "payload" | "label"
+    >
+  > &
+  Pick<
+    RechartsPrimitive.TooltipProps<any, any>,
+    "formatter" | "labelFormatter"
+  > & {
     hideLabel?: boolean
     hideIndicator?: boolean
     indicator?: "line" | "dot" | "dashed"
+    labelClassName?: string
     nameKey?: string
     labelKey?: string
   }) {
@@ -255,8 +266,11 @@ function ChartLegendContent({
   payload,
   verticalAlign = "bottom",
   nameKey,
-}: React.ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+}: ComponentPropsWithoutRef<"div"> &
+  Pick<
+    RechartsPrimitive.DefaultLegendContentProps,
+    "payload" | "verticalAlign"
+  > & {
     hideIcon?: boolean
     nameKey?: string
   }) {

@@ -11,7 +11,7 @@ const Example = () => (
   <Cursor>
     <CursorPointer />
     <CursorBody>
-      <CursorName>Connor</CursorName>
+      <CursorName>Updated Connor</CursorName>
     </CursorBody>
   </Cursor>
 )

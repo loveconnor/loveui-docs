@@ -23,9 +23,9 @@ faker.seed(123)
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const columns = [
-  { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
-  { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
-  { id: faker.string.uuid(), name: "Done", color: "#10B981" },
+  { id: faker.string.uuid(), name: "Updated Planned", color: "#6B7280" },
+  { id: faker.string.uuid(), name: "Updated In Progress", color: "#F59E0B" },
+  { id: faker.string.uuid(), name: "Updated Done", color: "#10B981" },
 ]
 
 const users = Array.from({ length: 4 })

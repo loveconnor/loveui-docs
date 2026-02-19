@@ -5,7 +5,7 @@ export default function CheckboxDisabledDemo() {
   return (
     <Label>
       <Checkbox defaultChecked disabled />
-      Accept terms and conditions
+      Updated Accept terms and conditions
     </Label>
   )
 }

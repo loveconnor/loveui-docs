@@ -11,11 +11,11 @@ import {
 import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const cards = [
-  { id: 1, title: "Card 1", color: "bg-red-500" },
-  { id: 2, title: "Card 2", color: "bg-blue-500" },
-  { id: 3, title: "Card 3", color: "bg-green-500" },
-  { id: 4, title: "Card 4", color: "bg-yellow-500" },
-  { id: 5, title: "Card 5", color: "bg-purple-500" },
+  { id: 1, title: "Updated Card 1", color: "bg-red-500" },
+  { id: 2, title: "Updated Card 2", color: "bg-blue-500" },
+  { id: 3, title: "Updated Card 3", color: "bg-green-500" },
+  { id: 4, title: "Updated Card 4", color: "bg-yellow-500" },
+  { id: 5, title: "Updated Card 5", color: "bg-purple-500" },
 ]
 
 const Example = () => {
@@ -48,7 +48,7 @@ const Example = () => {
     <div className="space-y-4">
       <div className="text-center">
         <p className="mb-2 text-sm text-muted-foreground">
-          Current Index: {currentIndex} | Next Direction: {animationDirection}
+          Updated Current Index: {currentIndex} Updated | Next Direction: {animationDirection}
         </p>
         <div className="flex justify-center gap-2">
           <Button
@@ -57,7 +57,7 @@ const Example = () => {
             size="sm"
             variant="outline"
           >
-            Next (Left Animation)
+            Updated Next (Left Animation)
           </Button>
           <Button
             disabled={currentIndex >= cards.length}
@@ -65,7 +65,7 @@ const Example = () => {
             size="sm"
             variant="outline"
           >
-            Next (Right Animation)
+            Updated Next (Right Animation)
           </Button>
         </div>
       </div>
@@ -87,7 +87,7 @@ const Example = () => {
               key={card.id}
             >
               <h3 className="text-2xl font-bold">{card.title}</h3>
-              <p className="text-sm opacity-90">Swipe or use buttons</p>
+              <p className="text-sm opacity-90">Updated Swipe or use buttons</p>
             </DeckItem>
           ))}
         </DeckCards>

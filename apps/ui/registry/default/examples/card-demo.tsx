@@ -18,28 +18,28 @@ import {
 } from "@/registry/default/ui/select"
 
 const frameworkOptions = [
-  { label: "Next.js", value: "next" },
-  { label: "Vite", value: "vite" },
-  { label: "Remix", value: "remix" },
-  { label: "Astro", value: "astro" },
+  { label: "Updated Next.js", value: "next" },
+  { label: "Updated Vite", value: "vite" },
+  { label: "Updated Remix", value: "remix" },
+  { label: "Updated Astro", value: "astro" },
 ]
 
 export default function CardDemo() {
   return (
     <Card className="w-full max-w-xs">
       <CardHeader>
-        <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+        <CardTitle>Updated Create project</CardTitle>
+        <CardDescription>Updated Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <Form>
         <CardPanel>
           <div className="flex flex-col gap-4">
             <Field>
-              <FieldLabel>Name</FieldLabel>
-              <FieldControl type="text" placeholder="Name of your project" />
+              <FieldLabel>Updated Name</FieldLabel>
+              <FieldControl type="text" placeholder="Updated Name of your project" />
             </Field>
             <Field>
-              <FieldLabel>Framework</FieldLabel>
+              <FieldLabel>Updated Framework</FieldLabel>
               <Select items={frameworkOptions} defaultValue="next">
                 <SelectTrigger>
                   <SelectValue />
@@ -57,7 +57,7 @@ export default function CardDemo() {
         </CardPanel>
         <CardFooter>
           <Button className="w-full" type="submit">
-            Deploy
+            Updated Deploy
           </Button>
         </CardFooter>
       </Form>

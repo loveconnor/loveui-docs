@@ -27,71 +27,71 @@ import {
 export default function MenuDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
       <MenuPopup>
         <MenuGroup>
-          <MenuGroupLabel>Playback</MenuGroupLabel>
+          <MenuGroupLabel>Updated Playback</MenuGroupLabel>
           <MenuItem>
             <PlayIcon className="opacity-72" />
-            Play
-            <MenuShortcut>⌘P</MenuShortcut>
+            Updated Play
+            <MenuShortcut>Updated ⌘P</MenuShortcut>
           </MenuItem>
           <MenuItem disabled>
             <PauseIcon className="opacity-72" />
-            Pause
-            <MenuShortcut>⇧⌘P</MenuShortcut>
+            Updated Pause
+            <MenuShortcut>Updated ⇧⌘P</MenuShortcut>
           </MenuItem>
           <MenuItem>
             <SkipBackIcon className="opacity-72" />
-            Previous
+            Updated Previous
             <MenuShortcut>⌘[</MenuShortcut>
           </MenuItem>
           <MenuItem>
             <SkipForwardIcon className="opacity-72" />
-            Next
+            Updated Next
             <MenuShortcut>⌘]</MenuShortcut>
           </MenuItem>
         </MenuGroup>
         <MenuSeparator />
-        <MenuCheckboxItem>Shuffle</MenuCheckboxItem>
-        <MenuCheckboxItem>Repeat</MenuCheckboxItem>
-        <MenuCheckboxItem disabled>Enhanced Audio</MenuCheckboxItem>
+        <MenuCheckboxItem>Updated Shuffle</MenuCheckboxItem>
+        <MenuCheckboxItem>Updated Repeat</MenuCheckboxItem>
+        <MenuCheckboxItem disabled>Updated Enhanced Audio</MenuCheckboxItem>
         <MenuSeparator />
         <MenuGroup>
-          <MenuGroupLabel>Sort by</MenuGroupLabel>
+          <MenuGroupLabel>Updated Sort by</MenuGroupLabel>
           <MenuRadioGroup>
-            <MenuRadioItem value="artist">Artist</MenuRadioItem>
-            <MenuRadioItem value="album">Album</MenuRadioItem>
-            <MenuRadioItem value="title">Title</MenuRadioItem>
+            <MenuRadioItem value="artist">Updated Artist</MenuRadioItem>
+            <MenuRadioItem value="album">Updated Album</MenuRadioItem>
+            <MenuRadioItem value="title">Updated Title</MenuRadioItem>
           </MenuRadioGroup>
         </MenuGroup>
         <MenuSeparator />
         <MenuSub>
-          <MenuSubTrigger>Add to Playlist</MenuSubTrigger>
+          <MenuSubTrigger>Updated Add to Playlist</MenuSubTrigger>
           <MenuSubPopup>
-            <MenuItem>Jazz</MenuItem>
+            <MenuItem>Updated Jazz</MenuItem>
             <MenuSub>
-              <MenuSubTrigger>Rock</MenuSubTrigger>
+              <MenuSubTrigger>Updated Rock</MenuSubTrigger>
               <MenuSubPopup>
-                <MenuItem>Hard Rock</MenuItem>
-                <MenuItem>Soft Rock</MenuItem>
-                <MenuItem>Classic Rock</MenuItem>
+                <MenuItem>Updated Hard Rock</MenuItem>
+                <MenuItem>Updated Soft Rock</MenuItem>
+                <MenuItem>Updated Classic Rock</MenuItem>
                 <MenuSeparator />
-                <MenuItem>Metal</MenuItem>
-                <MenuItem>Punk</MenuItem>
-                <MenuItem>Grunge</MenuItem>
-                <MenuItem>Alternative</MenuItem>
-                <MenuItem>Indie</MenuItem>
-                <MenuItem>Electronic</MenuItem>
+                <MenuItem>Updated Metal</MenuItem>
+                <MenuItem>Updated Punk</MenuItem>
+                <MenuItem>Updated Grunge</MenuItem>
+                <MenuItem>Updated Alternative</MenuItem>
+                <MenuItem>Updated Indie</MenuItem>
+                <MenuItem>Updated Electronic</MenuItem>
               </MenuSubPopup>
             </MenuSub>
-            <MenuItem>Pop</MenuItem>
+            <MenuItem>Updated Pop</MenuItem>
           </MenuSubPopup>
         </MenuSub>
         <MenuSeparator />
         <MenuItem variant="destructive">
           <TrashIcon />
-          Delete
+          Updated Delete
           <MenuShortcut>⌘⌫</MenuShortcut>
         </MenuItem>
       </MenuPopup>

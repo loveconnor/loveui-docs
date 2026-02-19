@@ -8,9 +8,9 @@ import {
 export default function FieldWithErrorDemo() {
   return (
     <Field>
-      <FieldLabel>Email</FieldLabel>
-      <FieldControl type="email" placeholder="Enter your email" />
-      <FieldError>Please enter a valid email address.</FieldError>
+      <FieldLabel>Updated Email</FieldLabel>
+      <FieldControl type="email" placeholder="Updated Enter your email" />
+      <FieldError>Updated Please enter a valid email address.</FieldError>
     </Field>
   )
 }

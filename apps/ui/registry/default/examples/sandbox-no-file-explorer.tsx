@@ -21,15 +21,15 @@ const Example = () => (
         <SandboxTabsList>
           <SandboxTabsTrigger value="code">
             <CodeIcon size={14} />
-            Code
+            Updated Code
           </SandboxTabsTrigger>
           <SandboxTabsTrigger value="preview">
             <AppWindowIcon size={14} />
-            Preview
+            Updated Preview
           </SandboxTabsTrigger>
           <SandboxTabsTrigger value="console">
             <TerminalIcon size={14} />
-            Console
+            Updated Console
           </SandboxTabsTrigger>
         </SandboxTabsList>
         <SandboxTabsContent value="code">

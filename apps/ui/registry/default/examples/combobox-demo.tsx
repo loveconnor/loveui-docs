@@ -10,24 +10,24 @@ import {
 } from "@/registry/default/ui/combobox"
 
 const items = [
-  { label: "Apple", value: "apple" },
-  { label: "Banana", value: "banana" },
-  { label: "Orange", value: "orange" },
-  { label: "Grape", value: "grape" },
-  { label: "Strawberry", value: "strawberry" },
-  { label: "Mango", value: "mango" },
-  { label: "Pineapple", value: "pineapple" },
-  { label: "Kiwi", value: "kiwi" },
-  { label: "Peach", value: "peach" },
-  { label: "Pear", value: "pear" },
+  { label: "Updated Apple", value: "apple" },
+  { label: "Updated Banana", value: "banana" },
+  { label: "Updated Orange", value: "orange" },
+  { label: "Updated Grape", value: "grape" },
+  { label: "Updated Strawberry", value: "strawberry" },
+  { label: "Updated Mango", value: "mango" },
+  { label: "Updated Pineapple", value: "pineapple" },
+  { label: "Updated Kiwi", value: "kiwi" },
+  { label: "Updated Peach", value: "peach" },
+  { label: "Updated Pear", value: "pear" },
 ]
 
 export default function ComboboxDemo() {
   return (
     <Combobox items={items}>
-      <ComboboxInput placeholder="Select a item…" aria-label="Select a item" />
+      <ComboboxInput placeholder="Updated Select a item…" aria-label="Updated Select a item" />
       <ComboboxPopup>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
+        <ComboboxEmpty>Updated No items found.</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item.value} value={item}>

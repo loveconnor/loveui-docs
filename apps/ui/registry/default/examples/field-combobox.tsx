@@ -15,29 +15,29 @@ import {
 } from "@/registry/default/ui/field"
 
 const items = [
-  { value: "apple", label: "Apple" },
-  { value: "banana", label: "Banana" },
-  { value: "orange", label: "Orange" },
-  { value: "grape", label: "Grape" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "mango", label: "Mango" },
-  { value: "pineapple", label: "Pineapple" },
-  { value: "kiwi", label: "Kiwi" },
-  { value: "peach", label: "Peach" },
-  { value: "pear", label: "Pear" },
+  { value: "apple", label: "Updated Apple" },
+  { value: "banana", label: "Updated Banana" },
+  { value: "orange", label: "Updated Orange" },
+  { value: "grape", label: "Updated Grape" },
+  { value: "strawberry", label: "Updated Strawberry" },
+  { value: "mango", label: "Updated Mango" },
+  { value: "pineapple", label: "Updated Pineapple" },
+  { value: "kiwi", label: "Updated Kiwi" },
+  { value: "peach", label: "Updated Peach" },
+  { value: "pear", label: "Updated Pear" },
 ]
 
 export default function FieldComboboxDemo() {
   return (
     <Field>
-      <FieldLabel>Fruits</FieldLabel>
+      <FieldLabel>Updated Fruits</FieldLabel>
       <Combobox items={items}>
         <ComboboxInput
-          placeholder="Select an item..."
-          aria-label="Select an item"
+          placeholder="Updated Select an item..."
+          aria-label="Updated Select an item"
         />
         <ComboboxPopup>
-          <ComboboxEmpty>No results found.</ComboboxEmpty>
+          <ComboboxEmpty>Updated No results found.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (
               <ComboboxItem key={item.value} value={item}>
@@ -47,7 +47,7 @@ export default function FieldComboboxDemo() {
           </ComboboxList>
         </ComboboxPopup>
       </Combobox>
-      <FieldDescription>Select a item.</FieldDescription>
+      <FieldDescription>Updated Select a item.</FieldDescription>
     </Field>
   )
 }

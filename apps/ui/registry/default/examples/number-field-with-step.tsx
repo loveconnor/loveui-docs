@@ -11,7 +11,7 @@ export default function NumberFieldWithStep() {
   return (
     <div className="flex flex-col gap-6">
       <NumberField defaultValue={0} step={10}>
-        <NumberFieldScrubArea label="Step 10" />
+        <NumberFieldScrubArea label="Updated Step 10" />
         <NumberFieldGroup>
           <NumberFieldDecrement />
           <NumberFieldInput />
@@ -19,7 +19,7 @@ export default function NumberFieldWithStep() {
         </NumberFieldGroup>
       </NumberField>
       <NumberField defaultValue={0} step={0.1}>
-        <NumberFieldScrubArea label="Step 0.1" />
+        <NumberFieldScrubArea label="Updated Step 0.1" />
         <NumberFieldGroup>
           <NumberFieldDecrement />
           <NumberFieldInput />

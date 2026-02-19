@@ -22,8 +22,8 @@ const reels: ReelItemType[] = [
     type: "image",
     src: "https://images.unsplash.com/photo-1753731683731-1032f9457b02?w=1080&h=1920&fit=crop",
     alt: "Mountain Adventure",
-    title: "Mountain Adventure",
-    description: "Exploring the peaks",
+    title: "Updated Mountain Adventure",
+    description: "Updated Exploring the peaks",
     duration: 5,
   },
   {
@@ -31,8 +31,8 @@ const reels: ReelItemType[] = [
     type: "image",
     src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1080&h=1920&fit=crop",
     alt: "Ocean Waves",
-    title: "Ocean Waves",
-    description: "Sunset at the beach",
+    title: "Updated Ocean Waves",
+    description: "Updated Sunset at the beach",
     duration: 5,
   },
   {
@@ -40,8 +40,8 @@ const reels: ReelItemType[] = [
     type: "image",
     src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1080&h=1920&fit=crop",
     alt: "Forest Trail",
-    title: "Forest Trail",
-    description: "Into the woods",
+    title: "Updated Forest Trail",
+    description: "Updated Into the woods",
     duration: 5,
   },
 ]

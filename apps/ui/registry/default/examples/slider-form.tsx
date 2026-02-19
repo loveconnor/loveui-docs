@@ -30,14 +30,14 @@ export default function SliderForm() {
       <Field name="volume" className="items-stretch gap-3">
         <Slider value={value} onValueChange={setValue} disabled={loading}>
           <div className="mb-2 flex items-center justify-between gap-1">
-            <FieldLabel>Volume</FieldLabel>
+            <FieldLabel>Updated Volume</FieldLabel>
             <SliderValue />
           </div>
         </Slider>
-        <FieldDescription>Choose a value between 0 and 100</FieldDescription>
+        <FieldDescription>Updated Choose a value between 0 and 100</FieldDescription>
       </Field>
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

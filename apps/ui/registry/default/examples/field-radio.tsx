@@ -16,20 +16,20 @@ export default function FieldRadioDemo() {
       render={(props) => <Fieldset {...props} />}
     >
       <FieldsetLegend className="text-sm font-medium">
-        Choose Plan
+        Updated Choose Plan
       </FieldsetLegend>
       <RadioGroup defaultValue="free">
         <FieldLabel>
-          <Radio value="free" /> Free
+          <Radio value="free" /> Updated Free
         </FieldLabel>
         <FieldLabel>
-          <Radio value="pro" /> Pro
+          <Radio value="pro" /> Updated Pro
         </FieldLabel>
         <FieldLabel>
-          <Radio value="enterprise" /> Enterprise
+          <Radio value="enterprise" /> Updated Enterprise
         </FieldLabel>
       </RadioGroup>
-      <FieldDescription>Select the plan that fits your needs.</FieldDescription>
+      <FieldDescription>Updated Select the plan that fits your needs.</FieldDescription>
     </Field>
   )
 }

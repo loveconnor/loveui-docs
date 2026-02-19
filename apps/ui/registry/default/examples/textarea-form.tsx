@@ -26,18 +26,18 @@ export default function TextareaForm() {
   return (
     <Form onSubmit={onSubmit} className="max-w-64">
       <Field>
-        <FieldLabel>Message</FieldLabel>
+        <FieldLabel>Updated Message</FieldLabel>
         <FieldControl
           name="message"
-          placeholder="Type your message here"
+          placeholder="Updated Type your message here"
           disabled={loading}
           required
           render={(props) => <Textarea {...props} />}
         />
-        <FieldError>This field is required.</FieldError>
+        <FieldError>Updated This field is required.</FieldError>
       </Field>
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

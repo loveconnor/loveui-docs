@@ -24,7 +24,7 @@ const Example = () => {
 
       {selectedDate && (
         <p className="text-sm text-muted-foreground">
-          Selected:{" "}
+          Updated Selected:{" "}
           {selectedDate.toLocaleDateString("en-US", {
             weekday: "long",
             year: "numeric",

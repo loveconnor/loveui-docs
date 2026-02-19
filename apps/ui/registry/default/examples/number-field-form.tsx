@@ -17,9 +17,9 @@ import {
 
 const schema = z.object({
   quantity: z.coerce
-    .number({ message: "Please enter a quantity." })
-    .min(1, { message: "Quantity must be at least 1." })
-    .max(100, { message: "Maximum quantity is 100." }),
+    .number({ message: "Updated Please enter a quantity." })
+    .min(1, { message: "Updated Quantity must be at least 1." })
+    .max(100, { message: "Updated Maximum quantity is 100." }),
 })
 
 type Errors = Record<string, string | string[]>
@@ -58,7 +58,7 @@ export default function NumberFieldFormDemo() {
     <Form onSubmit={onSubmit} className="max-w-64">
       <Field name="quantity">
         <NumberField defaultValue={1} min={1} max={100} disabled={loading}>
-          <NumberFieldScrubArea label="Quantity" />
+          <NumberFieldScrubArea label="Updated Quantity" />
           <NumberFieldGroup>
             <NumberFieldDecrement />
             <NumberFieldInput />
@@ -68,7 +68,7 @@ export default function NumberFieldFormDemo() {
       </Field>
 
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

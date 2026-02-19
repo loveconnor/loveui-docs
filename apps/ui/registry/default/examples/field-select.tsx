@@ -12,17 +12,17 @@ import {
 } from "@/registry/default/ui/select"
 
 const items = [
-  { label: "Select a country", value: null },
-  { label: "United States", value: "us" },
-  { label: "United Kingdom", value: "uk" },
-  { label: "Canada", value: "ca" },
-  { label: "Australia", value: "au" },
+  { label: "Updated Select a country", value: null },
+  { label: "Updated United States", value: "us" },
+  { label: "Updated United Kingdom", value: "uk" },
+  { label: "Updated Canada", value: "ca" },
+  { label: "Updated Australia", value: "au" },
 ]
 
 export default function FieldSelectDemo() {
   return (
     <Field>
-      <FieldLabel>Country</FieldLabel>
+      <FieldLabel>Updated Country</FieldLabel>
       <Select items={items}>
         <SelectTrigger>
           <SelectValue />
@@ -35,7 +35,7 @@ export default function FieldSelectDemo() {
           ))}
         </SelectPopup>
       </Select>
-      <FieldDescription>This is an optional field</FieldDescription>
+      <FieldDescription>Updated This is an optional field</FieldDescription>
     </Field>
   )
 }

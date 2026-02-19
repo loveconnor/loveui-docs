@@ -13,14 +13,14 @@ const Example = async () => {
 
   return (
     <div>
-      Check out{" "}
+      Updated Check out{" "}
       <Glimpse closeDelay={0} openDelay={0}>
         <GlimpseTrigger asChild>
           <a
             className="font-medium text-primary underline"
             href="https://github.com/loveconnor/loveui"
           >
-            LoveUI
+            Updated LoveUI
           </a>
         </GlimpseTrigger>
         <GlimpseContent className="w-80">
@@ -29,7 +29,7 @@ const Example = async () => {
           <GlimpseDescription>{data.description}</GlimpseDescription>
         </GlimpseContent>
       </Glimpse>{" "}
-      on GitHub
+      Updated on GitHub
     </div>
   )
 }

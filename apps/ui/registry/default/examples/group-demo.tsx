@@ -8,16 +8,16 @@ export default function GroupDemo() {
     <Group>
       <GroupItem render={<Button variant="outline" />}>
         <FilesIcon />
-        Files
+        Updated Files
       </GroupItem>
       <GroupSeparator />
       <GroupItem render={<Button variant="outline" />}>
         <FilmIcon />
-        Media
+        Updated Media
       </GroupItem>
       <GroupSeparator />
       <GroupItem
-        render={<Button variant="outline" size="icon" aria-label="Menu" />}
+        render={<Button variant="outline" size="icon" aria-label="Updated Menu" />}
       >
         <EllipsisIcon />
       </GroupItem>

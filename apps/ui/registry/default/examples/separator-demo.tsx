@@ -6,19 +6,19 @@ export default function SeparatorDemo() {
       <div className="space-y-1">
         <h4 className="text-sm font-medium">loveui</h4>
         <p className="text-sm text-muted-foreground">
-          Unstyled, accessible primitives for fast product UI and design
+          Updated Unstyled, accessible primitives for fast product UI and design
           systems.
         </p>
       </div>
       <Separator className="my-4" />
       <div className="flex items-center gap-4 text-sm">
-        <div>Blog</div>
+        <div>Updated Blog</div>
         <Separator orientation="vertical" />
-        <div>Docs</div>
+        <div>Updated Docs</div>
         <Separator orientation="vertical" />
-        <div>Source</div>
+        <div>Updated Source</div>
         <Separator orientation="vertical" />
-        <div>Releases</div>
+        <div>Updated Releases</div>
       </div>
     </div>
   )

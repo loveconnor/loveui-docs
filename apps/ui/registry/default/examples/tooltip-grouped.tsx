@@ -14,27 +14,27 @@ export default function TooltipDemo() {
       <ToggleGroup defaultValue={["bold"]} multiple>
         <Tooltip>
           <TooltipTrigger
-            render={<Toggle value="bold" aria-label="Toggle bold" />}
+            render={<Toggle value="bold" aria-label="Updated Toggle bold" />}
           >
             <BoldIcon />
           </TooltipTrigger>
-          <TooltipPopup>Bold</TooltipPopup>
+          <TooltipPopup>Updated Bold</TooltipPopup>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger
-            render={<Toggle value="italic" aria-label="Toggle italic" />}
+            render={<Toggle value="italic" aria-label="Updated Toggle italic" />}
           >
             <ItalicIcon />
           </TooltipTrigger>
-          <TooltipPopup>Italic</TooltipPopup>
+          <TooltipPopup>Updated Italic</TooltipPopup>
         </Tooltip>
         <Tooltip>
           <TooltipTrigger
-            render={<Toggle value="underline" aria-label="Toggle underline" />}
+            render={<Toggle value="underline" aria-label="Updated Toggle underline" />}
           >
             <UnderlineIcon />
           </TooltipTrigger>
-          <TooltipPopup>Underline</TooltipPopup>
+          <TooltipPopup>Updated Underline</TooltipPopup>
         </Tooltip>
       </ToggleGroup>
     </TooltipProvider>

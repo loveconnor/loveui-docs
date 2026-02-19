@@ -6,7 +6,7 @@ export default function FieldCheckboxDemo() {
     <Field>
       <FieldLabel>
         <Checkbox />
-        Accept terms and conditions
+        Updated Accept terms and conditions
       </FieldLabel>
     </Field>
   )

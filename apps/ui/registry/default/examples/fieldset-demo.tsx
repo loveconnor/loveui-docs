@@ -9,23 +9,23 @@ import { Fieldset, FieldsetLegend } from "@/registry/default/ui/fieldset"
 export default function FieldsetDemo() {
   return (
     <Fieldset>
-      <FieldsetLegend>Billing Details</FieldsetLegend>
+      <FieldsetLegend>Updated Billing Details</FieldsetLegend>
       <Field>
-        <FieldLabel>Company</FieldLabel>
-        <FieldControl type="text" placeholder="Enter company name" />
+        <FieldLabel>Updated Company</FieldLabel>
+        <FieldControl type="text" placeholder="Updated Enter company name" />
         <FieldDescription>
-          The name that will appear on invoices.
+          Updated The name that will appear on invoices.
         </FieldDescription>
       </Field>
 
       <Field>
-        <FieldLabel>Tax ID</FieldLabel>
+        <FieldLabel>Updated Tax ID</FieldLabel>
         <FieldControl
           type="text"
-          placeholder="Enter tax identification number"
+          placeholder="Updated Enter tax identification number"
         />
         <FieldDescription>
-          Your business tax identification number.
+          Updated Your business tax identification number.
         </FieldDescription>
       </Field>
     </Fieldset>

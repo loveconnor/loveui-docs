@@ -12,7 +12,7 @@ export default function MeterWithFormattedValueDemo() {
   return (
     <Meter value={3} max={5}>
       <div className="flex items-center justify-between gap-2">
-        <MeterLabel>Rating</MeterLabel>
+        <MeterLabel>Updated Rating</MeterLabel>
         <MeterValue>{(_formatted, value) => `${value} / 5`}</MeterValue>
       </div>
       <MeterTrack>

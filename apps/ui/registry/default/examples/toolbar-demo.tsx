@@ -29,9 +29,9 @@ import {
 } from "@/registry/default/ui/tooltip"
 
 const items = [
-  { label: "Helvetica", value: "helvetica" },
-  { label: "Arial", value: "arial" },
-  { label: "Times New Roman", value: "times-new-roman" },
+  { label: "Updated Helvetica", value: "helvetica" },
+  { label: "Updated Arial", value: "arial" },
+  { label: "Updated Times New Roman", value: "times-new-roman" },
 ]
 
 export default function ToolbarDemo() {
@@ -44,39 +44,39 @@ export default function ToolbarDemo() {
               render={
                 <ToolbarButton
                   render={<Toggle value="left" />}
-                  aria-label="Align left"
+                  aria-label="Updated Align left"
                 >
                   <AlignLeftIcon />
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Align left</TooltipPopup>
+            <TooltipPopup sideOffset={8}>Updated Align left</TooltipPopup>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger
               render={
                 <ToolbarButton
-                  render={<Toggle value="center" aria-label="Toggle center" />}
-                  aria-label="Align center"
+                  render={<Toggle value="center" aria-label="Updated Toggle center" />}
+                  aria-label="Updated Align center"
                 >
                   <AlignCenterIcon />
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Align center</TooltipPopup>
+            <TooltipPopup sideOffset={8}>Updated Align center</TooltipPopup>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger
               render={
                 <ToolbarButton
-                  render={<Toggle value="right" aria-label="Toggle right" />}
-                  aria-label="Align right"
+                  render={<Toggle value="right" aria-label="Updated Toggle right" />}
+                  aria-label="Updated Align right"
                 >
                   <AlignRightIcon />
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Align right</TooltipPopup>
+            <TooltipPopup sideOffset={8}>Updated Align right</TooltipPopup>
           </Tooltip>
         </ToggleGroup>
         <ToolbarSeparator />
@@ -86,26 +86,26 @@ export default function ToolbarDemo() {
               render={
                 <ToolbarButton
                   render={<Button variant="ghost" size="icon" />}
-                  aria-label="Format as currency"
+                  aria-label="Updated Format as currency"
                 >
                   <DollarSignIcon />
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Format as currency</TooltipPopup>
+            <TooltipPopup sideOffset={8}>Updated Format as currency</TooltipPopup>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger
               render={
                 <ToolbarButton
                   render={<Button variant="ghost" size="icon" />}
-                  aria-label="Format as percent"
+                  aria-label="Updated Format as percent"
                 >
                   <PercentIcon />
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Format as percent</TooltipPopup>
+            <TooltipPopup sideOffset={8}>Updated Format as percent</TooltipPopup>
           </Tooltip>
         </ToolbarGroup>
         <ToolbarSeparator />
@@ -125,7 +125,7 @@ export default function ToolbarDemo() {
                 }
               />
               <TooltipPopup sideOffset={8}>
-                Select a different font
+                Updated Select a different font
               </TooltipPopup>
             </Tooltip>
             <SelectPopup>
@@ -139,7 +139,7 @@ export default function ToolbarDemo() {
         </ToolbarGroup>
         <ToolbarSeparator />
         <ToolbarGroup>
-          <ToolbarButton render={<Button />}>Save</ToolbarButton>
+          <ToolbarButton render={<Button />}>Updated Save</ToolbarButton>
         </ToolbarGroup>
       </Toolbar>
     </TooltipProvider>

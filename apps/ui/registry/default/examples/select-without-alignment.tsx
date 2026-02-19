@@ -7,10 +7,10 @@ import {
 } from "@/registry/default/ui/select"
 
 const items = [
-  { label: "Select framework", value: null },
-  { label: "Next.js", value: "next" },
-  { label: "Vite", value: "vite" },
-  { label: "Astro", value: "astro" },
+  { label: "Updated Select framework", value: null },
+  { label: "Updated Next.js", value: "next" },
+  { label: "Updated Vite", value: "vite" },
+  { label: "Updated Astro", value: "astro" },
 ]
 
 export default function SelectWithoutAlignment() {

@@ -37,10 +37,10 @@ export default function TreeControlledExample() {
     <div className="space-y-4">
       <div className="flex gap-2">
         <Button onClick={handleSelectAll} size="sm" variant="outline">
-          Select All Team Members
+          Updated Select All Team Members
         </Button>
         <Button onClick={handleClearSelection} size="sm" variant="outline">
-          Clear Selection
+          Updated Clear Selection
         </Button>
       </div>
 
@@ -55,28 +55,28 @@ export default function TreeControlledExample() {
             <TreeNodeTrigger>
               <TreeExpander hasChildren />
               <TreeIcon hasChildren />
-              <TreeLabel>Team</TreeLabel>
+              <TreeLabel>Updated Team</TreeLabel>
             </TreeNodeTrigger>
             <TreeNodeContent hasChildren>
               <TreeNode level={1} nodeId="engineering">
                 <TreeNodeTrigger>
                   <TreeExpander hasChildren />
                   <TreeIcon hasChildren />
-                  <TreeLabel>Engineering</TreeLabel>
+                  <TreeLabel>Updated Engineering</TreeLabel>
                 </TreeNodeTrigger>
                 <TreeNodeContent hasChildren>
                   <TreeNode level={2} nodeId="alice">
                     <TreeNodeTrigger>
                       <TreeExpander />
                       <TreeIcon />
-                      <TreeLabel>Connor Love</TreeLabel>
+                      <TreeLabel>Updated Connor Love</TreeLabel>
                     </TreeNodeTrigger>
                   </TreeNode>
                   <TreeNode isLast level={2} nodeId="bob">
                     <TreeNodeTrigger>
                       <TreeExpander />
                       <TreeIcon />
-                      <TreeLabel>Ian Schroeder</TreeLabel>
+                      <TreeLabel>Updated Ian Schroeder</TreeLabel>
                     </TreeNodeTrigger>
                   </TreeNode>
                 </TreeNodeContent>
@@ -85,21 +85,21 @@ export default function TreeControlledExample() {
                 <TreeNodeTrigger>
                   <TreeExpander hasChildren />
                   <TreeIcon hasChildren />
-                  <TreeLabel>Design</TreeLabel>
+                  <TreeLabel>Updated Design</TreeLabel>
                 </TreeNodeTrigger>
                 <TreeNodeContent hasChildren>
                   <TreeNode level={2} nodeId="carol">
                     <TreeNodeTrigger>
                       <TreeExpander />
                       <TreeIcon />
-                      <TreeLabel>Owen Caudy</TreeLabel>
+                      <TreeLabel>Updated Owen Caudy</TreeLabel>
                     </TreeNodeTrigger>
                   </TreeNode>
                   <TreeNode isLast level={2} nodeId="david">
                     <TreeNodeTrigger>
                       <TreeExpander />
                       <TreeIcon />
-                      <TreeLabel>Tyler PennyPacker</TreeLabel>
+                      <TreeLabel>Updated Tyler PennyPacker</TreeLabel>
                     </TreeNodeTrigger>
                   </TreeNode>
                 </TreeNodeContent>
@@ -108,21 +108,21 @@ export default function TreeControlledExample() {
                 <TreeNodeTrigger>
                   <TreeExpander hasChildren />
                   <TreeIcon hasChildren />
-                  <TreeLabel>Product</TreeLabel>
+                  <TreeLabel>Updated Product</TreeLabel>
                 </TreeNodeTrigger>
                 <TreeNodeContent hasChildren>
                   <TreeNode level={2} nodeId="eve">
                     <TreeNodeTrigger>
                       <TreeExpander />
                       <TreeIcon />
-                      <TreeLabel>Tyler Love</TreeLabel>
+                      <TreeLabel>Updated Tyler Love</TreeLabel>
                     </TreeNodeTrigger>
                   </TreeNode>
                   <TreeNode isLast level={2} nodeId="frank">
                     <TreeNodeTrigger>
                       <TreeExpander />
                       <TreeIcon />
-                      <TreeLabel>Ben Dyer</TreeLabel>
+                      <TreeLabel>Updated Ben Dyer</TreeLabel>
                     </TreeNodeTrigger>
                   </TreeNode>
                 </TreeNodeContent>
@@ -134,7 +134,7 @@ export default function TreeControlledExample() {
 
       {selectedIds.length > 0 && (
         <div className="text-sm text-muted-foreground">
-          Selected: {selectedIds.join(", ")}
+          Updated Selected: {selectedIds.join(", ")}
         </div>
       )}
     </div>

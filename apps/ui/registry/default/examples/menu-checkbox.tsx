@@ -9,10 +9,10 @@ import {
 export default function MenuCheckboxDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
       <MenuPopup>
-        <MenuCheckboxItem defaultChecked>Auto save</MenuCheckboxItem>
-        <MenuCheckboxItem>Notifications</MenuCheckboxItem>
+        <MenuCheckboxItem defaultChecked>Updated Auto save</MenuCheckboxItem>
+        <MenuCheckboxItem>Updated Notifications</MenuCheckboxItem>
       </MenuPopup>
     </Menu>
   )

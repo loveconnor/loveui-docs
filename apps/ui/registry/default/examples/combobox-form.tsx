@@ -15,16 +15,16 @@ import { Field, FieldError, FieldLabel } from "@/registry/default/ui/field"
 import { Form } from "@/registry/default/ui/form"
 
 const items = [
-  { value: "apple", label: "Apple" },
-  { value: "banana", label: "Banana" },
-  { value: "orange", label: "Orange" },
-  { value: "grape", label: "Grape" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "mango", label: "Mango" },
-  { value: "pineapple", label: "Pineapple" },
-  { value: "kiwi", label: "Kiwi" },
-  { value: "peach", label: "Peach" },
-  { value: "pear", label: "Pear" },
+  { value: "apple", label: "Updated Apple" },
+  { value: "banana", label: "Updated Banana" },
+  { value: "orange", label: "Updated Orange" },
+  { value: "grape", label: "Updated Grape" },
+  { value: "strawberry", label: "Updated Strawberry" },
+  { value: "mango", label: "Updated Mango" },
+  { value: "pineapple", label: "Updated Pineapple" },
+  { value: "kiwi", label: "Updated Kiwi" },
+  { value: "peach", label: "Updated Peach" },
+  { value: "pear", label: "Updated Pear" },
 ]
 
 export default function ComboboxForm() {
@@ -44,11 +44,11 @@ export default function ComboboxForm() {
   return (
     <Form onSubmit={onSubmit} className="max-w-64">
       <Field>
-        <FieldLabel>Favorite item</FieldLabel>
+        <FieldLabel>Updated Favorite item</FieldLabel>
         <Combobox items={items} name="item" disabled={loading} required>
-          <ComboboxInput placeholder="Select an item..." />
+          <ComboboxInput placeholder="Updated Select an item..." />
           <ComboboxPopup>
-            <ComboboxEmpty>No results found.</ComboboxEmpty>
+            <ComboboxEmpty>Updated No results found.</ComboboxEmpty>
             <ComboboxList>
               {(item) => (
                 <ComboboxItem key={item.value} value={item}>
@@ -58,10 +58,10 @@ export default function ComboboxForm() {
             </ComboboxList>
           </ComboboxPopup>
         </Combobox>
-        <FieldError>Please select a item.</FieldError>
+        <FieldError>Updated Please select a item.</FieldError>
       </Field>
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

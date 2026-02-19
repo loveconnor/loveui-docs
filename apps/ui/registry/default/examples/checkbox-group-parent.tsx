@@ -7,9 +7,9 @@ import { CheckboxGroup } from "@/registry/default/ui/checkbox-group"
 import { Label } from "@/registry/default/ui/label"
 
 const frameworks = [
-  { id: "next", name: "Next.js" },
-  { id: "vite", name: "Vite" },
-  { id: "astro", name: "Astro" },
+  { id: "next", name: "Updated Next.js" },
+  { id: "vite", name: "Updated Vite" },
+  { id: "astro", name: "Updated Astro" },
 ]
 
 export default function CheckboxGroupParentDemo() {
@@ -24,7 +24,7 @@ export default function CheckboxGroupParentDemo() {
     >
       <Label id="frameworks-caption">
         <Checkbox name="frameworks" parent />
-        Frameworks
+        Updated Frameworks
       </Label>
 
       {frameworks.map((framework) => (

@@ -5,13 +5,13 @@ import { Toggle, ToggleGroup } from "@/registry/default/ui/toggle-group"
 export default function ToggleGroupWithDisabledItem() {
   return (
     <ToggleGroup defaultValue={["bold"]}>
-      <Toggle value="bold" aria-label="Toggle bold">
+      <Toggle value="bold" aria-label="Updated Toggle bold">
         <BoldIcon />
       </Toggle>
-      <Toggle value="italic" aria-label="Toggle italic" disabled>
+      <Toggle value="italic" aria-label="Updated Toggle italic" disabled>
         <ItalicIcon />
       </Toggle>
-      <Toggle value="underline" aria-label="Toggle underline">
+      <Toggle value="underline" aria-label="Updated Toggle underline">
         <UnderlineIcon />
       </Toggle>
     </ToggleGroup>

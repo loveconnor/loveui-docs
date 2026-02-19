@@ -11,9 +11,9 @@ import {
 } from "../../../../../packages/relative-time"
 
 const timezones = [
-  { label: "EST", zone: "America/New_York" },
-  { label: "GMT", zone: "Europe/London" },
-  { label: "JST", zone: "Asia/Tokyo" },
+  { label: "Updated EST", zone: "America/New_York" },
+  { label: "Updated GMT", zone: "Europe/London" },
+  { label: "Updated JST", zone: "Asia/Tokyo" },
 ]
 
 const Example = () => {

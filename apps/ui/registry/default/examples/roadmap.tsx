@@ -90,9 +90,9 @@ faker.seed(123)
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
-  { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
-  { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
-  { id: faker.string.uuid(), name: "Done", color: "#10B981" },
+  { id: faker.string.uuid(), name: "Updated Planned", color: "#6B7280" },
+  { id: faker.string.uuid(), name: "Updated In Progress", color: "#F59E0B" },
+  { id: faker.string.uuid(), name: "Updated Done", color: "#10B981" },
 ]
 
 const users = Array.from({ length: 4 })
@@ -259,21 +259,21 @@ const GanttView = () => {
                         onClick={() => handleViewFeature(feature.id)}
                       >
                         <EyeIcon className="text-muted-foreground" size={16} />
-                        View feature
+                        Updated View feature
                       </ContextMenuItem>
                       <ContextMenuItem
                         className="flex items-center gap-2"
                         onClick={() => handleCopyLink(feature.id)}
                       >
                         <LinkIcon className="text-muted-foreground" size={16} />
-                        Copy link
+                        Updated Copy link
                       </ContextMenuItem>
                       <ContextMenuItem
                         className="flex items-center gap-2 text-destructive"
                         onClick={() => handleRemoveFeature(feature.id)}
                       >
                         <TrashIcon size={16} />
-                        Remove from roadmap
+                        Updated Remove from roadmap
                       </ContextMenuItem>
                     </ContextMenuContent>
                   </ContextMenu>
@@ -488,7 +488,7 @@ const TableView = () => {
     {
       accessorKey: "name",
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Name" />
+        <TableColumnHeader column={column} title="Updated Name" />
       ),
       cell: ({ row }) => (
         <div className="flex items-center gap-2">
@@ -521,7 +521,7 @@ const TableView = () => {
     {
       accessorKey: "startAt",
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Start At" />
+        <TableColumnHeader column={column} title="Updated Start At" />
       ),
       cell: ({ row }) =>
         new Intl.DateTimeFormat("en-US", {
@@ -531,7 +531,7 @@ const TableView = () => {
     {
       accessorKey: "endAt",
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="End At" />
+        <TableColumnHeader column={column} title="Updated End At" />
       ),
       cell: ({ row }) =>
         new Intl.DateTimeFormat("en-US", {
@@ -542,7 +542,7 @@ const TableView = () => {
       id: "release",
       accessorFn: (row) => row.release.id,
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Release" />
+        <TableColumnHeader column={column} title="Updated Release" />
       ),
       cell: ({ row }) => row.original.release.name,
     },
@@ -574,31 +574,31 @@ const Example = () => {
   const views = [
     {
       id: "gantt",
-      label: "Gantt",
+      label: "Updated Gantt",
       icon: GanttChartSquareIcon,
       component: GanttView,
     },
     {
       id: "calendar",
-      label: "Calendar",
+      label: "Updated Calendar",
       icon: CalendarIcon,
       component: CalendarView,
     },
     {
       id: "list",
-      label: "List",
+      label: "Updated List",
       icon: ListIcon,
       component: ListView,
     },
     {
       id: "kanban",
-      label: "Kanban",
+      label: "Updated Kanban",
       icon: KanbanSquareIcon,
       component: KanbanView,
     },
     {
       id: "table",
-      label: "Table",
+      label: "Updated Table",
       icon: TableIcon,
       component: TableView,
     },
@@ -607,7 +607,7 @@ const Example = () => {
   return (
     <Tabs className="not-prose size-full gap-0 divide-y" defaultValue="gantt">
       <div className="flex items-center justify-between gap-4 p-4">
-        <p className="font-medium">Roadmap</p>
+        <p className="font-medium">Updated Roadmap</p>
         <TabsList>
           {views.map((view) => (
             <TabsTrigger key={view.id} value={view.id}>

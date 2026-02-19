@@ -22,7 +22,7 @@ const Example = () => {
   return (
     <>
       <Button onClick={() => setOpen(!open)} variant="outline">
-        Toggle Dialog
+        Updated Toggle Dialog
       </Button>
 
       <DialogStack onOpenChange={setOpen} open={open}>
@@ -30,45 +30,45 @@ const Example = () => {
         <DialogStackBody>
           <DialogStackContent>
             <DialogStackHeader>
-              <DialogStackTitle>I'm the first dialog</DialogStackTitle>
+              <DialogStackTitle>Updated I'm the first dialog</DialogStackTitle>
               <DialogStackDescription>
-                With a fancy description
+                Updated With a fancy description
               </DialogStackDescription>
             </DialogStackHeader>
             <DialogStackFooter className="justify-end">
               <DialogStackNext asChild>
-                <Button variant="outline">Next</Button>
+                <Button variant="outline">Updated Next</Button>
               </DialogStackNext>
             </DialogStackFooter>
           </DialogStackContent>
 
           <DialogStackContent>
             <DialogStackHeader>
-              <DialogStackTitle>I'm the second dialog</DialogStackTitle>
+              <DialogStackTitle>Updated I'm the second dialog</DialogStackTitle>
               <DialogStackDescription>
-                With a fancy description
+                Updated With a fancy description
               </DialogStackDescription>
             </DialogStackHeader>
             <DialogStackFooter className="justify-between">
               <DialogStackPrevious asChild>
-                <Button variant="outline">Previous</Button>
+                <Button variant="outline">Updated Previous</Button>
               </DialogStackPrevious>
               <DialogStackNext asChild>
-                <Button variant="outline">Next</Button>
+                <Button variant="outline">Updated Next</Button>
               </DialogStackNext>
             </DialogStackFooter>
           </DialogStackContent>
 
           <DialogStackContent>
             <DialogStackHeader>
-              <DialogStackTitle>I'm the third dialog</DialogStackTitle>
+              <DialogStackTitle>Updated I'm the third dialog</DialogStackTitle>
               <DialogStackDescription>
-                With a fancy description
+                Updated With a fancy description
               </DialogStackDescription>
             </DialogStackHeader>
             <DialogStackFooter className="justify-between">
               <DialogStackPrevious asChild>
-                <Button variant="outline">Previous</Button>
+                <Button variant="outline">Updated Previous</Button>
               </DialogStackPrevious>
             </DialogStackFooter>
           </DialogStackContent>

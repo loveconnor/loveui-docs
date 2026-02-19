@@ -10,9 +10,9 @@ import {
 
 const Example = () => (
   <Announcement>
-    <AnnouncementTag>Latest update</AnnouncementTag>
+    <AnnouncementTag>Updated Latest update</AnnouncementTag>
     <AnnouncementTitle>
-      New feature added
+      Updated New feature added
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>

@@ -7,7 +7,7 @@ import { ImageZoom } from "../../../../../packages/image-zoom"
 const Example = () => (
   <ImageZoom>
     <Image
-      alt="Placeholder image"
+      alt="Updated Placeholder image"
       className="h-auto w-96"
       height={800}
       src="https://placehold.co/1200x800"

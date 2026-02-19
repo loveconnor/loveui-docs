@@ -14,21 +14,21 @@ const Example = () => (
       <CursorPointer className="text-emerald-500" />
       <CursorBody className="bg-emerald-50 text-emerald-700">
         <CursorName>@loveconnor</CursorName>
-        <CursorMessage>Can we change the color?</CursorMessage>
+        <CursorMessage>Updated Can we change the color?</CursorMessage>
       </CursorBody>
     </Cursor>
     <Cursor className="absolute top-48 right-32">
       <CursorPointer className="text-rose-500" />
       <CursorBody className="bg-rose-50 text-rose-700">
         <CursorName>@monster0506</CursorName>
-        <CursorMessage>I'm not sure if this is working...</CursorMessage>
+        <CursorMessage>Updated I'm not sure if this is working...</CursorMessage>
       </CursorBody>
     </Cursor>
     <Cursor className="absolute bottom-24 left-48">
       <CursorPointer className="text-sky-500" />
       <CursorBody className="bg-sky-50 text-sky-700">
         <CursorName>@clove</CursorName>
-        <CursorMessage>What is this?</CursorMessage>
+        <CursorMessage>Updated What is this?</CursorMessage>
       </CursorBody>
     </Cursor>
   </>

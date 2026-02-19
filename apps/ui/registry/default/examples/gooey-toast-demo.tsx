@@ -30,24 +30,24 @@ export default function GooeyToastDemo() {
   ) => {
     const toasts = {
       default: {
-        title: "Event has been created",
-        description: "Monday, January 3rd at 6:00pm",
+        title: "Updated Event has been created",
+        description: "Updated Monday, January 3rd at 6:00pm",
       },
       success: {
-        title: "Success!",
-        description: "Your changes have been saved successfully.",
+        title: "Updated Success!",
+        description: "Updated Your changes have been saved successfully.",
       },
       error: {
-        title: "Error occurred",
-        description: "Failed to save your changes. Please try again.",
+        title: "Updated Error occurred",
+        description: "Updated Failed to save your changes. Please try again.",
       },
       warning: {
-        title: "Warning",
-        description: "Your session will expire in 5 minutes.",
+        title: "Updated Warning",
+        description: "Updated Your session will expire in 5 minutes.",
       },
       info: {
-        title: "New feature available",
-        description: "Check out the new gooey toast component!",
+        title: "Updated New feature available",
+        description: "Updated Check out the new gooey toast component!",
       },
     }
 
@@ -64,7 +64,7 @@ export default function GooeyToastDemo() {
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-2">
         <label htmlFor="position" className="text-sm font-medium">
-          Position:
+          Updated Position:
         </label>
         <Select
           value={position}
@@ -85,19 +85,19 @@ export default function GooeyToastDemo() {
 
       <div className="flex flex-wrap gap-2">
         <Button variant="outline" onClick={() => showToast("default")}>
-          Default
+          Updated Default
         </Button>
         <Button variant="outline" onClick={() => showToast("success")}>
-          Success
+          Updated Success
         </Button>
         <Button variant="outline" onClick={() => showToast("error")}>
-          Error
+          Updated Error
         </Button>
         <Button variant="outline" onClick={() => showToast("warning")}>
-          Warning
+          Updated Warning
         </Button>
         <Button variant="outline" onClick={() => showToast("info")}>
-          Info
+          Updated Info
         </Button>
       </div>
     </div>

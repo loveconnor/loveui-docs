@@ -21,18 +21,18 @@ import {
 const users = [
   {
     id: 1,
-    name: "Connor Love",
+    name: "Updated Connor Love",
     avatar: "https://github.com/loveconnor.png",
   },
   {
     id: 2,
-    name: "Thomas Raklovits",
+    name: "Updated Thomas Raklovits",
     avatar: "https://github.com/monster0506.png",
-    message: "I'm not sure if this is working...",
+    message: "Updated I'm not sure if this is working...",
   },
   {
     id: 3,
-    name: "Charlie Cambell",
+    name: "Updated Charlie Cambell",
     avatar: "https://github.com/loveconnor.png",
   },
 ]

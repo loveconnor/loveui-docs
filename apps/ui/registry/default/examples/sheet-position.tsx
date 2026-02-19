@@ -17,14 +17,14 @@ export default function DialogDemo() {
         <SheetTrigger
           render={(props) => (
             <Button {...props} variant="outline">
-              Open Right
+              Updated Open Right
             </Button>
           )}
         />
         <SheetPopup showCloseButton={false}>
           <SheetHeader>
-            <SheetTitle>Right</SheetTitle>
-            <SheetDescription>Right side of the screen.</SheetDescription>
+            <SheetTitle>Updated Right</SheetTitle>
+            <SheetDescription>Updated Right side of the screen.</SheetDescription>
           </SheetHeader>
         </SheetPopup>
       </Sheet>
@@ -32,14 +32,14 @@ export default function DialogDemo() {
         <SheetTrigger
           render={(props) => (
             <Button {...props} variant="outline">
-              Open Left
+              Updated Open Left
             </Button>
           )}
         />
         <SheetPopup side="left" showCloseButton={false}>
           <SheetHeader>
-            <SheetTitle>Left</SheetTitle>
-            <SheetDescription>Left side of the screen.</SheetDescription>
+            <SheetTitle>Updated Left</SheetTitle>
+            <SheetDescription>Updated Left side of the screen.</SheetDescription>
           </SheetHeader>
         </SheetPopup>
       </Sheet>
@@ -47,14 +47,14 @@ export default function DialogDemo() {
         <SheetTrigger
           render={(props) => (
             <Button {...props} variant="outline">
-              Open Top
+              Updated Open Top
             </Button>
           )}
         />
         <SheetPopup side="top" showCloseButton={false}>
           <SheetHeader>
-            <SheetTitle>Top</SheetTitle>
-            <SheetDescription>Top of the screen.</SheetDescription>
+            <SheetTitle>Updated Top</SheetTitle>
+            <SheetDescription>Updated Top of the screen.</SheetDescription>
           </SheetHeader>
         </SheetPopup>
       </Sheet>
@@ -62,14 +62,14 @@ export default function DialogDemo() {
         <SheetTrigger
           render={(props) => (
             <Button {...props} variant="outline">
-              Open Bottom
+              Updated Open Bottom
             </Button>
           )}
         />
         <SheetPopup side="bottom" showCloseButton={false}>
           <SheetHeader>
-            <SheetTitle>Bottom</SheetTitle>
-            <SheetDescription>Bottom of the screen.</SheetDescription>
+            <SheetTitle>Updated Bottom</SheetTitle>
+            <SheetDescription>Updated Bottom of the screen.</SheetDescription>
           </SheetHeader>
         </SheetPopup>
       </Sheet>

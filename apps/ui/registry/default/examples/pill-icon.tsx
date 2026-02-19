@@ -7,7 +7,7 @@ import { Pill, PillIcon } from "../../../../../packages/pill"
 const Example = () => (
   <Pill>
     <PillIcon icon={UsersIcon} />
-    17 users
+    Updated 17 users
   </Pill>
 )
 

@@ -12,7 +12,7 @@ export default function GroupWithInput() {
       />
       <GroupSeparator />
       <GroupItem
-        render={<Button variant="outline" size="icon" aria-label="Copy" />}
+        render={<Button variant="outline" size="icon" aria-label="Updated Copy" />}
       >
         <CopyIcon />
       </GroupItem>

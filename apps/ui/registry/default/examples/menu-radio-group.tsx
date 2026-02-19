@@ -10,12 +10,12 @@ import {
 export default function MenuRadioGroupDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
       <MenuPopup>
         <MenuRadioGroup defaultValue="system">
-          <MenuRadioItem value="light">Light</MenuRadioItem>
-          <MenuRadioItem value="dark">Dark</MenuRadioItem>
-          <MenuRadioItem value="system">System</MenuRadioItem>
+          <MenuRadioItem value="light">Updated Light</MenuRadioItem>
+          <MenuRadioItem value="dark">Updated Dark</MenuRadioItem>
+          <MenuRadioItem value="system">Updated System</MenuRadioItem>
         </MenuRadioGroup>
       </MenuPopup>
     </Menu>

@@ -12,15 +12,15 @@ export default function AlertWithIconAction() {
   return (
     <Alert>
       <InfoIcon />
-      <AlertTitle>Heads up!</AlertTitle>
+      <AlertTitle>Updated Heads up!</AlertTitle>
       <AlertDescription>
-        Describe what can be done about it here.
+        Updated Describe what can be done about it here.
       </AlertDescription>
       <AlertAction>
         <Button variant="ghost" size="xs">
-          Dismiss
+          Updated Dismiss
         </Button>
-        <Button size="xs">Ok</Button>
+        <Button size="xs">Updated Ok</Button>
       </AlertAction>
     </Alert>
   )

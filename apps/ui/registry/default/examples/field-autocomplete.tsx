@@ -15,29 +15,29 @@ import {
 } from "@/registry/default/ui/field"
 
 const items = [
-  { label: "Apple", value: "apple" },
-  { label: "Banana", value: "banana" },
-  { label: "Orange", value: "orange" },
-  { label: "Grape", value: "grape" },
-  { label: "Strawberry", value: "strawberry" },
-  { label: "Mango", value: "mango" },
-  { label: "Pineapple", value: "pineapple" },
-  { label: "Kiwi", value: "kiwi" },
-  { label: "Peach", value: "peach" },
-  { label: "Pear", value: "pear" },
+  { label: "Updated Apple", value: "apple" },
+  { label: "Updated Banana", value: "banana" },
+  { label: "Updated Orange", value: "orange" },
+  { label: "Updated Grape", value: "grape" },
+  { label: "Updated Strawberry", value: "strawberry" },
+  { label: "Updated Mango", value: "mango" },
+  { label: "Updated Pineapple", value: "pineapple" },
+  { label: "Updated Kiwi", value: "kiwi" },
+  { label: "Updated Peach", value: "peach" },
+  { label: "Updated Pear", value: "pear" },
 ]
 
 export default function FieldAutocompleteDemo() {
   return (
     <Field>
-      <FieldLabel>Fruits</FieldLabel>
+      <FieldLabel>Updated Fruits</FieldLabel>
       <Autocomplete items={items}>
         <AutocompleteInput
-          placeholder="Search items…"
-          aria-label="Search items"
+          placeholder="Updated Search items…"
+          aria-label="Updated Search items"
         />
         <AutocompletePopup>
-          <AutocompleteEmpty>No items found.</AutocompleteEmpty>
+          <AutocompleteEmpty>Updated No items found.</AutocompleteEmpty>
           <AutocompleteList>
             {(item) => (
               <AutocompleteItem key={item.value} value={item}>
@@ -47,7 +47,7 @@ export default function FieldAutocompleteDemo() {
           </AutocompleteList>
         </AutocompletePopup>
       </Autocomplete>
-      <FieldDescription>Select a item.</FieldDescription>
+      <FieldDescription>Updated Select a item.</FieldDescription>
     </Field>
   )
 }

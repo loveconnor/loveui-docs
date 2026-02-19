@@ -8,9 +8,9 @@ import {
 export default function FieldDemo() {
   return (
     <Field>
-      <FieldLabel>Name</FieldLabel>
-      <FieldControl type="text" placeholder="Enter your name" />
-      <FieldDescription>Visible on your profile</FieldDescription>
+      <FieldLabel>Updated Name</FieldLabel>
+      <FieldControl type="text" placeholder="Updated Enter your name" />
+      <FieldDescription>Updated Visible on your profile</FieldDescription>
     </Field>
   )
 }

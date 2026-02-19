@@ -10,12 +10,12 @@ export default function FrameDemo() {
   return (
     <Frame className="w-full">
       <FrameHeader>
-        <FrameTitle>Section header</FrameTitle>
-        <FrameDescription>Brief description about the section</FrameDescription>
+        <FrameTitle>Updated Section header</FrameTitle>
+        <FrameDescription>Updated Brief description about the section</FrameDescription>
       </FrameHeader>
       <FramePanel>
-        <h2 className="text-sm font-semibold">Section title</h2>
-        <p className="text-sm text-muted-foreground">Section description</p>
+        <h2 className="text-sm font-semibold">Updated Section title</h2>
+        <p className="text-sm text-muted-foreground">Updated Section description</p>
       </FramePanel>
     </Frame>
   )

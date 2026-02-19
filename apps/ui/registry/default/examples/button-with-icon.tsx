@@ -6,7 +6,7 @@ export default function ButtonWithIcon() {
   return (
     <Button>
       <DownloadIcon />
-      Download
+      Updated Download
     </Button>
   )
 }

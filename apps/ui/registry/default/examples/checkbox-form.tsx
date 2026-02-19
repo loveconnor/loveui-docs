@@ -28,11 +28,11 @@ export default function CheckboxFormDemo() {
             defaultChecked
             disabled={loading}
           />
-          Accept terms and conditions
+          Updated Accept terms and conditions
         </FieldLabel>
       </Field>
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

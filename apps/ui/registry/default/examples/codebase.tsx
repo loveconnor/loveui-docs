@@ -166,7 +166,7 @@ router.post('/', validateUser, async (req, res, next) => {
 export { router as userRouter };`,
   },
   "taskService.ts": {
-    name: "taskService.ts",
+    name: "Updated taskService.ts",
     language: "ts",
     code: `import { db } from '../db';
 import type { Task, CreateTaskInput, UpdateTaskInput } from '../types';
@@ -212,7 +212,7 @@ export class TaskService {
 }`,
   },
   "userService.ts": {
-    name: "userService.ts",
+    name: "Updated userService.ts",
     language: "ts",
     code: `import { db } from '../db';
 import { hashPassword } from '../utils/crypto';
@@ -262,7 +262,7 @@ export class UserService {
 }`,
   },
   "errorHandler.ts": {
-    name: "errorHandler.ts",
+    name: "Updated errorHandler.ts",
     language: "ts",
     code: `import type { Request, Response, NextFunction } from 'express';
 
@@ -457,7 +457,7 @@ export interface CreateUserInput {
 }`,
   },
   "README.md": {
-    name: "README.md",
+    name: "Updated README.md",
     language: "mdx",
     code: `# Task Management API
 
@@ -609,14 +609,14 @@ export default function CodebaseExample() {
                       <TreeNodeTrigger>
                         <TreeExpander />
                         <TreeIcon icon={<FileType className="h-4 w-4" />} />
-                        <TreeLabel>taskService.ts</TreeLabel>
+                        <TreeLabel>Updated taskService.ts</TreeLabel>
                       </TreeNodeTrigger>
                     </TreeNode>
                     <TreeNode isLast level={2} nodeId="userService.ts">
                       <TreeNodeTrigger>
                         <TreeExpander />
                         <TreeIcon icon={<FileType className="h-4 w-4" />} />
-                        <TreeLabel>userService.ts</TreeLabel>
+                        <TreeLabel>Updated userService.ts</TreeLabel>
                       </TreeNodeTrigger>
                     </TreeNode>
                   </TreeNodeContent>
@@ -632,7 +632,7 @@ export default function CodebaseExample() {
                       <TreeNodeTrigger>
                         <TreeExpander />
                         <TreeIcon icon={<FileType className="h-4 w-4" />} />
-                        <TreeLabel>errorHandler.ts</TreeLabel>
+                        <TreeLabel>Updated errorHandler.ts</TreeLabel>
                       </TreeNodeTrigger>
                     </TreeNode>
                     <TreeNode level={2} nodeId="logger.ts">
@@ -685,7 +685,7 @@ export default function CodebaseExample() {
               <TreeNodeTrigger>
                 <TreeExpander />
                 <TreeIcon icon={<FileText className="h-4 w-4" />} />
-                <TreeLabel>README.md</TreeLabel>
+                <TreeLabel>Updated README.md</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
           </TreeView>

@@ -7,16 +7,16 @@ import { CheckboxGroup } from "@/registry/default/ui/checkbox-group"
 import { Label } from "@/registry/default/ui/label"
 
 const mainPermissions = [
-  { id: "view-dashboard", name: "View Dashboard" },
-  { id: "manage-users", name: "Manage Users" },
-  { id: "access-reports", name: "Access Reports" },
+  { id: "view-dashboard", name: "Updated View Dashboard" },
+  { id: "manage-users", name: "Updated Manage Users" },
+  { id: "access-reports", name: "Updated Access Reports" },
 ]
 
 const userManagementPermissions = [
-  { id: "create-user", name: "Create User" },
-  { id: "edit-user", name: "Edit User" },
-  { id: "delete-user", name: "Delete User" },
-  { id: "assign-roles", name: "Assign Roles" },
+  { id: "create-user", name: "Updated Create User" },
+  { id: "edit-user", name: "Updated Edit User" },
+  { id: "delete-user", name: "Updated Delete User" },
+  { id: "assign-roles", name: "Updated Assign Roles" },
 ]
 
 export default function CheckboxGroupNestedParentDemo() {
@@ -45,7 +45,7 @@ export default function CheckboxGroupNestedParentDemo() {
     >
       <Label id="user-permissions-caption">
         <Checkbox parent indeterminate={managementIsPartial} />
-        User Permissions
+        Updated User Permissions
       </Label>
 
       {mainPermissions
@@ -75,7 +75,7 @@ export default function CheckboxGroupNestedParentDemo() {
       >
         <Label id="manage-users-caption">
           <Checkbox parent />
-          Manage Users
+          Updated Manage Users
         </Label>
 
         {userManagementPermissions.map((p) => (

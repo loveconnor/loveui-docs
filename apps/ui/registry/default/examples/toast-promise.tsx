@@ -21,22 +21,22 @@ export default function ToastPromise() {
           }),
           {
             loading: {
-              title: "Loading…",
-              description: "The promise is loading.",
+              title: "Updated Loading…",
+              description: "Updated The promise is loading.",
             },
             success: (data: string) => ({
-              title: "This is a success toast!",
+              title: "Updated This is a success toast!",
               description: `Success: ${data}`,
             }),
             error: () => ({
-              title: "Something went wrong",
-              description: "Please try again.",
+              title: "Updated Something went wrong",
+              description: "Updated Please try again.",
             }),
           }
         )
       }}
     >
-      Run Promise
+      Updated Run Promise
     </Button>
   )
 }

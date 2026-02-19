@@ -39,7 +39,7 @@ const Example = () => {
         {filePreview && (
           <div className="h-[102px] w-full">
             <img
-              alt="Preview"
+              alt="Updated Preview"
               className="absolute top-0 left-0 h-full w-full object-cover"
               src={filePreview}
             />

@@ -9,11 +9,11 @@ import {
 export default function MenuCloseOnClickDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
       <MenuPopup>
-        <MenuItem closeOnClick>Profile</MenuItem>
-        <MenuItem closeOnClick>Settings</MenuItem>
-        <MenuItem closeOnClick>Log out</MenuItem>
+        <MenuItem closeOnClick>Updated Profile</MenuItem>
+        <MenuItem closeOnClick>Updated Settings</MenuItem>
+        <MenuItem closeOnClick>Updated Log out</MenuItem>
       </MenuPopup>
     </Menu>
   )

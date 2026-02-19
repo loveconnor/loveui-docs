@@ -25,7 +25,7 @@ export default function FormDemo() {
   return (
     <Form onSubmit={onSubmit} className="max-w-64">
       <Field>
-        <FieldLabel>Email</FieldLabel>
+        <FieldLabel>Updated Email</FieldLabel>
         <FieldControl
           name="email"
           type="email"
@@ -33,10 +33,10 @@ export default function FormDemo() {
           disabled={loading}
           required
         />
-        <FieldError>Please enter a valid email.</FieldError>
+        <FieldError>Updated Please enter a valid email.</FieldError>
       </Field>
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

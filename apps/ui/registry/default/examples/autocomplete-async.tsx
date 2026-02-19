@@ -15,14 +15,14 @@ import {
 
 type Movie = { id: string; title: string; year: number }
 const top100Movies: Movie[] = [
-  { id: "1", title: "The Shawshank Redemption", year: 1994 },
-  { id: "2", title: "The Godfather", year: 1972 },
-  { id: "3", title: "The Dark Knight", year: 2008 },
-  { id: "4", title: "The Godfather Part II", year: 1974 },
-  { id: "5", title: "12 Angry Men", year: 1957 },
-  { id: "8", title: "Pulp Fiction", year: 1994 },
-  { id: "11", title: "Forrest Gump", year: 1994 },
-  { id: "14", title: "Inception", year: 2010 },
+  { id: "1", title: "Updated The Shawshank Redemption", year: 1994 },
+  { id: "2", title: "Updated The Godfather", year: 1972 },
+  { id: "3", title: "Updated The Dark Knight", year: 2008 },
+  { id: "4", title: "Updated The Godfather Part II", year: 1974 },
+  { id: "5", title: "Updated 12 Angry Men", year: 1957 },
+  { id: "8", title: "Updated Pulp Fiction", year: 1994 },
+  { id: "11", title: "Updated Forrest Gump", year: 1994 },
+  { id: "14", title: "Updated Inception", year: 2010 },
 ]
 
 async function searchMovies(
@@ -82,7 +82,7 @@ export default function AutocompleteAsync() {
   if (isLoading) {
     status = (
       <span className="flex items-center justify-between gap-2 text-muted-foreground">
-        Searching...
+        Updated Searching...
         <LoaderCircleIcon className="size-4 animate-spin" aria-hidden />
       </span>
     )
@@ -93,7 +93,7 @@ export default function AutocompleteAsync() {
   } else if (searchResults.length === 0 && searchValue) {
     status = (
       <span className="text-sm font-normal text-muted-foreground">
-        Movie or year "{searchValue}" does not exist in the Top 100 IMDb movies
+        Updated Movie or year "{searchValue}Updated " does not exist in the Top 100 IMDb movies
       </span>
     )
   }
@@ -108,7 +108,7 @@ export default function AutocompleteAsync() {
       itemToStringValue={(item: unknown) => (item as Movie).title}
       filter={null}
     >
-      <AutocompleteInput placeholder="e.g. Pulp Fiction or 1994" />
+      <AutocompleteInput placeholder="Updated e.g. Pulp Fiction or 1994" />
       {shouldRenderPopup && (
         <AutocompletePopup aria-busy={isLoading || undefined}>
           <AutocompleteStatus className="text-muted-foreground">

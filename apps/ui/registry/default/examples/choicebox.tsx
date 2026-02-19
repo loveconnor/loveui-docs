@@ -11,15 +11,15 @@ import {
 const options = [
   {
     id: "1",
-    label: "Option 1",
-    subtitle: "(the first option)",
-    description: "This is the first option",
+    label: "Updated Option 1",
+    subtitle: "Updated (the first option)",
+    description: "Updated This is the first option",
   },
   {
     id: "2",
-    label: "Option 2",
-    subtitle: "(the second option)",
-    description: "This is the second option",
+    label: "Updated Option 2",
+    subtitle: "Updated (the second option)",
+    description: "Updated This is the second option",
   },
 ]
 

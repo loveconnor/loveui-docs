@@ -12,18 +12,18 @@ import {
 export default function MenuGroupLabelsDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
       <MenuPopup>
         <MenuGroup>
-          <MenuGroupLabel>Account</MenuGroupLabel>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>Billing</MenuItem>
+          <MenuGroupLabel>Updated Account</MenuGroupLabel>
+          <MenuItem>Updated Profile</MenuItem>
+          <MenuItem>Updated Billing</MenuItem>
         </MenuGroup>
         <MenuSeparator />
         <MenuGroup>
-          <MenuGroupLabel>Support</MenuGroupLabel>
-          <MenuItem>Docs</MenuItem>
-          <MenuItem>Contact</MenuItem>
+          <MenuGroupLabel>Updated Support</MenuGroupLabel>
+          <MenuItem>Updated Docs</MenuItem>
+          <MenuItem>Updated Contact</MenuItem>
         </MenuGroup>
       </MenuPopup>
     </Menu>

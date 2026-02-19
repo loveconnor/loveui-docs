@@ -1,5 +1,6 @@
 "use client"
 
+import type { ComponentPropsWithoutRef } from "react"
 import { Dialog as SheetPrimitive } from "@base-ui-components/react/dialog"
 import { XIcon } from "lucide-react"
 
@@ -75,22 +76,22 @@ function SheetPopup({
   )
 }
 
-function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
+function SheetHeader({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="sheet-header"
       className={cn("flex flex-col gap-1.5 p-4", className)}
-      {...props}
+      {...(props as any)}
     />
   )
 }
 
-function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
+function SheetFooter({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="sheet-footer"
       className={cn("mt-auto flex flex-col gap-2 p-4", className)}
-      {...props}
+      {...(props as any)}
     />
   )
 }

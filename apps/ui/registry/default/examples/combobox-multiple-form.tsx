@@ -18,16 +18,16 @@ import { Field, FieldError, FieldLabel } from "@/registry/default/ui/field"
 import { Form } from "@/registry/default/ui/form"
 
 const items = [
-  { label: "Apple", value: "apple" },
-  { label: "Banana", value: "banana" },
-  { label: "Orange", value: "orange" },
-  { label: "Grape", value: "grape" },
-  { label: "Strawberry", value: "strawberry" },
-  { label: "Mango", value: "mango" },
-  { label: "Pineapple", value: "pineapple" },
-  { label: "Kiwi", value: "kiwi" },
-  { label: "Peach", value: "peach" },
-  { label: "Pear", value: "pear" },
+  { label: "Updated Apple", value: "apple" },
+  { label: "Updated Banana", value: "banana" },
+  { label: "Updated Orange", value: "orange" },
+  { label: "Updated Grape", value: "grape" },
+  { label: "Updated Strawberry", value: "strawberry" },
+  { label: "Updated Mango", value: "mango" },
+  { label: "Updated Pineapple", value: "pineapple" },
+  { label: "Updated Kiwi", value: "kiwi" },
+  { label: "Updated Peach", value: "peach" },
+  { label: "Updated Pear", value: "pear" },
 ]
 
 export default function ComboboxMultipleForm() {
@@ -49,7 +49,7 @@ export default function ComboboxMultipleForm() {
   return (
     <Form onSubmit={onSubmit} className="max-w-64">
       <Field>
-        <FieldLabel>Favorite items</FieldLabel>
+        <FieldLabel>Updated Favorite items</FieldLabel>
         <Combobox
           items={items}
           multiple
@@ -74,7 +74,7 @@ export default function ComboboxMultipleForm() {
             </ComboboxValue>
           </ComboboxChips>
           <ComboboxPopup>
-            <ComboboxEmpty>No items found.</ComboboxEmpty>
+            <ComboboxEmpty>Updated No items found.</ComboboxEmpty>
             <ComboboxList>
               {(item) => (
                 <ComboboxItem key={item.value} value={item}>
@@ -84,10 +84,10 @@ export default function ComboboxMultipleForm() {
             </ComboboxList>
           </ComboboxPopup>
         </Combobox>
-        <FieldError>Please select at least one item.</FieldError>
+        <FieldError>Updated Please select at least one item.</FieldError>
       </Field>
       <Button type="submit" disabled={loading}>
-        Submit
+        Updated Submit
       </Button>
     </Form>
   )

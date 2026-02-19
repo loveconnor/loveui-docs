@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
-import { useBookmarksStore } from "../../store/bookmarks-store";
-import { collections, tags } from "../../mock-data/bookmarks";
-import { BookmarkCard } from "./bookmark-card";
-import { StatsCards } from "./stats-cards";
-import { Button } from "../ui/button";
-import { X } from "@phosphor-icons/react";
+import { X } from "@phosphor-icons/react"
+
+import { collections, tags } from "../../mock-data/bookmarks"
+import { useBookmarksStore } from "../../store/bookmarks-store"
+import { Button } from "../ui/button"
+import { BookmarkCard } from "./bookmark-card"
+import { StatsCards } from "./stats-cards"
 
 export function BookmarksContent() {
   const {
@@ -17,24 +18,22 @@ export function BookmarksContent() {
     filterType,
     setFilterType,
     sortBy,
-  } = useBookmarksStore();
-  const filteredBookmarks = getFilteredBookmarks();
+  } = useBookmarksStore()
+  const filteredBookmarks = getFilteredBookmarks()
 
-  const currentCollection = collections.find(
-    (c) => c.id === selectedCollection
-  );
+  const currentCollection = collections.find((c) => c.id === selectedCollection)
 
-  const activeTagsData = tags.filter((t) => selectedTags.includes(t.id));
+  const activeTagsData = tags.filter((t) => selectedTags.includes(t.id))
   const hasActiveFilters =
-    selectedTags.length > 0 || filterType !== "all" || sortBy !== "date-newest";
+    selectedTags.length > 0 || filterType !== "all" || sortBy !== "date-newest"
 
   return (
-    <div className="flex-1 w-full overflow-auto">
-      <div className="p-4 md:p-6 space-y-6">
+    <div className="w-full flex-1 overflow-auto">
+      <div className="space-y-6 p-4 md:p-6">
         <StatsCards />
 
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
             <div>
               <h2 className="text-lg font-semibold">
                 {currentCollection?.name || "All Bookmarks"}
@@ -49,13 +48,13 @@ export function BookmarksContent() {
             {(activeTagsData.length > 0 || filterType !== "all") && (
               <div className="flex flex-wrap items-center gap-2">
                 {filterType !== "all" && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium bg-primary/10 text-primary">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
                     {filterType === "favorites" && "Favorites only"}
                     {filterType === "with-tags" && "With tags"}
                     {filterType === "without-tags" && "Without tags"}
                     <button
                       onClick={() => setFilterType("all")}
-                      className="hover:bg-primary/20 rounded-full p-0.5"
+                      className="rounded-full p-0.5 hover:bg-primary/20"
                     >
                       <X className="size-3" />
                     </button>
@@ -64,12 +63,12 @@ export function BookmarksContent() {
                 {activeTagsData.map((tag) => (
                   <span
                     key={tag.id}
-                    className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium bg-primary text-primary-foreground"
+                    className="inline-flex items-center gap-1 rounded-md bg-primary px-2 py-1 text-xs font-medium text-primary-foreground"
                   >
                     {tag.name}
                     <button
                       onClick={() => toggleTag(tag.id)}
-                      className="hover:bg-primary-foreground/20 rounded-full p-0.5"
+                      className="rounded-full p-0.5 hover:bg-primary-foreground/20"
                     >
                       <X className="size-3" />
                     </button>
@@ -80,7 +79,7 @@ export function BookmarksContent() {
           </div>
 
           {viewMode === "grid" ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredBookmarks.map((bookmark) => (
                 <BookmarkCard key={bookmark.id} bookmark={bookmark} />
               ))}
@@ -99,7 +98,7 @@ export function BookmarksContent() {
 
           {filteredBookmarks.length === 0 && (
             <div className="flex flex-col items-center justify-center py-12 text-center">
-              <div className="size-12 rounded-full bg-muted flex items-center justify-center mb-4">
+              <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-muted">
                 <svg
                   className="size-6 text-muted-foreground"
                   fill="none"
@@ -114,8 +113,8 @@ export function BookmarksContent() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-medium mb-1">No bookmarks found</h3>
-              <p className="text-sm text-muted-foreground max-w-sm mb-4">
+              <h3 className="mb-1 text-lg font-medium">No bookmarks found</h3>
+              <p className="mb-4 max-w-sm text-sm text-muted-foreground">
                 Try adjusting your search or filter to find what you&apos;re
                 looking for, or add a new bookmark.
               </p>
@@ -124,7 +123,7 @@ export function BookmarksContent() {
                   variant="outline"
                   size="sm"
                   onClick={() => {
-                    setFilterType("all");
+                    setFilterType("all")
                   }}
                 >
                   Clear filters
@@ -135,5 +134,5 @@ export function BookmarksContent() {
         </div>
       </div>
     </div>
-  );
+  )
 }

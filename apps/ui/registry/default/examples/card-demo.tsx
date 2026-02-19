@@ -29,14 +29,19 @@ export default function CardDemo() {
     <Card className="w-full max-w-xs">
       <CardHeader>
         <CardTitle>Updated Create project</CardTitle>
-        <CardDescription>Updated Deploy your new project in one-click.</CardDescription>
+        <CardDescription>
+          Updated Deploy your new project in one-click.
+        </CardDescription>
       </CardHeader>
       <Form>
         <CardPanel>
           <div className="flex flex-col gap-4">
             <Field>
               <FieldLabel>Updated Name</FieldLabel>
-              <FieldControl type="text" placeholder="Updated Name of your project" />
+              <FieldControl
+                type="text"
+                placeholder="Updated Name of your project"
+              />
             </Field>
             <Field>
               <FieldLabel>Updated Framework</FieldLabel>

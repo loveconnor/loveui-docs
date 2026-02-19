@@ -37,7 +37,8 @@
   },
   "scripts": {
     "build": "tsup",
-    "postbuild": "node ./scripts/copy-packages.mjs",
+    "postbuild": "node ./scripts/copy-packages.mjs && node ./scripts/verify-registry.mjs",
+    "verify:registry": "node ./scripts/verify-registry.mjs",
     "clean": "rimraf dist packages"
   },
   "devDependencies": {

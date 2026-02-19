@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/input-lg.tsx",
-      "content": "import { Input } from \"@/registry/default/ui/input\"\n\nexport default function InputLg() {\n  return <Input size=\"lg\" placeholder=\"Enter text\" aria-label=\"Enter text\" />\n}\n",
+      "content": "import { Input } from \"@/registry/default/ui/input\"\n\nexport default function InputLg() {\n  return (\n    <Input\n      size=\"lg\"\n      placeholder=\"Updated Enter text\"\n      aria-label=\"Updated Enter text\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ],

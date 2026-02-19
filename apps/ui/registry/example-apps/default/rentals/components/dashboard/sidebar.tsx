@@ -1,7 +1,31 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import {
+  ChevronsUpDown,
+  Heart,
+  Home,
+  LogOut,
+  Minus,
+  Plus,
+  Search,
+  Settings,
+} from "lucide-react"
+
+import { Button } from "@loveui/ui/ui/button"
+import { Input } from "@loveui/ui/ui/input"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+import { Separator } from "@loveui/ui/ui/separator"
+import { Slider } from "@loveui/ui/ui/slider"
+
 import {
   Sidebar,
   SidebarContent,
@@ -14,37 +38,16 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { Slider } from "@loveui/ui/ui/slider";
-import {
-  Home,
-  Heart,
-  Search,
-  Settings,
-  ChevronsUpDown,
-  LogOut,
-  Minus,
-  Plus,
-} from "lucide-react";
-import { Button } from "@loveui/ui/ui/button";
-import { useRentalsStore } from "../../store/rentals-store";
-import { propertyTypeLabels, type PropertyType } from "../../mock-data/listings";
-import { Input } from "@loveui/ui/ui/input";
-import { Separator } from "@loveui/ui/ui/separator";
-import { cn } from "../../lib/utils";
+} from "@/components/ui/sidebar"
+
+import { cn } from "../../lib/utils"
+import { propertyTypeLabels, type PropertyType } from "../../mock-data/listings"
+import { useRentalsStore } from "../../store/rentals-store"
 
 const navItems = [
   { id: "all", title: "All Gear", icon: Home, href: "/" },
   { id: "favorites", title: "Favorites", icon: Heart, href: "/favorites" },
-];
+]
 
 const propertyTypes: PropertyType[] = [
   "apartment",
@@ -53,12 +56,12 @@ const propertyTypes: PropertyType[] = [
   "studio",
   "loft",
   "cottage",
-];
+]
 
 export function RentalsSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const pathname = usePathname();
+  const pathname = usePathname()
   const {
     listings,
     searchQuery,
@@ -74,17 +77,17 @@ export function RentalsSidebar({
     getFilteredListings,
     getFavoriteListings,
     resetFilters,
-  } = useRentalsStore();
+  } = useRentalsStore()
 
-  const favoriteCount = listings.filter((l) => l.isFavorite).length;
-  const allCount = listings.length;
-  const filteredCount = getFilteredListings().length;
+  const favoriteCount = listings.filter((l) => l.isFavorite).length
+  const allCount = listings.length
+  const filteredCount = getFilteredListings().length
 
   const activeFiltersCount =
     selectedPropertyTypes.length +
     (priceRange[0] !== 0 || priceRange[1] !== 500 ? 1 : 0) +
     (bedrooms !== null ? 1 : 0) +
-    (bathrooms !== null ? 1 : 0);
+    (bathrooms !== null ? 1 : 0)
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -92,12 +95,14 @@ export function RentalsSidebar({
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <button className="flex items-center gap-2.5 w-full hover:bg-sidebar-accent rounded-md p-1 -m-1 transition-colors shrink-0">
-                <div className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground shrink-0">
+              <button className="-m-1 flex w-full shrink-0 items-center gap-2.5 rounded-md p-1 transition-colors hover:bg-sidebar-accent">
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Home className="size-4" />
                 </div>
                 <div className="flex items-center gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="text-sm font-medium">LoveUI - Gear Market</span>
+                  <span className="text-sm font-medium">
+                    LoveUI - Gear Market
+                  </span>
                   <ChevronsUpDown className="size-3 text-muted-foreground" />
                 </div>
               </button>
@@ -126,10 +131,10 @@ export function RentalsSidebar({
           <SidebarGroupContent>
             <SidebarMenu>
               {navItems.map((item) => {
-                const isActive = pathname === item.href;
-                let badge: number | undefined;
-                if (item.id === "favorites") badge = favoriteCount;
-                if (item.id === "all") badge = allCount;
+                const isActive = pathname === item.href
+                let badge: number | undefined
+                if (item.id === "favorites") badge = favoriteCount
+                if (item.id === "all") badge = allCount
 
                 return (
                   <SidebarMenuItem key={item.id}>
@@ -145,14 +150,14 @@ export function RentalsSidebar({
                       <SidebarMenuBadge>{badge}</SidebarMenuBadge>
                     )}
                   </SidebarMenuItem>
-                );
+                )
               })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup className="p-0 mt-4">
-          <SidebarGroupLabel className="px-0 h-6">
+        <SidebarGroup className="mt-4 p-0">
+          <SidebarGroupLabel className="h-6 px-0">
             <span className="text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
               Search
             </span>
@@ -160,7 +165,7 @@ export function RentalsSidebar({
           <SidebarGroupContent>
             <div className="px-2 pb-2">
               <div className="relative">
-                <Search className="absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground z-10 pointer-events-none" />
+                <Search className="pointer-events-none absolute top-1/2 left-2 z-10 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Search products..."
@@ -173,8 +178,8 @@ export function RentalsSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup className="p-0 mt-4">
-          <SidebarGroupLabel className="px-0 h-6 flex items-center justify-between">
+        <SidebarGroup className="mt-4 p-0">
+          <SidebarGroupLabel className="flex h-6 items-center justify-between px-0">
             <span className="text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
               Filters
             </span>
@@ -190,9 +195,9 @@ export function RentalsSidebar({
             )}
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <div className="px-2 space-y-4">
+            <div className="space-y-4 px-2">
               <div>
-                <p className="text-xs font-medium mb-2 text-sidebar-foreground">
+                <p className="mb-2 text-xs font-medium text-sidebar-foreground">
                   Category
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -207,7 +212,7 @@ export function RentalsSidebar({
                       size="sm"
                       onClick={() => togglePropertyType(type)}
                       className={cn(
-                        "h-7 text-xs px-2",
+                        "h-7 px-2 text-xs",
                         selectedPropertyTypes.includes(type) &&
                           "bg-primary text-primary-foreground"
                       )}
@@ -221,7 +226,7 @@ export function RentalsSidebar({
               <Separator />
 
               <div>
-                <p className="text-xs font-medium mb-2 text-sidebar-foreground">
+                <p className="mb-2 text-xs font-medium text-sidebar-foreground">
                   Daily rate
                 </p>
                 <div className="space-y-2">
@@ -231,15 +236,18 @@ export function RentalsSidebar({
                       onValueChange={(value) => {
                         const range = (
                           Array.isArray(value) ? value : [value, value]
-                        ) as readonly number[];
-                        setPriceRange([range[0] ?? 0, range[1] ?? range[0] ?? 0]);
+                        ) as readonly number[]
+                        setPriceRange([
+                          range[0] ?? 0,
+                          range[1] ?? range[0] ?? 0,
+                        ])
                       }}
                       min={0}
                       max={500}
                       step={10}
                       className="w-full"
                     />
-                    <div className="flex items-center justify-between mt-2">
+                    <div className="mt-2 flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">
                         ${priceRange[0]}
                       </span>
@@ -254,7 +262,7 @@ export function RentalsSidebar({
               <Separator />
 
               <div>
-                <p className="text-xs font-medium mb-2 text-sidebar-foreground">
+                <p className="mb-2 text-xs font-medium text-sidebar-foreground">
                   Inventory
                 </p>
                 <div className="space-y-2">
@@ -329,5 +337,5 @@ export function RentalsSidebar({
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  );
+  )
 }

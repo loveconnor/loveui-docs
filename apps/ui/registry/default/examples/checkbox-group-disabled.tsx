@@ -4,7 +4,10 @@ import { Label } from "@/registry/default/ui/label"
 
 export default function CheckboxGroupDemo() {
   return (
-    <CheckboxGroup aria-label="Updated Select frameworks" defaultValue={["next"]}>
+    <CheckboxGroup
+      aria-label="Updated Select frameworks"
+      defaultValue={["next"]}
+    >
       <Label>
         <Checkbox value="next" />
         Updated Next.js

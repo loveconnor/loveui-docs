@@ -1,11 +1,14 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
-import { useTheme } from "next-themes";
-import { useMapsStore } from "../../store/maps-store";
-import { categories, tags as allTags } from "../../mock-data/locations";
+import * as React from "react"
+import maplibregl from "maplibre-gl"
+
+import "maplibre-gl/dist/maplibre-gl.css"
+
+import { useTheme } from "next-themes"
+
+import { tags as allTags, categories } from "../../mock-data/locations"
+import { useMapsStore } from "../../store/maps-store"
 
 const MAP_STYLES = {
   light: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
@@ -13,18 +16,18 @@ const MAP_STYLES = {
   streets: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
   outdoors: "https://tiles.stadiamaps.com/styles/outdoors.json",
   satellite: "https://tiles.stadiamaps.com/styles/alidade_satellite.json",
-};
+}
 
 export function MapView() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const mapRef = React.useRef<maplibregl.Map | null>(null);
-  const markersRef = React.useRef<Map<string, maplibregl.Marker>>(new Map());
-  const userMarkerRef = React.useRef<maplibregl.Marker | null>(null);
-  const popupRef = React.useRef<maplibregl.Popup | null>(null);
-  const isAnimatingRef = React.useRef(false);
-  const closeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-  const isHoveringPopupRef = React.useRef(false);
-  const { resolvedTheme } = useTheme();
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const mapRef = React.useRef<maplibregl.Map | null>(null)
+  const markersRef = React.useRef<Map<string, maplibregl.Marker>>(new Map())
+  const userMarkerRef = React.useRef<maplibregl.Marker | null>(null)
+  const popupRef = React.useRef<maplibregl.Popup | null>(null)
+  const isAnimatingRef = React.useRef(false)
+  const closeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null)
+  const isHoveringPopupRef = React.useRef(false)
+  const { resolvedTheme } = useTheme()
 
   const {
     mapCenter,
@@ -39,44 +42,44 @@ export function MapView() {
     setUserLocation,
     getFilteredLocations,
     locations: allLocations,
-  } = useMapsStore();
+  } = useMapsStore()
 
   const getMapStyleUrl = React.useCallback(() => {
     if (mapStyle === "default") {
-      return resolvedTheme === "dark" ? MAP_STYLES.dark : MAP_STYLES.light;
+      return resolvedTheme === "dark" ? MAP_STYLES.dark : MAP_STYLES.light
     }
-    return MAP_STYLES[mapStyle];
-  }, [mapStyle, resolvedTheme]);
+    return MAP_STYLES[mapStyle]
+  }, [mapStyle, resolvedTheme])
 
-  const locations = getFilteredLocations();
+  const locations = getFilteredLocations()
 
   const getTagName = (tagId: string) => {
-    return allTags.find((t) => t.id === tagId)?.name || tagId;
-  };
+    return allTags.find((t) => t.id === tagId)?.name || tagId
+  }
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    const date = new Date(dateString)
     return date.toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
       year: "numeric",
-    });
-  };
+    })
+  }
 
   React.useEffect(() => {
     const getLocationFromIP = async () => {
       try {
-        const response = await fetch("https://ipapi.co/json/");
-        const data = await response.json();
+        const response = await fetch("https://ipapi.co/json/")
+        const data = await response.json()
         if (data.latitude && data.longitude) {
-          const location = { lat: data.latitude, lng: data.longitude };
-          setUserLocation(location);
-          setMapCenter(location);
+          const location = { lat: data.latitude, lng: data.longitude }
+          setUserLocation(location)
+          setMapCenter(location)
         }
       } catch {
-        console.log("IP geolocation failed");
+        console.log("IP geolocation failed")
       }
-    };
+    }
 
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -84,34 +87,34 @@ export function MapView() {
           const location = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-          };
-          setUserLocation(location);
-          setMapCenter(location);
+          }
+          setUserLocation(location)
+          setMapCenter(location)
         },
         () => {
-          getLocationFromIP();
+          getLocationFromIP()
         },
         { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 }
-      );
+      )
     } else {
-      getLocationFromIP();
+      getLocationFromIP()
     }
-  }, [setUserLocation, setMapCenter]);
+  }, [setUserLocation, setMapCenter])
 
   const closePopup = React.useCallback(() => {
     if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
+      clearTimeout(closeTimeoutRef.current)
     }
     closeTimeoutRef.current = setTimeout(() => {
       if (!isHoveringPopupRef.current && popupRef.current) {
-        popupRef.current.remove();
-        popupRef.current = null;
+        popupRef.current.remove()
+        popupRef.current = null
       }
-    }, 150);
-  }, []);
+    }, 150)
+  }, [])
 
   React.useEffect(() => {
-    if (!containerRef.current || mapRef.current) return;
+    if (!containerRef.current || mapRef.current) return
 
     const map = new maplibregl.Map({
       container: containerRef.current,
@@ -121,78 +124,78 @@ export function MapView() {
       minZoom: 3,
       maxZoom: 18,
       attributionControl: false,
-    });
+    })
 
     map.addControl(
       new maplibregl.AttributionControl({ compact: true }),
       "bottom-right"
-    );
+    )
 
     map.on("moveend", () => {
       if (isAnimatingRef.current) {
-        isAnimatingRef.current = false;
-        return;
+        isAnimatingRef.current = false
+        return
       }
-      const center = map.getCenter();
-      const zoom = map.getZoom();
-      setMapCenter({ lat: center.lat, lng: center.lng });
-      setMapZoom(zoom);
-    });
+      const center = map.getCenter()
+      const zoom = map.getZoom()
+      setMapCenter({ lat: center.lat, lng: center.lng })
+      setMapZoom(zoom)
+    })
 
-    mapRef.current = map;
+    mapRef.current = map
 
     return () => {
       if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
+        clearTimeout(closeTimeoutRef.current)
       }
-      map.remove();
-      mapRef.current = null;
-    };
-  }, []);
+      map.remove()
+      mapRef.current = null
+    }
+  }, [])
 
   React.useEffect(() => {
-    if (!mapRef.current) return;
-    mapRef.current.setStyle(getMapStyleUrl());
-  }, [mapStyle, resolvedTheme, getMapStyleUrl]);
+    if (!mapRef.current) return
+    mapRef.current.setStyle(getMapStyleUrl())
+  }, [mapStyle, resolvedTheme, getMapStyleUrl])
 
   React.useEffect(() => {
-    if (!mapRef.current || !userLocation) return;
+    if (!mapRef.current || !userLocation) return
 
     if (userMarkerRef.current) {
-      userMarkerRef.current.setLngLat([userLocation.lng, userLocation.lat]);
-      return;
+      userMarkerRef.current.setLngLat([userLocation.lng, userLocation.lat])
+      return
     }
 
-    const el = document.createElement("div");
-    el.className = "user-marker";
+    const el = document.createElement("div")
+    el.className = "user-marker"
     el.innerHTML = `
       <div class="relative">
         <div class="w-4 h-4 rounded-full bg-blue-500 border-2 border-white shadow-lg"></div>
         <div class="absolute inset-0 w-4 h-4 rounded-full bg-blue-500/50 animate-ping"></div>
       </div>
-    `;
+    `
 
     const marker = new maplibregl.Marker({ element: el })
       .setLngLat([userLocation.lng, userLocation.lat])
-      .addTo(mapRef.current);
+      .addTo(mapRef.current)
 
-    userMarkerRef.current = marker;
-  }, [userLocation]);
+    userMarkerRef.current = marker
+  }, [userLocation])
 
   React.useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) return
 
-    markersRef.current.forEach((marker) => marker.remove());
-    markersRef.current.clear();
+    markersRef.current.forEach((marker) => marker.remove())
+    markersRef.current.clear()
 
     locations.forEach((location) => {
-      const category = categories.find((c) => c.id === location.categoryId);
-      const color = category?.color || "#6b7280";
-      const isSelected = selectedLocationId === location.id;
-      const isRouteDestination = routeDestinationId === location.id;
+      const category = categories.find((c) => c.id === location.categoryId)
+      const color = category?.color || "#6b7280"
+      const isSelected = selectedLocationId === location.id
+      const isRouteDestination = routeDestinationId === location.id
 
-      const el = document.createElement("div");
-      el.className = "marker-container";
+      const el = document.createElement("div")
+      el.className = "marker-container"
       el.innerHTML = `
         <div class="relative cursor-pointer transition-transform ${
           isSelected || isRouteDestination ? "scale-125" : "hover:scale-110"
@@ -214,29 +217,29 @@ export function MapView() {
               : ""
           }
         </div>
-      `;
+      `
 
       el.addEventListener("click", () => {
-        selectLocation(location.id);
-      });
+        selectLocation(location.id)
+      })
 
       el.addEventListener("mouseenter", () => {
         if (closeTimeoutRef.current) {
-          clearTimeout(closeTimeoutRef.current);
+          clearTimeout(closeTimeoutRef.current)
         }
 
         if (popupRef.current) {
-          popupRef.current.remove();
+          popupRef.current.remove()
         }
 
         const stars =
           "★".repeat(Math.floor(location.rating)) +
-          "☆".repeat(5 - Math.floor(location.rating));
+          "☆".repeat(5 - Math.floor(location.rating))
 
         const tagsHtml = location.tags
           .slice(0, 4)
           .map((tag) => `<span class="popup-tag">${getTagName(tag)}</span>`)
-          .join("");
+          .join("")
 
         const popupContent = `
           <div class="location-popup" data-popup-hover="true">
@@ -291,7 +294,7 @@ export function MapView() {
               <span class="popup-date">Posted ${formatDate(location.createdAt)}</span>
             </div>
           </div>
-        `;
+        `
 
         const popup = new maplibregl.Popup({
           offset: [0, -35],
@@ -302,213 +305,230 @@ export function MapView() {
         })
           .setLngLat([location.coordinates.lng, location.coordinates.lat])
           .setHTML(popupContent)
-          .addTo(mapRef.current!);
+          .addTo(mapRef.current!)
 
-        const popupElement = popup.getElement();
+        const popupElement = popup.getElement()
         if (popupElement) {
           popupElement.addEventListener("mouseenter", () => {
-            isHoveringPopupRef.current = true;
+            isHoveringPopupRef.current = true
             if (closeTimeoutRef.current) {
-              clearTimeout(closeTimeoutRef.current);
+              clearTimeout(closeTimeoutRef.current)
             }
-          });
+          })
           popupElement.addEventListener("mouseleave", () => {
-            isHoveringPopupRef.current = false;
-            closePopup();
-          });
+            isHoveringPopupRef.current = false
+            closePopup()
+          })
           popupElement.addEventListener("click", () => {
-            selectLocation(location.id);
-            popup.remove();
-            popupRef.current = null;
-          });
+            selectLocation(location.id)
+            popup.remove()
+            popupRef.current = null
+          })
         }
 
-        popupRef.current = popup;
-      });
+        popupRef.current = popup
+      })
 
       el.addEventListener("mouseleave", () => {
-        closePopup();
-      });
+        closePopup()
+      })
 
       const marker = new maplibregl.Marker({ element: el })
         .setLngLat([location.coordinates.lng, location.coordinates.lat])
-        .addTo(mapRef.current!);
+        .addTo(mapRef.current!)
 
-      markersRef.current.set(location.id, marker);
-    });
-  }, [locations, selectedLocationId, selectLocation, closePopup, routeDestinationId]);
+      markersRef.current.set(location.id, marker)
+    })
+  }, [
+    locations,
+    selectedLocationId,
+    selectLocation,
+    closePopup,
+    routeDestinationId,
+  ])
 
   const routeDataRef = React.useRef<{
-    coordinates: [number, number][];
-    bounds: maplibregl.LngLatBounds;
-  } | null>(null);
+    coordinates: [number, number][]
+    bounds: maplibregl.LngLatBounds
+  } | null>(null)
 
   React.useEffect(() => {
     if (!routeDestinationId || !userLocation) {
-      routeDataRef.current = null;
-      return;
+      routeDataRef.current = null
+      return
     }
 
-    const destination = allLocations.find((l) => l.id === routeDestinationId);
+    const destination = allLocations.find((l) => l.id === routeDestinationId)
     if (!destination) {
-      routeDataRef.current = null;
-      return;
+      routeDataRef.current = null
+      return
     }
 
     const fetchRoute = async () => {
-      const start = `${userLocation.lng},${userLocation.lat}`;
-      const end = `${destination.coordinates.lng},${destination.coordinates.lat}`;
+      const start = `${userLocation.lng},${userLocation.lat}`
+      const end = `${destination.coordinates.lng},${destination.coordinates.lat}`
 
       try {
         const response = await fetch(
           `https://router.project-osrm.org/route/v1/driving/${start};${end}?overview=full&geometries=geojson`
-        );
-        const data = await response.json();
+        )
+        const data = await response.json()
 
         if (data.routes && data.routes[0]) {
-          const coordinates = data.routes[0].geometry.coordinates as [number, number][];
-          const bounds = new maplibregl.LngLatBounds();
-          bounds.extend([userLocation.lng, userLocation.lat]);
-          bounds.extend([destination.coordinates.lng, destination.coordinates.lat]);
-          coordinates.forEach((coord) => bounds.extend(coord));
+          const coordinates = data.routes[0].geometry.coordinates as [
+            number,
+            number,
+          ][]
+          const bounds = new maplibregl.LngLatBounds()
+          bounds.extend([userLocation.lng, userLocation.lat])
+          bounds.extend([
+            destination.coordinates.lng,
+            destination.coordinates.lat,
+          ])
+          coordinates.forEach((coord) => bounds.extend(coord))
 
-          routeDataRef.current = { coordinates, bounds };
+          routeDataRef.current = { coordinates, bounds }
 
-          const map = mapRef.current;
+          const map = mapRef.current
           if (map) {
-            drawRoute(map, coordinates);
-            isAnimatingRef.current = true;
-            map.fitBounds(bounds, { padding: 80 });
+            drawRoute(map, coordinates)
+            isAnimatingRef.current = true
+            map.fitBounds(bounds, { padding: 80 })
           }
         }
       } catch (error) {
-        console.error("Failed to fetch route:", error);
+        console.error("Failed to fetch route:", error)
       }
-    };
+    }
 
-    fetchRoute();
-  }, [routeDestinationId, userLocation, allLocations]);
+    fetchRoute()
+  }, [routeDestinationId, userLocation, allLocations])
 
-  const drawRoute = React.useCallback((map: maplibregl.Map, coordinates: [number, number][]) => {
-    if (map.getLayer("route-line")) map.removeLayer("route-line");
-    if (map.getLayer("route-line-outline")) map.removeLayer("route-line-outline");
-    if (map.getSource("route")) map.removeSource("route");
+  const drawRoute = React.useCallback(
+    (map: maplibregl.Map, coordinates: [number, number][]) => {
+      if (map.getLayer("route-line")) map.removeLayer("route-line")
+      if (map.getLayer("route-line-outline"))
+        map.removeLayer("route-line-outline")
+      if (map.getSource("route")) map.removeSource("route")
 
-    map.addSource("route", {
-      type: "geojson",
-      data: {
-        type: "Feature",
-        properties: {},
-        geometry: {
-          type: "LineString",
-          coordinates,
+      map.addSource("route", {
+        type: "geojson",
+        data: {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "LineString",
+            coordinates,
+          },
         },
-      },
-    });
+      })
 
-    map.addLayer({
-      id: "route-line-outline",
-      type: "line",
-      source: "route",
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
-      paint: {
-        "line-color": "#1d4ed8",
-        "line-width": 8,
-        "line-opacity": 0.4,
-      },
-    });
+      map.addLayer({
+        id: "route-line-outline",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#1d4ed8",
+          "line-width": 8,
+          "line-opacity": 0.4,
+        },
+      })
 
-    map.addLayer({
-      id: "route-line",
-      type: "line",
-      source: "route",
-      layout: {
-        "line-join": "round",
-        "line-cap": "round",
-      },
-      paint: {
-        "line-color": "#3b82f6",
-        "line-width": 4,
-        "line-opacity": 1,
-      },
-    });
-  }, []);
+      map.addLayer({
+        id: "route-line",
+        type: "line",
+        source: "route",
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+        paint: {
+          "line-color": "#3b82f6",
+          "line-width": 4,
+          "line-opacity": 1,
+        },
+      })
+    },
+    []
+  )
 
   React.useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
+    const map = mapRef.current
+    if (!map) return
 
     const clearRoute = () => {
-      if (map.getLayer("route-line")) map.removeLayer("route-line");
-      if (map.getLayer("route-line-outline")) map.removeLayer("route-line-outline");
-      if (map.getSource("route")) map.removeSource("route");
-    };
+      if (map.getLayer("route-line")) map.removeLayer("route-line")
+      if (map.getLayer("route-line-outline"))
+        map.removeLayer("route-line-outline")
+      if (map.getSource("route")) map.removeSource("route")
+    }
 
     if (!routeDestinationId) {
-      clearRoute();
+      clearRoute()
     }
-  }, [routeDestinationId]);
+  }, [routeDestinationId])
 
   React.useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
+    const map = mapRef.current
+    if (!map) return
 
     const handleStyleLoad = () => {
       if (routeDataRef.current && routeDestinationId) {
-        drawRoute(map, routeDataRef.current.coordinates);
+        drawRoute(map, routeDataRef.current.coordinates)
       }
-    };
+    }
 
-    map.on("style.load", handleStyleLoad);
+    map.on("style.load", handleStyleLoad)
 
     return () => {
-      map.off("style.load", handleStyleLoad);
-    };
-  }, [drawRoute, routeDestinationId]);
+      map.off("style.load", handleStyleLoad)
+    }
+  }, [drawRoute, routeDestinationId])
 
   React.useEffect(() => {
-    if (!mapRef.current || !selectedLocationId) return;
-    if (routeDestinationId) return;
+    if (!mapRef.current || !selectedLocationId) return
+    if (routeDestinationId) return
 
-    const location = locations.find((l) => l.id === selectedLocationId);
+    const location = locations.find((l) => l.id === selectedLocationId)
     if (location) {
-      isAnimatingRef.current = true;
+      isAnimatingRef.current = true
       mapRef.current.flyTo({
         center: [location.coordinates.lng, location.coordinates.lat],
         zoom: Math.max(mapRef.current.getZoom(), 14),
         essential: true,
-      });
+      })
     }
-  }, [selectedLocationId, locations, routeDestinationId]);
+  }, [selectedLocationId, locations, routeDestinationId])
 
   const lastCenterRef = React.useRef({
     lat: mapCenter.lat,
     lng: mapCenter.lng,
-  });
-  const lastZoomRef = React.useRef(mapZoom);
+  })
+  const lastZoomRef = React.useRef(mapZoom)
 
   React.useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) return
 
     const centerChanged =
       Math.abs(lastCenterRef.current.lat - mapCenter.lat) > 0.0001 ||
-      Math.abs(lastCenterRef.current.lng - mapCenter.lng) > 0.0001;
-    const zoomChanged = Math.abs(lastZoomRef.current - mapZoom) > 0.1;
+      Math.abs(lastCenterRef.current.lng - mapCenter.lng) > 0.0001
+    const zoomChanged = Math.abs(lastZoomRef.current - mapZoom) > 0.1
 
     if (centerChanged || zoomChanged) {
-      isAnimatingRef.current = true;
+      isAnimatingRef.current = true
       mapRef.current.flyTo({
         center: [mapCenter.lng, mapCenter.lat],
         zoom: mapZoom,
         essential: true,
-      });
-      lastCenterRef.current = { lat: mapCenter.lat, lng: mapCenter.lng };
-      lastZoomRef.current = mapZoom;
+      })
+      lastCenterRef.current = { lat: mapCenter.lat, lng: mapCenter.lng }
+      lastZoomRef.current = mapZoom
     }
-  }, [mapCenter, mapZoom]);
+  }, [mapCenter, mapZoom])
 
   return (
     <>
@@ -694,5 +714,5 @@ export function MapView() {
         }
       `}</style>
     </>
-  );
+  )
 }

@@ -1,30 +1,30 @@
 export type Bookmark = {
-  id: string;
-  title: string;
-  url: string;
-  description: string;
-  favicon: string;
-  collectionId: string;
-  tags: string[];
-  createdAt: string;
-  isFavorite: boolean;
-  hasDarkIcon?: boolean;
-};
+  id: string
+  title: string
+  url: string
+  description: string
+  favicon: string
+  collectionId: string
+  tags: string[]
+  createdAt: string
+  isFavorite: boolean
+  hasDarkIcon?: boolean
+}
 
 export type Collection = {
-  id: string;
-  name: string;
-  icon: string;
-  color: string;
-  count: number;
-};
+  id: string
+  name: string
+  icon: string
+  color: string
+  count: number
+}
 
 export type Tag = {
-  id: string;
-  name: string;
-  color: string;
-  count: number;
-};
+  id: string
+  name: string
+  color: string
+  count: number
+}
 
 export const collections: Collection[] = [
   {
@@ -57,7 +57,7 @@ export const collections: Collection[] = [
     color: "pink",
     count: 5,
   },
-];
+]
 
 export const tags: Tag[] = [
   {
@@ -108,7 +108,7 @@ export const tags: Tag[] = [
     color: "bg-green-500/10 text-green-500",
     count: 4,
   },
-];
+]
 
 export const bookmarks: Bookmark[] = [
   {
@@ -300,4 +300,4 @@ export const bookmarks: Bookmark[] = [
     isFavorite: true,
     hasDarkIcon: true,
   },
-];
+]

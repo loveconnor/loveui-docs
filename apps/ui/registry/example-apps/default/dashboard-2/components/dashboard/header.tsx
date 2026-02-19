@@ -1,47 +1,49 @@
-"use client";
+"use client"
 
-import { Button } from "@loveui/ui/ui/button";
-import { SidebarTrigger } from "../ui/sidebar";
-import { ThemeToggle } from "../theme-toggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
+import {
+  Add01Icon,
+  DashboardSquare01Icon,
+  FileAddIcon,
+  Link01Icon,
+  Mail01Icon,
+  Share01Icon,
+  SparklesIcon,
+  UserAdd01Icon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  DashboardSquare01Icon,
-  SparklesIcon,
-  Share01Icon,
-  Add01Icon,
-  FileAddIcon,
-  UserAdd01Icon,
-  Mail01Icon,
-  Link01Icon,
-  UserGroupIcon,
-} from "@hugeicons/core-free-icons";
+} from "@loveui/ui/ui/menu"
+
+import { ThemeToggle } from "../theme-toggle"
+import { SidebarTrigger } from "../ui/sidebar"
 
 export function DashboardHeader() {
   return (
-    <header className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 border-b bg-card sticky top-0 z-10 w-full">
+    <header className="sticky top-0 z-10 flex w-full items-center justify-between gap-4 border-b bg-card px-4 py-3 sm:px-6">
       <div className="flex items-center gap-3">
         <SidebarTrigger className="-ml-2" />
-        <div className="hidden sm:flex items-center gap-2 text-muted-foreground">
+        <div className="hidden items-center gap-2 text-muted-foreground sm:flex">
           <HugeiconsIcon icon={DashboardSquare01Icon} className="size-4" />
           <span className="text-sm font-medium">Realty Pipeline</span>
         </div>
       </div>
 
       <div className="flex items-center gap-2">
-        <div className="hidden lg:flex items-center">
+        <div className="hidden items-center lg:flex">
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <button className="flex -space-x-2 mr-3 cursor-pointer hover:opacity-80 transition-opacity">
+                <button className="mr-3 flex cursor-pointer -space-x-2 transition-opacity hover:opacity-80">
                   <Avatar className="size-6 border-2 border-card">
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user1" />
                     <AvatarFallback>U1</AvatarFallback>
@@ -68,21 +70,21 @@ export function DashboardHeader() {
                   </p>
                 </div>
                 <DropdownMenuItem>
-                  <Avatar className="size-5 mr-2">
+                  <Avatar className="mr-2 size-5">
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user1" />
                     <AvatarFallback>U1</AvatarFallback>
                   </Avatar>
                   <span>Maya R.</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Avatar className="size-5 mr-2">
+                  <Avatar className="mr-2 size-5">
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user2" />
                     <AvatarFallback>U2</AvatarFallback>
                   </Avatar>
                   <span>Jordan F.</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Avatar className="size-5 mr-2">
+                  <Avatar className="mr-2 size-5">
                     <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=user3" />
                     <AvatarFallback>U3</AvatarFallback>
                   </Avatar>
@@ -92,21 +94,21 @@ export function DashboardHeader() {
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <HugeiconsIcon icon={Mail01Icon} className="size-4 mr-2" />
+                  <HugeiconsIcon icon={Mail01Icon} className="mr-2 size-4" />
                   <span>Invite by email</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <HugeiconsIcon icon={Link01Icon} className="size-4 mr-2" />
+                  <HugeiconsIcon icon={Link01Icon} className="mr-2 size-4" />
                   <span>Copy invite link</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <HugeiconsIcon icon={UserGroupIcon} className="size-4 mr-2" />
+                  <HugeiconsIcon icon={UserGroupIcon} className="mr-2 size-4" />
                   <span>Manage team</span>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
-          <div className="h-5 w-px bg-border mx-2" />
+          <div className="mx-2 h-5 w-px bg-border" />
         </div>
 
         <DropdownMenu>
@@ -115,7 +117,7 @@ export function DashboardHeader() {
               <Button
                 variant="outline"
                 size="sm"
-                className="h-7 gap-1.5 hidden sm:flex"
+                className="hidden h-7 gap-1.5 sm:flex"
               >
                 <HugeiconsIcon icon={SparklesIcon} className="size-3.5" />
                 <span className="text-sm">Ask AI</span>
@@ -137,7 +139,7 @@ export function DashboardHeader() {
               <Button
                 variant="outline"
                 size="sm"
-                className="h-7 gap-1.5 hidden sm:flex"
+                className="hidden h-7 gap-1.5 sm:flex"
               >
                 <HugeiconsIcon icon={Share01Icon} className="size-3.5" />
                 <span className="text-sm">Share</span>
@@ -155,20 +157,19 @@ export function DashboardHeader() {
         </DropdownMenu>
 
         <ThemeToggle />
-
       </div>
     </header>
-  );
+  )
 }
 
 export function WelcomeSection() {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
+        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">
           Good to see you, Connor
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
+        <p className="mt-0.5 text-sm text-muted-foreground">
           Buyer activity is up ahead of this weekend&apos;s showings
         </p>
       </div>
@@ -176,16 +177,16 @@ export function WelcomeSection() {
       <div className="flex items-center gap-2">
         <Button
           variant="outline"
-          className="h-9 gap-1.5 bg-card hover:bg-card/80 border-border/50"
+          className="h-9 gap-1.5 border-border/50 bg-card hover:bg-card/80"
         >
           <HugeiconsIcon icon={FileAddIcon} className="size-4" />
           <span className="hidden sm:inline">Add Listing</span>
         </Button>
-        <Button className="h-9 gap-1.5 bg-neutral-800 hover:bg-neutral-700 text-white border border-border/50">
+        <Button className="h-9 gap-1.5 border border-border/50 bg-neutral-800 text-white hover:bg-neutral-700">
           <HugeiconsIcon icon={UserAdd01Icon} className="size-4" />
           <span className="hidden sm:inline">New Buyer</span>
         </Button>
       </div>
     </div>
-  );
+  )
 }

@@ -1,9 +1,9 @@
 export interface User {
-  id: string;
-  name: string;
-  email: string;
-  avatar: string;
-  verified?: boolean;
+  id: string
+  name: string
+  email: string
+  avatar: string
+  verified?: boolean
 }
 
 export const users: User[] = [
@@ -49,6 +49,6 @@ export const users: User[] = [
     avatar: "https://api.dicebear.com/9.x/glass/svg?seed=SOC Bot",
     verified: false,
   },
-];
+]
 
-export const currentUser = users[0];
+export const currentUser = users[0]

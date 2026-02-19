@@ -32,8 +32,8 @@ function DialogContent({
     <DialogPrimitive.Portal>
       <DialogPrimitive.Backdrop
         className={cn(
-          "fixed inset-0 z-50 bg-black/80 data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0",
-          "data-[starting-style]:opacity-0 data-[ending-style]:opacity-0"
+          "data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 fixed inset-0 z-50 bg-black/80",
+          "data-[ending-style]:opacity-0 data-[starting-style]:opacity-0"
         )}
       />
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -94,7 +94,7 @@ function DialogTitle({
     <DialogPrimitive.Title
       data-slot="dialog-title"
       className={cn(
-        "text-lg font-semibold leading-none tracking-tight",
+        "text-lg leading-none font-semibold tracking-tight",
         className
       )}
       {...props}

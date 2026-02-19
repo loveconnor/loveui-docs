@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/cursor-color.tsx",
-      "content": "\"use client\"\n\nimport {\n  Cursor,\n  CursorBody,\n  CursorMessage,\n  CursorName,\n  CursorPointer,\n} from \"../../../../../packages/cursor\"\n\nconst Example = () => (\n  <Cursor>\n    <CursorPointer className=\"text-indigo-500\" />\n    <CursorBody className=\"bg-indigo-50 text-indigo-700\">\n      <CursorName>@loveconnor</CursorName>\n      <CursorMessage>Can we adjust the color?</CursorMessage>\n    </CursorBody>\n  </Cursor>\n)\n\nexport default Example\n",
+      "content": "\"use client\"\n\nimport {\n  Cursor,\n  CursorBody,\n  CursorMessage,\n  CursorName,\n  CursorPointer,\n} from \"../../../../../packages/cursor\"\n\nconst Example = () => (\n  <Cursor>\n    <CursorPointer className=\"text-indigo-500\" />\n    <CursorBody className=\"bg-indigo-50 text-indigo-700\">\n      <CursorName>@loveconnor</CursorName>\n      <CursorMessage>Updated Can we adjust the color?</CursorMessage>\n    </CursorBody>\n  </Cursor>\n)\n\nexport default Example\n",
       "type": "registry:example"
     }
   ],

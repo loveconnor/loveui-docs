@@ -1,9 +1,20 @@
-import { create } from "zustand";
-import { locations as initialLocations, type Location } from "../mock-data/locations";
+import { create } from "zustand"
 
-type ViewMode = "map" | "list" | "split";
-type SortBy = "date-newest" | "date-oldest" | "alpha-az" | "alpha-za" | "rating" | "visits" | "nearest";
-type MapStyle = "default" | "streets" | "outdoors" | "satellite";
+import {
+  locations as initialLocations,
+  type Location,
+} from "../mock-data/locations"
+
+type ViewMode = "map" | "list" | "split"
+type SortBy =
+  | "date-newest"
+  | "date-oldest"
+  | "alpha-az"
+  | "alpha-za"
+  | "rating"
+  | "visits"
+  | "nearest"
+type MapStyle = "default" | "streets" | "outdoors" | "satellite"
 
 function calculateDistance(
   lat1: number,
@@ -11,52 +22,52 @@ function calculateDistance(
   lat2: number,
   lng2: number
 ): number {
-  const R = 6371;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const R = 6371
+  const dLat = ((lat2 - lat1) * Math.PI) / 180
+  const dLng = ((lng2 - lng1) * Math.PI) / 180
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos((lat1 * Math.PI) / 180) *
       Math.cos((lat2 * Math.PI) / 180) *
       Math.sin(dLng / 2) *
-      Math.sin(dLng / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
+      Math.sin(dLng / 2)
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+  return R * c
 }
 
 interface MapsState {
-  locations: Location[];
-  selectedCategory: string;
-  selectedTags: string[];
-  searchQuery: string;
-  viewMode: ViewMode;
-  sortBy: SortBy;
-  selectedLocationId: string | null;
-  mapCenter: { lat: number; lng: number };
-  mapZoom: number;
-  mapStyle: MapStyle;
-  userLocation: { lat: number; lng: number } | null;
-  routeDestinationId: string | null;
-  isPanelVisible: boolean;
-  setSelectedCategory: (categoryId: string) => void;
-  toggleTag: (tagId: string) => void;
-  clearTags: () => void;
-  setSearchQuery: (query: string) => void;
-  setViewMode: (mode: ViewMode) => void;
-  setSortBy: (sort: SortBy) => void;
-  toggleFavorite: (locationId: string) => void;
-  selectLocation: (locationId: string | null) => void;
-  setMapCenter: (center: { lat: number; lng: number }) => void;
-  setMapZoom: (zoom: number) => void;
-  setMapStyle: (style: MapStyle) => void;
-  setUserLocation: (location: { lat: number; lng: number } | null) => void;
-  setRouteDestination: (locationId: string | null) => void;
-  clearRoute: () => void;
-  setPanelVisible: (visible: boolean) => void;
-  resetSelectionIfNotInList: (locations: Location[]) => void;
-  getFilteredLocations: () => Location[];
-  getFavoriteLocations: () => Location[];
-  getRecentLocations: () => Location[];
+  locations: Location[]
+  selectedCategory: string
+  selectedTags: string[]
+  searchQuery: string
+  viewMode: ViewMode
+  sortBy: SortBy
+  selectedLocationId: string | null
+  mapCenter: { lat: number; lng: number }
+  mapZoom: number
+  mapStyle: MapStyle
+  userLocation: { lat: number; lng: number } | null
+  routeDestinationId: string | null
+  isPanelVisible: boolean
+  setSelectedCategory: (categoryId: string) => void
+  toggleTag: (tagId: string) => void
+  clearTags: () => void
+  setSearchQuery: (query: string) => void
+  setViewMode: (mode: ViewMode) => void
+  setSortBy: (sort: SortBy) => void
+  toggleFavorite: (locationId: string) => void
+  selectLocation: (locationId: string | null) => void
+  setMapCenter: (center: { lat: number; lng: number }) => void
+  setMapZoom: (zoom: number) => void
+  setMapStyle: (style: MapStyle) => void
+  setUserLocation: (location: { lat: number; lng: number } | null) => void
+  setRouteDestination: (locationId: string | null) => void
+  clearRoute: () => void
+  setPanelVisible: (visible: boolean) => void
+  resetSelectionIfNotInList: (locations: Location[]) => void
+  getFilteredLocations: () => Location[]
+  getFavoriteLocations: () => Location[]
+  getRecentLocations: () => Location[]
 }
 
 export const useMapsStore = create<MapsState>((set, get) => ({
@@ -75,18 +86,24 @@ export const useMapsStore = create<MapsState>((set, get) => ({
   isPanelVisible: true,
 
   setSelectedCategory: (categoryId) => {
-    const state = get();
-    const newState: Partial<MapsState> = { selectedCategory: categoryId };
+    const state = get()
+    const newState: Partial<MapsState> = { selectedCategory: categoryId }
 
     if (state.selectedLocationId) {
-      const location = state.locations.find((l) => l.id === state.selectedLocationId);
-      if (location && categoryId !== "all" && location.categoryId !== categoryId) {
-        newState.selectedLocationId = null;
-        newState.routeDestinationId = null;
+      const location = state.locations.find(
+        (l) => l.id === state.selectedLocationId
+      )
+      if (
+        location &&
+        categoryId !== "all" &&
+        location.categoryId !== categoryId
+      ) {
+        newState.selectedLocationId = null
+        newState.routeDestinationId = null
       }
     }
 
-    set(newState);
+    set(newState)
   },
 
   toggleTag: (tagId) =>
@@ -130,37 +147,37 @@ export const useMapsStore = create<MapsState>((set, get) => ({
   setPanelVisible: (visible) => set({ isPanelVisible: visible }),
 
   resetSelectionIfNotInList: (locations) => {
-    const state = get();
+    const state = get()
     if (state.selectedLocationId) {
-      const isInList = locations.some((l) => l.id === state.selectedLocationId);
+      const isInList = locations.some((l) => l.id === state.selectedLocationId)
       if (!isInList) {
-        set({ selectedLocationId: null, routeDestinationId: null });
+        set({ selectedLocationId: null, routeDestinationId: null })
       }
     }
   },
 
   getFilteredLocations: () => {
-    const state = get();
-    let filtered = [...state.locations];
+    const state = get()
+    let filtered = [...state.locations]
 
     if (state.selectedCategory !== "all") {
-      filtered = filtered.filter((l) => l.categoryId === state.selectedCategory);
+      filtered = filtered.filter((l) => l.categoryId === state.selectedCategory)
     }
 
     if (state.selectedTags.length > 0) {
       filtered = filtered.filter((l) =>
         state.selectedTags.some((tag) => l.tags.includes(tag))
-      );
+      )
     }
 
     if (state.searchQuery) {
-      const query = state.searchQuery.toLowerCase();
+      const query = state.searchQuery.toLowerCase()
       filtered = filtered.filter(
         (l) =>
           l.name.toLowerCase().includes(query) ||
           l.description.toLowerCase().includes(query) ||
           l.address.toLowerCase().includes(query)
-      );
+      )
     }
 
     switch (state.sortBy) {
@@ -172,83 +189,95 @@ export const useMapsStore = create<MapsState>((set, get) => ({
               state.userLocation!.lng,
               a.coordinates.lat,
               a.coordinates.lng
-            );
+            )
             const distB = calculateDistance(
               state.userLocation!.lat,
               state.userLocation!.lng,
               b.coordinates.lat,
               b.coordinates.lng
-            );
-            return distA - distB;
-          });
+            )
+            return distA - distB
+          })
         }
-        break;
+        break
       case "date-newest":
-        filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-        break;
+        filtered.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
+        break
       case "date-oldest":
-        filtered.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
-        break;
+        filtered.sort(
+          (a, b) =>
+            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        )
+        break
       case "alpha-az":
-        filtered.sort((a, b) => a.name.localeCompare(b.name));
-        break;
+        filtered.sort((a, b) => a.name.localeCompare(b.name))
+        break
       case "alpha-za":
-        filtered.sort((a, b) => b.name.localeCompare(a.name));
-        break;
+        filtered.sort((a, b) => b.name.localeCompare(a.name))
+        break
       case "rating":
-        filtered.sort((a, b) => b.rating - a.rating);
-        break;
+        filtered.sort((a, b) => b.rating - a.rating)
+        break
       case "visits":
-        filtered.sort((a, b) => b.visitCount - a.visitCount);
-        break;
+        filtered.sort((a, b) => b.visitCount - a.visitCount)
+        break
     }
 
-    return filtered;
+    return filtered
   },
 
   getFavoriteLocations: () => {
-    const state = get();
-    let filtered = state.locations.filter((l) => l.isFavorite);
+    const state = get()
+    let filtered = state.locations.filter((l) => l.isFavorite)
 
     if (state.selectedCategory !== "all") {
-      filtered = filtered.filter((l) => l.categoryId === state.selectedCategory);
+      filtered = filtered.filter((l) => l.categoryId === state.selectedCategory)
     }
 
     if (state.searchQuery) {
-      const query = state.searchQuery.toLowerCase();
+      const query = state.searchQuery.toLowerCase()
       filtered = filtered.filter(
         (l) =>
           l.name.toLowerCase().includes(query) ||
           l.description.toLowerCase().includes(query) ||
           l.address.toLowerCase().includes(query)
-      );
+      )
     }
 
-    filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    filtered.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
 
-    return filtered;
+    return filtered
   },
 
   getRecentLocations: () => {
-    const state = get();
-    let filtered = [...state.locations];
+    const state = get()
+    let filtered = [...state.locations]
 
     if (state.selectedCategory !== "all") {
-      filtered = filtered.filter((l) => l.categoryId === state.selectedCategory);
+      filtered = filtered.filter((l) => l.categoryId === state.selectedCategory)
     }
 
     if (state.searchQuery) {
-      const query = state.searchQuery.toLowerCase();
+      const query = state.searchQuery.toLowerCase()
       filtered = filtered.filter(
         (l) =>
           l.name.toLowerCase().includes(query) ||
           l.description.toLowerCase().includes(query) ||
           l.address.toLowerCase().includes(query)
-      );
+      )
     }
 
-    filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    filtered.sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
 
-    return filtered.slice(0, 20);
+    return filtered.slice(0, 20)
   },
-}));
+}))

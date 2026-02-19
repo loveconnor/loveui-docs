@@ -20,8 +20,8 @@ export default function AlertDialogDemo() {
         <AlertDialogHeader>
           <AlertDialogTitle>Updated Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            Updated This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Updated This action cannot be undone. This will permanently delete
+            your account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

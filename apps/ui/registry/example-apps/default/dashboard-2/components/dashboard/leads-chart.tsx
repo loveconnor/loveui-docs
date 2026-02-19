@@ -1,74 +1,76 @@
-"use client";
+"use client"
 
-import { useState, useMemo } from "react";
-import { Button } from "@loveui/ui/ui/button";
+import { useMemo, useState } from "react"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  DropdownMenuCheckboxItem,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Calendar01Icon,
   ArrowDown01Icon,
+  Calendar01Icon,
   Settings01Icon,
-} from "@hugeicons/core-free-icons";
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { useTheme } from "next-themes"
 import {
-  LineChart as RechartsLineChart,
+  Area,
+  AreaChart,
+  CartesianGrid,
   Line,
+  LineChart as RechartsLineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-} from "recharts";
-import { useTheme } from "next-themes";
+} from "recharts"
+
+import { Button } from "@loveui/ui/ui/button"
 import {
-  leadsChartDataWeek,
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
+import {
   leadsChartDataMonth,
   leadsChartDataQuarter,
-} from "../../mock-data/dashboard";
+  leadsChartDataWeek,
+} from "../../mock-data/dashboard"
 
-type ChartType = "line" | "area";
-type Period = "last_week" | "last_month" | "last_quarter";
+type ChartType = "line" | "area"
+type Period = "last_week" | "last_month" | "last_quarter"
 
 const periodLabels: Record<Period, string> = {
   last_week: "Last Week",
   last_month: "Last Month",
   last_quarter: "Last Quarter",
-};
+}
 
 const lineColors = {
   line1: "#ec4899",
   line2: "#06b6d4",
   line3: "#f97316",
   line4: "#22c55e",
-};
+}
 
 interface CustomTooltipProps {
-  active?: boolean;
+  active?: boolean
   payload?: Array<{
-    value: number;
-    dataKey: string;
-    color: string;
-  }>;
-  label?: string;
+    value: number
+    dataKey: string
+    color: string
+  }>
+  label?: string
 }
 
 function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-card border rounded-md p-3 shadow-lg">
-        <p className="text-xs text-muted-foreground mb-2">{label}</p>
+      <div className="rounded-md border bg-card p-3 shadow-lg">
+        <p className="mb-2 text-xs text-muted-foreground">{label}</p>
         <div className="grid grid-cols-2 gap-x-4 gap-y-1">
           {payload.map((entry, index) => (
             <div key={index} className="flex items-center gap-1.5">
@@ -81,62 +83,64 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
           ))}
         </div>
       </div>
-    );
+    )
   }
-  return null;
+  return null
 }
 
 export function LeadsChart() {
-  const { theme } = useTheme();
-  const [chartType, setChartType] = useState<ChartType>("line");
-  const [period, setPeriod] = useState<Period>("last_month");
-  const [showGrid, setShowGrid] = useState(true);
+  const { theme } = useTheme()
+  const [chartType, setChartType] = useState<ChartType>("line")
+  const [period, setPeriod] = useState<Period>("last_month")
+  const [showGrid, setShowGrid] = useState(true)
   const [visibleLines, setVisibleLines] = useState({
     line1: true,
     line2: true,
     line3: true,
     line4: true,
-  });
+  })
 
-  const axisColor = theme === "dark" ? "#71717a" : "#868c98";
-  const gridColor = theme === "dark" ? "#3f3f46" : "#e2e4e9";
+  const axisColor = theme === "dark" ? "#71717a" : "#868c98"
+  const gridColor = theme === "dark" ? "#3f3f46" : "#e2e4e9"
 
   const chartData = useMemo(() => {
     switch (period) {
       case "last_week":
-        return leadsChartDataWeek;
+        return leadsChartDataWeek
       case "last_month":
-        return leadsChartDataMonth;
+        return leadsChartDataMonth
       case "last_quarter":
-        return leadsChartDataQuarter;
+        return leadsChartDataQuarter
       default:
-        return leadsChartDataMonth;
+        return leadsChartDataMonth
     }
-  }, [period]);
+  }, [period])
 
   const toggleLine = (line: keyof typeof visibleLines) => {
     setVisibleLines((prev) => ({
       ...prev,
       [line]: !prev[line],
-    }));
-  };
+    }))
+  }
 
   const resetToDefault = () => {
-    setChartType("line");
-    setPeriod("last_month");
-    setShowGrid(true);
+    setChartType("line")
+    setPeriod("last_month")
+    setShowGrid(true)
     setVisibleLines({
       line1: true,
       line2: true,
       line3: true,
       line4: true,
-    });
-  };
+    })
+  }
 
   return (
-    <div className="bg-card text-card-foreground rounded-lg border flex-1">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-4 border-b border-border/50">
-        <h3 className="font-medium text-sm sm:text-base">Buyer Inquiry Trend</h3>
+    <div className="flex-1 rounded-lg border bg-card text-card-foreground">
+      <div className="flex flex-col gap-3 border-b border-border/50 p-4 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-sm font-medium sm:text-base">
+          Buyer Inquiry Trend
+        </h3>
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger
@@ -202,7 +206,7 @@ export function LeadsChart() {
                         }
                       >
                         <span
-                          className="size-2 rounded-full mr-2"
+                          className="mr-2 size-2 rounded-full"
                           style={{
                             backgroundColor:
                               lineColors[key as keyof typeof lineColors],
@@ -223,7 +227,7 @@ export function LeadsChart() {
         </div>
       </div>
       <div className="p-4">
-        <div className="h-[200px] sm:h-[250px] w-full">
+        <div className="h-[200px] w-full sm:h-[250px]">
           <ResponsiveContainer width="100%" height="100%">
             {chartType === "area" ? (
               <AreaChart
@@ -325,5 +329,5 @@ export function LeadsChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -25,7 +25,9 @@ export default function TableFramed() {
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium">Updated Website Redesign</TableCell>
+              <TableCell className="font-medium">
+                Updated Website Redesign
+              </TableCell>
               <TableCell>
                 <Badge variant="outline">
                   <span
@@ -53,7 +55,9 @@ export default function TableFramed() {
               <TableCell className="text-right">$8,750</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">Updated API Integration</TableCell>
+              <TableCell className="font-medium">
+                Updated API Integration
+              </TableCell>
               <TableCell>
                 <Badge variant="outline">
                   <span
@@ -67,7 +71,9 @@ export default function TableFramed() {
               <TableCell className="text-right">$5,200</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">Updated Database Migration</TableCell>
+              <TableCell className="font-medium">
+                Updated Database Migration
+              </TableCell>
               <TableCell>
                 <Badge variant="outline">
                   <span
@@ -81,7 +87,9 @@ export default function TableFramed() {
               <TableCell className="text-right">$3,800</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">Updated User Dashboard</TableCell>
+              <TableCell className="font-medium">
+                Updated User Dashboard
+              </TableCell>
               <TableCell>
                 <Badge variant="outline">
                   <span
@@ -95,7 +103,9 @@ export default function TableFramed() {
               <TableCell className="text-right">$7,200</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className="font-medium">Updated Security Audit</TableCell>
+              <TableCell className="font-medium">
+                Updated Security Audit
+              </TableCell>
               <TableCell>
                 <Badge variant="outline">
                   <span

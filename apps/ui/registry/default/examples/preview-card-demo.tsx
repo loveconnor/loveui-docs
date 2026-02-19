@@ -18,8 +18,8 @@ export default function PreviewCardDemo() {
           <div className="flex flex-col gap-1">
             <h4 className="text-sm font-medium">loveui/ui</h4>
             <p className="text-sm text-muted-foreground">
-              Updated Beautifully designed components that you can copy and paste into
-              your apps.
+              Updated Beautifully designed components that you can copy and
+              paste into your apps.
             </p>
           </div>
           <div className="flex items-center gap-4 text-xs text-muted-foreground">

@@ -280,8 +280,9 @@ const getPackageNameFromUri = (uri: string) => {
 };
 
 const readRegistryItem = async (packageName: string) => {
+  const normalizedName = assertSupportedRegistryName(packageName);
+
   try {
-    const normalizedName = assertSupportedRegistryName(packageName);
     const snapshotItem = await readSnapshotRegistryItem(normalizedName);
     if (snapshotItem) {
       return normalizeRegistryItemForMcp(snapshotItem);
@@ -291,6 +292,16 @@ const readRegistryItem = async (packageName: string) => {
   } catch (error) {
     if (error instanceof McpError) {
       throw error;
+    }
+
+    if (
+      error instanceof Error &&
+      error.message.startsWith(`Missing package.json for ${normalizedName}`)
+    ) {
+      throw new McpError(
+        ErrorCode.InvalidParams,
+        `Registry item "${normalizedName}" was not found. Call resources/list and use an exact item name from the registry.`
+      );
     }
 
     throw new McpError(

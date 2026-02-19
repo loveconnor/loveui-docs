@@ -1,7 +1,8 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { cn } from "../../lib/utils";
+import * as React from "react"
+
+import { cn } from "../../lib/utils"
 
 const Avatar = React.forwardRef<
   HTMLDivElement,
@@ -15,17 +16,17 @@ const Avatar = React.forwardRef<
     )}
     {...props}
   />
-));
-Avatar.displayName = "Avatar";
+))
+Avatar.displayName = "Avatar"
 
 const AvatarImage = React.forwardRef<
   HTMLImageElement,
   React.ImgHTMLAttributes<HTMLImageElement>
 >(({ className, src, alt, ...props }, ref) => {
-  const [hasError, setHasError] = React.useState(false);
+  const [hasError, setHasError] = React.useState(false)
 
   if (!src || hasError) {
-    return null;
+    return null
   }
 
   return (
@@ -37,9 +38,9 @@ const AvatarImage = React.forwardRef<
       className={cn("aspect-square size-full object-cover", className)}
       {...props}
     />
-  );
-});
-AvatarImage.displayName = "AvatarImage";
+  )
+})
+AvatarImage.displayName = "AvatarImage"
 
 const AvatarFallback = React.forwardRef<
   HTMLDivElement,
@@ -53,8 +54,7 @@ const AvatarFallback = React.forwardRef<
     )}
     {...props}
   />
-));
-AvatarFallback.displayName = "AvatarFallback";
+))
+AvatarFallback.displayName = "AvatarFallback"
 
-export { Avatar, AvatarImage, AvatarFallback };
-
+export { Avatar, AvatarImage, AvatarFallback }

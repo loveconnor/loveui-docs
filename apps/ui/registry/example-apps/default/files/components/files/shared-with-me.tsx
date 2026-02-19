@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Button } from "@loveui/ui/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@loveui/ui/ui/tooltip";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Add01Icon } from "@hugeicons/core-free-icons";
+import { Add01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@loveui/ui/ui/tooltip"
 
 const sharedUsers = [
   { name: "Maya Ortiz", avatar: "maya", initials: "MO" },
@@ -12,13 +13,13 @@ const sharedUsers = [
   { name: "Nora Singh", avatar: "nora", initials: "NS" },
   { name: "Theo Bennett", avatar: "theo", initials: "TB" },
   { name: "Ari Kim", avatar: "ari", initials: "AK" },
-];
+]
 
 export function SharedWithMe() {
   return (
     <div className="rounded-xl border bg-card p-4">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="font-medium text-sm">Field Crew</h3>
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="text-sm font-medium">Field Crew</h3>
         <span className="text-xs text-muted-foreground">
           {sharedUsers.length} collaborators
         </span>
@@ -29,7 +30,7 @@ export function SharedWithMe() {
             <Tooltip key={user.name}>
               <TooltipTrigger
                 render={
-                  <Avatar className="size-8 border-2 border-card cursor-pointer hover:z-10 transition-transform hover:scale-110">
+                  <Avatar className="size-8 cursor-pointer border-2 border-card transition-transform hover:z-10 hover:scale-110">
                     <AvatarImage
                       src={`https://api.dicebear.com/9.x/glass/svg?seed=${user.avatar}`}
                     />
@@ -46,7 +47,7 @@ export function SharedWithMe() {
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <div className="size-8 rounded-full border-2 border-card bg-muted flex items-center justify-center cursor-pointer hover:bg-muted/80 transition-colors">
+                  <div className="flex size-8 cursor-pointer items-center justify-center rounded-full border-2 border-card bg-muted transition-colors hover:bg-muted/80">
                     <span className="text-xs font-medium text-muted-foreground">
                       +{sharedUsers.length - 4}
                     </span>
@@ -62,10 +63,10 @@ export function SharedWithMe() {
             </Tooltip>
           )}
         </div>
-        <Button variant="outline" size="icon" className="size-8 ml-2">
+        <Button variant="outline" size="icon" className="ml-2 size-8">
           <HugeiconsIcon icon={Add01Icon} className="size-4" />
         </Button>
       </div>
     </div>
-  );
+  )
 }

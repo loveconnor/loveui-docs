@@ -1,25 +1,42 @@
-import { create } from "zustand";
+import { create } from "zustand"
 
-export type LeadStatus = "new" | "contacted" | "qualified" | "negotiation" | "inactive" | "recycled";
-export type LeadSource = "website" | "paid_ads" | "referral" | "social" | "email";
-export type DateFilter = "all" | "today" | "yesterday" | "last_7_days" | "last_30_days" | "this_month";
+export type LeadStatus =
+  | "new"
+  | "contacted"
+  | "qualified"
+  | "negotiation"
+  | "inactive"
+  | "recycled"
+export type LeadSource =
+  | "website"
+  | "paid_ads"
+  | "referral"
+  | "social"
+  | "email"
+export type DateFilter =
+  | "all"
+  | "today"
+  | "yesterday"
+  | "last_7_days"
+  | "last_30_days"
+  | "this_month"
 
 interface LeadsState {
-  searchQuery: string;
-  statusFilter: LeadStatus | "all";
-  sourceFilter: LeadSource | "all";
-  ownerFilter: string;
-  dateFilter: DateFilter;
-  currentPage: number;
-  itemsPerPage: number;
-  setSearchQuery: (query: string) => void;
-  setStatusFilter: (filter: LeadStatus | "all") => void;
-  setSourceFilter: (filter: LeadSource | "all") => void;
-  setOwnerFilter: (filter: string) => void;
-  setDateFilter: (filter: DateFilter) => void;
-  setCurrentPage: (page: number) => void;
-  setItemsPerPage: (items: number) => void;
-  clearFilters: () => void;
+  searchQuery: string
+  statusFilter: LeadStatus | "all"
+  sourceFilter: LeadSource | "all"
+  ownerFilter: string
+  dateFilter: DateFilter
+  currentPage: number
+  itemsPerPage: number
+  setSearchQuery: (query: string) => void
+  setStatusFilter: (filter: LeadStatus | "all") => void
+  setSourceFilter: (filter: LeadSource | "all") => void
+  setOwnerFilter: (filter: string) => void
+  setDateFilter: (filter: DateFilter) => void
+  setCurrentPage: (page: number) => void
+  setItemsPerPage: (items: number) => void
+  clearFilters: () => void
 }
 
 export const useLeadsStore = create<LeadsState>((set) => ({
@@ -46,4 +63,4 @@ export const useLeadsStore = create<LeadsState>((set) => ({
       dateFilter: "this_month",
       currentPage: 1,
     }),
-}));
+}))

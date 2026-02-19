@@ -1,25 +1,25 @@
-"use client";
+"use client"
 
-import { Event } from "../../mock-data/events";
+import { Event } from "../../mock-data/events"
 import {
-  HOURS_24,
-  HOUR_HEIGHT,
-  getEventTop,
   getEventHeight,
-} from "./calendar-utils";
-import { EventCard } from "./event-card";
-import { CurrentTimeIndicator } from "./current-time-indicator";
+  getEventTop,
+  HOUR_HEIGHT,
+  HOURS_24,
+} from "./calendar-utils"
+import { CurrentTimeIndicator } from "./current-time-indicator"
+import { EventCard } from "./event-card"
 
 interface CalendarDayColumnProps {
-  day: Date;
-  dayIndex: number;
-  events: Event[];
-  today: Date;
-  isTodayInWeek: boolean;
-  currentTime: Date;
-  onScroll: (index: number) => (e: React.UIEvent<HTMLDivElement>) => void;
-  scrollRef: (el: HTMLDivElement | null) => void;
-  onEventClick: (event: Event) => void;
+  day: Date
+  dayIndex: number
+  events: Event[]
+  today: Date
+  isTodayInWeek: boolean
+  currentTime: Date
+  onScroll: (index: number) => (e: React.UIEvent<HTMLDivElement>) => void
+  scrollRef: (el: HTMLDivElement | null) => void
+  onEventClick: (event: Event) => void
 }
 
 export function CalendarDayColumn({
@@ -37,7 +37,7 @@ export function CalendarDayColumn({
     <div
       ref={scrollRef}
       onScroll={onScroll(dayIndex)}
-      className="flex-1 border-r border-border last:border-r-0 relative min-w-44 overflow-y-auto"
+      className="relative min-w-44 flex-1 overflow-y-auto border-r border-border last:border-r-0"
     >
       {HOURS_24.map((hour) => (
         <div
@@ -55,8 +55,8 @@ export function CalendarDayColumn({
       />
 
       {events.map((event) => {
-        const top = getEventTop(event.startTime);
-        const height = getEventHeight(event.startTime, event.endTime);
+        const top = getEventTop(event.startTime)
+        const height = getEventHeight(event.startTime, event.endTime)
 
         return (
           <EventCard
@@ -68,8 +68,8 @@ export function CalendarDayColumn({
             }}
             onClick={() => onEventClick(event)}
           />
-        );
+        )
       })}
     </div>
-  );
+  )
 }

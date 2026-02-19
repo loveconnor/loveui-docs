@@ -1,31 +1,33 @@
-"use client";
+"use client"
 
 import {
-  IconMailPlus,
-  IconInbox,
-  IconSend,
-  IconFileText,
-  IconStar,
-  IconArchive,
-  IconTrash,
   IconAlertTriangle,
+  IconArchive,
   IconAsterisk,
+  IconFileText,
+  IconInbox,
+  IconMailPlus,
   IconMenu2,
-} from "@tabler/icons-react";
-import { Button } from "@loveui/ui/ui/button";
-import { Separator } from "@loveui/ui/ui/separator";
-import { useEmailsStore } from "../../store/emails-store";
-import { cn } from "../../lib/utils";
+  IconSend,
+  IconStar,
+  IconTrash,
+} from "@tabler/icons-react"
+
+import { Button } from "@loveui/ui/ui/button"
+import { Separator } from "@loveui/ui/ui/separator"
+
+import { cn } from "../../lib/utils"
+import { useEmailsStore } from "../../store/emails-store"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../ui/dropdown-menu"
 
 export function EmailsHorizontalNav() {
-  const { emails, currentFolder, setFolder } = useEmailsStore();
+  const { emails, currentFolder, setFolder } = useEmailsStore()
 
   const mainFolders = [
     {
@@ -43,34 +45,34 @@ export function EmailsHorizontalNav() {
     },
     { id: "starred", label: "Watchlist", icon: IconStar, count: undefined },
     { id: "archive", label: "Resolved", icon: IconArchive, count: undefined },
-  ];
+  ]
 
   const additionalFolders = [
     { id: "deleted", label: "Discarded", icon: IconTrash, count: undefined },
     { id: "spam", label: "Noise", icon: IconAlertTriangle, count: undefined },
     { id: "junk", label: "Low Priority", icon: IconAsterisk, count: undefined },
-  ];
+  ]
 
-  const allFolders = [...mainFolders, ...additionalFolders];
+  const allFolders = [...mainFolders, ...additionalFolders]
 
   return (
     <div className="flex h-[54px] items-center border-b border-border bg-background px-3 md:px-4">
-      <div className="flex items-center gap-2 md:gap-3 w-full">
+      <div className="flex w-full items-center gap-2 md:gap-3">
         <Button
           size="sm"
           className="relative h-[30px] shrink-0 overflow-hidden bg-linear-to-r from-white to-white hover:opacity-90"
         >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(205,175,250,1),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(129,169,248,1),transparent_50%),radial-gradient(ellipse_at_top_left,rgba(247,203,191,1),transparent_50%),radial-gradient(ellipse_at_bottom_left,rgba(164,252,245,1),transparent_50%)]" />
           <IconMailPlus className="relative size-4 text-black" stroke={1.5} />
-          <span className="relative hidden sm:inline text-black">Escalate</span>
+          <span className="relative hidden text-black sm:inline">Escalate</span>
         </Button>
 
-        <Separator orientation="vertical" className="h-5 hidden sm:block" />
+        <Separator orientation="vertical" className="hidden h-5 sm:block" />
 
-        <div className="hidden 2xl:flex items-center gap-2.5 flex-1">
+        <div className="hidden flex-1 items-center gap-2.5 2xl:flex">
           {allFolders.map((folder) => {
-            const Icon = folder.icon;
-            const isActive = currentFolder === folder.id;
+            const Icon = folder.icon
+            const isActive = currentFolder === folder.id
 
             return (
               <Button
@@ -89,14 +91,14 @@ export function EmailsHorizontalNav() {
                   <span className="text-[12px]">{folder.count}</span>
                 )}
               </Button>
-            );
+            )
           })}
         </div>
 
-        <div className="hidden xl:flex 2xl:hidden items-center gap-2.5 flex-1">
+        <div className="hidden flex-1 items-center gap-2.5 xl:flex 2xl:hidden">
           {mainFolders.map((folder) => {
-            const Icon = folder.icon;
-            const isActive = currentFolder === folder.id;
+            const Icon = folder.icon
+            const isActive = currentFolder === folder.id
 
             return (
               <Button
@@ -115,7 +117,7 @@ export function EmailsHorizontalNav() {
                   <span className="text-[12px]">{folder.count}</span>
                 )}
               </Button>
-            );
+            )
           })}
 
           <Separator orientation="vertical" className="h-5" />
@@ -129,8 +131,8 @@ export function EmailsHorizontalNav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               {additionalFolders.map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -141,16 +143,16 @@ export function EmailsHorizontalNav() {
                     <Icon className="size-4" stroke={1.5} />
                     <span>{folder.label}</span>
                   </DropdownMenuItem>
-                );
+                )
               })}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
 
-        <div className="hidden lg:flex xl:hidden items-center gap-2.5 flex-1">
+        <div className="hidden flex-1 items-center gap-2.5 lg:flex xl:hidden">
           {mainFolders.slice(0, 3).map((folder) => {
-            const Icon = folder.icon;
-            const isActive = currentFolder === folder.id;
+            const Icon = folder.icon
+            const isActive = currentFolder === folder.id
 
             return (
               <Button
@@ -169,7 +171,7 @@ export function EmailsHorizontalNav() {
                   <span className="text-[12px]">{folder.count}</span>
                 )}
               </Button>
-            );
+            )
           })}
 
           <Separator orientation="vertical" className="h-5" />
@@ -183,8 +185,8 @@ export function EmailsHorizontalNav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               {mainFolders.slice(3).map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -195,12 +197,12 @@ export function EmailsHorizontalNav() {
                     <Icon className="size-4" stroke={1.5} />
                     <span>{folder.label}</span>
                   </DropdownMenuItem>
-                );
+                )
               })}
               <DropdownMenuSeparator />
               {additionalFolders.map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -211,16 +213,16 @@ export function EmailsHorizontalNav() {
                     <Icon className="size-4" stroke={1.5} />
                     <span>{folder.label}</span>
                   </DropdownMenuItem>
-                );
+                )
               })}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
 
-        <div className="hidden md:flex lg:hidden items-center gap-2 flex-1">
+        <div className="hidden flex-1 items-center gap-2 md:flex lg:hidden">
           {mainFolders.slice(0, 2).map((folder) => {
-            const Icon = folder.icon;
-            const isActive = currentFolder === folder.id;
+            const Icon = folder.icon
+            const isActive = currentFolder === folder.id
 
             return (
               <Button
@@ -236,7 +238,7 @@ export function EmailsHorizontalNav() {
                 <Icon className="size-4" stroke={1.5} />
                 <span className="text-[13px]">{folder.label}</span>
               </Button>
-            );
+            )
           })}
 
           <Separator orientation="vertical" className="h-5" />
@@ -249,8 +251,8 @@ export function EmailsHorizontalNav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               {mainFolders.slice(2).map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -266,12 +268,12 @@ export function EmailsHorizontalNav() {
                       </span>
                     )}
                   </DropdownMenuItem>
-                );
+                )
               })}
               <DropdownMenuSeparator />
               {additionalFolders.map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -282,13 +284,13 @@ export function EmailsHorizontalNav() {
                     <Icon className="size-4" stroke={1.5} />
                     <span>{folder.label}</span>
                   </DropdownMenuItem>
-                );
+                )
               })}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
 
-        <div className="flex md:hidden items-center gap-2 flex-1">
+        <div className="flex flex-1 items-center gap-2 md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="h-[30px] gap-1.5">
@@ -298,8 +300,8 @@ export function EmailsHorizontalNav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
               {mainFolders.map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -315,12 +317,12 @@ export function EmailsHorizontalNav() {
                       </span>
                     )}
                   </DropdownMenuItem>
-                );
+                )
               })}
               <DropdownMenuSeparator />
               {additionalFolders.map((folder) => {
-                const Icon = folder.icon;
-                const isActive = currentFolder === folder.id;
+                const Icon = folder.icon
+                const isActive = currentFolder === folder.id
 
                 return (
                   <DropdownMenuItem
@@ -331,12 +333,12 @@ export function EmailsHorizontalNav() {
                     <Icon className="size-4" stroke={1.5} />
                     <span>{folder.label}</span>
                   </DropdownMenuItem>
-                );
+                )
               })}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
     </div>
-  );
+  )
 }

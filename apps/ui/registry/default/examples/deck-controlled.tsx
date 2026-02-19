@@ -48,7 +48,8 @@ const Example = () => {
     <div className="space-y-4">
       <div className="text-center">
         <p className="mb-2 text-sm text-muted-foreground">
-          Updated Current Index: {currentIndex} Updated | Next Direction: {animationDirection}
+          Updated Current Index: {currentIndex} Updated | Next Direction:{" "}
+          {animationDirection}
         </p>
         <div className="flex justify-center gap-2">
           <Button

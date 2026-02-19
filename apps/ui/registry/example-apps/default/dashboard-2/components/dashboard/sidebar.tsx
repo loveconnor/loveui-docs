@@ -1,7 +1,48 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import Link from "next/link";
+import * as React from "react"
+import Link from "next/link"
+import {
+  Add01Icon,
+  ArrowDown01Icon,
+  ArrowRight01Icon,
+  Building02Icon,
+  Calendar01Icon,
+  DashboardSquare01Icon,
+  File01Icon,
+  FileEmpty01Icon,
+  Folder01Icon,
+  Globe02Icon,
+  HeadphonesIcon,
+  Layers01Icon,
+  Logout01Icon,
+  Mail01Icon,
+  Notification01Icon,
+  Search01Icon,
+  Settings01Icon,
+  SourceCodeIcon,
+  Task01Icon,
+  UnfoldMoreIcon,
+  UserAdd01Icon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@loveui/ui/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@loveui/ui/ui/collapsible"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
 import {
   Sidebar,
   SidebarContent,
@@ -15,46 +56,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "../ui/sidebar";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@loveui/ui/ui/collapsible";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Search01Icon,
-  Mail01Icon,
-  DashboardSquare01Icon,
-  Task01Icon,
-  Layers01Icon,
-  Calendar01Icon,
-  File01Icon,
-  UserGroupIcon,
-  Building02Icon,
-  Globe02Icon,
-  Folder01Icon,
-  FileEmpty01Icon,
-  Notification01Icon,
-  SourceCodeIcon,
-  HeadphonesIcon,
-  Add01Icon,
-  ArrowDown01Icon,
-  ArrowRight01Icon,
-  UnfoldMoreIcon,
-  Settings01Icon,
-  UserAdd01Icon,
-  Logout01Icon,
-} from "@hugeicons/core-free-icons";
-import { Button } from "@loveui/ui/ui/button";
+} from "../ui/sidebar"
 
 const navItems = [
   { title: "Search", icon: Search01Icon, shortcut: "/" },
@@ -66,7 +68,7 @@ const navItems = [
   { title: "Contracts", icon: File01Icon },
   { title: "Agent Teams", icon: UserGroupIcon },
   { title: "Brokerage", icon: Building02Icon },
-];
+]
 
 const workgroups = [
   {
@@ -90,7 +92,7 @@ const workgroups = [
   { id: "market-alerts", name: "Market Alerts", icon: Notification01Icon },
   { id: "mls-sync", name: "MLS Sync", icon: SourceCodeIcon },
   { id: "buyer-support", name: "Buyer Support", icon: HeadphonesIcon },
-];
+]
 
 export function DashboardSidebar({
   ...props
@@ -98,22 +100,22 @@ export function DashboardSidebar({
   const [expandedItems, setExpandedItems] = React.useState<string[]>([
     "all-work",
     "luxury-homes",
-  ]);
+  ])
 
   const toggleItem = (id: string) => {
     setExpandedItems((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
+    )
+  }
 
   const renderWorkgroupItem = (
     item: (typeof workgroups)[0],
     level: number = 0
   ) => {
-    const hasChildren = "children" in item && item.children;
-    const isExpanded = expandedItems.includes(item.id);
-    const Icon = item.icon;
-    const paddingLeft = level * 12;
+    const hasChildren = "children" in item && item.children
+    const isExpanded = expandedItems.includes(item.id)
+    const Icon = item.icon
+    const paddingLeft = level * 12
 
     if (hasChildren) {
       return (
@@ -154,7 +156,7 @@ export function DashboardSidebar({
             </CollapsibleContent>
           </SidebarMenuItem>
         </Collapsible>
-      );
+      )
     }
 
     return (
@@ -167,8 +169,8 @@ export function DashboardSidebar({
           <span>{item.name}</span>
         </SidebarMenuButton>
       </SidebarMenuItem>
-    );
-  };
+    )
+  }
 
   return (
     <Sidebar className="lg:border-r-0!" collapsible="icon" {...props}>
@@ -176,13 +178,16 @@ export function DashboardSidebar({
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <button className="flex items-center gap-2.5 w-full hover:bg-sidebar-accent rounded-md p-1 -m-1 transition-colors shrink-0">
-                <div className="flex size-7 items-center justify-center rounded-lg bg-foreground text-background shrink-0">
+              <button className="-m-1 flex w-full shrink-0 items-center gap-2.5 rounded-md p-1 transition-colors hover:bg-sidebar-accent">
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-foreground text-background">
                   <span className="text-sm font-bold">R</span>
                 </div>
                 <div className="flex items-center gap-1 group-data-[collapsible=icon]:hidden">
                   <span className="text-sm font-medium">Harbor Realty</span>
-                  <HugeiconsIcon icon={UnfoldMoreIcon} className="size-3 text-muted-foreground" />
+                  <HugeiconsIcon
+                    icon={UnfoldMoreIcon}
+                    className="size-3 text-muted-foreground"
+                  />
                 </div>
               </button>
             }
@@ -232,8 +237,8 @@ export function DashboardSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup className="p-0 mt-4">
-          <SidebarGroupLabel className="flex items-center justify-between px-0 h-6">
+        <SidebarGroup className="mt-4 p-0">
+          <SidebarGroupLabel className="flex h-6 items-center justify-between px-0">
             <span className="text-[10px] font-medium tracking-wider text-muted-foreground">
               Workgroups
             </span>
@@ -259,7 +264,6 @@ export function DashboardSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-
     </Sidebar>
-  );
+  )
 }

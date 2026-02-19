@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/frame-demo.tsx",
-      "content": "import {\n  Frame,\n  FrameDescription,\n  FrameHeader,\n  FramePanel,\n  FrameTitle,\n} from \"@/registry/default/ui/frame\"\n\nexport default function FrameDemo() {\n  return (\n    <Frame className=\"w-full\">\n      <FrameHeader>\n        <FrameTitle>Section header</FrameTitle>\n        <FrameDescription>Brief description about the section</FrameDescription>\n      </FrameHeader>\n      <FramePanel>\n        <h2 className=\"text-sm font-semibold\">Section title</h2>\n        <p className=\"text-sm text-muted-foreground\">Section description</p>\n      </FramePanel>\n    </Frame>\n  )\n}\n",
+      "content": "import {\n  Frame,\n  FrameDescription,\n  FrameHeader,\n  FramePanel,\n  FrameTitle,\n} from \"@/registry/default/ui/frame\"\n\nexport default function FrameDemo() {\n  return (\n    <Frame className=\"w-full\">\n      <FrameHeader>\n        <FrameTitle>Updated Section header</FrameTitle>\n        <FrameDescription>\n          Updated Brief description about the section\n        </FrameDescription>\n      </FrameHeader>\n      <FramePanel>\n        <h2 className=\"text-sm font-semibold\">Updated Section title</h2>\n        <p className=\"text-sm text-muted-foreground\">\n          Updated Section description\n        </p>\n      </FramePanel>\n    </Frame>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

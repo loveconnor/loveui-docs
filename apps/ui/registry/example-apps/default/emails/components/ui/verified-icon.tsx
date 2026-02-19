@@ -13,6 +13,5 @@ export function VerifiedIcon({ className }: { className?: string }) {
         fill="#38BDF8"
       />
     </svg>
-  );
+  )
 }
-

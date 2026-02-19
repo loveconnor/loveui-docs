@@ -1,18 +1,16 @@
-"use client";
+"use client"
 
-import { Button } from "@loveui/ui/ui/button";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  FileExportIcon,
-  ArrowDown01Icon,
-} from "@hugeicons/core-free-icons";
+import { ArrowDown01Icon, FileExportIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@loveui/ui/ui/button"
 
 export function AlertBanner() {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      <div className="flex items-start sm:items-center gap-4">
+    <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+      <div className="flex items-start gap-4 sm:items-center">
         <span className="text-4xl">🗒️</span>
-        <p className="text-sm sm:text-base leading-relaxed">
+        <p className="text-sm leading-relaxed sm:text-base">
           <span className="text-muted-foreground">You have </span>
           <span className="font-semibold">9 ICU Coverage Gaps,</span>
           <span> and </span>
@@ -25,12 +23,15 @@ export function AlertBanner() {
           <HugeiconsIcon icon={FileExportIcon} className="size-4" />
           Export
         </Button>
-        <Button size="sm" className="gap-2 bg-foreground text-background hover:bg-foreground/90">
+        <Button
+          size="sm"
+          className="gap-2 bg-foreground text-background hover:bg-foreground/90"
+        >
           New
           <span className="h-4 w-px bg-background/20" />
           <HugeiconsIcon icon={ArrowDown01Icon} className="size-4" />
         </Button>
       </div>
     </div>
-  );
+  )
 }

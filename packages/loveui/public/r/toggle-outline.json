@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/toggle-outline.tsx",
-      "content": "import { Toggle } from \"@/registry/default/ui/toggle\"\n\nexport default function ToggleOutline() {\n  return <Toggle variant=\"outline\">Outline Toggle</Toggle>\n}\n",
+      "content": "import { Toggle } from \"@/registry/default/ui/toggle\"\n\nexport default function ToggleOutline() {\n  return <Toggle variant=\"outline\">Updated Outline Toggle</Toggle>\n}\n",
       "type": "registry:example"
     }
   ],

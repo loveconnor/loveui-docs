@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { MapView } from "../../components/dashboard/map-view";
-import { ListingsPanel } from "../../components/dashboard/listings-panel";
-import { MapControls } from "../../components/dashboard/map-controls";
+import { ListingsPanel } from "../../components/dashboard/listings-panel"
+import { MapControls } from "../../components/dashboard/map-controls"
+import { MapView } from "../../components/dashboard/map-view"
 
 export default function RentalsPage() {
   return (
@@ -11,5 +11,5 @@ export default function RentalsPage() {
       <ListingsPanel />
       <MapControls />
     </div>
-  );
+  )
 }

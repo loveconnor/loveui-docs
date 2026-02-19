@@ -14,18 +14,23 @@ export const ui: Registry["items"] = [
       "@loveui/breadcrumb",
       "@loveui/button",
       "@loveui/card",
+      "@loveui/chart",
       "@loveui/checkbox",
       "@loveui/checkbox-group",
       "@loveui/collapsible",
       "@loveui/combobox",
+      "@loveui/context-menu",
       "@loveui/dialog",
       "@loveui/empty",
       "@loveui/field",
+      "@loveui/field-2",
       "@loveui/fieldset",
       "@loveui/form",
       "@loveui/frame",
       "@loveui/group",
       "@loveui/input",
+      "@loveui/input-group",
+      "@loveui/kbd",
       "@loveui/label",
       "@loveui/menu",
       "@loveui/meter",
@@ -200,6 +205,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "chart",
+    type: "registry:ui",
+    dependencies: ["recharts"],
+    files: [
+      {
+        path: "ui/chart.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "checkbox",
     type: "registry:ui",
     dependencies: ["@base-ui-components/react"],
@@ -245,6 +261,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "context-menu",
+    type: "registry:ui",
+    dependencies: ["lucide-react", "radix-ui"],
+    files: [
+      {
+        path: "ui/context-menu.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "dialog",
     type: "registry:ui",
     dependencies: ["@base-ui-components/react"],
@@ -283,6 +310,18 @@ export const ui: Registry["items"] = [
         "destructive-foreground": "oklch(0.704 0.191 22.216)",
       },
     },
+  },
+  {
+    name: "field-2",
+    type: "registry:ui",
+    dependencies: ["class-variance-authority"],
+    registryDependencies: ["@loveui/label", "@loveui/separator"],
+    files: [
+      {
+        path: "ui/field-2.tsx",
+        type: "registry:ui",
+      },
+    ],
   },
   {
     name: "fieldset",
@@ -335,6 +374,32 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/input.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "input-group",
+    type: "registry:ui",
+    dependencies: ["class-variance-authority"],
+    registryDependencies: [
+      "@loveui/button",
+      "@loveui/input",
+      "@loveui/textarea",
+    ],
+    files: [
+      {
+        path: "ui/input-group.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "kbd",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/kbd.tsx",
         type: "registry:ui",
       },
     ],

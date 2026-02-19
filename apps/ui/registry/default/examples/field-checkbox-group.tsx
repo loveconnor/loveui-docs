@@ -30,7 +30,9 @@ export default function FieldCheckboxGroupDemo() {
           <Checkbox value="svelte" /> Updated Svelte
         </FieldLabel>
       </CheckboxGroup>
-      <FieldDescription>Updated Select one or more frameworks.</FieldDescription>
+      <FieldDescription>
+        Updated Select one or more frameworks.
+      </FieldDescription>
     </Field>
   )
 }

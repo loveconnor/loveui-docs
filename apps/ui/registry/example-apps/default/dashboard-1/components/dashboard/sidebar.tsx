@@ -1,7 +1,43 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import Link from "next/link";
+import * as React from "react"
+import Link from "next/link"
+import {
+  Add01Icon,
+  ArrowDown01Icon,
+  ArrowRight01Icon,
+  Calendar01Icon,
+  Cancel01Icon,
+  Coins01Icon,
+  Comment01Icon,
+  DashboardSquare01Icon,
+  Folder01Icon,
+  HelpCircleIcon,
+  Invoice01Icon,
+  Logout01Icon,
+  Notification01Icon,
+  Search01Icon,
+  Settings01Icon,
+  Task01Icon,
+  Tick01Icon,
+  UserGroupIcon,
+  UserIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import { Input } from "@loveui/ui/ui/input"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
+import { cn } from "../../lib/utils"
 import {
   Sidebar,
   SidebarContent,
@@ -12,41 +48,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "../ui/sidebar";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Button } from "@loveui/ui/ui/button";
-import { Input } from "@loveui/ui/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { cn } from "../../lib/utils";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  DashboardSquare01Icon,
-  Notification01Icon,
-  UserGroupIcon,
-  Calendar01Icon,
-  Coins01Icon,
-  Invoice01Icon,
-  Task01Icon,
-  Folder01Icon,
-  ArrowDown01Icon,
-  Search01Icon,
-  Settings01Icon,
-  HelpCircleIcon,
-  ArrowRight01Icon,
-  Cancel01Icon,
-  Comment01Icon,
-  Add01Icon,
-  Tick01Icon,
-  UserIcon,
-  Logout01Icon,
-} from "@hugeicons/core-free-icons";
+} from "../ui/sidebar"
 
 const menuItems = [
   { icon: DashboardSquare01Icon, label: "Dashboard", active: true },
@@ -56,25 +58,25 @@ const menuItems = [
   { icon: Coins01Icon, label: "Unit Budgets" },
   { icon: Invoice01Icon, label: "Claims" },
   { icon: Task01Icon, label: "Safety Checks" },
-];
+]
 
 const favorites = [
   { icon: Folder01Icon, label: "ER Coverage" },
   { icon: Folder01Icon, label: "ICU Staffing" },
   { icon: Folder01Icon, label: "Discharge Ops" },
-];
+]
 
 const footerItems = [
   { icon: Comment01Icon, label: "Feedback" },
   { icon: Settings01Icon, label: "Settings" },
   { icon: HelpCircleIcon, label: "Help Center" },
-];
+]
 
 export function DashboardSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const [favoritesOpen, setFavoritesOpen] = React.useState(true);
-  const [showUpgradeModal, setShowUpgradeModal] = React.useState(true);
+  const [favoritesOpen, setFavoritesOpen] = React.useState(true)
+  const [showUpgradeModal, setShowUpgradeModal] = React.useState(true)
 
   return (
     <Sidebar collapsible="offExamples" className="lg:border-r-0!" {...props}>
@@ -82,7 +84,7 @@ export function DashboardSidebar({
         <div className="flex items-center justify-between">
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-2 outline-none">
-              <div className="size-7 rounded-full overflow-hidden bg-linear-to-br from-purple-400 via-pink-500 to-red-500 flex items-center justify-center ring-1 ring-white/40 shadow-lg" />
+              <div className="flex size-7 items-center justify-center overflow-hidden rounded-full bg-linear-to-br from-purple-400 via-pink-500 to-red-500 shadow-lg ring-1 ring-white/40" />
               <span className="font-medium text-muted-foreground">
                 Riverbend Health
               </span>
@@ -93,20 +95,20 @@ export function DashboardSidebar({
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
               <DropdownMenuGroup>
-                <p className="text-muted-foreground px-2 py-1.5 text-xs font-medium">
+                <p className="px-2 py-1.5 text-xs font-medium text-muted-foreground">
                   Workspaces
                 </p>
                 <DropdownMenuItem>
-                  <div className="size-5 rounded-full bg-linear-to-br from-purple-400 via-pink-500 to-red-500 mr-2" />
+                  <div className="mr-2 size-5 rounded-full bg-linear-to-br from-purple-400 via-pink-500 to-red-500" />
                   Main Campus
-                  <HugeiconsIcon icon={Tick01Icon} className="size-4 ml-auto" />
+                  <HugeiconsIcon icon={Tick01Icon} className="ml-auto size-4" />
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <div className="size-5 rounded-full bg-linear-to-br from-blue-400 to-cyan-500 mr-2" />
+                  <div className="mr-2 size-5 rounded-full bg-linear-to-br from-blue-400 to-cyan-500" />
                   East Wing
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <div className="size-5 rounded-full bg-linear-to-br from-green-400 to-emerald-500 mr-2" />
+                  <div className="mr-2 size-5 rounded-full bg-linear-to-br from-green-400 to-emerald-500" />
                   Outpatient Center
                 </DropdownMenuItem>
               </DropdownMenuGroup>
@@ -114,7 +116,7 @@ export function DashboardSidebar({
               <DropdownMenuSeparator />
 
               <DropdownMenuItem>
-                <HugeiconsIcon icon={Add01Icon} className="size-4 mr-2" />
+                <HugeiconsIcon icon={Add01Icon} className="mr-2 size-4" />
                 Create Workspace
               </DropdownMenuItem>
 
@@ -122,13 +124,13 @@ export function DashboardSidebar({
 
               <DropdownMenuGroup>
                 <DropdownMenuItem>
-                  <HugeiconsIcon icon={UserIcon} className="size-4 mr-2" />
+                  <HugeiconsIcon icon={UserIcon} className="mr-2 size-4" />
                   Account Settings
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <HugeiconsIcon
                     icon={Settings01Icon}
-                    className="size-4 mr-2"
+                    className="mr-2 size-4"
                   />
                   Workspace Settings
                 </DropdownMenuItem>
@@ -137,7 +139,7 @@ export function DashboardSidebar({
               <DropdownMenuSeparator />
 
               <DropdownMenuItem className="text-destructive">
-                <HugeiconsIcon icon={Logout01Icon} className="size-4 mr-2" />
+                <HugeiconsIcon icon={Logout01Icon} className="mr-2 size-4" />
                 Log out
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -153,13 +155,13 @@ export function DashboardSidebar({
         <div className="relative mb-4">
           <HugeiconsIcon
             icon={Search01Icon}
-            className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
+            className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"
           />
           <Input
             placeholder="Search Anything..."
-            className="pl-9 pr-10 h-9 bg-background"
+            className="h-9 bg-background pr-10 pl-9"
           />
-          <div className="absolute right-2 top-1/2 -translate-y-1/2 bg-muted px-1.5 py-0.5 rounded text-[11px] text-muted-foreground font-medium">
+          <div className="absolute top-1/2 right-2 -translate-y-1/2 rounded bg-muted px-1.5 py-0.5 text-[11px] font-medium text-muted-foreground">
             ⌘K
           </div>
         </div>
@@ -176,7 +178,7 @@ export function DashboardSidebar({
                     <HugeiconsIcon icon={item.icon} className="size-5" />
                     <span className="flex-1">{item.label}</span>
                     {item.badge && (
-                      <span className="bg-red-500 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded-full">
+                      <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold text-white">
                         {item.badge}
                       </span>
                     )}
@@ -197,7 +199,7 @@ export function DashboardSidebar({
           <SidebarGroupLabel className="flex items-center gap-1.5 px-0 text-[10px] font-semibold tracking-wider text-muted-foreground">
             <button
               onClick={() => setFavoritesOpen(!favoritesOpen)}
-              className="flex items-center gap-1.5 cursor-pointer"
+              className="flex cursor-pointer items-center gap-1.5"
             >
               <HugeiconsIcon
                 icon={ArrowDown01Icon}
@@ -231,20 +233,22 @@ export function DashboardSidebar({
         </SidebarGroup>
 
         {showUpgradeModal && (
-          <div className="relative mt-4 p-5 rounded-2xl border bg-card shadow-lg">
+          <div className="relative mt-4 rounded-2xl border bg-card p-5 shadow-lg">
             <Button
               variant="ghost"
               size="icon-sm"
-              className="absolute right-3 top-3 bg-muted"
+              className="absolute top-3 right-3 bg-muted"
               onClick={() => setShowUpgradeModal(false)}
             >
               <HugeiconsIcon icon={Cancel01Icon} className="size-3" />
             </Button>
-            <p className="font-semibold text-sm mb-2">🏥 3 high-priority units</p>
-            <div className="w-full bg-muted rounded-sm h-1.5 mb-2">
-              <div className="bg-foreground h-full rounded-sm w-[62%]" />
+            <p className="mb-2 text-sm font-semibold">
+              🏥 3 high-priority units
+            </p>
+            <div className="mb-2 h-1.5 w-full rounded-sm bg-muted">
+              <div className="h-full w-[62%] rounded-sm bg-foreground" />
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="mb-4 text-sm text-muted-foreground">
               Reassign floating nurses to maintain patient-to-staff ratios
             </p>
             <Link
@@ -272,7 +276,6 @@ export function DashboardSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-
     </Sidebar>
-  );
+  )
 }

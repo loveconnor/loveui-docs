@@ -1,52 +1,55 @@
-"use client";
+"use client"
 
-import * as React from "react";
+import * as React from "react"
 import {
-  Search,
-  X,
-  Heart,
-  Star,
-  MapPin,
   ArrowUpDown,
   Check,
-  Grid3x3,
-  List,
   DollarSign,
-  TrendingUp,
-  Sparkles,
+  Grid3x3,
+  Heart,
+  List,
+  MapPin,
   MessageSquare,
-} from "lucide-react";
-import { useRentalsStore } from "../../store/rentals-store";
-import { type Listing, propertyTypeLabels } from "../../mock-data/listings";
-import { Button } from "@loveui/ui/ui/button";
-import { Input } from "@loveui/ui/ui/input";
-import { Badge } from "@loveui/ui/ui/badge";
+  Search,
+  Sparkles,
+  Star,
+  TrendingUp,
+  X,
+} from "lucide-react"
+import { useMediaQuery } from "usehooks-ts"
+
+import { Badge } from "@loveui/ui/ui/badge"
+import { Button } from "@loveui/ui/ui/button"
+import { Input } from "@loveui/ui/ui/input"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
+} from "@loveui/ui/ui/menu"
+
+import { SidebarTrigger } from "@/components/ui/sidebar"
+
+import { cn } from "../../lib/utils"
+import { propertyTypeLabels, type Listing } from "../../mock-data/listings"
+import { useRentalsStore } from "../../store/rentals-store"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { useMediaQuery } from "usehooks-ts";
-import { cn } from "../../lib/utils";
+} from "../ui/carousel"
 
-type PanelMode = "all" | "favorites";
+type PanelMode = "all" | "favorites"
 
 interface ListingsPanelProps {
-  mode?: PanelMode;
+  mode?: PanelMode
 }
 
 export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
-  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null)
   const {
     selectedListingId,
     searchQuery,
@@ -60,63 +63,63 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
     setMapCenter,
     setMapZoom,
     setUserLocation,
-  } = useRentalsStore();
+  } = useRentalsStore()
 
-  const isDesktop = useMediaQuery("(min-width: 640px)");
-  const [isPanelVisible, setIsPanelVisible] = React.useState(true);
-  const [viewMode, setViewMode] = React.useState<"grid" | "list">("grid");
+  const isDesktop = useMediaQuery("(min-width: 640px)")
+  const [isPanelVisible, setIsPanelVisible] = React.useState(true)
+  const [viewMode, setViewMode] = React.useState<"grid" | "list">("grid")
 
   React.useEffect(() => {
     if (isDesktop && !isPanelVisible) {
-      setIsPanelVisible(true);
+      setIsPanelVisible(true)
     }
-  }, [isDesktop, isPanelVisible]);
+  }, [isDesktop, isPanelVisible])
 
   const getListings = () => {
     switch (mode) {
       case "favorites":
-        return getFavoriteListings();
+        return getFavoriteListings()
       default:
-        return getFilteredListings();
+        return getFilteredListings()
     }
-  };
+  }
 
-  const listings = getListings();
+  const listings = getListings()
 
   React.useEffect(() => {
     if (selectedListingId && scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
     }
-  }, [selectedListingId]);
+  }, [selectedListingId])
 
   const handleListingClick = (listing: Listing) => {
     if (selectedListingId === listing.id) {
-      selectListing(null);
+      selectListing(null)
     } else {
-      selectListing(listing.id);
-      setMapCenter(listing.coordinates);
-      setMapZoom(14);
+      selectListing(listing.id)
+      setMapCenter(listing.coordinates)
+      setMapZoom(14)
     }
-  };
+  }
 
   if (!isPanelVisible) {
     return (
       <Button
         variant="outline"
         size="icon"
-        className="absolute left-4 top-4 z-20 sm:hidden size-10 bg-background shadow-xl"
+        className="absolute top-4 left-4 z-20 size-10 bg-background shadow-xl sm:hidden"
         onClick={() => setIsPanelVisible(true)}
       >
         <Search className="size-5" />
       </Button>
-    );
+    )
   }
 
   return (
-    <div className="absolute left-4 top-4 bottom-4 z-20 flex flex-col bg-background rounded-xl shadow-xl border overflow-hidden w-80 sm:w-[420px]">
-      <div className="p-3 border-b flex items-center justify-between">
+    <div className="absolute top-4 bottom-4 left-4 z-20 flex w-80 flex-col overflow-hidden rounded-xl border bg-background shadow-xl sm:w-[420px]">
+      <div className="flex items-center justify-between border-b p-3">
         <div>
-          <h2 className="font-semibold text-base">
+          <h2 className="text-base font-semibold">
             {mode === "favorites" ? "Favorites" : "All Gear"}
           </h2>
           <p className="text-xs text-muted-foreground">
@@ -136,21 +139,21 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
         </div>
       </div>
 
-      <div className="p-2 border-b">
+      <div className="border-b p-2">
         <div className="flex items-center gap-2">
           <div className="relative flex-1">
-            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
+            <Search className="pointer-events-none absolute top-1/2 left-2.5 z-10 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search gear..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className={cn("pl-8 h-9", searchQuery && "pr-8")}
+              className={cn("h-9 pl-8", searchQuery && "pr-8")}
             />
             {searchQuery && (
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-1 top-1/2 -translate-y-1/2 size-7"
+                className="absolute top-1/2 right-1 size-7 -translate-y-1/2"
                 onClick={() => setSearchQuery("")}
               >
                 <X className="size-3.5" />
@@ -178,7 +181,11 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <Button variant="outline" size="icon" className="size-9 shrink-0">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="size-9 shrink-0"
+                >
                   <ArrowUpDown className="size-4" />
                 </Button>
               }
@@ -228,29 +235,29 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                 <DropdownMenuItem
                   onClick={() => {
                     if (!navigator.geolocation) {
-                      alert("Geolocation is not supported by your browser.");
-                      return;
+                      alert("Geolocation is not supported by your browser.")
+                      return
                     }
                     navigator.geolocation.getCurrentPosition(
                       (position) => {
                         const location = {
                           lat: position.coords.latitude,
                           lng: position.coords.longitude,
-                        };
-                        setUserLocation(location);
-                        setSortBy("nearest");
+                        }
+                        setUserLocation(location)
+                        setSortBy("nearest")
                       },
                       () => {
                         alert(
                           "Unable to get your location. Please try again later."
-                        );
+                        )
                       },
                       {
                         enableHighAccuracy: false,
                         timeout: 5000,
                         maximumAge: 300000,
                       }
-                    );
+                    )
                   }}
                   className="gap-2"
                 >
@@ -267,23 +274,23 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
       <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
         {listings.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <Search className="size-8 text-muted-foreground mb-2" />
+            <Search className="mb-2 size-8 text-muted-foreground" />
             <p className="text-sm font-medium">No products found</p>
-            <p className="text-xs text-muted-foreground mt-1">
+            <p className="mt-1 text-xs text-muted-foreground">
               Try adjusting your search or filters
             </p>
           </div>
         ) : viewMode === "grid" ? (
-          <div className="p-2 grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-3 p-2">
             {listings.map((listing) => {
-              const isSelected = selectedListingId === listing.id;
+              const isSelected = selectedListingId === listing.id
 
               return (
                 <div
                   key={listing.id}
                   onClick={() => handleListingClick(listing)}
                   className={cn(
-                    "group cursor-pointer rounded-xl border bg-card transition-all hover:shadow-lg overflow-hidden",
+                    "group cursor-pointer overflow-hidden rounded-xl border bg-card transition-all hover:shadow-lg",
                     isSelected &&
                       "border-primary shadow-lg ring-2 ring-primary/20"
                   )}
@@ -298,16 +305,16 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                               alt={`${listing.title} - Image ${imageIndex + 1}`}
                               className="h-full w-full object-cover"
                               onError={(e) => {
-                                const target = e.target as HTMLImageElement;
+                                const target = e.target as HTMLImageElement
                                 target.src =
-                                  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop";
+                                  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop"
                               }}
                             />
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious className="left-2 h-8 w-8 opacity-0! group-hover:opacity-100! transition-opacity bg-white/90 hover:bg-white" />
-                      <CarouselNext className="right-2 h-8 w-8 opacity-0! group-hover:opacity-100! transition-opacity bg-white/90 hover:bg-white" />
+                      <CarouselPrevious className="left-2 h-8 w-8 bg-white/90 opacity-0! transition-opacity group-hover:opacity-100! hover:bg-white" />
+                      <CarouselNext className="right-2 h-8 w-8 bg-white/90 opacity-0! transition-opacity group-hover:opacity-100! hover:bg-white" />
                     </Carousel>
                     <div className="absolute top-2 right-2 z-10">
                       <Button
@@ -315,8 +322,8 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                         size="icon"
                         className="h-8 w-8 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background"
                         onClick={(e) => {
-                          e.stopPropagation();
-                          toggleFavorite(listing.id);
+                          e.stopPropagation()
+                          toggleFavorite(listing.id)
                         }}
                       >
                         <Heart
@@ -333,7 +340,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                       <div className="absolute top-2 left-2 z-10">
                         <Badge
                           variant="default"
-                          className="bg-primary text-primary-foreground text-xs"
+                          className="bg-primary text-xs text-primary-foreground"
                         >
                           New
                         </Badge>
@@ -343,7 +350,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                       <div className="absolute bottom-2 left-2 z-10">
                         <Badge
                           variant="secondary"
-                          className="bg-background/80 backdrop-blur-sm text-xs"
+                          className="bg-background/80 text-xs backdrop-blur-sm"
                         >
                           Fast Checkout
                         </Badge>
@@ -352,11 +359,11 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                   </div>
                   <div className="p-3">
                     <div className="mb-1 flex items-start justify-between gap-2">
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-sm mb-1 truncate">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="mb-1 truncate text-sm font-semibold">
                           {listing.title}
                         </h3>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground mb-1">
+                        <div className="mb-1 flex items-center gap-1 text-xs text-muted-foreground">
                           <MapPin className="h-3 w-3" />
                           <span className="truncate">
                             {listing.city}, {listing.country}
@@ -364,7 +371,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 mb-2 text-xs">
+                    <div className="mb-2 flex items-center gap-3 text-xs">
                       <div className="flex items-center gap-1">
                         <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                         <span className="font-medium">
@@ -385,7 +392,8 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                           ${listing.pricePerNight}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          {" "}/ day
+                          {" "}
+                          / day
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -405,49 +413,49 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         ) : (
-          <div className="p-2 space-y-3">
+          <div className="space-y-3 p-2">
             {listings.map((listing) => {
-              const isSelected = selectedListingId === listing.id;
+              const isSelected = selectedListingId === listing.id
 
               return (
                 <div
                   key={listing.id}
                   onClick={() => handleListingClick(listing)}
                   className={cn(
-                    "group cursor-pointer rounded-xl border bg-card transition-all hover:shadow-lg overflow-hidden",
+                    "group cursor-pointer overflow-hidden rounded-xl border bg-card transition-all hover:shadow-lg",
                     isSelected &&
                       "border-primary shadow-lg ring-2 ring-primary/20",
                     "flex flex-col sm:flex-row"
                   )}
                 >
-                  <div className="relative w-full h-48 sm:w-32 sm:h-32 md:w-40 md:h-40 flex-shrink-0 overflow-hidden">
+                  <div className="relative h-48 w-full flex-shrink-0 overflow-hidden sm:h-32 sm:w-32 md:h-40 md:w-40">
                     <img
                       src={listing.images[0]}
                       alt={listing.title}
                       className="h-full w-full object-cover transition-transform group-hover:scale-105"
                       onError={(e) => {
-                        const target = e.target as HTMLImageElement;
+                        const target = e.target as HTMLImageElement
                         target.src =
-                          "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop";
+                          "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop"
                       }}
                     />
                     <div className="absolute top-2 right-2">
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-7 w-7 sm:h-6 sm:w-6 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background"
+                        className="h-7 w-7 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background sm:h-6 sm:w-6"
                         onClick={(e) => {
-                          e.stopPropagation();
-                          toggleFavorite(listing.id);
+                          e.stopPropagation()
+                          toggleFavorite(listing.id)
                         }}
                       >
                         <Heart
                           className={cn(
-                            "h-3.5 w-3.5 sm:h-3 sm:w-3 transition-colors",
+                            "h-3.5 w-3.5 transition-colors sm:h-3 sm:w-3",
                             listing.isFavorite
                               ? "fill-destructive text-destructive"
                               : "text-foreground"
@@ -459,17 +467,17 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                       <div className="absolute top-2 left-2">
                         <Badge
                           variant="default"
-                          className="bg-primary text-primary-foreground text-[10px] px-1.5 py-0.5"
+                          className="bg-primary px-1.5 py-0.5 text-[10px] text-primary-foreground"
                         >
                           New
                         </Badge>
                       </div>
                     )}
                   </div>
-                  <div className="flex-1 p-3 sm:p-2.5 flex flex-col justify-between min-w-0">
+                  <div className="flex min-w-0 flex-1 flex-col justify-between p-3 sm:p-2.5">
                     <div className="flex-1">
                       <div className="mb-1.5 sm:mb-1">
-                        <h3 className="font-semibold text-sm sm:text-xs mb-1 line-clamp-2 sm:line-clamp-1">
+                        <h3 className="mb-1 line-clamp-2 text-sm font-semibold sm:line-clamp-1 sm:text-xs">
                           {listing.title}
                         </h3>
                         <div className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -479,7 +487,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                           </span>
                         </div>
                       </div>
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs mb-2">
+                      <div className="mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
                         <div className="flex items-center gap-1">
                           <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                           <span className="font-medium">
@@ -489,7 +497,7 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                             ({listing.reviewCount})
                           </span>
                         </div>
-                        <span className="text-muted-foreground hidden sm:inline">
+                        <span className="hidden text-muted-foreground sm:inline">
                           •
                         </span>
                         <span className="text-muted-foreground">
@@ -497,12 +505,12 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                         </span>
                         {listing.instantBook && (
                           <>
-                            <span className="text-muted-foreground hidden sm:inline">
+                            <span className="hidden text-muted-foreground sm:inline">
                               •
                             </span>
                             <Badge
                               variant="secondary"
-                              className="text-[10px] px-1.5 py-0"
+                              className="px-1.5 py-0 text-[10px]"
                             >
                               Fast
                             </Badge>
@@ -510,16 +518,17 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center justify-between gap-2 pt-2 border-t sm:border-t-0 sm:pt-0">
+                    <div className="flex items-center justify-between gap-2 border-t pt-2 sm:border-t-0 sm:pt-0">
                       <div className="flex-shrink-0">
-                        <span className="text-base sm:text-sm font-semibold">
+                        <span className="text-base font-semibold sm:text-sm">
                           ${listing.pricePerNight}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          {" "}/ day
+                          {" "}
+                          / day
                         </span>
                       </div>
-                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs text-muted-foreground flex-shrink-0">
+                      <div className="flex flex-shrink-0 items-center gap-1.5 text-xs text-muted-foreground sm:gap-2">
                         {listing.bedrooms > 0 && (
                           <span className="whitespace-nowrap">
                             {listing.bedrooms} kit
@@ -539,11 +548,11 @@ export function ListingsPanel({ mode = "all" }: ListingsPanelProps) {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
         )}
       </div>
     </div>
-  );
+  )
 }

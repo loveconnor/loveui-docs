@@ -1,77 +1,275 @@
 export interface Employee {
-  id: string;
-  userId: string;
-  name: string;
-  email: string;
-  department: "Nursing" | "Clinical" | "Operations" | "Admin" | "Support";
-  jobTitle: string;
-  joinedDate: string;
-  status: "Active" | "On Leave" | "Probation" | "Inactive";
-  avatar?: string;
+  id: string
+  userId: string
+  name: string
+  email: string
+  department: "Nursing" | "Clinical" | "Operations" | "Admin" | "Support"
+  jobTitle: string
+  joinedDate: string
+  status: "Active" | "On Leave" | "Probation" | "Inactive"
+  avatar?: string
 }
 
-const departments: Employee["department"][] = ["Nursing", "Clinical", "Operations", "Admin", "Support"];
-const statuses: Employee["status"][] = ["Active", "On Leave", "Probation", "Inactive"];
+const departments: Employee["department"][] = [
+  "Nursing",
+  "Clinical",
+  "Operations",
+  "Admin",
+  "Support",
+]
+const statuses: Employee["status"][] = [
+  "Active",
+  "On Leave",
+  "Probation",
+  "Inactive",
+]
 
 const jobTitles: Record<Employee["department"], string[]> = {
-  Nursing: ["Charge Nurse", "ICU Nurse", "ER Nurse", "Ward Nurse", "Float Nurse"],
-  Clinical: ["Resident Physician", "Lab Technician", "Pharmacist", "Radiology Tech", "Respiratory Therapist"],
-  Operations: ["Facility Coordinator", "Supply Chain Lead", "Shift Scheduler", "Transport Supervisor", "Safety Officer"],
-  Admin: ["Front Desk Lead", "Billing Specialist", "Records Coordinator", "Admissions Manager", "Compliance Admin"],
-  Support: ["IT Support", "Patient Services", "Social Worker", "Interpreter", "Nutrition Coordinator"],
-};
+  Nursing: [
+    "Charge Nurse",
+    "ICU Nurse",
+    "ER Nurse",
+    "Ward Nurse",
+    "Float Nurse",
+  ],
+  Clinical: [
+    "Resident Physician",
+    "Lab Technician",
+    "Pharmacist",
+    "Radiology Tech",
+    "Respiratory Therapist",
+  ],
+  Operations: [
+    "Facility Coordinator",
+    "Supply Chain Lead",
+    "Shift Scheduler",
+    "Transport Supervisor",
+    "Safety Officer",
+  ],
+  Admin: [
+    "Front Desk Lead",
+    "Billing Specialist",
+    "Records Coordinator",
+    "Admissions Manager",
+    "Compliance Admin",
+  ],
+  Support: [
+    "IT Support",
+    "Patient Services",
+    "Social Worker",
+    "Interpreter",
+    "Nutrition Coordinator",
+  ],
+}
 
 const firstNames = [
-  "Ariana", "Brandon", "Camila", "Diego", "Elena", "Felix", "Gia", "Hector",
-  "Iris", "Jonah", "Kara", "Leo", "Marta", "Nico", "Opal", "Pablo", "Quinn",
-  "Raina", "Soren", "Talia", "Uma", "Vince", "Willa", "Xavier", "Yara", "Zane"
-];
+  "Ariana",
+  "Brandon",
+  "Camila",
+  "Diego",
+  "Elena",
+  "Felix",
+  "Gia",
+  "Hector",
+  "Iris",
+  "Jonah",
+  "Kara",
+  "Leo",
+  "Marta",
+  "Nico",
+  "Opal",
+  "Pablo",
+  "Quinn",
+  "Raina",
+  "Soren",
+  "Talia",
+  "Uma",
+  "Vince",
+  "Willa",
+  "Xavier",
+  "Yara",
+  "Zane",
+]
 
 const lastNames = [
-  "Abbott", "Bennett", "Carver", "Delgado", "Esposito", "Fulton", "Graves", "Hale",
-  "Ibrahim", "Jensen", "Kline", "Larsen", "Mendoza", "Nolan", "Ortiz", "Patel",
-  "Quintero", "Russo", "Silva", "Tran", "Usman", "Valdez", "Webb", "Xu", "Yates", "Zimmer"
-];
+  "Abbott",
+  "Bennett",
+  "Carver",
+  "Delgado",
+  "Esposito",
+  "Fulton",
+  "Graves",
+  "Hale",
+  "Ibrahim",
+  "Jensen",
+  "Kline",
+  "Larsen",
+  "Mendoza",
+  "Nolan",
+  "Ortiz",
+  "Patel",
+  "Quintero",
+  "Russo",
+  "Silva",
+  "Tran",
+  "Usman",
+  "Valdez",
+  "Webb",
+  "Xu",
+  "Yates",
+  "Zimmer",
+]
 
 const dates = [
-  "07 Jan 2025", "16 Jan 2025", "30 Jan 2025", "11 Feb 2025", "24 Feb 2025",
-  "06 Mar 2025", "18 Mar 2025", "27 Mar 2025", "08 Apr 2025", "22 Apr 2025",
-  "07 May 2025", "19 May 2025", "04 Jun 2025", "17 Jun 2025", "01 Jul 2025",
-  "15 Jul 2025", "29 Jul 2025", "12 Aug 2025", "26 Aug 2025", "09 Sep 2025",
-  "23 Sep 2025", "08 Oct 2025", "21 Oct 2025", "05 Nov 2025", "19 Nov 2025",
-  "03 Dec 2025", "17 Dec 2025", "06 Jan 2026"
-];
+  "07 Jan 2025",
+  "16 Jan 2025",
+  "30 Jan 2025",
+  "11 Feb 2025",
+  "24 Feb 2025",
+  "06 Mar 2025",
+  "18 Mar 2025",
+  "27 Mar 2025",
+  "08 Apr 2025",
+  "22 Apr 2025",
+  "07 May 2025",
+  "19 May 2025",
+  "04 Jun 2025",
+  "17 Jun 2025",
+  "01 Jul 2025",
+  "15 Jul 2025",
+  "29 Jul 2025",
+  "12 Aug 2025",
+  "26 Aug 2025",
+  "09 Sep 2025",
+  "23 Sep 2025",
+  "08 Oct 2025",
+  "21 Oct 2025",
+  "05 Nov 2025",
+  "19 Nov 2025",
+  "03 Dec 2025",
+  "17 Dec 2025",
+  "06 Jan 2026",
+]
 
 const statusPattern = [
-  "Active", "Active", "Active", "On Leave", "Active",
-  "Probation", "Active", "Inactive", "Active", "Active",
-  "On Leave", "Active", "Probation", "Active", "Active",
-  "Active", "Inactive", "Active", "Active", "On Leave",
-  "Active", "Active", "Probation", "Active", "Active",
-  "Active", "On Leave", "Active", "Active", "Inactive",
-  "Active", "Active", "Active", "Probation", "Active",
-  "On Leave", "Active", "Active", "Active", "Active",
-  "Inactive", "Active", "On Leave", "Active", "Probation",
-  "Active", "Active", "Active", "On Leave", "Active"
-] as Employee["status"][];
+  "Active",
+  "Active",
+  "Active",
+  "On Leave",
+  "Active",
+  "Probation",
+  "Active",
+  "Inactive",
+  "Active",
+  "Active",
+  "On Leave",
+  "Active",
+  "Probation",
+  "Active",
+  "Active",
+  "Active",
+  "Inactive",
+  "Active",
+  "Active",
+  "On Leave",
+  "Active",
+  "Active",
+  "Probation",
+  "Active",
+  "Active",
+  "Active",
+  "On Leave",
+  "Active",
+  "Active",
+  "Inactive",
+  "Active",
+  "Active",
+  "Active",
+  "Probation",
+  "Active",
+  "On Leave",
+  "Active",
+  "Active",
+  "Active",
+  "Active",
+  "Inactive",
+  "Active",
+  "On Leave",
+  "Active",
+  "Probation",
+  "Active",
+  "Active",
+  "Active",
+  "On Leave",
+  "Active",
+] as Employee["status"][]
 
-const jobTitleIndices = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4];
+const jobTitleIndices = [
+  0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0,
+  1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4,
+]
 
 const hasAvatar = [
-  true, true, true, false, true, true, true, true, false, true,
-  true, false, true, true, true, true, true, false, true, true,
-  false, true, true, true, true, true, false, true, true, true,
-  true, true, true, false, true, true, true, false, true, true,
-  true, true, false, true, true, true, true, true, false, true
-];
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  true,
+]
 
 export const employees: Employee[] = Array.from({ length: 50 }, (_, i) => {
-  const firstName = firstNames[i % firstNames.length];
-  const lastName = lastNames[i % lastNames.length];
-  const department = departments[i % departments.length];
-  const jobTitle = jobTitles[department][jobTitleIndices[i] % jobTitles[department].length];
-  const status = statusPattern[i];
-  
+  const firstName = firstNames[i % firstNames.length]
+  const lastName = lastNames[i % lastNames.length]
+  const department = departments[i % departments.length]
+  const jobTitle =
+    jobTitles[department][jobTitleIndices[i] % jobTitles[department].length]
+  const status = statusPattern[i]
+
   return {
     id: (i + 1).toString(),
     userId: `MED-${(4201 + i).toString()}`,
@@ -81,9 +279,11 @@ export const employees: Employee[] = Array.from({ length: 50 }, (_, i) => {
     jobTitle,
     joinedDate: dates[i % dates.length],
     status,
-    avatar: hasAvatar[i] ? `https://api.dicebear.com/9.x/glass/svg?seed=ops-${firstName}${lastName}` : undefined,
-  };
-});
+    avatar: hasAvatar[i]
+      ? `https://api.dicebear.com/9.x/glass/svg?seed=ops-${firstName}${lastName}`
+      : undefined,
+  }
+})
 
 export const financialFlowData = [
   { month: "Jan", moneyIn: 198000, moneyOut: 142000 },
@@ -98,4 +298,4 @@ export const financialFlowData = [
   { month: "Oct", moneyIn: 271000, moneyOut: 184000 },
   { month: "Nov", moneyIn: 279000, moneyOut: 191000 },
   { month: "Dec", moneyIn: 292000, moneyOut: 198000 },
-];
+]

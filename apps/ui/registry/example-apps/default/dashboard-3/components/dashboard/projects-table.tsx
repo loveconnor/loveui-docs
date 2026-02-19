@@ -1,16 +1,52 @@
-"use client";
+"use client"
 
-import { useMemo, useState } from "react";
+import { useMemo, useState } from "react"
 import {
-  useReactTable,
+  ArrowLeft01Icon,
+  ArrowLeftDoubleIcon,
+  ArrowRight01Icon,
+  ArrowRightDoubleIcon,
+  CircleIcon,
+  Clock01Icon,
+  Database01Icon,
+  FilterIcon,
+  Folder01Icon,
+  Layers01Icon,
+  Megaphone01Icon,
+  Search01Icon,
+  Tick01Icon,
+  Wallet01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
-  flexRender,
-} from "@tanstack/react-table";
-import type { ColumnDef } from "@tanstack/react-table";
-import { Input } from "@loveui/ui/ui/input";
-import { Button } from "@loveui/ui/ui/button";
+  useReactTable,
+} from "@tanstack/react-table"
+import type { ColumnDef } from "@tanstack/react-table"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import { Checkbox } from "@loveui/ui/ui/checkbox"
+import { Input } from "@loveui/ui/ui/input"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+import { Progress } from "@loveui/ui/ui/progress"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@loveui/ui/ui/select"
 import {
   Table,
   TableBody,
@@ -18,82 +54,63 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@loveui/ui/ui/table";
-import { Progress } from "@loveui/ui/ui/progress";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Checkbox } from "@loveui/ui/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@loveui/ui/ui/select";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuCheckboxItem,
-  DropdownMenuSeparator,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Search01Icon,
-  FilterIcon,
-  Folder01Icon,
-  Layers01Icon,
-  Database01Icon,
-  Megaphone01Icon,
-  Wallet01Icon,
-  CircleIcon,
-  Tick01Icon,
-  Clock01Icon,
-  ArrowLeft01Icon,
-  ArrowRight01Icon,
-  ArrowLeftDoubleIcon,
-  ArrowRightDoubleIcon,
-} from "@hugeicons/core-free-icons";
+} from "@loveui/ui/ui/table"
+
+import { cn } from "../../lib/utils"
 import {
   projects,
   type Project,
   type ProjectStatus,
-} from "../../mock-data/dashboard";
-import { useDashboardStore } from "../../store/dashboard-store";
-import { cn } from "../../lib/utils";
+} from "../../mock-data/dashboard"
+import { useDashboardStore } from "../../store/dashboard-store"
 
 function StatusBadge({ status }: { status: ProjectStatus }) {
   if (status === "in_progress") {
     return (
       <div className="flex items-center gap-1.5">
-        <HugeiconsIcon icon={CircleIcon} className="size-3.5 fill-cyan-500 text-cyan-500" />
-        <span className="text-sm text-cyan-600 dark:text-cyan-400">In Progress</span>
+        <HugeiconsIcon
+          icon={CircleIcon}
+          className="size-3.5 fill-cyan-500 text-cyan-500"
+        />
+        <span className="text-sm text-cyan-600 dark:text-cyan-400">
+          In Progress
+        </span>
       </div>
-    );
+    )
   }
   if (status === "completed") {
     return (
       <div className="flex items-center gap-1.5">
-        <HugeiconsIcon icon={Tick01Icon} className="size-3.5 text-emerald-500" />
-        <span className="text-sm text-emerald-600 dark:text-emerald-400">Completed</span>
+        <HugeiconsIcon
+          icon={Tick01Icon}
+          className="size-3.5 text-emerald-500"
+        />
+        <span className="text-sm text-emerald-600 dark:text-emerald-400">
+          Completed
+        </span>
       </div>
-    );
+    )
   }
   return (
     <div className="flex items-center gap-1.5">
       <HugeiconsIcon icon={Clock01Icon} className="size-3.5 text-amber-500" />
-      <span className="text-sm text-amber-600 dark:text-amber-400">On Hold</span>
+      <span className="text-sm text-amber-600 dark:text-amber-400">
+        On Hold
+      </span>
     </div>
-  );
+  )
 }
 
-const projectIconMap: Record<string, { icon: typeof Folder01Icon; iconColor: string }> = {
+const projectIconMap: Record<
+  string,
+  { icon: typeof Folder01Icon; iconColor: string }
+> = {
   blue: { icon: Folder01Icon, iconColor: "text-blue-500" },
   violet: { icon: Layers01Icon, iconColor: "text-violet-500" },
   cyan: { icon: Database01Icon, iconColor: "text-cyan-500" },
   pink: { icon: Megaphone01Icon, iconColor: "text-pink-500" },
   amber: { icon: Wallet01Icon, iconColor: "text-amber-500" },
-};
+}
 
 export function ProjectsTable() {
   const {
@@ -101,7 +118,7 @@ export function ProjectsTable() {
     setProjectsSearchQuery,
     projectStatusFilter,
     setProjectStatusFilter,
-  } = useDashboardStore();
+  } = useDashboardStore()
 
   const columns = useMemo<ColumnDef<Project>[]>(
     () => [
@@ -109,8 +126,16 @@ export function ProjectsTable() {
         id: "select",
         header: ({ table }) => (
           <Checkbox
-            checked={table.getIsAllPageRowsSelected() ? true : table.getIsSomePageRowsSelected() ? true : false}
-            onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+            checked={
+              table.getIsAllPageRowsSelected()
+                ? true
+                : table.getIsSomePageRowsSelected()
+                  ? true
+                  : false
+            }
+            onCheckedChange={(value) =>
+              table.toggleAllPageRowsSelected(!!value)
+            }
             aria-label="Select all"
           />
         ),
@@ -128,15 +153,18 @@ export function ProjectsTable() {
         accessorKey: "name",
         header: "Project Name",
         cell: ({ row }) => {
-          const p = row.original;
+          const p = row.original
           const { icon, iconColor } =
-            projectIconMap[p.color] ?? projectIconMap.blue;
+            projectIconMap[p.color] ?? projectIconMap.blue
           return (
             <div className="flex items-center gap-2 font-medium text-foreground">
-              <HugeiconsIcon icon={icon} className={cn("size-4 shrink-0", iconColor)} />
+              <HugeiconsIcon
+                icon={icon}
+                className={cn("size-4 shrink-0", iconColor)}
+              />
               {p.name}
             </div>
-          );
+          )
         },
       },
       {
@@ -148,9 +176,9 @@ export function ProjectsTable() {
         accessorKey: "progress",
         header: "Progress",
         cell: ({ row }) => (
-          <div className="flex items-center gap-2 min-w-[100px]">
+          <div className="flex min-w-[100px] items-center gap-2">
             <Progress value={row.original.progress} className="h-2 flex-1" />
-            <span className="text-sm tabular-nums w-8">
+            <span className="w-8 text-sm tabular-nums">
               {row.original.progress}%
             </span>
           </div>
@@ -160,12 +188,12 @@ export function ProjectsTable() {
         id: "tasks",
         header: "Total Tasks",
         cell: ({ row }) => {
-          const p = row.original;
+          const p = row.original
           return (
             <span className="text-sm text-muted-foreground">
               {p.completedTasks}/{p.totalTasks}
             </span>
-          );
+          )
         },
       },
       {
@@ -181,7 +209,7 @@ export function ProjectsTable() {
         accessorKey: "ownerName",
         header: "Owner",
         cell: ({ row }) => {
-          const p = row.original;
+          const p = row.original
           return (
             <div className="flex items-center gap-2">
               <Avatar className="size-6">
@@ -194,29 +222,30 @@ export function ProjectsTable() {
               </Avatar>
               <span className="text-sm">{p.ownerName}</span>
             </div>
-          );
+          )
         },
       },
     ],
     []
-  );
+  )
 
   const filteredData = useMemo(() => {
-    let result = projects;
+    let result = projects
     if (projectsSearchQuery.trim()) {
-      const q = projectsSearchQuery.toLowerCase();
-      result = result.filter((p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.ownerName.toLowerCase().includes(q)
-      );
+      const q = projectsSearchQuery.toLowerCase()
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.ownerName.toLowerCase().includes(q)
+      )
     }
     if (projectStatusFilter !== "all") {
-      result = result.filter((p) => p.status === projectStatusFilter);
+      result = result.filter((p) => p.status === projectStatusFilter)
     }
-    return result;
-  }, [projectsSearchQuery, projectStatusFilter]);
+    return result
+  }, [projectsSearchQuery, projectStatusFilter])
 
-  const [rowSelection, setRowSelection] = useState({});
+  const [rowSelection, setRowSelection] = useState({})
 
   const table = useReactTable({
     data: filteredData,
@@ -229,27 +258,30 @@ export function ProjectsTable() {
     initialState: {
       pagination: { pageSize: 10 },
     },
-  });
+  })
 
-  const hasActiveFilters = projectStatusFilter !== "all";
-  const pageSize = table.getState().pagination.pageSize;
-  const pageIndex = table.getState().pagination.pageIndex;
-  const totalRows = filteredData.length;
-  const from = pageIndex * pageSize + 1;
-  const to = Math.min((pageIndex + 1) * pageSize, totalRows);
+  const hasActiveFilters = projectStatusFilter !== "all"
+  const pageSize = table.getState().pagination.pageSize
+  const pageIndex = table.getState().pagination.pageIndex
+  const totalRows = filteredData.length
+  const from = pageIndex * pageSize + 1
+  const to = Math.min((pageIndex + 1) * pageSize, totalRows)
 
   return (
-    <div className="rounded-xl border border-border bg-card overflow-hidden">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 border-b">
-        <h3 className="font-medium text-base">Course Board</h3>
+    <div className="overflow-hidden rounded-xl border border-border bg-card">
+      <div className="flex flex-col gap-3 border-b px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-base font-medium">Course Board</h3>
         <div className="flex items-center gap-2">
           <div className="relative">
-            <HugeiconsIcon icon={Search01Icon} className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
+            <HugeiconsIcon
+              icon={Search01Icon}
+              className="pointer-events-none absolute top-1/2 left-2.5 z-10 size-4 -translate-y-1/2 text-muted-foreground"
+            />
             <Input
               placeholder="Search courses..."
               value={projectsSearchQuery}
               onChange={(e) => setProjectsSearchQuery(e.target.value)}
-              className="pl-8 h-9 w-full sm:w-[200px] text-sm bg-muted/50"
+              className="h-9 w-full bg-muted/50 pl-8 text-sm sm:w-[200px]"
             />
           </div>
           <DropdownMenu>
@@ -292,7 +324,9 @@ export function ProjectsTable() {
               {hasActiveFilters && (
                 <>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => setProjectStatusFilter("all")}>
+                  <DropdownMenuItem
+                    onClick={() => setProjectStatusFilter("all")}
+                  >
                     Clear filter
                   </DropdownMenuItem>
                 </>
@@ -322,7 +356,7 @@ export function ProjectsTable() {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="text-center text-muted-foreground py-8"
+                  className="py-8 text-center text-muted-foreground"
                 >
                   No courses found.
                 </TableCell>
@@ -347,7 +381,7 @@ export function ProjectsTable() {
           </TableBody>
         </Table>
       </div>
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-3 border-t">
+      <div className="flex flex-col items-center justify-between gap-4 border-t px-4 py-3 sm:flex-row">
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
           <span>
             {totalRows === 0
@@ -415,5 +449,5 @@ export function ProjectsTable() {
         </div>
       </div>
     </div>
-  );
+  )
 }

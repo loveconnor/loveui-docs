@@ -1,16 +1,18 @@
-"use client";
+"use client"
 
-import { Button } from "@loveui/ui/ui/button";
-import { SidebarTrigger } from "../ui/sidebar";
-import { ThemeToggle } from "../theme-toggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Folder01Icon, Share01Icon } from "@hugeicons/core-free-icons";
-import { lastUpdated } from "../../mock-data/dashboard";
+import { Folder01Icon, Share01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+
+import { lastUpdated } from "../../mock-data/dashboard"
+import { ThemeToggle } from "../theme-toggle"
+import { SidebarTrigger } from "../ui/sidebar"
 
 export function DashboardHeader() {
   return (
-    <header className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 border-b bg-card sticky top-0 z-10 w-full shrink-0">
+    <header className="sticky top-0 z-10 flex w-full shrink-0 items-center justify-between gap-4 border-b bg-card px-4 py-3 sm:px-6">
       <div className="flex items-center gap-3">
         <SidebarTrigger className="-ml-2" />
         <div className="flex items-center gap-2 text-muted-foreground">
@@ -20,7 +22,7 @@ export function DashboardHeader() {
       </div>
 
       <div className="flex items-center gap-2 sm:gap-3">
-        <span className="text-xs text-muted-foreground hidden sm:inline">
+        <span className="hidden text-xs text-muted-foreground sm:inline">
           Last Updated {lastUpdated}
         </span>
         <div className="flex -space-x-2">
@@ -44,5 +46,5 @@ export function DashboardHeader() {
         <ThemeToggle />
       </div>
     </header>
-  );
+  )
 }

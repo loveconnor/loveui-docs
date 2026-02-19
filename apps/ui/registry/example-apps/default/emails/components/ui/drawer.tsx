@@ -1,16 +1,17 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { Dialog } from "@base-ui/react/dialog";
-import { cn } from "../../lib/utils";
+import * as React from "react"
+import { Dialog } from "@base-ui/react/dialog"
 
-const Drawer = Dialog.Root;
+import { cn } from "../../lib/utils"
 
-const DrawerTrigger = Dialog.Trigger;
+const Drawer = Dialog.Root
 
-const DrawerClose = Dialog.Close;
+const DrawerTrigger = Dialog.Trigger
 
-const DrawerPortal = Dialog.Portal;
+const DrawerClose = Dialog.Close
+
+const DrawerPortal = Dialog.Portal
 
 const DrawerOverlay = React.forwardRef<
   HTMLDivElement,
@@ -19,18 +20,18 @@ const DrawerOverlay = React.forwardRef<
   <Dialog.Backdrop
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/80 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 transition-opacity duration-300",
+      "fixed inset-0 z-50 bg-black/80 transition-opacity duration-300 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
       className
     )}
     {...props}
   />
-));
-DrawerOverlay.displayName = "DrawerOverlay";
+))
+DrawerOverlay.displayName = "DrawerOverlay"
 
 const DrawerContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof Dialog.Popup> & {
-    children?: React.ReactNode;
+    children?: React.ReactNode
   }
 >(({ className, children, ...props }, ref) => (
   <DrawerPortal>
@@ -38,7 +39,7 @@ const DrawerContent = React.forwardRef<
     <Dialog.Popup
       ref={ref}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-[10px] border bg-background transition-transform duration-300 ease-out data-[starting-style]:translate-y-full data-[ending-style]:translate-y-full",
+        "fixed inset-x-0 bottom-0 z-50 flex flex-col rounded-t-[10px] border bg-background transition-transform duration-300 ease-out data-[ending-style]:translate-y-full data-[starting-style]:translate-y-full",
         className
       )}
       {...props}
@@ -47,8 +48,8 @@ const DrawerContent = React.forwardRef<
       {children}
     </Dialog.Popup>
   </DrawerPortal>
-));
-DrawerContent.displayName = "DrawerContent";
+))
+DrawerContent.displayName = "DrawerContent"
 
 const DrawerHeader = ({
   className,
@@ -58,8 +59,8 @@ const DrawerHeader = ({
     className={cn("grid gap-1.5 p-4 text-center sm:text-left", className)}
     {...props}
   />
-);
-DrawerHeader.displayName = "DrawerHeader";
+)
+DrawerHeader.displayName = "DrawerHeader"
 
 const DrawerFooter = ({
   className,
@@ -69,8 +70,8 @@ const DrawerFooter = ({
     className={cn("mt-auto flex flex-col gap-2 p-4", className)}
     {...props}
   />
-);
-DrawerFooter.displayName = "DrawerFooter";
+)
+DrawerFooter.displayName = "DrawerFooter"
 
 const DrawerTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -79,13 +80,13 @@ const DrawerTitle = React.forwardRef<
   <Dialog.Title
     ref={ref}
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "text-lg leading-none font-semibold tracking-tight",
       className
     )}
     {...props}
   />
-));
-DrawerTitle.displayName = "DrawerTitle";
+))
+DrawerTitle.displayName = "DrawerTitle"
 
 const DrawerDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -96,8 +97,8 @@ const DrawerDescription = React.forwardRef<
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
-));
-DrawerDescription.displayName = "DrawerDescription";
+))
+DrawerDescription.displayName = "DrawerDescription"
 
 export {
   Drawer,
@@ -110,5 +111,4 @@ export {
   DrawerFooter,
   DrawerTitle,
   DrawerDescription,
-};
-
+}

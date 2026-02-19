@@ -2687,6 +2687,22 @@ export const examples: Registry["items"] = [
     categories: ["switch", "form", "field", "button"],
   },
   {
+    name: "sidebar-nav",
+    description: "Sidebar navigation layout",
+    type: "registry:example",
+    registryDependencies: ["@loveui/button", "@loveui/separator"],
+    files: [{ path: "examples/sidebar-nav.tsx", type: "registry:example" }],
+    categories: ["sidebar", "navigation", "dashboard"],
+  },
+  {
+    name: "stats-card",
+    description: "KPI card for dashboard stats",
+    type: "registry:example",
+    registryDependencies: ["@loveui/badge", "@loveui/card"],
+    files: [{ path: "examples/stats-card.tsx", type: "registry:example" }],
+    categories: ["dashboard", "card", "stats"],
+  },
+  {
     name: "table-demo",
     description: "Basic table",
     type: "registry:example",

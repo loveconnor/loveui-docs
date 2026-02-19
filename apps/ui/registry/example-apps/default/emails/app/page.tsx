@@ -1,25 +1,27 @@
-"use client";
+"use client"
 
-import { useEffect, useState, useRef } from "react";
-import { EmailsVerticalSidebar } from "../components/emails/emails-vertical-sidebar";
-import { EmailsVerticalSidebarMobile } from "../components/emails/emails-vertical-sidebar-mobile";
-import { EmailsHeader } from "../components/emails/emails-header";
-import { EmailsHorizontalNav } from "../components/emails/emails-horizontal-nav";
-import { EmailList } from "../components/emails/email-list";
-import { EmailDetail } from "../components/emails/email-detail";
-import { Drawer, DrawerContent } from "../components/ui/drawer";
-import { Sheet, SheetContent } from "@loveui/ui/ui/sheet";
-import { TooltipProvider } from "../components/ui/tooltip";
-import { useEmailsStore } from "../store/emails-store";
-import { useIsMobile } from "../hooks/use-mobile";
+import { useEffect, useRef, useState } from "react"
+
+import { Sheet, SheetContent } from "@loveui/ui/ui/sheet"
+
+import { EmailDetail } from "../components/emails/email-detail"
+import { EmailList } from "../components/emails/email-list"
+import { EmailsHeader } from "../components/emails/emails-header"
+import { EmailsHorizontalNav } from "../components/emails/emails-horizontal-nav"
+import { EmailsVerticalSidebar } from "../components/emails/emails-vertical-sidebar"
+import { EmailsVerticalSidebarMobile } from "../components/emails/emails-vertical-sidebar-mobile"
+import { Drawer, DrawerContent } from "../components/ui/drawer"
+import { TooltipProvider } from "../components/ui/tooltip"
+import { useIsMobile } from "../hooks/use-mobile"
+import { useEmailsStore } from "../store/emails-store"
 
 export default function EmailsPage() {
   const { emails, selectedEmailId, selectEmail, clearSelectedEmail } =
-    useEmailsStore();
-  const isMobile = useIsMobile();
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const hasInitializedRef = useRef(false);
+    useEmailsStore()
+  const isMobile = useIsMobile()
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const hasInitializedRef = useRef(false)
 
   useEffect(() => {
     if (
@@ -29,24 +31,24 @@ export default function EmailsPage() {
       !selectedEmailId &&
       !hasInitializedRef.current
     ) {
-      selectEmail(emails[0].id);
-      hasInitializedRef.current = true;
+      selectEmail(emails[0].id)
+      hasInitializedRef.current = true
     }
-  }, [emails, selectedEmailId, selectEmail, isMobile]);
+  }, [emails, selectedEmailId, selectEmail, isMobile])
 
   const handleEmailClick = (emailId: string) => {
     if (isMobile) {
-      selectEmail(emailId);
-      setDrawerOpen(true);
+      selectEmail(emailId)
+      setDrawerOpen(true)
     }
-  };
+  }
 
   const handleDrawerClose = (open: boolean) => {
-    setDrawerOpen(open);
+    setDrawerOpen(open)
     if (!open) {
-      clearSelectedEmail();
+      clearSelectedEmail()
     }
-  };
+  }
 
   return (
     <TooltipProvider>
@@ -58,7 +60,7 @@ export default function EmailsPage() {
         <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
           <SheetContent
             side="left"
-            className="w-[240px] p-0 border-none [&>button]:hidden"
+            className="w-[240px] border-none p-0 [&>button]:hidden"
           >
             <EmailsVerticalSidebarMobile
               onItemClick={() => setSidebarOpen(false)}
@@ -74,11 +76,11 @@ export default function EmailsPage() {
           </div>
 
           <div className="flex flex-1 overflow-hidden">
-            <div className="w-full md:w-[320px] border-r border-border">
+            <div className="w-full border-r border-border md:w-[320px]">
               <EmailList onEmailClick={handleEmailClick} />
             </div>
 
-            <div className="hidden md:block flex-1">
+            <div className="hidden flex-1 md:block">
               <EmailDetail />
             </div>
           </div>
@@ -86,12 +88,12 @@ export default function EmailsPage() {
 
         <Drawer open={drawerOpen} onOpenChange={handleDrawerClose}>
           <DrawerContent className="h-[90vh]">
-            <div className="flex-1 f-full overflow-hidden">
+            <div className="f-full flex-1 overflow-hidden">
               <EmailDetail />
             </div>
           </DrawerContent>
         </Drawer>
       </div>
     </TooltipProvider>
-  );
+  )
 }

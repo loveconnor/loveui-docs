@@ -1,20 +1,23 @@
-import type { Metadata } from "next";
-import { ThemeProvider } from "../components/theme-provider";
-import "./globals.css";
+import type { Metadata } from "next"
+
+import { ThemeProvider } from "../components/theme-provider"
+
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Gear Marketplace - LoveUI",
-  description: "A map-based gear marketplace with product discovery, filters, and favorites by LoveUI",
-};
+  description:
+    "A map-based gear marketplace with product discovery, filters, and favorites by LoveUI",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased font-sans">
+      <body className="font-sans antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -25,5 +28,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

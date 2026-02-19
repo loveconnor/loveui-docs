@@ -1,28 +1,28 @@
-import { create } from "zustand";
+import { create } from "zustand"
 
-export type LayoutDensity = "default" | "compact" | "comfortable";
+export type LayoutDensity = "default" | "compact" | "comfortable"
 
 interface DashboardState {
-  searchQuery: string;
-  departmentFilter: string;
-  statusFilter: string;
-  setSearchQuery: (query: string) => void;
-  setDepartmentFilter: (filter: string) => void;
-  setStatusFilter: (filter: string) => void;
-  clearFilters: () => void;
-  
+  searchQuery: string
+  departmentFilter: string
+  statusFilter: string
+  setSearchQuery: (query: string) => void
+  setDepartmentFilter: (filter: string) => void
+  setStatusFilter: (filter: string) => void
+  clearFilters: () => void
+
   // Layout options
-  showAlertBanner: boolean;
-  showStatsCards: boolean;
-  showChart: boolean;
-  showTable: boolean;
-  layoutDensity: LayoutDensity;
-  setShowAlertBanner: (show: boolean) => void;
-  setShowStatsCards: (show: boolean) => void;
-  setShowChart: (show: boolean) => void;
-  setShowTable: (show: boolean) => void;
-  setLayoutDensity: (density: LayoutDensity) => void;
-  resetLayout: () => void;
+  showAlertBanner: boolean
+  showStatsCards: boolean
+  showChart: boolean
+  showTable: boolean
+  layoutDensity: LayoutDensity
+  setShowAlertBanner: (show: boolean) => void
+  setShowStatsCards: (show: boolean) => void
+  setShowChart: (show: boolean) => void
+  setShowTable: (show: boolean) => void
+  setLayoutDensity: (density: LayoutDensity) => void
+  resetLayout: () => void
 }
 
 export const useDashboardStore = create<DashboardState>((set) => ({
@@ -38,7 +38,7 @@ export const useDashboardStore = create<DashboardState>((set) => ({
       departmentFilter: "all",
       statusFilter: "all",
     }),
-    
+
   // Layout options
   showAlertBanner: true,
   showStatsCards: true,
@@ -58,5 +58,4 @@ export const useDashboardStore = create<DashboardState>((set) => ({
       showTable: true,
       layoutDensity: "default",
     }),
-}));
-
+}))

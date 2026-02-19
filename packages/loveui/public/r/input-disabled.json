@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/input-disabled.tsx",
-      "content": "import { Input } from \"@/registry/default/ui/input\"\n\nexport default function InputDisabled() {\n  return <Input placeholder=\"Disabled\" disabled aria-label=\"Disabled\" />\n}\n",
+      "content": "import { Input } from \"@/registry/default/ui/input\"\n\nexport default function InputDisabled() {\n  return (\n    <Input\n      placeholder=\"Updated Disabled\"\n      disabled\n      aria-label=\"Updated Disabled\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ],

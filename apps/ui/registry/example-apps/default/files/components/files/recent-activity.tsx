@@ -1,17 +1,19 @@
-"use client";
+"use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Upload01Icon,
-  Download01Icon,
-  Share01Icon,
-  Edit01Icon,
-  Delete01Icon,
-  FolderTransferIcon,
   Comment01Icon,
-} from "@hugeicons/core-free-icons";
-import { cn } from "../../lib/utils";
+  Delete01Icon,
+  Download01Icon,
+  Edit01Icon,
+  FolderTransferIcon,
+  Share01Icon,
+  Upload01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+
+import { cn } from "../../lib/utils"
 
 const activities = [
   {
@@ -84,14 +86,14 @@ const activities = [
     iconColor: "text-red-500",
     iconBg: "bg-red-500/10",
   },
-];
+]
 
 export function RecentActivity() {
   return (
     <div className="rounded-xl border bg-card p-4">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-medium text-sm">Recent Activity</h3>
-        <button className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-sm font-medium">Recent Activity</h3>
+        <button className="text-xs text-muted-foreground transition-colors hover:text-foreground">
           View all
         </button>
       </div>
@@ -106,25 +108,28 @@ export function RecentActivity() {
                 {activity.user.initials}
               </AvatarFallback>
             </Avatar>
-            <div className="flex-1 min-w-0">
+            <div className="min-w-0 flex-1">
               <p className="text-sm">
                 <span className="font-medium">{activity.user.name}</span>{" "}
                 <span className="text-muted-foreground">{activity.action}</span>
               </p>
-              <p className="text-xs text-muted-foreground truncate">
+              <p className="truncate text-xs text-muted-foreground">
                 {activity.file}
               </p>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex shrink-0 items-center gap-2">
               <div
                 className={cn(
-                  "size-6 rounded-md flex items-center justify-center",
+                  "flex size-6 items-center justify-center rounded-md",
                   activity.iconBg
                 )}
               >
-                <HugeiconsIcon icon={activity.icon} className={cn("size-3", activity.iconColor)} />
+                <HugeiconsIcon
+                  icon={activity.icon}
+                  className={cn("size-3", activity.iconColor)}
+                />
               </div>
-              <span className="text-[10px] text-muted-foreground whitespace-nowrap">
+              <span className="text-[10px] whitespace-nowrap text-muted-foreground">
                 {activity.time}
               </span>
             </div>
@@ -132,5 +137,5 @@ export function RecentActivity() {
         ))}
       </div>
     </div>
-  );
+  )
 }

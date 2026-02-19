@@ -1,42 +1,43 @@
-"use client";
+"use client"
 
-import { useState, useMemo } from "react";
-import { Button } from "@loveui/ui/ui/button";
+import { useMemo, useState } from "react"
+import {
+  ArrowDown01Icon,
+  MoreHorizontalIcon,
+  Notification01Icon,
+  Settings01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@loveui/ui/ui/button"
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuTrigger,
   DropdownMenuItem,
   DropdownMenuSeparator,
-  DropdownMenuCheckboxItem,
   DropdownMenuSub,
-  DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Notification01Icon,
-  MoreHorizontalIcon,
-  ArrowDown01Icon,
-  Settings01Icon,
-} from "@hugeicons/core-free-icons";
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
 
-type Period = "month" | "quarter" | "6months" | "year";
-type SortBy = "value_desc" | "value_asc" | "name_asc" | "name_desc";
+type Period = "month" | "quarter" | "6months" | "year"
+type SortBy = "value_desc" | "value_asc" | "name_asc" | "name_desc"
 
 interface StatusData {
-  name: string;
-  value: number;
-  color: string;
+  name: string
+  value: number
+  color: string
 }
 
 const periodData: Record<
   Period,
   {
-    total: number;
-    totalChange: number;
-    totalChangeValue: number;
-    data: StatusData[];
+    total: number
+    totalChange: number
+    totalChangeValue: number
+    data: StatusData[]
   }
 > = {
   month: {
@@ -91,18 +92,18 @@ const periodData: Record<
       { name: "Re-engage", value: 92, color: "#b069fc" },
     ],
   },
-};
+}
 
 const periodLabels: Record<Period, string> = {
   month: "This Month",
   quarter: "Last 3 Months",
   "6months": "Last 6 Months",
   year: "Last 12 Months",
-};
+}
 
 export function LeadsByStatusChart() {
-  const [period, setPeriod] = useState<Period>("month");
-  const [sortBy, setSortBy] = useState<SortBy>("value_desc");
+  const [period, setPeriod] = useState<Period>("month")
+  const [sortBy, setSortBy] = useState<SortBy>("value_desc")
   const [visibleStatuses, setVisibleStatuses] = useState<
     Record<string, boolean>
   >({
@@ -112,49 +113,49 @@ export function LeadsByStatusChart() {
     "Contract Review": true,
     "On Hold": true,
     "Re-engage": true,
-  });
+  })
 
-  const currentData = periodData[period];
+  const currentData = periodData[period]
 
   const filteredAndSortedData = useMemo(() => {
-    let data = currentData.data.filter((item) => visibleStatuses[item.name]);
+    let data = currentData.data.filter((item) => visibleStatuses[item.name])
 
     switch (sortBy) {
       case "value_desc":
-        data = [...data].sort((a, b) => b.value - a.value);
-        break;
+        data = [...data].sort((a, b) => b.value - a.value)
+        break
       case "value_asc":
-        data = [...data].sort((a, b) => a.value - b.value);
-        break;
+        data = [...data].sort((a, b) => a.value - b.value)
+        break
       case "name_asc":
-        data = [...data].sort((a, b) => a.name.localeCompare(b.name));
-        break;
+        data = [...data].sort((a, b) => a.name.localeCompare(b.name))
+        break
       case "name_desc":
-        data = [...data].sort((a, b) => b.name.localeCompare(a.name));
-        break;
+        data = [...data].sort((a, b) => b.name.localeCompare(a.name))
+        break
     }
 
-    return data;
-  }, [currentData.data, sortBy, visibleStatuses]);
+    return data
+  }, [currentData.data, sortBy, visibleStatuses])
 
   const maxValue = useMemo(() => {
-    return Math.max(...filteredAndSortedData.map((d) => d.value), 1);
-  }, [filteredAndSortedData]);
+    return Math.max(...filteredAndSortedData.map((d) => d.value), 1)
+  }, [filteredAndSortedData])
 
   const visibleTotal = useMemo(() => {
-    return filteredAndSortedData.reduce((sum, item) => sum + item.value, 0);
-  }, [filteredAndSortedData]);
+    return filteredAndSortedData.reduce((sum, item) => sum + item.value, 0)
+  }, [filteredAndSortedData])
 
   const toggleStatus = (statusName: string) => {
     setVisibleStatuses((prev) => ({
       ...prev,
       [statusName]: !prev[statusName],
-    }));
-  };
+    }))
+  }
 
   const resetToDefault = () => {
-    setPeriod("month");
-    setSortBy("value_desc");
+    setPeriod("month")
+    setSortBy("value_desc")
     setVisibleStatuses({
       Prospect: true,
       Contacted: true,
@@ -162,30 +163,38 @@ export function LeadsByStatusChart() {
       "Contract Review": true,
       "On Hold": true,
       "Re-engage": true,
-    });
-  };
+    })
+  }
 
   return (
-    <div className="bg-card text-card-foreground rounded-xl border w-full xl:w-[337px] shrink-0">
-      <div className="flex flex-row items-center justify-between py-5 px-5">
+    <div className="w-full shrink-0 rounded-xl border bg-card text-card-foreground xl:w-[337px]">
+      <div className="flex flex-row items-center justify-between px-5 py-5">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" className="size-8">
-            <HugeiconsIcon icon={Notification01Icon} className="size-4 text-muted-foreground" />
+            <HugeiconsIcon
+              icon={Notification01Icon}
+              className="size-4 text-muted-foreground"
+            />
           </Button>
-          <h3 className="font-medium text-sm sm:text-base">Sponsors by Stage</h3>
+          <h3 className="text-sm font-medium sm:text-base">
+            Sponsors by Stage
+          </h3>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
               <Button variant="ghost" size="icon" className="size-8">
-                <HugeiconsIcon icon={MoreHorizontalIcon} className="size-4 text-muted-foreground" />
+                <HugeiconsIcon
+                  icon={MoreHorizontalIcon}
+                  className="size-4 text-muted-foreground"
+                />
               </Button>
             }
           />
           <DropdownMenuContent align="end" className="w-48">
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <HugeiconsIcon icon={Settings01Icon} className="size-4 mr-2" />
+                <HugeiconsIcon icon={Settings01Icon} className="mr-2 size-4" />
                 Time Period
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
@@ -198,24 +207,36 @@ export function LeadsByStatusChart() {
             </DropdownMenuSub>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 mr-2" />
+                <HugeiconsIcon icon={ArrowDown01Icon} className="mr-2 size-4" />
                 Sort By
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
                 <DropdownMenuItem onClick={() => setSortBy("value_desc")}>
-                  <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 mr-2" />
+                  <HugeiconsIcon
+                    icon={ArrowDown01Icon}
+                    className="mr-2 size-4"
+                  />
                   Value (High to Low) {sortBy === "value_desc" && "✓"}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortBy("value_asc")}>
-                  <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 mr-2 rotate-180" />
+                  <HugeiconsIcon
+                    icon={ArrowDown01Icon}
+                    className="mr-2 size-4 rotate-180"
+                  />
                   Value (Low to High) {sortBy === "value_asc" && "✓"}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortBy("name_asc")}>
-                  <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 mr-2" />
+                  <HugeiconsIcon
+                    icon={ArrowDown01Icon}
+                    className="mr-2 size-4"
+                  />
                   Name (A to Z) {sortBy === "name_asc" && "✓"}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setSortBy("name_desc")}>
-                  <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 mr-2 rotate-180" />
+                  <HugeiconsIcon
+                    icon={ArrowDown01Icon}
+                    className="mr-2 size-4 rotate-180"
+                  />
                   Name (Z to A) {sortBy === "name_desc" && "✓"}
                 </DropdownMenuItem>
               </DropdownMenuSubContent>
@@ -223,7 +244,10 @@ export function LeadsByStatusChart() {
             <DropdownMenuSeparator />
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
-                <HugeiconsIcon icon={Notification01Icon} className="size-4 mr-2" />
+                <HugeiconsIcon
+                  icon={Notification01Icon}
+                  className="mr-2 size-4"
+                />
                 Show Statuses
               </DropdownMenuSubTrigger>
               <DropdownMenuSubContent>
@@ -234,7 +258,7 @@ export function LeadsByStatusChart() {
                     onCheckedChange={() => toggleStatus(item.name)}
                   >
                     <span
-                      className="size-2 rounded-full mr-2"
+                      className="mr-2 size-2 rounded-full"
                       style={{ backgroundColor: item.color }}
                     />
                     {item.name}
@@ -249,16 +273,16 @@ export function LeadsByStatusChart() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="px-5 pb-5 space-y-6 sm:space-y-8">
+      <div className="space-y-6 px-5 pb-5 sm:space-y-8">
         <div className="flex items-end gap-2">
-          <span className="text-2xl sm:text-[28px] font-semibold tracking-tight">
+          <span className="text-2xl font-semibold tracking-tight sm:text-[28px]">
             {visibleTotal.toLocaleString()}
           </span>
-          <div className="flex items-center gap-2 text-xs sm:text-sm pb-1">
-            <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+          <div className="flex items-center gap-2 pb-1 text-xs sm:text-sm">
+            <span className="font-medium text-emerald-600 dark:text-emerald-400">
               +{currentData.totalChange}%({currentData.totalChangeValue})
             </span>
-            <span className="text-muted-foreground hidden sm:inline">
+            <span className="hidden text-muted-foreground sm:inline">
               vs Last Month
             </span>
           </div>
@@ -267,10 +291,10 @@ export function LeadsByStatusChart() {
         <div className="space-y-3 sm:space-y-4">
           {filteredAndSortedData.map((item) => (
             <div key={item.name} className="flex items-center gap-3 sm:gap-4">
-              <span className="text-xs text-muted-foreground w-16 sm:w-[62px] shrink-0 truncate">
+              <span className="w-16 shrink-0 truncate text-xs text-muted-foreground sm:w-[62px]">
                 {item.name}
               </span>
-              <div className="flex-1 h-[15px] bg-muted rounded">
+              <div className="h-[15px] flex-1 rounded bg-muted">
                 <div
                   className="h-full rounded transition-all duration-300"
                   style={{
@@ -279,7 +303,7 @@ export function LeadsByStatusChart() {
                   }}
                 />
               </div>
-              <span className="text-xs font-semibold w-10 sm:w-[30px] text-right shrink-0">
+              <span className="w-10 shrink-0 text-right text-xs font-semibold sm:w-[30px]">
                 {item.value.toLocaleString()}
               </span>
             </div>
@@ -287,5 +311,5 @@ export function LeadsByStatusChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

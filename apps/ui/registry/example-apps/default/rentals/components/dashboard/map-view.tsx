@@ -1,11 +1,14 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import maplibregl from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
-import { useTheme } from "next-themes";
-import { useRentalsStore } from "../../store/rentals-store";
-import { propertyTypeLabels } from "../../mock-data/listings";
+import * as React from "react"
+import maplibregl from "maplibre-gl"
+
+import "maplibre-gl/dist/maplibre-gl.css"
+
+import { useTheme } from "next-themes"
+
+import { propertyTypeLabels } from "../../mock-data/listings"
+import { useRentalsStore } from "../../store/rentals-store"
 
 const MAP_STYLES = {
   light: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
@@ -13,15 +16,15 @@ const MAP_STYLES = {
   streets: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
   outdoors: "https://tiles.stadiamaps.com/styles/outdoors.json",
   satellite: "https://tiles.stadiamaps.com/styles/alidade_satellite.json",
-};
+}
 
 export function MapView() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const mapRef = React.useRef<maplibregl.Map | null>(null);
-  const markersRef = React.useRef<Map<string, maplibregl.Marker>>(new Map());
-  const popupRef = React.useRef<maplibregl.Popup | null>(null);
-  const isAnimatingRef = React.useRef(false);
-  const { resolvedTheme } = useTheme();
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const mapRef = React.useRef<maplibregl.Map | null>(null)
+  const markersRef = React.useRef<Map<string, maplibregl.Marker>>(new Map())
+  const popupRef = React.useRef<maplibregl.Popup | null>(null)
+  const isAnimatingRef = React.useRef(false)
+  const { resolvedTheme } = useTheme()
 
   const {
     mapCenter,
@@ -32,19 +35,19 @@ export function MapView() {
     selectListing,
     selectedListingId,
     getFilteredListings,
-  } = useRentalsStore();
+  } = useRentalsStore()
 
-  const listings = getFilteredListings();
+  const listings = getFilteredListings()
 
   const getMapStyleUrl = React.useCallback(() => {
     if (mapStyle === "default") {
-      return resolvedTheme === "dark" ? MAP_STYLES.dark : MAP_STYLES.light;
+      return resolvedTheme === "dark" ? MAP_STYLES.dark : MAP_STYLES.light
     }
-    return MAP_STYLES[mapStyle];
-  }, [mapStyle, resolvedTheme]);
+    return MAP_STYLES[mapStyle]
+  }, [mapStyle, resolvedTheme])
 
   React.useEffect(() => {
-    if (!containerRef.current || mapRef.current) return;
+    if (!containerRef.current || mapRef.current) return
 
     const map = new maplibregl.Map({
       container: containerRef.current,
@@ -54,69 +57,69 @@ export function MapView() {
       minZoom: 3,
       maxZoom: 18,
       attributionControl: false,
-    });
+    })
 
     map.addControl(
       new maplibregl.AttributionControl({ compact: true }),
       "bottom-right"
-    );
+    )
 
     map.on("moveend", () => {
       if (isAnimatingRef.current) {
-        isAnimatingRef.current = false;
-        return;
+        isAnimatingRef.current = false
+        return
       }
-      const center = map.getCenter();
-      const zoom = map.getZoom();
-      setMapCenter({ lat: center.lat, lng: center.lng });
-      setMapZoom(zoom);
-    });
+      const center = map.getCenter()
+      const zoom = map.getZoom()
+      setMapCenter({ lat: center.lat, lng: center.lng })
+      setMapZoom(zoom)
+    })
 
-    mapRef.current = map;
+    mapRef.current = map
 
     const handleMapClick = (e: maplibregl.MapMouseEvent) => {
       if (popupRef.current) {
-        const popupElement = popupRef.current.getElement();
+        const popupElement = popupRef.current.getElement()
         if (
           popupElement &&
           !popupElement.contains(e.originalEvent.target as Node)
         ) {
-          const target = e.originalEvent.target as HTMLElement;
+          const target = e.originalEvent.target as HTMLElement
           if (!target.closest(".listing-marker-container")) {
-            popupRef.current.remove();
-            popupRef.current = null;
-            selectListing(null);
+            popupRef.current.remove()
+            popupRef.current = null
+            selectListing(null)
           }
         }
       }
-    };
+    }
 
-    map.on("click", handleMapClick);
+    map.on("click", handleMapClick)
 
     return () => {
-      map.off("click", handleMapClick);
-      map.remove();
-      mapRef.current = null;
-    };
-  }, [selectListing]);
+      map.off("click", handleMapClick)
+      map.remove()
+      mapRef.current = null
+    }
+  }, [selectListing])
 
   React.useEffect(() => {
-    if (!mapRef.current) return;
-    mapRef.current.setStyle(getMapStyleUrl());
-  }, [mapStyle, resolvedTheme, getMapStyleUrl]);
+    if (!mapRef.current) return
+    mapRef.current.setStyle(getMapStyleUrl())
+  }, [mapStyle, resolvedTheme, getMapStyleUrl])
 
   React.useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) return
 
-    markersRef.current.forEach((marker) => marker.remove());
-    markersRef.current.clear();
+    markersRef.current.forEach((marker) => marker.remove())
+    markersRef.current.clear()
 
     listings.forEach((listing) => {
-      const isSelected = selectedListingId === listing.id;
+      const isSelected = selectedListingId === listing.id
 
-      const el = document.createElement("div");
-      el.className = "listing-marker-container";
-      const priceText = `$${listing.pricePerNight}`;
+      const el = document.createElement("div")
+      el.className = "listing-marker-container"
+      const priceText = `$${listing.pricePerNight}`
       el.innerHTML = `
         <div class="relative cursor-pointer transition-all ${
           isSelected ? "scale-110 z-10" : "hover:scale-105"
@@ -134,27 +137,27 @@ export function MapView() {
               : ""
           }
         </div>
-      `;
+      `
 
       el.addEventListener("click", (e) => {
-        e.stopPropagation();
+        e.stopPropagation()
 
         if (popupRef.current) {
-          const currentPopup = popupRef.current;
-          const currentLngLat = currentPopup.getLngLat();
+          const currentPopup = popupRef.current
+          const currentLngLat = currentPopup.getLngLat()
           if (
             currentLngLat.lng === listing.coordinates.lng &&
             currentLngLat.lat === listing.coordinates.lat
           ) {
-            currentPopup.remove();
-            popupRef.current = null;
-            selectListing(null);
-            return;
+            currentPopup.remove()
+            popupRef.current = null
+            selectListing(null)
+            return
           }
-          currentPopup.remove();
+          currentPopup.remove()
         }
 
-        if (!mapRef.current) return;
+        if (!mapRef.current) return
 
         const popupContent = `
           <div class="listing-popup-content">
@@ -225,33 +228,33 @@ export function MapView() {
               </div>
             </div>
           </div>
-        `;
+        `
 
         const point = mapRef.current.project([
           listing.coordinates.lng,
           listing.coordinates.lat,
-        ]);
-        const mapHeight = mapRef.current.getContainer().clientHeight;
-        const mapWidth = mapRef.current.getContainer().clientWidth;
+        ])
+        const mapHeight = mapRef.current.getContainer().clientHeight
+        const mapWidth = mapRef.current.getContainer().clientWidth
 
-        const isNearBottom = point.y > mapHeight * 0.7;
-        const isNearTop = point.y < mapHeight * 0.3;
-        const isNearRight = point.x > mapWidth * 0.7;
-        const isNearLeft = point.x < mapWidth * 0.3;
+        const isNearBottom = point.y > mapHeight * 0.7
+        const isNearTop = point.y < mapHeight * 0.3
+        const isNearRight = point.x > mapWidth * 0.7
+        const isNearLeft = point.x < mapWidth * 0.3
 
-        let offsetX = 0;
-        let offsetY = -30;
+        let offsetX = 0
+        let offsetY = -30
 
         if (isNearBottom) {
-          offsetY = 20;
+          offsetY = 20
         } else if (isNearTop) {
-          offsetY = -60;
+          offsetY = -60
         }
 
         if (isNearRight) {
-          offsetX = -20;
+          offsetX = -20
         } else if (isNearLeft) {
-          offsetX = 20;
+          offsetX = 20
         }
 
         const popup = new maplibregl.Popup({
@@ -263,72 +266,72 @@ export function MapView() {
         })
           .setLngLat([listing.coordinates.lng, listing.coordinates.lat])
           .setHTML(popupContent)
-          .addTo(mapRef.current!);
+          .addTo(mapRef.current!)
 
-        const popupElement = popup.getElement();
+        const popupElement = popup.getElement()
         if (popupElement) {
-          popupElement.style.zIndex = "1000";
+          popupElement.style.zIndex = "1000"
 
-          const closeButton = popupElement.querySelector(".close-popup-btn");
+          const closeButton = popupElement.querySelector(".close-popup-btn")
           if (closeButton) {
             closeButton.addEventListener("click", (e) => {
-              e.stopPropagation();
-              popup.remove();
-              popupRef.current = null;
-              selectListing(null);
-            });
+              e.stopPropagation()
+              popup.remove()
+              popupRef.current = null
+              selectListing(null)
+            })
           }
 
           popupElement.addEventListener("click", (e) => {
-            e.stopPropagation();
+            e.stopPropagation()
             if (mapRef.current) {
-              isAnimatingRef.current = true;
+              isAnimatingRef.current = true
               mapRef.current.flyTo({
                 center: [listing.coordinates.lng, listing.coordinates.lat],
                 zoom: Math.max(mapRef.current.getZoom(), 14),
                 essential: true,
-              });
+              })
             }
-          });
+          })
         }
 
-        popupRef.current = popup;
-        selectListing(listing.id);
-      });
+        popupRef.current = popup
+        selectListing(listing.id)
+      })
 
       const marker = new maplibregl.Marker({ element: el })
         .setLngLat([listing.coordinates.lng, listing.coordinates.lat])
-        .addTo(mapRef.current!);
+        .addTo(mapRef.current!)
 
-      markersRef.current.set(listing.id, marker);
-    });
-  }, [listings, selectedListingId, selectListing]);
+      markersRef.current.set(listing.id, marker)
+    })
+  }, [listings, selectedListingId, selectListing])
 
   const lastCenterRef = React.useRef({
     lat: mapCenter.lat,
     lng: mapCenter.lng,
-  });
-  const lastZoomRef = React.useRef(mapZoom);
+  })
+  const lastZoomRef = React.useRef(mapZoom)
 
   React.useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapRef.current) return
 
     const centerChanged =
       Math.abs(lastCenterRef.current.lat - mapCenter.lat) > 0.0001 ||
-      Math.abs(lastCenterRef.current.lng - mapCenter.lng) > 0.0001;
-    const zoomChanged = Math.abs(lastZoomRef.current - mapZoom) > 0.1;
+      Math.abs(lastCenterRef.current.lng - mapCenter.lng) > 0.0001
+    const zoomChanged = Math.abs(lastZoomRef.current - mapZoom) > 0.1
 
     if (centerChanged || zoomChanged) {
-      isAnimatingRef.current = true;
+      isAnimatingRef.current = true
       mapRef.current.flyTo({
         center: [mapCenter.lng, mapCenter.lat],
         zoom: mapZoom,
         essential: true,
-      });
-      lastCenterRef.current = { lat: mapCenter.lat, lng: mapCenter.lng };
-      lastZoomRef.current = mapZoom;
+      })
+      lastCenterRef.current = { lat: mapCenter.lat, lng: mapCenter.lng }
+      lastZoomRef.current = mapZoom
     }
-  }, [mapCenter, mapZoom]);
+  }, [mapCenter, mapZoom])
 
-  return <div ref={containerRef} className="absolute inset-0 w-full h-full" />;
+  return <div ref={containerRef} className="absolute inset-0 h-full w-full" />
 }

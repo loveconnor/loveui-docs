@@ -1,7 +1,35 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import {
+  BedIcon,
+  Building01Icon,
+  Clock01Icon,
+  Coffee01Icon,
+  DrinkIcon,
+  Dumbbell01Icon,
+  FavouriteIcon,
+  Location01Icon,
+  Logout01Icon,
+  Restaurant01Icon,
+  Settings01Icon,
+  ShoppingBag01Icon,
+  Tree01Icon,
+  UnfoldMoreIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@loveui/ui/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
 import {
   Sidebar,
   SidebarContent,
@@ -14,41 +42,16 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { Button } from "@loveui/ui/ui/button";
-import { useMapsStore } from "../../store/maps-store";
-import { categories } from "../../mock-data/locations";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Location01Icon,
-  FavouriteIcon,
-  Clock01Icon,
-  Settings01Icon,
-  UnfoldMoreIcon,
-  Logout01Icon,
-  Restaurant01Icon,
-  Coffee01Icon,
-  DrinkIcon,
-  Tree01Icon,
-  Building01Icon,
-  ShoppingBag01Icon,
-  BedIcon,
-  Dumbbell01Icon,
-} from "@hugeicons/core-free-icons";
+} from "@/components/ui/sidebar"
+
+import { categories } from "../../mock-data/locations"
+import { useMapsStore } from "../../store/maps-store"
 
 const navItems = [
   { id: "all", title: "Explore Feed", icon: Location01Icon, href: "/" },
   { id: "favorites", title: "Saved", icon: FavouriteIcon, href: "/favorites" },
   { id: "recents", title: "Check-ins", icon: Clock01Icon, href: "/recents" },
-];
+]
 
 const iconMap: Record<string, typeof Location01Icon> = {
   utensils: Restaurant01Icon,
@@ -59,26 +62,26 @@ const iconMap: Record<string, typeof Location01Icon> = {
   "shopping-bag": ShoppingBag01Icon,
   bed: BedIcon,
   dumbbell: Dumbbell01Icon,
-};
+}
 
 export function LocationsSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const pathname = usePathname();
+  const pathname = usePathname()
   const {
     locations,
     selectedCategory,
     setSelectedCategory,
     getRecentLocations,
-  } = useMapsStore();
+  } = useMapsStore()
 
-  const favoriteCount = locations.filter((l) => l.isFavorite).length;
-  const recentCount = getRecentLocations().length;
+  const favoriteCount = locations.filter((l) => l.isFavorite).length
+  const recentCount = getRecentLocations().length
 
   const getCategoryCount = (categoryId: string) => {
-    if (categoryId === "all") return locations.length;
-    return locations.filter((l) => l.categoryId === categoryId).length;
-  };
+    if (categoryId === "all") return locations.length
+    return locations.filter((l) => l.categoryId === categoryId).length
+  }
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -86,12 +89,14 @@ export function LocationsSidebar({
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <button className="flex items-center gap-2.5 w-full hover:bg-sidebar-accent rounded-md p-1 -m-1 transition-colors shrink-0">
-                <div className="flex size-7 items-center justify-center rounded-lg bg-foreground text-background shrink-0">
+              <button className="-m-1 flex w-full shrink-0 items-center gap-2.5 rounded-md p-1 transition-colors hover:bg-sidebar-accent">
+                <div className="flex size-7 shrink-0 items-center justify-center rounded-lg bg-foreground text-background">
                   <HugeiconsIcon icon={Location01Icon} className="size-4" />
                 </div>
                 <div className="flex items-center gap-1 group-data-[collapsible=icon]:hidden">
-                  <span className="text-sm font-medium">LoveUI - Social Pulse</span>
+                  <span className="text-sm font-medium">
+                    LoveUI - Social Pulse
+                  </span>
                   <HugeiconsIcon
                     icon={UnfoldMoreIcon}
                     className="size-3 text-muted-foreground"
@@ -123,11 +128,11 @@ export function LocationsSidebar({
           <SidebarGroupContent>
             <SidebarMenu>
               {navItems.map((item) => {
-                const isActive = pathname === item.href;
-                let badge: number | undefined;
-                if (item.id === "favorites") badge = favoriteCount;
-                if (item.id === "recents") badge = recentCount;
-                if (item.id === "all") badge = locations.length;
+                const isActive = pathname === item.href
+                let badge: number | undefined
+                if (item.id === "favorites") badge = favoriteCount
+                if (item.id === "recents") badge = recentCount
+                if (item.id === "all") badge = locations.length
 
                 return (
                   <SidebarMenuItem key={item.id}>
@@ -143,14 +148,14 @@ export function LocationsSidebar({
                       <SidebarMenuBadge>{badge}</SidebarMenuBadge>
                     )}
                   </SidebarMenuItem>
-                );
+                )
               })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup className="p-0 mt-4">
-          <SidebarGroupLabel className="px-0 h-6">
+        <SidebarGroup className="mt-4 p-0">
+          <SidebarGroupLabel className="h-6 px-0">
             <span className="text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
               Vibes
             </span>
@@ -169,8 +174,8 @@ export function LocationsSidebar({
                 <SidebarMenuBadge>{getCategoryCount("all")}</SidebarMenuBadge>
               </SidebarMenuItem>
               {categories.map((category) => {
-                const Icon = iconMap[category.icon] || Location01Icon;
-                const count = getCategoryCount(category.id);
+                const Icon = iconMap[category.icon] || Location01Icon
+                const count = getCategoryCount(category.id)
 
                 return (
                   <SidebarMenuItem key={category.id}>
@@ -188,7 +193,7 @@ export function LocationsSidebar({
                     </SidebarMenuButton>
                     {count > 0 && <SidebarMenuBadge>{count}</SidebarMenuBadge>}
                   </SidebarMenuItem>
-                );
+                )
               })}
             </SidebarMenu>
           </SidebarGroupContent>
@@ -196,14 +201,14 @@ export function LocationsSidebar({
       </SidebarContent>
 
       <SidebarFooter className="px-2.5 pb-3">
-        <div className="group-data-[collapsible=icon]:hidden space-y-3">
+        <div className="space-y-3 group-data-[collapsible=icon]:hidden">
           <div className="text-center text-[11px] text-muted-foreground">
             Map powered by{" "}
             <Link
               href="https://mapcn.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-foreground transition-colors"
+              className="underline transition-colors hover:text-foreground"
             >
               mapcn
             </Link>{" "}
@@ -212,7 +217,7 @@ export function LocationsSidebar({
               href="https://x.com/sainianmol16"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-foreground transition-colors"
+              className="underline transition-colors hover:text-foreground"
             >
               @sainianmol16
             </Link>
@@ -220,5 +225,5 @@ export function LocationsSidebar({
         </div>
       </SidebarFooter>
     </Sidebar>
-  );
+  )
 }

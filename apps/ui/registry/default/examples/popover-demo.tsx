@@ -18,7 +18,9 @@ export default function PopoverDemo() {
       </PopoverTrigger>
       <PopoverPopup className="w-80">
         <div className="mb-4">
-          <PopoverTitle className="text-base">Updated Send us feedback</PopoverTitle>
+          <PopoverTitle className="text-base">
+            Updated Send us feedback
+          </PopoverTitle>
           <PopoverDescription>
             Updated Let us know how we can improve.
           </PopoverDescription>

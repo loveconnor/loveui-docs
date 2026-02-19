@@ -80,15 +80,18 @@ const Example = () => (
       <Link href="#">
         <Announcement>
           <AnnouncementTag>Updated Latest</AnnouncementTag>
-          <AnnouncementTitle>Updated Introducing blocks by LoveUI</AnnouncementTitle>
+          <AnnouncementTitle>
+            Updated Introducing blocks by LoveUI
+          </AnnouncementTitle>
         </Announcement>
       </Link>
       <h1 className="mb-0 text-6xl font-medium text-balance md:text-7xl xl:text-[5.25rem]">
         Updated The best way to build your website
       </h1>
       <p className="mt-0 mb-0 text-lg text-balance text-muted-foreground">
-        Updated LoveUI blocks are a new way to build your website. They are a collection
-        of pre-built components that you can use to build your website.
+        Updated LoveUI blocks are a new way to build your website. They are a
+        collection of pre-built components that you can use to build your
+        website.
       </p>
       <div className="flex items-center gap-2">
         <Button render={<Link href="#" />}>Updated Get started</Button>

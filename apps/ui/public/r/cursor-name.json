@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/cursor-name.tsx",
-      "content": "\"use client\"\n\nimport {\n  Cursor,\n  CursorBody,\n  CursorName,\n  CursorPointer,\n} from \"../../../../../packages/cursor\"\n\nconst Example = () => (\n  <Cursor>\n    <CursorPointer />\n    <CursorBody>\n      <CursorName>Connor</CursorName>\n    </CursorBody>\n  </Cursor>\n)\n\nexport default Example\n",
+      "content": "\"use client\"\n\nimport {\n  Cursor,\n  CursorBody,\n  CursorName,\n  CursorPointer,\n} from \"../../../../../packages/cursor\"\n\nconst Example = () => (\n  <Cursor>\n    <CursorPointer />\n    <CursorBody>\n      <CursorName>Updated Connor</CursorName>\n    </CursorBody>\n  </Cursor>\n)\n\nexport default Example\n",
       "type": "registry:example"
     }
   ],

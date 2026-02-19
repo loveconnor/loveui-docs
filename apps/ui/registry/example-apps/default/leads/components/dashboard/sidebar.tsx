@@ -1,7 +1,43 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import Link from "next/link";
+import * as React from "react"
+import Link from "next/link"
+import {
+  ArrowDown01Icon,
+  ArrowRight01Icon,
+  Calendar01Icon,
+  ChartLineData01Icon,
+  Coins01Icon,
+  DashboardSquare01Icon,
+  Folder01Icon,
+  Globe02Icon,
+  HelpCircleIcon,
+  Invoice01Icon,
+  Logout01Icon,
+  MoreHorizontalIcon,
+  Notification01Icon,
+  Settings01Icon,
+  Task01Icon,
+  UserGroupIcon,
+  UserIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@loveui/ui/ui/collapsible"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
 import {
   Sidebar,
   SidebarContent,
@@ -13,41 +49,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@loveui/ui/ui/collapsible";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@loveui/ui/ui/menu";
-import { Button } from "@loveui/ui/ui/button";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  DashboardSquare01Icon,
-  ChartLineData01Icon,
-  Notification01Icon,
-  Calendar01Icon,
-  Task01Icon,
-  UserGroupIcon,
-  Folder01Icon,
-  HelpCircleIcon,
-  Settings01Icon,
-  ArrowRight01Icon,
-  ArrowDown01Icon,
-  MoreHorizontalIcon,
-  Invoice01Icon,
-  Logout01Icon,
-  UserIcon,
-  Coins01Icon,
-  Globe02Icon,
-} from "@hugeicons/core-free-icons";
+} from "@/components/ui/sidebar"
 
 const menuItems = [
   {
@@ -87,39 +89,42 @@ const menuItems = [
     icon: UserGroupIcon,
     href: "#",
   },
-];
+]
 
 const folders = [
   { name: "Title Sponsors", hasNotification: true },
   { name: "Booth Partners", hasNotification: true },
   { name: "Media Sponsors", hasNotification: true },
-];
+]
 
 export function DashboardSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const [foldersOpen, setFoldersOpen] = React.useState(true);
+  const [foldersOpen, setFoldersOpen] = React.useState(true)
 
   return (
     <Sidebar collapsible="offExamples" className="lg:border-r-0!" {...props}>
-      <SidebarHeader className="p-3 sm:p-4 lg:p-5 pb-0">
+      <SidebarHeader className="p-3 pb-0 sm:p-4 lg:p-5">
         <div className="flex items-center gap-2">
           <div className="flex size-5 items-center justify-center rounded bg-linear-to-b from-[#6e3ff3] to-[#aa8ef9] text-white">
             <HugeiconsIcon icon={Invoice01Icon} className="size-3" />
           </div>
-          <span className="font-semibold text-base sm:text-lg">SummitOps</span>
+          <span className="text-base font-semibold sm:text-lg">SummitOps</span>
         </div>
       </SidebarHeader>
 
       <SidebarContent className="px-3 sm:px-4 lg:px-5">
-        <div className="flex items-center gap-2 sm:gap-3 rounded-lg border bg-card p-2 sm:p-3 mb-3 sm:mb-4">
-          <div className="flex size-8 sm:size-[34px] items-center justify-center rounded-lg bg-linear-to-b from-[#6e3ff3] to-[#aa8ef9] text-white shrink-0">
+        <div className="mb-3 flex items-center gap-2 rounded-lg border bg-card p-2 sm:mb-4 sm:gap-3 sm:p-3">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-linear-to-b from-[#6e3ff3] to-[#aa8ef9] text-white sm:size-[34px]">
             <HugeiconsIcon icon={Invoice01Icon} className="size-4 sm:size-5" />
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-semibold text-xs sm:text-sm">Sponsorship Desk</p>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold sm:text-sm">Sponsorship Desk</p>
             <div className="flex items-center gap-1 text-muted-foreground">
-              <HugeiconsIcon icon={UserGroupIcon} className="size-3 sm:size-3.5" />
+              <HugeiconsIcon
+                icon={UserGroupIcon}
+                className="size-3 sm:size-3.5"
+              />
               <span className="text-[10px] sm:text-xs">12 Coordinators</span>
             </div>
           </div>
@@ -144,14 +149,17 @@ export function DashboardSidebar({
                     <span
                       className={`text-sm ${
                         item.isGradient
-                          ? "bg-clip-text text-transparent bg-linear-to-r from-[#6e3ff3] to-[#df3674]"
+                          ? "bg-linear-to-r from-[#6e3ff3] to-[#df3674] bg-clip-text text-transparent"
                           : ""
                       }`}
                     >
                       {item.title}
                     </span>
                     {item.isActive && (
-                      <HugeiconsIcon icon={ArrowRight01Icon} className="ml-auto size-4 text-muted-foreground opacity-60" />
+                      <HugeiconsIcon
+                        icon={ArrowRight01Icon}
+                        className="ml-auto size-4 text-muted-foreground opacity-60"
+                      />
                     )}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -162,30 +170,39 @@ export function DashboardSidebar({
 
         <Collapsible open={foldersOpen} onOpenChange={setFoldersOpen}>
           <SidebarGroup className="p-0">
-            <SidebarGroupLabel className="flex items-center justify-between px-0 text-[10px] sm:text-[11px] font-semibold tracking-wider text-muted-foreground">
-              <CollapsibleTrigger className="flex items-center gap-1.5 cursor-pointer">
+            <SidebarGroupLabel className="flex items-center justify-between px-0 text-[10px] font-semibold tracking-wider text-muted-foreground sm:text-[11px]">
+              <CollapsibleTrigger className="flex cursor-pointer items-center gap-1.5">
                 <HugeiconsIcon
                   icon={ArrowDown01Icon}
-                  className={`size-3 sm:size-3.5 transition-transform ${
+                  className={`size-3 transition-transform sm:size-3.5 ${
                     foldersOpen ? "" : "-rotate-90"
                   }`}
                 />
                 FOLDERS
               </CollapsibleTrigger>
-              <HugeiconsIcon icon={MoreHorizontalIcon} className="size-4 cursor-pointer hover:text-foreground transition-colors" />
+              <HugeiconsIcon
+                icon={MoreHorizontalIcon}
+                className="size-4 cursor-pointer transition-colors hover:text-foreground"
+              />
             </SidebarGroupLabel>
             <CollapsibleContent>
               <SidebarGroupContent>
                 <SidebarMenu className="mt-2">
                   {folders.map((folder) => (
                     <SidebarMenuItem key={folder.name}>
-                      <SidebarMenuButton render={<Link href="#" />} className="h-9 sm:h-[38px]">
-                        <HugeiconsIcon icon={Folder01Icon} className="size-4 sm:size-5 text-muted-foreground" />
-                        <span className="flex-1 text-muted-foreground text-sm truncate">
+                      <SidebarMenuButton
+                        render={<Link href="#" />}
+                        className="h-9 sm:h-[38px]"
+                      >
+                        <HugeiconsIcon
+                          icon={Folder01Icon}
+                          className="size-4 text-muted-foreground sm:size-5"
+                        />
+                        <span className="flex-1 truncate text-sm text-muted-foreground">
                           {folder.name}
                         </span>
                         {folder.hasNotification && (
-                          <div className="size-1.5 rounded-full bg-[#6e3ff3] shrink-0" />
+                          <div className="size-1.5 shrink-0 rounded-full bg-[#6e3ff3]" />
                         )}
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -197,17 +214,29 @@ export function DashboardSidebar({
         </Collapsible>
       </SidebarContent>
 
-      <SidebarFooter className="px-3 sm:px-4 lg:px-5 pb-3 sm:pb-4 lg:pb-5">
+      <SidebarFooter className="px-3 pb-3 sm:px-4 sm:pb-4 lg:px-5 lg:pb-5">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<Link href="#" />} className="h-9 sm:h-[38px]">
-              <HugeiconsIcon icon={HelpCircleIcon} className="size-4 sm:size-5" />
+            <SidebarMenuButton
+              render={<Link href="#" />}
+              className="h-9 sm:h-[38px]"
+            >
+              <HugeiconsIcon
+                icon={HelpCircleIcon}
+                className="size-4 sm:size-5"
+              />
               <span className="text-sm">Help Center</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton render={<Link href="#" />} className="h-9 sm:h-[38px]">
-              <HugeiconsIcon icon={Settings01Icon} className="size-4 sm:size-5" />
+            <SidebarMenuButton
+              render={<Link href="#" />}
+              className="h-9 sm:h-[38px]"
+            >
+              <HugeiconsIcon
+                icon={Settings01Icon}
+                className="size-4 sm:size-5"
+              />
               <span className="text-sm">Settings</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -215,42 +244,47 @@ export function DashboardSidebar({
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
-              <div className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 rounded-lg cursor-pointer hover:bg-accent transition-colors">
+              <div className="flex cursor-pointer items-center gap-2 rounded-lg p-2 transition-colors hover:bg-accent sm:gap-3 sm:p-3">
                 <Avatar className="size-7 sm:size-8">
                   <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=LN" />
                   <AvatarFallback className="text-xs">CL</AvatarFallback>
                 </Avatar>
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-xs sm:text-sm">Connor Love</p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground truncate">
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold sm:text-sm">
+                    Connor Love
+                  </p>
+                  <p className="truncate text-[10px] text-muted-foreground sm:text-xs">
                     connorlove@gmail.com
                   </p>
                 </div>
-                <HugeiconsIcon icon={ArrowDown01Icon} className="size-4 text-muted-foreground shrink-0" />
+                <HugeiconsIcon
+                  icon={ArrowDown01Icon}
+                  className="size-4 shrink-0 text-muted-foreground"
+                />
               </div>
             }
           />
           <DropdownMenuContent align="end" className="w-[200px]">
             <DropdownMenuItem>
-              <HugeiconsIcon icon={UserIcon} className="size-4 mr-2" />
+              <HugeiconsIcon icon={UserIcon} className="mr-2 size-4" />
               Profile
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <HugeiconsIcon icon={Coins01Icon} className="size-4 mr-2" />
+              <HugeiconsIcon icon={Coins01Icon} className="mr-2 size-4" />
               Billing
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <HugeiconsIcon icon={Settings01Icon} className="size-4 mr-2" />
+              <HugeiconsIcon icon={Settings01Icon} className="mr-2 size-4" />
               Settings
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-destructive">
-              <HugeiconsIcon icon={Logout01Icon} className="size-4 mr-2" />
+              <HugeiconsIcon icon={Logout01Icon} className="mr-2 size-4" />
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarFooter>
     </Sidebar>
-  );
+  )
 }

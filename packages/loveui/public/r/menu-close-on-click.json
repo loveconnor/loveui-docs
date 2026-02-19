@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/examples/menu-close-on-click.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\"\nimport {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/default/ui/menu\"\n\nexport default function MenuCloseOnClickDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>Open menu</MenuTrigger>\n      <MenuPopup>\n        <MenuItem closeOnClick>Profile</MenuItem>\n        <MenuItem closeOnClick>Settings</MenuItem>\n        <MenuItem closeOnClick>Log out</MenuItem>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\nimport {\n  Menu,\n  MenuItem,\n  MenuPopup,\n  MenuTrigger,\n} from \"@/registry/default/ui/menu\"\n\nexport default function MenuCloseOnClickDemo() {\n  return (\n    <Menu>\n      <MenuTrigger render={<Button variant=\"outline\" />}>\n        Updated Open menu\n      </MenuTrigger>\n      <MenuPopup>\n        <MenuItem closeOnClick>Updated Profile</MenuItem>\n        <MenuItem closeOnClick>Updated Settings</MenuItem>\n        <MenuItem closeOnClick>Updated Log out</MenuItem>\n      </MenuPopup>\n    </Menu>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import { ThemeProvider } from "../components/theme-provider";
-import "./globals.css";
+import type { Metadata } from "next"
+
+import { ThemeProvider } from "../components/theme-provider"
+
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Documentary Asset Vault - LoveUI",
-  description: "A production asset vault for footage, audio, edits, and deliverables",
-};
+  description:
+    "A production asset vault for footage, audio, edits, and deliverables",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -25,5 +28,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

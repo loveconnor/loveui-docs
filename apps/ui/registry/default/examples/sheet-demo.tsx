@@ -29,8 +29,8 @@ export default function DialogDemo() {
           <SheetHeader>
             <SheetTitle>Updated Edit profile</SheetTitle>
             <SheetDescription>
-              Updated Make changes to your profile here. Click save when you&apos;re
-              done.
+              Updated Make changes to your profile here. Click save when
+              you&apos;re done.
             </SheetDescription>
           </SheetHeader>
           <div className="flex flex-col gap-4 px-4">

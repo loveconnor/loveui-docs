@@ -22,7 +22,9 @@ export default function TooltipDemo() {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger
-            render={<Toggle value="italic" aria-label="Updated Toggle italic" />}
+            render={
+              <Toggle value="italic" aria-label="Updated Toggle italic" />
+            }
           >
             <ItalicIcon />
           </TooltipTrigger>
@@ -30,7 +32,9 @@ export default function TooltipDemo() {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger
-            render={<Toggle value="underline" aria-label="Updated Toggle underline" />}
+            render={
+              <Toggle value="underline" aria-label="Updated Toggle underline" />
+            }
           >
             <UnderlineIcon />
           </TooltipTrigger>

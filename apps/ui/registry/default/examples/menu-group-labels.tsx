@@ -10,7 +10,9 @@ import {
 export default function MenuGroupLabelsDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>
+        Updated Open menu
+      </MenuTrigger>
       <MenuPopup>
         <MenuItem disabled>Updated Account</MenuItem>
         <MenuItem>Updated Profile</MenuItem>

@@ -50,7 +50,9 @@ const Example = () => (
       <ContributionGraphTotalCount>
         {({ totalCount, year }) => (
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">Updated Year {year}:</span>
+            <span className="text-sm text-muted-foreground">
+              Updated Year {year}:
+            </span>
             <Badge variant="secondary">
               {totalCount.toLocaleString()} contributions
             </Badge>

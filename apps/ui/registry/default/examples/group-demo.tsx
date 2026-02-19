@@ -17,7 +17,9 @@ export default function GroupDemo() {
       </GroupItem>
       <GroupSeparator />
       <GroupItem
-        render={<Button variant="outline" size="icon" aria-label="Updated Menu" />}
+        render={
+          <Button variant="outline" size="icon" aria-label="Updated Menu" />
+        }
       >
         <EllipsisIcon />
       </GroupItem>

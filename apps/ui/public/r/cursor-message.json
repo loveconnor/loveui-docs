@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/cursor-message.tsx",
-      "content": "\"use client\"\n\nimport {\n  Cursor,\n  CursorBody,\n  CursorMessage,\n  CursorPointer,\n} from \"../../../../../packages/cursor\"\n\nconst Example = () => (\n  <Cursor color=\"#000000\">\n    <CursorPointer />\n    <CursorBody>\n      <CursorMessage>That looks great!</CursorMessage>\n    </CursorBody>\n  </Cursor>\n)\n\nexport default Example\n",
+      "content": "\"use client\"\n\nimport {\n  Cursor,\n  CursorBody,\n  CursorMessage,\n  CursorPointer,\n} from \"../../../../../packages/cursor\"\n\nconst Example = () => (\n  <Cursor color=\"#000000\">\n    <CursorPointer />\n    <CursorBody>\n      <CursorMessage>Updated That looks great!</CursorMessage>\n    </CursorBody>\n  </Cursor>\n)\n\nexport default Example\n",
       "type": "registry:example"
     }
   ],

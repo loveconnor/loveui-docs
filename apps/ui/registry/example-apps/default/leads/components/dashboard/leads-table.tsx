@@ -1,18 +1,34 @@
-"use client";
+"use client"
 
-import { useMemo } from "react";
-import { Button } from "@loveui/ui/ui/button";
-import { Input } from "@loveui/ui/ui/input";
-import { Badge } from "@loveui/ui/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Checkbox } from "@loveui/ui/ui/checkbox";
+import { useMemo } from "react"
+import {
+  ArrowRight01Icon,
+  Invoice01Icon,
+  MoreHorizontalIcon,
+  Search01Icon,
+  Settings01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Badge } from "@loveui/ui/ui/badge"
+import { Button } from "@loveui/ui/ui/button"
+import { Checkbox } from "@loveui/ui/ui/checkbox"
+import { Input } from "@loveui/ui/ui/input"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
   DropdownMenuSeparator,
-} from "@loveui/ui/ui/menu";
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@loveui/ui/ui/select"
 import {
   Table,
   TableBody,
@@ -20,24 +36,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@loveui/ui/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@loveui/ui/ui/select";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Invoice01Icon,
-  Search01Icon,
-  Settings01Icon,
-  MoreHorizontalIcon,
-  ArrowRight01Icon,
-} from "@hugeicons/core-free-icons";
-import { leads } from "../../mock-data/leads";
-import { useLeadsStore, LeadStatus, LeadSource } from "../../store/leads-store";
+} from "@loveui/ui/ui/table"
+
+import { leads } from "../../mock-data/leads"
+import { LeadSource, LeadStatus, useLeadsStore } from "../../store/leads-store"
 
 const statusConfig: Record<LeadStatus, { label: string; className: string }> = {
   new: {
@@ -70,7 +72,7 @@ const statusConfig: Record<LeadStatus, { label: string; className: string }> = {
     className:
       "bg-pink-100 text-pink-800 dark:bg-pink-950/30 dark:text-pink-400 border-pink-200 dark:border-pink-800",
   },
-};
+}
 
 const sourceConfig: Record<LeadSource, string> = {
   website: "Inbound Form",
@@ -78,7 +80,7 @@ const sourceConfig: Record<LeadSource, string> = {
   referral: "Partner Intro",
   social: "Social DM",
   email: "Email Outreach",
-};
+}
 
 export function LeadsTable() {
   const {
@@ -95,11 +97,11 @@ export function LeadsTable() {
     setCurrentPage,
     setItemsPerPage,
     clearFilters,
-  } = useLeadsStore();
+  } = useLeadsStore()
 
   const owners = useMemo(() => {
-    return [...new Set(leads.map((lead) => lead.owner))];
-  }, []);
+    return [...new Set(leads.map((lead) => lead.owner))]
+  }, [])
 
   const filteredLeads = useMemo(() => {
     return leads.filter((lead) => {
@@ -107,34 +109,34 @@ export function LeadsTable() {
         searchQuery === "" ||
         lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         lead.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        lead.leadId.toLowerCase().includes(searchQuery.toLowerCase());
+        lead.leadId.toLowerCase().includes(searchQuery.toLowerCase())
 
       const matchesStatus =
-        statusFilter === "all" || lead.status === statusFilter;
+        statusFilter === "all" || lead.status === statusFilter
       const matchesSource =
-        sourceFilter === "all" || lead.source === sourceFilter;
-      const matchesOwner = ownerFilter === "all" || lead.owner === ownerFilter;
+        sourceFilter === "all" || lead.source === sourceFilter
+      const matchesOwner = ownerFilter === "all" || lead.owner === ownerFilter
 
-      return matchesSearch && matchesStatus && matchesSource && matchesOwner;
-    });
-  }, [searchQuery, statusFilter, sourceFilter, ownerFilter]);
+      return matchesSearch && matchesStatus && matchesSource && matchesOwner
+    })
+  }, [searchQuery, statusFilter, sourceFilter, ownerFilter])
 
-  const totalPages = Math.ceil(filteredLeads.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
+  const totalPages = Math.ceil(filteredLeads.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
   const paginatedLeads = filteredLeads.slice(
     startIndex,
     startIndex + itemsPerPage
-  );
+  )
 
   const hasActiveFilters =
     searchQuery !== "" ||
     statusFilter !== "all" ||
     sourceFilter !== "all" ||
-    ownerFilter !== "all";
+    ownerFilter !== "all"
 
   return (
-    <div className="bg-card text-card-foreground rounded-xl border">
-      <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between py-3 sm:py-5 px-3 sm:px-5">
+    <div className="rounded-xl border bg-card text-card-foreground">
+      <div className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5 sm:py-5">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" className="size-8">
             <HugeiconsIcon
@@ -142,20 +144,20 @@ export function LeadsTable() {
               className="size-4 text-muted-foreground"
             />
           </Button>
-          <h3 className="font-medium text-sm sm:text-base">Sponsor Pipeline</h3>
+          <h3 className="text-sm font-medium sm:text-base">Sponsor Pipeline</h3>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <div className="relative flex-1 sm:flex-none">
             <HugeiconsIcon
               icon={Search01Icon}
-              className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
+              className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"
             />
             <Input
               placeholder="Search sponsors..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 h-9 w-full sm:w-[180px]"
+              className="h-9 w-full pl-9 sm:w-[180px]"
             />
           </div>
 
@@ -168,7 +170,7 @@ export function LeadsTable() {
                   {hasActiveFilters && (
                     <Badge
                       variant="secondary"
-                      className="size-5 p-0 justify-center"
+                      className="size-5 justify-center p-0"
                     >
                       !
                     </Badge>
@@ -178,7 +180,7 @@ export function LeadsTable() {
             />
             <DropdownMenuContent align="end" className="w-56">
               <div className="px-2 py-1.5">
-                <p className="text-xs font-medium text-muted-foreground mb-2">
+                <p className="mb-2 text-xs font-medium text-muted-foreground">
                   Status
                 </p>
                 <Select
@@ -201,7 +203,7 @@ export function LeadsTable() {
                 </Select>
               </div>
               <div className="px-2 py-1.5">
-                <p className="text-xs font-medium text-muted-foreground mb-2">
+                <p className="mb-2 text-xs font-medium text-muted-foreground">
                   Source
                 </p>
                 <Select
@@ -224,7 +226,7 @@ export function LeadsTable() {
                 </Select>
               </div>
               <div className="px-2 py-1.5">
-                <p className="text-xs font-medium text-muted-foreground mb-2">
+                <p className="mb-2 text-xs font-medium text-muted-foreground">
                   Owner
                 </p>
                 <Select
@@ -274,14 +276,14 @@ export function LeadsTable() {
                   </div>
                 </TableHead>
                 <TableHead className="min-w-[160px]">Contact Name</TableHead>
-                <TableHead className="min-w-[180px] hidden md:table-cell">
+                <TableHead className="hidden min-w-[180px] md:table-cell">
                   Email
                 </TableHead>
                 <TableHead className="w-[110px]">Status</TableHead>
-                <TableHead className="w-[100px] hidden lg:table-cell">
+                <TableHead className="hidden w-[100px] lg:table-cell">
                   Source
                 </TableHead>
-                <TableHead className="w-[140px] hidden xl:table-cell">
+                <TableHead className="hidden w-[140px] xl:table-cell">
                   Owner
                 </TableHead>
                 <TableHead className="w-[130px]">Created On</TableHead>
@@ -291,10 +293,10 @@ export function LeadsTable() {
               {paginatedLeads.map((lead) => (
                 <TableRow key={lead.id}>
                   <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Checkbox />
-                    <span className="font-medium text-sm">{lead.leadId}</span>
-                  </div>
+                    <div className="flex items-center gap-2">
+                      <Checkbox />
+                      <span className="text-sm font-medium">{lead.leadId}</span>
+                    </div>
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2">
@@ -307,7 +309,7 @@ export function LeadsTable() {
                             .join("")}
                         </AvatarFallback>
                       </Avatar>
-                      <span className="font-medium text-sm">{lead.name}</span>
+                      <span className="text-sm font-medium">{lead.name}</span>
                     </div>
                   </TableCell>
                   <TableCell className="hidden md:table-cell">
@@ -332,7 +334,7 @@ export function LeadsTable() {
                   </TableCell>
                   <TableCell className="hidden xl:table-cell">
                     <div className="flex items-center gap-2">
-                      <div className="size-6 rounded-full bg-muted flex items-center justify-center">
+                      <div className="flex size-6 items-center justify-center rounded-full bg-muted">
                         <span className="text-[10px] font-bold text-muted-foreground uppercase">
                           {lead.ownerInitials}
                         </span>
@@ -379,7 +381,7 @@ export function LeadsTable() {
           </Table>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 sm:px-6 py-3 border-t">
+        <div className="flex flex-col items-center justify-between gap-3 border-t px-4 py-3 sm:flex-row sm:px-6">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>
               Showing {startIndex + 1}-
@@ -417,7 +419,7 @@ export function LeadsTable() {
               />
             </Button>
             {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-              const page = i + 1;
+              const page = i + 1
               return (
                 <Button
                   key={page}
@@ -428,7 +430,7 @@ export function LeadsTable() {
                 >
                   {page}
                 </Button>
-              );
+              )
             })}
             {totalPages > 5 && (
               <>
@@ -456,5 +458,5 @@ export function LeadsTable() {
         </div>
       </div>
     </div>
-  );
+  )
 }

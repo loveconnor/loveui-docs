@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/gooey-toast-with-button.tsx",
-      "content": "\"use client\"\n\nimport { gooey } from \"@loveui/gooey-toast\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function GooeyToastWithButton() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() => {\n        const id = gooey.action({\n          title: \"File deleted\",\n          description: \"Your file has been moved to trash.\",\n          button: {\n            title: \"Undo\",\n            onClick: () => {\n              gooey.dismiss(id)\n              gooey.success({\n                title: \"Restored\",\n                description: \"Your file has been restored.\",\n              })\n            },\n          },\n        })\n      }}\n    >\n      Delete File\n    </Button>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { gooey } from \"@loveui/gooey-toast\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function GooeyToastWithButton() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() => {\n        const id = gooey.action({\n          title: \"Updated File deleted\",\n          description: \"Updated Your file has been moved to trash.\",\n          button: {\n            title: \"Updated Undo\",\n            onClick: () => {\n              gooey.dismiss(id)\n              gooey.success({\n                title: \"Updated Restored\",\n                description: \"Updated Your file has been restored.\",\n              })\n            },\n          },\n        })\n      }}\n    >\n      Updated Delete File\n    </Button>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

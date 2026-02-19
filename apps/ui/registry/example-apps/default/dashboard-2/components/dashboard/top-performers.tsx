@@ -1,38 +1,40 @@
-"use client";
+"use client"
 
-import { useMemo, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Button } from "@loveui/ui/ui/button";
+import { useMemo, useState } from "react"
+import {
+  Award01Icon,
+  MoreHorizontalIcon,
+  StarIcon,
+  UserIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuTrigger,
   DropdownMenuSeparator,
   DropdownMenuSub,
-  DropdownMenuSubTrigger,
   DropdownMenuSubContent,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Award01Icon,
-  StarIcon,
-  UserIcon,
-  MoreHorizontalIcon,
-} from "@hugeicons/core-free-icons";
-import { topPerformers } from "../../mock-data/dashboard";
-import { cn } from "../../lib/utils";
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
 
-type SortBy = "score_desc" | "score_asc" | "name_asc" | "name_desc";
-type Period = "week" | "month" | "quarter" | "year";
+import { cn } from "../../lib/utils"
+import { topPerformers } from "../../mock-data/dashboard"
+
+type SortBy = "score_desc" | "score_asc" | "name_asc" | "name_desc"
+type Period = "week" | "month" | "quarter" | "year"
 
 const periodLabels: Record<Period, string> = {
   week: "This Week",
   month: "This Month",
   quarter: "This Quarter",
   year: "This Year",
-};
+}
 
 const barStyles = [
   {
@@ -71,38 +73,41 @@ const barStyles = [
       "bg-linear-to-r from-rose-400/30 via-rose-400/15 to-transparent",
     isDashed: true,
   },
-];
+]
 
 export function TopPerformers() {
-  const [sortBy, setSortBy] = useState<SortBy>("score_desc");
-  const [period, setPeriod] = useState<Period>("month");
+  const [sortBy, setSortBy] = useState<SortBy>("score_desc")
+  const [period, setPeriod] = useState<Period>("month")
 
   const maxScore = useMemo(() => {
-    return Math.max(...topPerformers.map((p) => p.score));
-  }, []);
+    return Math.max(...topPerformers.map((p) => p.score))
+  }, [])
 
   const sortedPerformers = useMemo(() => {
-    const performers = [...topPerformers];
+    const performers = [...topPerformers]
     switch (sortBy) {
       case "score_desc":
-        return performers.sort((a, b) => b.score - a.score);
+        return performers.sort((a, b) => b.score - a.score)
       case "score_asc":
-        return performers.sort((a, b) => a.score - b.score);
+        return performers.sort((a, b) => a.score - b.score)
       case "name_asc":
-        return performers.sort((a, b) => a.name.localeCompare(b.name));
+        return performers.sort((a, b) => a.name.localeCompare(b.name))
       case "name_desc":
-        return performers.sort((a, b) => b.name.localeCompare(a.name));
+        return performers.sort((a, b) => b.name.localeCompare(a.name))
       default:
-        return performers;
+        return performers
     }
-  }, [sortBy]);
+  }, [sortBy])
 
   return (
-    <div className="bg-card text-card-foreground rounded-lg border w-full lg:w-[332px] shrink-0">
-      <div className="flex items-center justify-between p-4 border-b border-border/50">
-        <h3 className="font-medium text-sm sm:text-base">Top Agents</h3>
+    <div className="w-full shrink-0 rounded-lg border bg-card text-card-foreground lg:w-[332px]">
+      <div className="flex items-center justify-between border-b border-border/50 p-4">
+        <h3 className="text-sm font-medium sm:text-base">Top Agents</h3>
         <div className="flex items-center gap-1">
-          <HugeiconsIcon icon={Award01Icon} className="size-4 text-muted-foreground" />
+          <HugeiconsIcon
+            icon={Award01Icon}
+            className="size-4 text-muted-foreground"
+          />
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
@@ -146,8 +151,8 @@ export function TopPerformers() {
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 onClick={() => {
-                  setSortBy("score_desc");
-                  setPeriod("month");
+                  setSortBy("score_desc")
+                  setPeriod("month")
                 }}
               >
                 Reset to Default
@@ -156,11 +161,11 @@ export function TopPerformers() {
           </DropdownMenu>
         </div>
       </div>
-      <div className="p-4 space-y-4">
+      <div className="space-y-4 p-4">
         {sortedPerformers.map((performer, index) => {
-          const style = barStyles[index % barStyles.length];
-          const progressWidth = (performer.score / maxScore) * 100;
-          const isFirst = index === 0;
+          const style = barStyles[index % barStyles.length]
+          const progressWidth = (performer.score / maxScore) * 100
+          const isFirst = index === 0
 
           return (
             <div key={performer.id} className="flex items-center gap-3">
@@ -173,10 +178,10 @@ export function TopPerformers() {
                     .join("")}
                 </AvatarFallback>
               </Avatar>
-              <div className="flex-1 relative">
+              <div className="relative flex-1">
                 <div
                   className={cn(
-                    "relative h-[42px] rounded-lg border overflow-hidden",
+                    "relative h-[42px] overflow-hidden rounded-lg border",
                     style.borderColor,
                     style.isDashed ? "border-dashed" : "border-solid"
                   )}
@@ -190,11 +195,17 @@ export function TopPerformers() {
                       width: `${Math.max(progressWidth, 30)}%`,
                     }}
                   />
-                  <div className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center gap-1.5 bg-card/90 dark:bg-neutral-900/90 border border-border rounded-md px-2 py-1 shadow-sm">
+                  <div className="absolute top-1/2 left-2 flex -translate-y-1/2 items-center gap-1.5 rounded-md border border-border bg-card/90 px-2 py-1 shadow-sm dark:bg-neutral-900/90">
                     {isFirst ? (
-                      <HugeiconsIcon icon={StarIcon} className="size-3.5 text-amber-400 fill-amber-400" />
+                      <HugeiconsIcon
+                        icon={StarIcon}
+                        className="size-3.5 fill-amber-400 text-amber-400"
+                      />
                     ) : (
-                      <HugeiconsIcon icon={UserIcon} className="size-3.5 text-muted-foreground" />
+                      <HugeiconsIcon
+                        icon={UserIcon}
+                        className="size-3.5 text-muted-foreground"
+                      />
                     )}
                     <span
                       className={cn(
@@ -208,9 +219,9 @@ export function TopPerformers() {
                 </div>
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

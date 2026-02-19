@@ -1,25 +1,25 @@
-"use client";
+"use client"
 
-import { storageData } from "../../mock-data/files";
+import { storageData } from "../../mock-data/files"
 
 export function StorageOverview() {
-  const usedPercentage = (storageData.used / storageData.total) * 100;
+  const usedPercentage = (storageData.used / storageData.total) * 100
 
   return (
     <div className="rounded-xl border bg-card p-4">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-medium text-sm">Storage Overview</h3>
-        <button className="text-xs text-violet-500 hover:text-violet-600 transition-colors font-medium">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-sm font-medium">Storage Overview</h3>
+        <button className="text-xs font-medium text-violet-500 transition-colors hover:text-violet-600">
           Upgrade
         </button>
       </div>
 
-      <div className="relative h-3 rounded-full bg-muted overflow-hidden mb-3">
-        <div className="absolute inset-0 flex rounded-full overflow-hidden">
+      <div className="relative mb-3 h-3 overflow-hidden rounded-full bg-muted">
+        <div className="absolute inset-0 flex overflow-hidden rounded-full">
           {storageData.breakdown.map((item, index) => {
-            const width = (item.size / storageData.used) * usedPercentage;
-            const isFirst = index === 0;
-            const isLast = index === storageData.breakdown.length - 1;
+            const width = (item.size / storageData.used) * usedPercentage
+            const isFirst = index === 0
+            const isLast = index === storageData.breakdown.length - 1
             return (
               <div
                 key={item.type}
@@ -29,12 +29,12 @@ export function StorageOverview() {
                   backgroundColor: item.color,
                 }}
               />
-            );
+            )
           })}
         </div>
       </div>
 
-      <div className="flex items-center justify-between text-sm mb-4">
+      <div className="mb-4 flex items-center justify-between text-sm">
         <span className="text-muted-foreground">
           {storageData.used} GB of {storageData.total} GB used
         </span>
@@ -45,20 +45,19 @@ export function StorageOverview() {
         {storageData.breakdown.map((item) => (
           <div
             key={item.type}
-            className="flex items-center gap-2 p-2 rounded-lg bg-muted/50"
+            className="flex items-center gap-2 rounded-lg bg-muted/50 p-2"
           >
             <div
-              className="size-2.5 rounded-full shrink-0"
+              className="size-2.5 shrink-0 rounded-full"
               style={{ backgroundColor: item.color }}
             />
-            <span className="text-xs text-muted-foreground truncate">
+            <span className="truncate text-xs text-muted-foreground">
               {item.type}
             </span>
-            <span className="text-xs font-medium ml-auto">{item.size} GB</span>
+            <span className="ml-auto text-xs font-medium">{item.size} GB</span>
           </div>
         ))}
       </div>
     </div>
-  );
+  )
 }
-

@@ -1,8 +1,14 @@
-"use client";
+"use client"
 
-import { leadStats } from "../../mock-data/leads";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Invoice01Icon, UserGroupIcon, Task01Icon, Notification01Icon } from "@hugeicons/core-free-icons";
+import {
+  Invoice01Icon,
+  Notification01Icon,
+  Task01Icon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { leadStats } from "../../mock-data/leads"
 
 const stats = [
   {
@@ -33,25 +39,28 @@ const stats = [
     changeValue: leadStats.hotLeadsChangeValue,
     icon: Notification01Icon,
   },
-];
+]
 
 export function StatsCards() {
   return (
-    <div className="bg-card text-card-foreground rounded-xl border">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y divide-x-0 lg:divide-x sm:divide-y-0 divide-border">
+    <div className="rounded-xl border bg-card text-card-foreground">
+      <div className="grid grid-cols-1 divide-x-0 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
         {stats.map((stat, index) => (
-          <div key={index} className="p-4 sm:p-6 space-y-4">
+          <div key={index} className="space-y-4 p-4 sm:p-6">
             <div className="flex items-center gap-1.5 text-muted-foreground">
-              <HugeiconsIcon icon={stat.icon} className="size-4 sm:size-[18px]" />
-              <span className="text-xs sm:text-sm font-medium">
+              <HugeiconsIcon
+                icon={stat.icon}
+                className="size-4 sm:size-[18px]"
+              />
+              <span className="text-xs font-medium sm:text-sm">
                 {stat.title}
               </span>
             </div>
-            <p className="text-2xl sm:text-[28px] font-semibold tracking-tight">
+            <p className="text-2xl font-semibold tracking-tight sm:text-[28px]">
               {stat.value}
             </p>
             <div className="flex items-center gap-2 text-xs sm:text-sm">
-              <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+              <span className="font-medium text-emerald-600 dark:text-emerald-400">
                 +{stat.change}%(
                 {stat.changeValue > 0
                   ? `$${stat.changeValue}`
@@ -59,7 +68,7 @@ export function StatsCards() {
                 )
               </span>
               <span className="size-1 rounded-full bg-muted-foreground" />
-              <span className="text-muted-foreground hidden sm:inline">
+              <span className="hidden text-muted-foreground sm:inline">
                 vs Last Month
               </span>
             </div>
@@ -67,5 +76,5 @@ export function StatsCards() {
         ))}
       </div>
     </div>
-  );
+  )
 }

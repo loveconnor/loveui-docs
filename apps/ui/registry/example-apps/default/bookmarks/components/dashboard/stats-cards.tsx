@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
-import { Bookmark, Star, Tag, FolderOpen } from "@phosphor-icons/react";
-import { useBookmarksStore } from "../../store/bookmarks-store";
-import { collections, tags } from "../../mock-data/bookmarks";
+import { Bookmark, FolderOpen, Star, Tag } from "@phosphor-icons/react"
+
+import { collections, tags } from "../../mock-data/bookmarks"
+import { useBookmarksStore } from "../../store/bookmarks-store"
 
 const stats = [
   {
@@ -25,24 +26,24 @@ const stats = [
     icon: Tag,
     color: "bg-emerald-500/10 text-emerald-500",
   },
-];
+]
 
 export function StatsCards() {
-  const { bookmarks } = useBookmarksStore();
+  const { bookmarks } = useBookmarksStore()
 
   const values = [
     bookmarks.length,
     bookmarks.filter((b) => b.isFavorite).length,
     collections.length - 1,
     tags.length,
-  ];
+  ]
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
       {stats.map((stat, index) => (
         <div
           key={stat.label}
-          className="flex items-center gap-4 p-4 rounded-xl border bg-card"
+          className="flex items-center gap-4 rounded-xl border bg-card p-4"
         >
           <div
             className={`size-10 rounded-lg ${stat.color} flex items-center justify-center`}
@@ -56,5 +57,5 @@ export function StatsCards() {
         </div>
       ))}
     </div>
-  );
+  )
 }

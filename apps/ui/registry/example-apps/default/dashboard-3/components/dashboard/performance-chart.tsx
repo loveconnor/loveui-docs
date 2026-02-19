@@ -1,43 +1,45 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Button } from "@loveui/ui/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  DropdownMenuCheckboxItem,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { MoreVerticalIcon } from "@hugeicons/core-free-icons";
-import {
-  performanceScore,
-  performanceChange,
-  performanceChartData,
-} from "../../mock-data/dashboard";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@loveui/ui/ui/chart";
+import { useState } from "react"
+import { MoreVerticalIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Bar,
   BarChart,
+  CartesianGrid,
+  Cell,
   Line,
   LineChart,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Cell,
-} from "recharts";
+} from "recharts"
 
-type ChartType = "bar" | "line";
-type Period = "7d" | "30d";
+import { Button } from "@loveui/ui/ui/button"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@loveui/ui/ui/chart"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
+import {
+  performanceChange,
+  performanceChartData,
+  performanceScore,
+} from "../../mock-data/dashboard"
+
+type ChartType = "bar" | "line"
+type Period = "7d" | "30d"
 
 const barColors = [
   "var(--muted-foreground)",
@@ -46,34 +48,34 @@ const barColors = [
   "var(--muted-foreground)",
   "var(--muted-foreground)",
   "var(--muted-foreground)",
-];
+]
 
 const chartConfig = {
   value: {
     label: "Performance",
   },
-};
+}
 
 export function PerformanceChart() {
-  const [chartType, setChartType] = useState<ChartType>("bar");
-  const [period, setPeriod] = useState<Period>("7d");
-  const [showGrid, setShowGrid] = useState(true);
-  const [smoothCurve, setSmoothCurve] = useState(true);
+  const [chartType, setChartType] = useState<ChartType>("bar")
+  const [period, setPeriod] = useState<Period>("7d")
+  const [showGrid, setShowGrid] = useState(true)
+  const [smoothCurve, setSmoothCurve] = useState(true)
 
   const resetToDefault = () => {
-    setChartType("bar");
-    setPeriod("7d");
-    setShowGrid(true);
-    setSmoothCurve(true);
-  };
+    setChartType("bar")
+    setPeriod("7d")
+    setShowGrid(true)
+    setSmoothCurve(true)
+  }
 
   // Pour l'instant, on garde les mêmes données quel que soit period
-  const data = performanceChartData;
+  const data = performanceChartData
 
   return (
-    <div className="rounded-xl border border-border bg-card overflow-hidden">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3 border-b">
-        <h3 className="font-medium text-base">Course Completion Score</h3>
+    <div className="overflow-hidden rounded-xl border border-border bg-card">
+      <div className="flex flex-col gap-3 border-b px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-base font-medium">Course Completion Score</h3>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
@@ -127,7 +129,7 @@ export function PerformanceChart() {
         </DropdownMenu>
       </div>
       <div className="p-4">
-        <div className="flex items-baseline gap-2 mb-4">
+        <div className="mb-4 flex items-baseline gap-2">
           <span className="text-3xl font-semibold">{performanceScore}%</span>
           <span className="text-sm text-muted-foreground">
             +{performanceChange}% vs previous week
@@ -198,5 +200,5 @@ export function PerformanceChart() {
         </ChartContainer>
       </div>
     </div>
-  );
+  )
 }

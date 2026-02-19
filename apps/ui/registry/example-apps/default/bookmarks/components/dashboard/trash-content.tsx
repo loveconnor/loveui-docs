@@ -1,32 +1,34 @@
-"use client";
+"use client"
 
-import { useBookmarksStore } from "../../store/bookmarks-store";
-import { Button } from "../ui/button";
+import Image from "next/image"
+import {
+  ArrowCounterClockwise,
+  ArrowSquareOut,
+  DotsThree,
+  Trash,
+  XCircle,
+} from "@phosphor-icons/react"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import {
-  Trash,
-  DotsThree,
-  ArrowCounterClockwise,
-  XCircle,
-  ArrowSquareOut,
-} from "@phosphor-icons/react";
-import Image from "next/image";
-import { type Bookmark } from "../../mock-data/bookmarks";
-import { cn } from "../../lib/utils";
+} from "@loveui/ui/ui/menu"
+
+import { cn } from "../../lib/utils"
+import { type Bookmark } from "../../mock-data/bookmarks"
+import { useBookmarksStore } from "../../store/bookmarks-store"
+import { Button } from "../ui/button"
 
 function TrashedBookmarkCard({ bookmark }: { bookmark: Bookmark }) {
-  const { restoreFromTrash, permanentlyDelete } = useBookmarksStore();
+  const { restoreFromTrash, permanentlyDelete } = useBookmarksStore()
 
   return (
-    <div className="group flex items-center gap-4 p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors opacity-75 hover:opacity-100">
-      <div className="size-10 rounded-lg bg-muted flex items-center justify-center overflow-hidden shrink-0">
+    <div className="group flex items-center gap-4 rounded-lg border bg-card p-4 opacity-75 transition-colors hover:bg-accent/50 hover:opacity-100">
+      <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted">
         <Image
           src={bookmark.favicon}
           alt={bookmark.title}
@@ -39,9 +41,9 @@ function TrashedBookmarkCard({ bookmark }: { bookmark: Bookmark }) {
         />
       </div>
 
-      <div className="flex-1 min-w-0">
-        <h3 className="font-medium truncate">{bookmark.title}</h3>
-        <p className="text-sm text-muted-foreground truncate">{bookmark.url}</p>
+      <div className="min-w-0 flex-1">
+        <h3 className="truncate font-medium">{bookmark.title}</h3>
+        <p className="truncate text-sm text-muted-foreground">{bookmark.url}</p>
       </div>
 
       <div className="flex items-center gap-1">
@@ -50,7 +52,7 @@ function TrashedBookmarkCard({ bookmark }: { bookmark: Bookmark }) {
           size="sm"
           onClick={() => restoreFromTrash(bookmark.id)}
         >
-          <ArrowCounterClockwise className="size-4 mr-1" />
+          <ArrowCounterClockwise className="mr-1 size-4" />
           Restore
         </Button>
         <DropdownMenu>
@@ -66,7 +68,7 @@ function TrashedBookmarkCard({ bookmark }: { bookmark: Bookmark }) {
               <DropdownMenuItem
                 onClick={() => window.open(bookmark.url, "_blank")}
               >
-                <ArrowSquareOut className="size-4 mr-2" />
+                <ArrowSquareOut className="mr-2 size-4" />
                 Open URL
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -76,7 +78,7 @@ function TrashedBookmarkCard({ bookmark }: { bookmark: Bookmark }) {
                 className="text-destructive"
                 onClick={() => permanentlyDelete(bookmark.id)}
               >
-                <XCircle className="size-4 mr-2" />
+                <XCircle className="mr-2 size-4" />
                 Delete Permanently
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -84,19 +86,19 @@ function TrashedBookmarkCard({ bookmark }: { bookmark: Bookmark }) {
         </DropdownMenu>
       </div>
     </div>
-  );
+  )
 }
 
 export function TrashContent() {
-  const { getTrashedBookmarks, trashedBookmarks } = useBookmarksStore();
-  const filteredTrash = getTrashedBookmarks();
+  const { getTrashedBookmarks, trashedBookmarks } = useBookmarksStore()
+  const filteredTrash = getTrashedBookmarks()
 
   return (
-    <div className="flex-1 w-full overflow-auto">
-      <div className="p-4 md:p-6 space-y-6">
-        <div className="flex items-center justify-between gap-4 p-4 rounded-xl border bg-card">
+    <div className="w-full flex-1 overflow-auto">
+      <div className="space-y-6 p-4 md:p-6">
+        <div className="flex items-center justify-between gap-4 rounded-xl border bg-card p-4">
           <div className="flex items-center gap-3">
-            <div className="size-10 rounded-lg bg-destructive/10 text-destructive flex items-center justify-center">
+            <div className="flex size-10 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
               <Trash className="size-5" />
             </div>
             <div>
@@ -108,7 +110,7 @@ export function TrashContent() {
             </div>
           </div>
           {trashedBookmarks.length > 0 && (
-            <p className="text-xs text-muted-foreground hidden sm:block">
+            <p className="hidden text-xs text-muted-foreground sm:block">
               Items in trash will be permanently deleted after 30 days
             </p>
           )}
@@ -122,11 +124,11 @@ export function TrashContent() {
 
         {trashedBookmarks.length === 0 && (
           <div className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="size-12 rounded-full bg-muted flex items-center justify-center mb-4">
+            <div className="mb-4 flex size-12 items-center justify-center rounded-full bg-muted">
               <Trash className="size-6 text-muted-foreground" />
             </div>
-            <h3 className="text-lg font-medium mb-1">Trash is empty</h3>
-            <p className="text-sm text-muted-foreground max-w-sm">
+            <h3 className="mb-1 text-lg font-medium">Trash is empty</h3>
+            <p className="max-w-sm text-sm text-muted-foreground">
               Deleted bookmarks will appear here. You can restore them or delete
               them permanently.
             </p>
@@ -134,5 +136,5 @@ export function TrashContent() {
         )}
       </div>
     </div>
-  );
+  )
 }

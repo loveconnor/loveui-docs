@@ -1,23 +1,25 @@
-"use client";
+"use client"
 
 import {
-  IconSparkles,
-  IconLayoutDashboard,
-  IconMail,
-  IconFolder,
-  IconWaveSine,
-  IconGitFork,
   IconFiles,
-  IconShield,
-  IconPlugConnected,
+  IconFolder,
+  IconGitFork,
+  IconLayoutDashboard,
   IconLifebuoy,
-} from "@tabler/icons-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@loveui/ui/ui/avatar";
-import { Button } from "@loveui/ui/ui/button";
-import { cn } from "../../lib/utils";
+  IconMail,
+  IconPlugConnected,
+  IconShield,
+  IconSparkles,
+  IconWaveSine,
+} from "@tabler/icons-react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+
+import { cn } from "../../lib/utils"
 
 interface EmailsVerticalSidebarMobileProps {
-  onItemClick?: () => void;
+  onItemClick?: () => void
 }
 
 export function EmailsVerticalSidebarMobile({
@@ -31,16 +33,16 @@ export function EmailsVerticalSidebarMobile({
     { icon: IconWaveSine, label: "Escalated", active: false },
     { icon: IconGitFork, label: "Low Priority", active: false },
     { icon: IconFiles, label: "Resolved", active: false },
-  ];
+  ]
 
   const bottomItems = [
     { icon: IconShield, label: "Security" },
     { icon: IconPlugConnected, label: "Integrations" },
     { icon: IconLifebuoy, label: "Support" },
-  ];
+  ]
 
   return (
-    <div className="flex h-screen w-full flex-col items-start gap-4 border-r border-border bg-background py-4 px-3">
+    <div className="flex h-screen w-full flex-col items-start gap-4 border-r border-border bg-background px-3 py-4">
       <div className="flex items-center gap-2">
         <Button
           variant="default"
@@ -66,7 +68,9 @@ export function EmailsVerticalSidebarMobile({
           </svg>
         </Button>
         <div className="flex flex-col justify-center">
-          <span className="text-sm font-semibold text-foreground">OpsBridge</span>
+          <span className="text-sm font-semibold text-foreground">
+            OpsBridge
+          </span>
           <span className="text-xs text-muted-foreground">incident center</span>
         </div>
       </div>
@@ -108,9 +112,9 @@ export function EmailsVerticalSidebarMobile({
 
       <Button
         variant="ghost"
-        className="w-full justify-start gap-2 px-3 h-auto py-2"
+        className="h-auto w-full justify-start gap-2 px-3 py-2"
       >
-        <Avatar className="size-8 rounded-lg shrink-0">
+        <Avatar className="size-8 shrink-0 rounded-lg">
           <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=User" />
           <AvatarFallback>U</AvatarFallback>
         </Avatar>
@@ -122,5 +126,5 @@ export function EmailsVerticalSidebarMobile({
         </div>
       </Button>
     </div>
-  );
+  )
 }

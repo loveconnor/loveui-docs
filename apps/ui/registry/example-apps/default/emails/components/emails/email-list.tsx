@@ -1,22 +1,24 @@
-"use client";
+"use client"
 
-import { format } from "date-fns";
-import { useEmailsStore } from "../../store/emails-store";
-import { Avatar, AvatarImage, AvatarFallback } from "@loveui/ui/ui/avatar";
-import { VerifiedIcon } from "../ui/verified-icon";
-import { cn } from "../../lib/utils";
+import { format } from "date-fns"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+
+import { cn } from "../../lib/utils"
+import { useEmailsStore } from "../../store/emails-store"
+import { VerifiedIcon } from "../ui/verified-icon"
 
 interface EmailListProps {
-  onEmailClick?: (emailId: string) => void;
+  onEmailClick?: (emailId: string) => void
 }
 
 export function EmailList({ onEmailClick }: EmailListProps) {
-  const { emails, selectedEmailId, selectEmail } = useEmailsStore();
+  const { emails, selectedEmailId, selectEmail } = useEmailsStore()
 
   const handleEmailClick = (emailId: string) => {
-    selectEmail(emailId);
-    onEmailClick?.(emailId);
-  };
+    selectEmail(emailId)
+    onEmailClick?.(emailId)
+  }
 
   if (emails.length === 0) {
     return (
@@ -25,7 +27,7 @@ export function EmailList({ onEmailClick }: EmailListProps) {
           <p>No alerts found</p>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -39,8 +41,8 @@ export function EmailList({ onEmailClick }: EmailListProps) {
 
       <div className="flex-1 overflow-y-auto">
         {emails.map((email) => {
-          const isSelected = selectedEmailId === email.id;
-          const isRead = email.read;
+          const isSelected = selectedEmailId === email.id
+          const isRead = email.read
 
           return (
             <button
@@ -100,9 +102,9 @@ export function EmailList({ onEmailClick }: EmailListProps) {
                 </div>
               </div>
             </button>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

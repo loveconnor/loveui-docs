@@ -1,17 +1,18 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { Dialog } from "@base-ui/react/dialog";
-import { cn } from "../../lib/utils";
-import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react"
+import { Dialog } from "@base-ui/react/dialog"
+import { cva, type VariantProps } from "class-variance-authority"
 
-const Sheet = Dialog.Root;
+import { cn } from "../../lib/utils"
 
-const SheetTrigger = Dialog.Trigger;
+const Sheet = Dialog.Root
 
-const SheetClose = Dialog.Close;
+const SheetTrigger = Dialog.Trigger
 
-const SheetPortal = Dialog.Portal;
+const SheetClose = Dialog.Close
+
+const SheetPortal = Dialog.Portal
 
 const SheetOverlay = React.forwardRef<
   HTMLDivElement,
@@ -20,32 +21,32 @@ const SheetOverlay = React.forwardRef<
   <Dialog.Backdrop
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/80 data-[starting-style]:opacity-0 data-[ending-style]:opacity-0 transition-opacity duration-300",
+      "fixed inset-0 z-50 bg-black/80 transition-opacity duration-300 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
       className
     )}
     {...props}
   />
-));
-SheetOverlay.displayName = "SheetOverlay";
+))
+SheetOverlay.displayName = "SheetOverlay"
 
 const sheetVariants = cva(
   "fixed z-50 gap-4 bg-background p-6 shadow-lg transition-transform duration-300 ease-out",
   {
     variants: {
       side: {
-        top: "inset-x-0 top-0 border-b data-[starting-style]:-translate-y-full data-[ending-style]:-translate-y-full",
+        top: "inset-x-0 top-0 border-b data-[ending-style]:-translate-y-full data-[starting-style]:-translate-y-full",
         bottom:
-          "inset-x-0 bottom-0 border-t data-[starting-style]:translate-y-full data-[ending-style]:translate-y-full",
-        left: "inset-y-0 left-0 h-full w-3/4 border-r data-[starting-style]:-translate-x-full data-[ending-style]:-translate-x-full sm:max-w-sm",
+          "inset-x-0 bottom-0 border-t data-[ending-style]:translate-y-full data-[starting-style]:translate-y-full",
+        left: "inset-y-0 left-0 h-full w-3/4 border-r data-[ending-style]:-translate-x-full data-[starting-style]:-translate-x-full sm:max-w-sm",
         right:
-          "inset-y-0 right-0 h-full w-3/4 border-l data-[starting-style]:translate-x-full data-[ending-style]:translate-x-full sm:max-w-sm",
+          "inset-y-0 right-0 h-full w-3/4 border-l data-[ending-style]:translate-x-full data-[starting-style]:translate-x-full sm:max-w-sm",
       },
     },
     defaultVariants: {
       side: "right",
     },
   }
-);
+)
 
 interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof Dialog.Popup>,
@@ -64,8 +65,8 @@ const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
       </Dialog.Popup>
     </SheetPortal>
   )
-);
-SheetContent.displayName = "SheetContent";
+)
+SheetContent.displayName = "SheetContent"
 
 const SheetHeader = ({
   className,
@@ -78,8 +79,8 @@ const SheetHeader = ({
     )}
     {...props}
   />
-);
-SheetHeader.displayName = "SheetHeader";
+)
+SheetHeader.displayName = "SheetHeader"
 
 const SheetFooter = ({
   className,
@@ -92,8 +93,8 @@ const SheetFooter = ({
     )}
     {...props}
   />
-);
-SheetFooter.displayName = "SheetFooter";
+)
+SheetFooter.displayName = "SheetFooter"
 
 const SheetTitle = React.forwardRef<
   HTMLHeadingElement,
@@ -104,8 +105,8 @@ const SheetTitle = React.forwardRef<
     className={cn("text-lg font-semibold text-foreground", className)}
     {...props}
   />
-));
-SheetTitle.displayName = "SheetTitle";
+))
+SheetTitle.displayName = "SheetTitle"
 
 const SheetDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -116,8 +117,8 @@ const SheetDescription = React.forwardRef<
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
-));
-SheetDescription.displayName = "SheetDescription";
+))
+SheetDescription.displayName = "SheetDescription"
 
 export {
   Sheet,
@@ -130,5 +131,4 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
-};
-
+}

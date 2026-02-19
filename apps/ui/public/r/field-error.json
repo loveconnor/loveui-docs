@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/field-error.tsx",
-      "content": "import {\n  Field,\n  FieldControl,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/default/ui/field\"\n\nexport default function FieldWithErrorDemo() {\n  return (\n    <Field>\n      <FieldLabel>Email</FieldLabel>\n      <FieldControl type=\"email\" placeholder=\"Enter your email\" />\n      <FieldError>Please enter a valid email address.</FieldError>\n    </Field>\n  )\n}\n",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldError,\n  FieldLabel,\n} from \"@/registry/default/ui/field\"\n\nexport default function FieldWithErrorDemo() {\n  return (\n    <Field>\n      <FieldLabel>Updated Email</FieldLabel>\n      <FieldControl type=\"email\" placeholder=\"Updated Enter your email\" />\n      <FieldError>Updated Please enter a valid email address.</FieldError>\n    </Field>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

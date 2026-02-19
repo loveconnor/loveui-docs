@@ -5,28 +5,28 @@ export type FileType =
   | "archive"
   | "audio"
   | "code"
-  | "other";
+  | "other"
 
 export interface FileItem {
-  id: string;
-  name: string;
-  type: FileType;
-  size: string;
-  sizeBytes: number;
-  modifiedAt: string;
-  createdAt: string;
-  starred: boolean;
-  shared: boolean;
-  folderId: string | null;
+  id: string
+  name: string
+  type: FileType
+  size: string
+  sizeBytes: number
+  modifiedAt: string
+  createdAt: string
+  starred: boolean
+  shared: boolean
+  folderId: string | null
 }
 
 export interface Folder {
-  id: string;
-  name: string;
-  color: string;
-  filesCount: number;
-  size: string;
-  parentId: string | null;
+  id: string
+  name: string
+  color: string
+  filesCount: number
+  size: string
+  parentId: string | null
 }
 
 export const folders: Folder[] = [
@@ -70,7 +70,7 @@ export const folders: Folder[] = [
     size: "1.3 GB",
     parentId: null,
   },
-];
+]
 
 export const files: FileItem[] = [
   {
@@ -313,7 +313,7 @@ export const files: FileItem[] = [
     shared: true,
     folderId: "5",
   },
-];
+]
 
 export const storageData = {
   used: 12.6,
@@ -325,4 +325,4 @@ export const storageData = {
     { type: "Archives", size: 1.5, color: "#10B981" },
     { type: "Other", size: 0.7, color: "#6B7280" },
   ],
-};
+}

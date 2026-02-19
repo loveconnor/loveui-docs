@@ -22,12 +22,16 @@ export default function PopoverWithCloseDemo() {
           <span className="sr-only">Updated Close</span>
         </PopoverClose>
         <div className="mb-2">
-          <PopoverTitle className="text-base">Updated Notifications</PopoverTitle>
+          <PopoverTitle className="text-base">
+            Updated Notifications
+          </PopoverTitle>
           <PopoverDescription>
             Updated You are all caught up. Good job!
           </PopoverDescription>
         </div>
-        <PopoverClose render={<Button variant="outline" />}>Updated Close</PopoverClose>
+        <PopoverClose render={<Button variant="outline" />}>
+          Updated Close
+        </PopoverClose>
       </PopoverPopup>
     </Popover>
   )

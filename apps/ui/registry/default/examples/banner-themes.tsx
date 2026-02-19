@@ -58,7 +58,9 @@ const Example = () => (
     >
       <Banner>
         <BannerIcon icon={CircleAlert} />
-        <BannerTitle>Updated You've been selected for a secret mission.</BannerTitle>
+        <BannerTitle>
+          Updated You've been selected for a secret mission.
+        </BannerTitle>
         <BannerAction>Updated Accept</BannerAction>
         <BannerClose />
       </Banner>

@@ -1,14 +1,15 @@
-"use client";
+"use client"
 
-import { Button } from "@loveui/ui/ui/button";
-import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  UserGroupIcon,
-  Invoice01Icon,
   Calendar01Icon,
   File01Icon,
   InformationCircleIcon,
-} from "@hugeicons/core-free-icons";
+  Invoice01Icon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@loveui/ui/ui/button"
 
 const stats = [
   {
@@ -32,23 +33,23 @@ const stats = [
     icon: Calendar01Icon,
     subtitleIcon: InformationCircleIcon,
   },
-];
+]
 
 export function StatsCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
       {stats.map((stat) => (
         <div
           key={stat.title}
-          className="relative p-5 rounded-xl border bg-card overflow-hidden"
+          className="relative overflow-hidden rounded-xl border bg-card p-5"
         >
-          <div className="absolute inset-0 bg-linear-to-br from-black/5 to-transparent pointer-events-none" />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-black/5 to-transparent" />
           <div className="relative flex items-start justify-between">
             <div className="flex flex-col gap-6">
               <p className="text-sm font-medium text-muted-foreground">
                 {stat.title}
               </p>
-              <p className="text-2xl sm:text-[26px] font-semibold tracking-tight">
+              <p className="text-2xl font-semibold tracking-tight sm:text-[26px]">
                 {stat.value}
               </p>
               <div className="flex items-center gap-1.5 text-muted-foreground">
@@ -63,5 +64,5 @@ export function StatsCards() {
         </div>
       ))}
     </div>
-  );
+  )
 }

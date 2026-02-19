@@ -18,7 +18,9 @@ export default function EmptyDemo() {
           <RouteIcon />
         </EmptyMedia>
         <EmptyTitle>Updated No upcoming meetings</EmptyTitle>
-        <EmptyDescription>Updated Create a meeting to get started.</EmptyDescription>
+        <EmptyDescription>
+          Updated Create a meeting to get started.
+        </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <div className="flex gap-2">

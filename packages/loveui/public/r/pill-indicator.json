@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/pill-indicator.tsx",
-      "content": "\"use client\"\n\nimport { Pill, PillIndicator } from \"../../../../../packages/pill\"\n\nconst Example = () => (\n  <>\n    <Pill>\n      <PillIndicator pulse variant=\"success\" />\n      Active\n    </Pill>\n    <Pill>\n      <PillIndicator variant=\"error\" />\n      Error\n    </Pill>\n  </>\n)\n\nexport default Example\n",
+      "content": "\"use client\"\n\nimport { Pill, PillIndicator } from \"../../../../../packages/pill\"\n\nconst Example = () => (\n  <>\n    <Pill>\n      <PillIndicator pulse variant=\"success\" />\n      Updated Active\n    </Pill>\n    <Pill>\n      <PillIndicator variant=\"error\" />\n      Updated Error\n    </Pill>\n  </>\n)\n\nexport default Example\n",
       "type": "registry:example"
     }
   ],

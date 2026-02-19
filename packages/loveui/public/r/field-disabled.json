@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/field-disabled.tsx",
-      "content": "import {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/default/ui/field\"\n\nexport default function FieldDisabledDemo() {\n  return (\n    <Field disabled>\n      <FieldLabel>Email</FieldLabel>\n      <FieldControl type=\"email\" placeholder=\"Enter your email\" disabled />\n      <FieldDescription>This field is currently disabled.</FieldDescription>\n    </Field>\n  )\n}\n",
+      "content": "import {\n  Field,\n  FieldControl,\n  FieldDescription,\n  FieldLabel,\n} from \"@/registry/default/ui/field\"\n\nexport default function FieldDisabledDemo() {\n  return (\n    <Field disabled>\n      <FieldLabel>Updated Email</FieldLabel>\n      <FieldControl\n        type=\"email\"\n        placeholder=\"Updated Enter your email\"\n        disabled\n      />\n      <FieldDescription>\n        Updated This field is currently disabled.\n      </FieldDescription>\n    </Field>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

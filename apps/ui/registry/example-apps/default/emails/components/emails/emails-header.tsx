@@ -1,30 +1,32 @@
-"use client";
+"use client"
 
 import {
-  IconMail,
-  IconLink,
-  IconWand,
   IconDotsVertical,
+  IconLink,
+  IconMail,
   IconMenu2,
-} from "@tabler/icons-react";
-import { Button } from "@loveui/ui/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@loveui/ui/ui/avatar";
-import { ThemeToggle } from "../theme-toggle";
+  IconWand,
+} from "@tabler/icons-react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+
+import { useEmailsStore } from "../../store/emails-store"
+import { ThemeToggle } from "../theme-toggle"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { useEmailsStore } from "../../store/emails-store";
+} from "../ui/dropdown-menu"
 
 interface EmailsHeaderProps {
-  onMobileMenuClick?: () => void;
+  onMobileMenuClick?: () => void
 }
 
 export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
-  const { emails } = useEmailsStore();
+  const { emails } = useEmailsStore()
   return (
     <div className="flex h-14 items-center justify-between border-b border-border bg-background px-3 md:px-6">
       <div className="flex flex-1 items-center gap-2 md:gap-4">
@@ -39,19 +41,19 @@ export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
 
         <div className="flex items-center gap-2 md:gap-2.5">
           <IconMail className="size-4 text-foreground" stroke={1.5} />
-          <p className="text-sm md:text-base font-normal tracking-tight text-foreground">
+          <p className="text-sm font-normal tracking-tight text-foreground md:text-base">
             Incident Mailbox
           </p>
         </div>
-        <div className="hidden sm:flex items-center gap-2.5">
+        <div className="hidden items-center gap-2.5 sm:flex">
           <div className="size-1 rounded-full bg-muted-foreground/20" />
-          <p className="text-sm md:text-base font-normal tracking-tight text-foreground">
+          <p className="text-sm font-normal tracking-tight text-foreground md:text-base">
             {emails.length} alerts
           </p>
         </div>
       </div>
 
-      <div className="hidden md:flex items-center gap-4">
+      <div className="hidden items-center gap-4 md:flex">
         <div className="flex items-center gap-2">
           <p className="text-[13px] text-muted-foreground">
             Last triage 20 min ago
@@ -84,7 +86,7 @@ export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
         </div>
       </div>
 
-      <div className="flex md:hidden items-center gap-2">
+      <div className="flex items-center gap-2 md:hidden">
         <ThemeToggle />
 
         <DropdownMenu>
@@ -116,5 +118,5 @@ export function EmailsHeader({ onMobileMenuClick }: EmailsHeaderProps) {
         </DropdownMenu>
       </div>
     </div>
-  );
+  )
 }

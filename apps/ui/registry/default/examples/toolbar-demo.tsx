@@ -56,7 +56,9 @@ export default function ToolbarDemo() {
             <TooltipTrigger
               render={
                 <ToolbarButton
-                  render={<Toggle value="center" aria-label="Updated Toggle center" />}
+                  render={
+                    <Toggle value="center" aria-label="Updated Toggle center" />
+                  }
                   aria-label="Updated Align center"
                 >
                   <AlignCenterIcon />
@@ -69,7 +71,9 @@ export default function ToolbarDemo() {
             <TooltipTrigger
               render={
                 <ToolbarButton
-                  render={<Toggle value="right" aria-label="Updated Toggle right" />}
+                  render={
+                    <Toggle value="right" aria-label="Updated Toggle right" />
+                  }
                   aria-label="Updated Align right"
                 >
                   <AlignRightIcon />
@@ -92,7 +96,9 @@ export default function ToolbarDemo() {
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Updated Format as currency</TooltipPopup>
+            <TooltipPopup sideOffset={8}>
+              Updated Format as currency
+            </TooltipPopup>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger
@@ -105,7 +111,9 @@ export default function ToolbarDemo() {
                 </ToolbarButton>
               }
             />
-            <TooltipPopup sideOffset={8}>Updated Format as percent</TooltipPopup>
+            <TooltipPopup sideOffset={8}>
+              Updated Format as percent
+            </TooltipPopup>
           </Tooltip>
         </ToolbarGroup>
         <ToolbarSeparator />

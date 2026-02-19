@@ -1,54 +1,55 @@
-"use client";
+"use client"
 
-import Image from "next/image";
-import { Button } from "../ui/button";
+import Image from "next/image"
+import {
+  Archive,
+  ArrowSquareOut,
+  Copy,
+  DotsThree,
+  Heart,
+  PencilSimple,
+  Tag,
+  Trash,
+} from "@phosphor-icons/react"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import {
-  Heart,
-  DotsThree,
-  ArrowSquareOut,
-  Copy,
-  PencilSimple,
-  Trash,
-  Tag,
-  Archive,
-} from "@phosphor-icons/react";
-import { cn } from "../../lib/utils";
-import { useBookmarksStore } from "../../store/bookmarks-store";
-import { tags as allTags, type Bookmark } from "../../mock-data/bookmarks";
+} from "@loveui/ui/ui/menu"
+
+import { cn } from "../../lib/utils"
+import { tags as allTags, type Bookmark } from "../../mock-data/bookmarks"
+import { useBookmarksStore } from "../../store/bookmarks-store"
+import { Button } from "../ui/button"
 
 interface BookmarkCardProps {
-  bookmark: Bookmark;
-  variant?: "grid" | "list";
+  bookmark: Bookmark
+  variant?: "grid" | "list"
 }
 
 export function BookmarkCard({
   bookmark,
   variant = "grid",
 }: BookmarkCardProps) {
-  const { toggleFavorite, archiveBookmark, trashBookmark } =
-    useBookmarksStore();
-  const bookmarkTags = allTags.filter((tag) => bookmark.tags.includes(tag.id));
+  const { toggleFavorite, archiveBookmark, trashBookmark } = useBookmarksStore()
+  const bookmarkTags = allTags.filter((tag) => bookmark.tags.includes(tag.id))
 
   const handleCopyUrl = () => {
-    navigator.clipboard.writeText(bookmark.url);
-  };
+    navigator.clipboard.writeText(bookmark.url)
+  }
 
   const handleOpenUrl = () => {
-    window.open(bookmark.url, "_blank");
-  };
+    window.open(bookmark.url, "_blank")
+  }
 
   if (variant === "list") {
     return (
-      <div className="group flex items-center gap-4 p-4 rounded-lg border bg-card hover:bg-accent/50 transition-colors">
-        <div className="size-10 rounded-lg bg-muted flex items-center justify-center overflow-hidden shrink-0">
+      <div className="group flex items-center gap-4 rounded-lg border bg-card p-4 transition-colors hover:bg-accent/50">
+        <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-muted">
           <Image
             src={bookmark.favicon}
             alt={bookmark.title}
@@ -58,16 +59,16 @@ export function BookmarkCard({
           />
         </div>
 
-        <div className="flex-1 min-w-0">
+        <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <h3 className="font-medium truncate">{bookmark.title}</h3>
+            <h3 className="truncate font-medium">{bookmark.title}</h3>
             {bookmarkTags.length > 0 && (
-              <div className="hidden sm:flex items-center gap-1">
+              <div className="hidden items-center gap-1 sm:flex">
                 {bookmarkTags.slice(0, 2).map((tag) => (
                   <span
                     key={tag.id}
                     className={cn(
-                      "inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium",
+                      "inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium",
                       tag.color
                     )}
                   >
@@ -82,7 +83,7 @@ export function BookmarkCard({
               </div>
             )}
           </div>
-          <p className="text-sm text-muted-foreground truncate">
+          <p className="truncate text-sm text-muted-foreground">
             {bookmark.url}
           </p>
         </div>
@@ -115,29 +116,29 @@ export function BookmarkCard({
             <DropdownMenuContent align="end">
               <DropdownMenuGroup>
                 <DropdownMenuItem onClick={handleCopyUrl}>
-                  <Copy className="size-4 mr-2" />
+                  <Copy className="mr-2 size-4" />
                   Copy URL
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <PencilSimple className="size-4 mr-2" />
+                  <PencilSimple className="mr-2 size-4" />
                   Edit
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Tag className="size-4 mr-2" />
+                  <Tag className="mr-2 size-4" />
                   Add Tags
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem onClick={() => archiveBookmark(bookmark.id)}>
-                  <Archive className="size-4 mr-2" />
+                  <Archive className="mr-2 size-4" />
                   Archive
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   className="text-destructive"
                   onClick={() => trashBookmark(bookmark.id)}
                 >
-                  <Trash className="size-4 mr-2" />
+                  <Trash className="mr-2 size-4" />
                   Delete
                 </DropdownMenuItem>
               </DropdownMenuGroup>
@@ -145,11 +146,11 @@ export function BookmarkCard({
           </DropdownMenu>
         </div>
       </div>
-    );
+    )
   }
 
   return (
-    <div className="group relative flex flex-col rounded-xl border bg-card overflow-hidden hover:bg-accent/30 transition-colors">
+    <div className="group relative flex flex-col overflow-hidden rounded-xl border bg-card transition-colors hover:bg-accent/30">
       <div className="absolute top-3 right-3 z-10 flex items-center gap-1">
         <Button
           variant="secondary"
@@ -180,33 +181,33 @@ export function BookmarkCard({
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
               <DropdownMenuItem onClick={handleCopyUrl}>
-                <Copy className="size-4 mr-2" />
+                <Copy className="mr-2 size-4" />
                 Copy URL
               </DropdownMenuItem>
               <DropdownMenuItem onClick={handleOpenUrl}>
-                <ArrowSquareOut className="size-4 mr-2" />
+                <ArrowSquareOut className="mr-2 size-4" />
                 Open in new tab
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <PencilSimple className="size-4 mr-2" />
+                <PencilSimple className="mr-2 size-4" />
                 Edit
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Tag className="size-4 mr-2" />
+                <Tag className="mr-2 size-4" />
                 Add Tags
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem onClick={() => archiveBookmark(bookmark.id)}>
-                <Archive className="size-4 mr-2" />
+                <Archive className="mr-2 size-4" />
                 Archive
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="text-destructive"
                 onClick={() => trashBookmark(bookmark.id)}
               >
-                <Trash className="size-4 mr-2" />
+                <Trash className="mr-2 size-4" />
                 Delete
               </DropdownMenuItem>
             </DropdownMenuGroup>
@@ -215,11 +216,11 @@ export function BookmarkCard({
       </div>
 
       <button
-        className="w-full text-left cursor-pointer"
+        className="w-full cursor-pointer text-left"
         onClick={handleOpenUrl}
       >
-        <div className="h-32 bg-linear-to-br from-muted/50 to-muted flex items-center justify-center">
-          <div className="size-12 rounded-xl bg-background shadow-sm flex items-center justify-center">
+        <div className="flex h-32 items-center justify-center bg-linear-to-br from-muted/50 to-muted">
+          <div className="flex size-12 items-center justify-center rounded-xl bg-background shadow-sm">
             <Image
               src={bookmark.favicon}
               alt={bookmark.title}
@@ -230,11 +231,11 @@ export function BookmarkCard({
           </div>
         </div>
 
-        <div className="p-4 space-y-2">
+        <div className="space-y-2 p-4">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-medium line-clamp-1">{bookmark.title}</h3>
+            <h3 className="line-clamp-1 font-medium">{bookmark.title}</h3>
           </div>
-          <p className="text-sm text-muted-foreground line-clamp-2">
+          <p className="line-clamp-2 text-sm text-muted-foreground">
             {bookmark.description}
           </p>
           {bookmarkTags.length > 0 && (
@@ -243,7 +244,7 @@ export function BookmarkCard({
                 <span
                   key={tag.id}
                   className={cn(
-                    "inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium",
+                    "inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium",
                     tag.color
                   )}
                 >
@@ -251,7 +252,7 @@ export function BookmarkCard({
                 </span>
               ))}
               {bookmarkTags.length > 3 && (
-                <span className="text-[10px] text-muted-foreground py-0.5">
+                <span className="py-0.5 text-[10px] text-muted-foreground">
                   +{bookmarkTags.length - 3} more
                 </span>
               )}
@@ -260,5 +261,5 @@ export function BookmarkCard({
         </div>
       </button>
     </div>
-  );
+  )
 }

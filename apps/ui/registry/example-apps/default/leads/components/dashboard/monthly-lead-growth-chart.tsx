@@ -1,34 +1,38 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Button } from "@loveui/ui/ui/button";
+import { useState } from "react"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  DropdownMenuCheckboxItem,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ChartLineData01Icon, MoreHorizontalIcon } from "@hugeicons/core-free-icons";
+  ChartLineData01Icon,
+  MoreHorizontalIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { useTheme } from "next-themes"
 import {
-  LineChart,
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
   Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  BarChart,
-  Bar,
-} from "recharts";
-import { useTheme } from "next-themes";
+} from "recharts"
+
+import { Button } from "@loveui/ui/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
 
 const fullYearData = [
   { month: "Jan", week: 1, leads: 74 },
@@ -71,94 +75,120 @@ const fullYearData = [
   { month: "", week: 38, leads: 157 },
   { month: "", week: 39, leads: 153 },
   { month: "", week: 40, leads: 160 },
-];
+]
 
-type ChartType = "line" | "area" | "bar";
-type Period = "3m" | "6m" | "12m";
+type ChartType = "line" | "area" | "bar"
+type Period = "3m" | "6m" | "12m"
 
 interface CustomTooltipProps {
-  active?: boolean;
+  active?: boolean
   payload?: Array<{
-    value: number;
-    payload: { month: string; week: number; leads: number };
-  }>;
+    value: number
+    payload: { month: string; week: number; leads: number }
+  }>
 }
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const monthNames = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+]
 
 function CustomTooltip({ active, payload }: CustomTooltipProps) {
   if (active && payload && payload.length) {
-    const data = payload[0];
-    const weekIndex = data.payload.week - 1;
-    const monthIndex = Math.floor(weekIndex / 4);
-    const monthName = monthNames[monthIndex] || "Apr";
-    
-    const prevIndex = fullYearData.findIndex(d => d.week === data.payload.week) - 1;
-    const prevValue = prevIndex >= 0 ? fullYearData[prevIndex].leads : data.value;
-    const change = prevValue > 0 ? ((data.value - prevValue) / prevValue * 100).toFixed(1) : 0;
-    
+    const data = payload[0]
+    const weekIndex = data.payload.week - 1
+    const monthIndex = Math.floor(weekIndex / 4)
+    const monthName = monthNames[monthIndex] || "Apr"
+
+    const prevIndex =
+      fullYearData.findIndex((d) => d.week === data.payload.week) - 1
+    const prevValue =
+      prevIndex >= 0 ? fullYearData[prevIndex].leads : data.value
+    const change =
+      prevValue > 0
+        ? (((data.value - prevValue) / prevValue) * 100).toFixed(1)
+        : 0
+
     return (
-      <div className="bg-card border rounded-md p-2">
+      <div className="rounded-md border bg-card p-2">
         <p className="text-xs text-muted-foreground">{monthName}, 2026</p>
-        <div className="flex items-center gap-2 mt-1">
-          <span className="font-semibold text-sm">{data.value}</span>
-          <span className="text-xs text-emerald-600 dark:text-emerald-400 flex items-center gap-0.5">
+        <div className="mt-1 flex items-center gap-2">
+          <span className="text-sm font-semibold">{data.value}</span>
+          <span className="flex items-center gap-0.5 text-xs text-emerald-600 dark:text-emerald-400">
             <HugeiconsIcon icon={ChartLineData01Icon} className="size-3" />
             {change}%
           </span>
         </div>
       </div>
-    );
+    )
   }
-  return null;
+  return null
 }
 
 export function MonthlyLeadGrowthChart() {
-  const { theme } = useTheme();
-  const [chartType, setChartType] = useState<ChartType>("area");
-  const [period, setPeriod] = useState<Period>("12m");
-  const [showGrid, setShowGrid] = useState(true);
-  const [smoothCurve, setSmoothCurve] = useState(true);
+  const { theme } = useTheme()
+  const [chartType, setChartType] = useState<ChartType>("area")
+  const [period, setPeriod] = useState<Period>("12m")
+  const [showGrid, setShowGrid] = useState(true)
+  const [smoothCurve, setSmoothCurve] = useState(true)
 
-  const axisColor = theme === "dark" ? "#525866" : "#868c98";
-  const gridColor = theme === "dark" ? "#27272a" : "#e2e4e9";
-  const lineColor = "#6e3ff3";
+  const axisColor = theme === "dark" ? "#525866" : "#868c98"
+  const gridColor = theme === "dark" ? "#27272a" : "#e2e4e9"
+  const lineColor = "#6e3ff3"
 
   const getDataForPeriod = () => {
     switch (period) {
       case "3m":
-        return fullYearData.slice(-12);
+        return fullYearData.slice(-12)
       case "6m":
-        return fullYearData.slice(-24);
+        return fullYearData.slice(-24)
       case "12m":
       default:
-        return fullYearData;
+        return fullYearData
     }
-  };
+  }
 
-  const data = getDataForPeriod();
+  const data = getDataForPeriod()
 
   const resetToDefault = () => {
-    setChartType("area");
-    setPeriod("12m");
-    setShowGrid(true);
-    setSmoothCurve(true);
-  };
+    setChartType("area")
+    setPeriod("12m")
+    setShowGrid(true)
+    setSmoothCurve(true)
+  }
 
   return (
-    <div className="bg-card text-card-foreground rounded-xl border flex-1">
-      <div className="flex flex-row items-center justify-between py-5 px-5">
+    <div className="flex-1 rounded-xl border bg-card text-card-foreground">
+      <div className="flex flex-row items-center justify-between px-5 py-5">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="icon" className="size-8">
-            <HugeiconsIcon icon={ChartLineData01Icon} className="size-4 text-muted-foreground" />
+            <HugeiconsIcon
+              icon={ChartLineData01Icon}
+              className="size-4 text-muted-foreground"
+            />
           </Button>
-          <h3 className="font-medium text-sm sm:text-base">Monthly Sponsor Pipeline</h3>
+          <h3 className="text-sm font-medium sm:text-base">
+            Monthly Sponsor Pipeline
+          </h3>
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
               <Button variant="ghost" size="icon" className="size-8">
-                <HugeiconsIcon icon={MoreHorizontalIcon} className="size-4 text-muted-foreground" />
+                <HugeiconsIcon
+                  icon={MoreHorizontalIcon}
+                  className="size-4 text-muted-foreground"
+                />
               </Button>
             }
           />
@@ -213,11 +243,20 @@ export function MonthlyLeadGrowthChart() {
         </DropdownMenu>
       </div>
       <div className="px-5 pb-5">
-        <div className="h-[200px] sm:h-[250px] w-full">
+        <div className="h-[200px] w-full sm:h-[250px]">
           <ResponsiveContainer width="100%" height="100%">
             {chartType === "bar" ? (
-              <BarChart data={data} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
-                {showGrid && <CartesianGrid strokeDasharray="3 3" stroke={gridColor} vertical={false} />}
+              <BarChart
+                data={data}
+                margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
+              >
+                {showGrid && (
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke={gridColor}
+                    vertical={false}
+                  />
+                )}
                 <XAxis
                   dataKey="month"
                   axisLine={false}
@@ -234,16 +273,35 @@ export function MonthlyLeadGrowthChart() {
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <defs>
-                  <linearGradient id="leadBarGradient" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient
+                    id="leadBarGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
                     <stop offset="0%" stopColor="#6e3ff3" />
                     <stop offset="100%" stopColor="#aa8ef9" />
                   </linearGradient>
                 </defs>
-                <Bar dataKey="leads" fill="url(#leadBarGradient)" radius={[4, 4, 0, 0]} />
+                <Bar
+                  dataKey="leads"
+                  fill="url(#leadBarGradient)"
+                  radius={[4, 4, 0, 0]}
+                />
               </BarChart>
             ) : chartType === "area" ? (
-              <AreaChart data={data} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
-                {showGrid && <CartesianGrid strokeDasharray="3 3" stroke={gridColor} vertical={false} />}
+              <AreaChart
+                data={data}
+                margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
+              >
+                {showGrid && (
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke={gridColor}
+                    vertical={false}
+                  />
+                )}
                 <XAxis
                   dataKey="month"
                   axisLine={false}
@@ -260,7 +318,13 @@ export function MonthlyLeadGrowthChart() {
                 />
                 <Tooltip content={<CustomTooltip />} />
                 <defs>
-                  <linearGradient id="leadAreaGradient" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient
+                    id="leadAreaGradient"
+                    x1="0"
+                    y1="0"
+                    x2="0"
+                    y2="1"
+                  >
                     <stop offset="0%" stopColor="#6e3ff3" stopOpacity={0.15} />
                     <stop offset="100%" stopColor="#6e3ff3" stopOpacity={0} />
                   </linearGradient>
@@ -272,12 +336,26 @@ export function MonthlyLeadGrowthChart() {
                   strokeWidth={2}
                   fill="url(#leadAreaGradient)"
                   dot={false}
-                  activeDot={{ r: 6, fill: lineColor, stroke: "#fff", strokeWidth: 2 }}
+                  activeDot={{
+                    r: 6,
+                    fill: lineColor,
+                    stroke: "#fff",
+                    strokeWidth: 2,
+                  }}
                 />
               </AreaChart>
             ) : (
-              <LineChart data={data} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
-                {showGrid && <CartesianGrid strokeDasharray="3 3" stroke={gridColor} vertical={false} />}
+              <LineChart
+                data={data}
+                margin={{ top: 20, right: 10, left: -20, bottom: 0 }}
+              >
+                {showGrid && (
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    stroke={gridColor}
+                    vertical={false}
+                  />
+                )}
                 <XAxis
                   dataKey="month"
                   axisLine={false}
@@ -299,7 +377,12 @@ export function MonthlyLeadGrowthChart() {
                   stroke={lineColor}
                   strokeWidth={2}
                   dot={false}
-                  activeDot={{ r: 6, fill: lineColor, stroke: "#fff", strokeWidth: 2 }}
+                  activeDot={{
+                    r: 6,
+                    fill: lineColor,
+                    stroke: "#fff",
+                    strokeWidth: 2,
+                  }}
                 />
               </LineChart>
             )}
@@ -307,5 +390,5 @@ export function MonthlyLeadGrowthChart() {
         </div>
       </div>
     </div>
-  );
+  )
 }

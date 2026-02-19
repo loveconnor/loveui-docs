@@ -45,7 +45,8 @@ function SelectValue({
   children,
   ...props
 }: SelectPrimitive.Value.Props & { placeholder?: string }) {
-  const resolvedChildren = children ?? ((value: unknown) => value ?? placeholder)
+  const resolvedChildren =
+    children ?? ((value: unknown) => value ?? placeholder)
 
   return (
     <SelectPrimitive.Value

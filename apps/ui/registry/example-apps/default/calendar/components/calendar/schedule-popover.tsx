@@ -1,46 +1,44 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { format } from "date-fns";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { useState } from "react"
 import {
   Calendar01Icon,
   Clock01Icon,
   UserGroupIcon,
   VideoReplayIcon,
-} from "@hugeicons/core-free-icons";
-import { Button } from "@loveui/ui/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@loveui/ui/ui/popover";
-import { Calendar } from "../ui/calendar";
-import { Input } from "@loveui/ui/ui/input";
-import { Label } from "@loveui/ui/ui/label";
-import { cn } from "../../lib/utils";
-import { Separator } from "@loveui/ui/ui/separator";
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { format } from "date-fns"
+
+import { Button } from "@loveui/ui/ui/button"
+import { Input } from "@loveui/ui/ui/input"
+import { Label } from "@loveui/ui/ui/label"
+import { Popover, PopoverContent, PopoverTrigger } from "@loveui/ui/ui/popover"
+import { Separator } from "@loveui/ui/ui/separator"
+
+import { cn } from "../../lib/utils"
+import { Calendar } from "../ui/calendar"
 
 interface SchedulePopoverProps {
-  children: React.ReactElement<Record<string, unknown>>;
+  children: React.ReactElement<Record<string, unknown>>
 }
 
 export function SchedulePopover({ children }: SchedulePopoverProps) {
-  const [open, setOpen] = useState(false);
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [startTime, setStartTime] = useState("")
+  const [endTime, setEndTime] = useState("")
+  const [datePickerOpen, setDatePickerOpen] = useState(false)
 
   const handleSchedule = () => {
     if (!date || !startTime || !endTime) {
-      return;
+      return
     }
-    setOpen(false);
-    setDate(new Date());
-    setStartTime("");
-    setEndTime("");
-  };
+    setOpen(false)
+    setDate(new Date())
+    setStartTime("")
+    setEndTime("")
+  }
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -48,8 +46,8 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
       <PopoverContent className="w-80 p-4" align="end">
         <div className="space-y-4">
           <div>
-            <h4 className="text-sm font-semibold mb-3">Schedule Meeting</h4>
-            <p className="text-xs text-muted-foreground mb-4">
+            <h4 className="mb-3 text-sm font-semibold">Schedule Meeting</h4>
+            <p className="mb-4 text-xs text-muted-foreground">
               Quick schedule a meeting or event
             </p>
           </div>
@@ -63,11 +61,14 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
                     <Button
                       variant="outline"
                       className={cn(
-                        "w-full justify-start text-left font-normal h-9",
+                        "h-9 w-full justify-start text-left font-normal",
                         !date && "text-muted-foreground"
                       )}
                     >
-                      <HugeiconsIcon icon={Calendar01Icon} className="mr-2 size-4" />
+                      <HugeiconsIcon
+                        icon={Calendar01Icon}
+                        className="mr-2 size-4"
+                      />
                       {date ? format(date, "PPP") : <span>Pick a date</span>}
                     </Button>
                   }
@@ -77,8 +78,8 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
                     mode="single"
                     selected={date}
                     onSelect={(selectedDate) => {
-                      setDate(selectedDate);
-                      setDatePickerOpen(false);
+                      setDate(selectedDate)
+                      setDatePickerOpen(false)
                     }}
                     initialFocus
                   />
@@ -92,13 +93,13 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
                 <div className="relative">
                   <HugeiconsIcon
                     icon={Clock01Icon}
-                    className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground z-10 pointer-events-none"
+                    className="pointer-events-none absolute top-1/2 left-2.5 z-10 size-3.5 -translate-y-1/2 text-muted-foreground"
                   />
                   <Input
                     type="time"
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
-                    className="pl-8 h-9 text-xs"
+                    className="h-9 pl-8 text-xs"
                     placeholder="09:00"
                   />
                 </div>
@@ -109,13 +110,13 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
                 <div className="relative">
                   <HugeiconsIcon
                     icon={Clock01Icon}
-                    className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground z-10 pointer-events-none"
+                    className="pointer-events-none absolute top-1/2 left-2.5 z-10 size-3.5 -translate-y-1/2 text-muted-foreground"
                   />
                   <Input
                     type="time"
                     value={endTime}
                     onChange={(e) => setEndTime(e.target.value)}
-                    className="pl-8 h-9 text-xs"
+                    className="h-9 pl-8 text-xs"
                     placeholder="10:00"
                   />
                 </div>
@@ -147,14 +148,14 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
               <Button
                 variant="outline"
                 size="sm"
-                className="flex-1 h-8 text-xs"
+                className="h-8 flex-1 text-xs"
                 onClick={() => setOpen(false)}
               >
                 Cancel
               </Button>
               <Button
                 size="sm"
-                className="flex-1 h-8 text-xs"
+                className="h-8 flex-1 text-xs"
                 onClick={handleSchedule}
                 disabled={!date || !startTime || !endTime}
               >
@@ -165,5 +166,5 @@ export function SchedulePopover({ children }: SchedulePopoverProps) {
         </div>
       </PopoverContent>
     </Popover>
-  );
+  )
 }

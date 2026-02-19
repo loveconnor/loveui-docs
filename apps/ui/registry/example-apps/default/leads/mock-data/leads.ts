@@ -1,32 +1,76 @@
-import { LeadStatus, LeadSource } from "../store/leads-store";
+import { LeadSource, LeadStatus } from "../store/leads-store"
 
 export interface Lead {
-  id: string;
-  leadId: string;
-  name: string;
-  email: string;
-  avatar: string;
-  status: LeadStatus;
-  source: LeadSource;
-  owner: string;
-  ownerInitials: string;
-  createdAt: string;
-  createdTimestamp: number;
+  id: string
+  leadId: string
+  name: string
+  email: string
+  avatar: string
+  status: LeadStatus
+  source: LeadSource
+  owner: string
+  ownerInitials: string
+  createdAt: string
+  createdTimestamp: number
 }
 
 const firstNames = [
-  "Avery", "Blake", "Casey", "Dakota", "Elliot", "Finley", "Gray", "Hayden",
-  "Indigo", "Jules", "Kai", "Logan", "Morgan", "Noel", "Oakley", "Parker",
-  "Quincy", "Reese", "Sage", "Taylor", "Urban", "Vale", "Winter", "Xen",
-  "Yael", "Zion",
-];
+  "Avery",
+  "Blake",
+  "Casey",
+  "Dakota",
+  "Elliot",
+  "Finley",
+  "Gray",
+  "Hayden",
+  "Indigo",
+  "Jules",
+  "Kai",
+  "Logan",
+  "Morgan",
+  "Noel",
+  "Oakley",
+  "Parker",
+  "Quincy",
+  "Reese",
+  "Sage",
+  "Taylor",
+  "Urban",
+  "Vale",
+  "Winter",
+  "Xen",
+  "Yael",
+  "Zion",
+]
 
 const lastNames = [
-  "Adler", "Bennett", "Coleman", "Dalton", "Ellis", "Foster", "Greer", "Hayes",
-  "Iverson", "Jordan", "Keller", "Lane", "Monroe", "Nash", "Owens", "Perry",
-  "Quinn", "Reed", "Sullivan", "Turner", "Underwood", "Vasquez", "Walker", "Xu",
-  "Young", "Zimmerman",
-];
+  "Adler",
+  "Bennett",
+  "Coleman",
+  "Dalton",
+  "Ellis",
+  "Foster",
+  "Greer",
+  "Hayes",
+  "Iverson",
+  "Jordan",
+  "Keller",
+  "Lane",
+  "Monroe",
+  "Nash",
+  "Owens",
+  "Perry",
+  "Quinn",
+  "Reed",
+  "Sullivan",
+  "Turner",
+  "Underwood",
+  "Vasquez",
+  "Walker",
+  "Xu",
+  "Young",
+  "Zimmerman",
+]
 
 const sponsorDomains = [
   "northpeak.com",
@@ -39,14 +83,14 @@ const sponsorDomains = [
   "stonepath.co",
   "beaconfield.com",
   "wildshore.io",
-];
+]
 
 const owners = [
   { name: "Mara Quinn", initials: "MQ" },
   { name: "Dylan Park", initials: "DP" },
   { name: "Nora Chen", initials: "NC" },
   { name: "Ibrahim Lee", initials: "IL" },
-];
+]
 
 const statuses: LeadStatus[] = [
   "new",
@@ -55,7 +99,7 @@ const statuses: LeadStatus[] = [
   "negotiation",
   "inactive",
   "recycled",
-];
+]
 
 const sources: LeadSource[] = [
   "website",
@@ -63,11 +107,11 @@ const sources: LeadSource[] = [
   "referral",
   "social",
   "email",
-];
+]
 
 function getDateString(daysAgo: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() - daysAgo);
+  const date = new Date()
+  date.setDate(date.getDate() - daysAgo)
   const months = [
     "Jan",
     "Feb",
@@ -81,24 +125,24 @@ function getDateString(daysAgo: number): string {
     "Oct",
     "Nov",
     "Dec",
-  ];
-  return `${months[date.getMonth()]} ${date.getDate().toString().padStart(2, "0")}, ${date.getFullYear()}`;
+  ]
+  return `${months[date.getMonth()]} ${date.getDate().toString().padStart(2, "0")}, ${date.getFullYear()}`
 }
 
 function getTimestamp(daysAgo: number): number {
-  const date = new Date();
-  date.setDate(date.getDate() - daysAgo);
-  return date.getTime();
+  const date = new Date()
+  date.setDate(date.getDate() - daysAgo)
+  return date.getTime()
 }
 
 export const leads: Lead[] = Array.from({ length: 50 }, (_, index) => {
-  const firstName = firstNames[index % firstNames.length];
-  const lastName = lastNames[index % lastNames.length];
-  const owner = owners[index % owners.length];
-  const status = statuses[index % statuses.length];
-  const source = sources[index % sources.length];
-  const domain = sponsorDomains[index % sponsorDomains.length];
-  const daysAgo = index % 30;
+  const firstName = firstNames[index % firstNames.length]
+  const lastName = lastNames[index % lastNames.length]
+  const owner = owners[index % owners.length]
+  const status = statuses[index % statuses.length]
+  const source = sources[index % sources.length]
+  const domain = sponsorDomains[index % sponsorDomains.length]
+  const daysAgo = index % 30
 
   return {
     id: (index + 1).toString(),
@@ -112,8 +156,8 @@ export const leads: Lead[] = Array.from({ length: 50 }, (_, index) => {
     ownerInitials: owner.initials,
     createdAt: getDateString(daysAgo),
     createdTimestamp: getTimestamp(daysAgo),
-  };
-});
+  }
+})
 
 export const leadStats = {
   totalLeads: 128,
@@ -128,7 +172,7 @@ export const leadStats = {
   hotLeads: 18,
   hotLeadsChange: 20,
   hotLeadsChangeValue: 3,
-};
+}
 
 export const leadsByStatus = {
   total: 128,
@@ -142,7 +186,7 @@ export const leadsByStatus = {
     { name: "On Hold", value: 11, color: "#aa9bfd" },
     { name: "Re-engage", value: 9, color: "#b069fc" },
   ],
-};
+}
 
 export const monthlyLeadGrowth = [
   { month: "Jan", leads: 14 },
@@ -157,4 +201,4 @@ export const monthlyLeadGrowth = [
   { month: "Oct", leads: 46 },
   { month: "Nov", leads: 40 },
   { month: "Dec", leads: 48 },
-];
+]

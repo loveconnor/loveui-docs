@@ -1,28 +1,26 @@
-"use client";
+"use client"
 
 import {
-  IconSparkles,
-  IconLayoutDashboard,
-  IconMail,
-  IconFolder,
-  IconWaveSine,
-  IconGitFork,
   IconFiles,
-  IconShield,
-  IconPlugConnected,
+  IconFolder,
+  IconGitFork,
+  IconLayoutDashboard,
   IconLifebuoy,
-} from "@tabler/icons-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@loveui/ui/ui/avatar";
-import { Button } from "@loveui/ui/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "../ui/tooltip";
-import { cn } from "../../lib/utils";
+  IconMail,
+  IconPlugConnected,
+  IconShield,
+  IconSparkles,
+  IconWaveSine,
+} from "@tabler/icons-react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+
+import { cn } from "../../lib/utils"
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
 interface EmailsVerticalSidebarProps {
-  onItemClick?: () => void;
+  onItemClick?: () => void
 }
 
 export function EmailsVerticalSidebar({
@@ -36,13 +34,13 @@ export function EmailsVerticalSidebar({
     { icon: IconWaveSine, label: "Metrics", active: false },
     { icon: IconGitFork, label: "Deploys", active: false },
     { icon: IconFiles, label: "Reports", active: false },
-  ];
+  ]
 
   const bottomIcons = [
     { icon: IconShield, label: "Security" },
     { icon: IconPlugConnected, label: "Integrations" },
     { icon: IconLifebuoy, label: "Support" },
-  ];
+  ]
 
   return (
     <div className="flex h-screen w-14 flex-col items-center gap-4 border-r border-border bg-background py-4">
@@ -116,5 +114,5 @@ export function EmailsVerticalSidebar({
         <AvatarFallback>U</AvatarFallback>
       </Avatar>
     </div>
-  );
+  )
 }

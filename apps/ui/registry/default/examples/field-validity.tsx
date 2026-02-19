@@ -11,7 +11,11 @@ export default function FieldWithValidityDemo() {
   return (
     <Field>
       <FieldLabel>Updated Email</FieldLabel>
-      <FieldControl type="email" placeholder="Updated Enter your email" required />
+      <FieldControl
+        type="email"
+        placeholder="Updated Enter your email"
+        required
+      />
       <FieldValidity>
         {(validity) => (
           <div className="flex w-full flex-col gap-2">

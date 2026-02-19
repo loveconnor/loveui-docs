@@ -1,58 +1,69 @@
-"use client";
+"use client"
 
-import { Button } from "@loveui/ui/ui/button";
-import { Input } from "@loveui/ui/ui/input";
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { ThemeToggle } from "../theme-toggle";
+import {
+  ChartLineData01Icon,
+  Comment01Icon,
+  Invoice01Icon,
+  MoreHorizontalIcon,
+  Notification01Icon,
+  Search01Icon,
+  Settings01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import { Input } from "@loveui/ui/ui/input"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
   DropdownMenuGroup,
+  DropdownMenuItem,
   DropdownMenuLabel,
-} from "@loveui/ui/ui/menu";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Search01Icon,
-  Notification01Icon,
-  Comment01Icon,
-  MoreHorizontalIcon,
-  ChartLineData01Icon,
-  Settings01Icon,
-  Invoice01Icon,
-} from "@hugeicons/core-free-icons";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
+import { SidebarTrigger } from "@/components/ui/sidebar"
+
+import { ThemeToggle } from "../theme-toggle"
 
 export function DashboardHeader() {
   return (
-    <header className="flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-3 sm:py-4 border-b bg-card sticky top-0 z-10 w-full">
+    <header className="sticky top-0 z-10 flex w-full items-center gap-2 border-b bg-card px-3 py-3 sm:gap-3 sm:px-6 sm:py-4">
       <SidebarTrigger className="-ml-1 sm:-ml-2" />
 
-      <div className="flex items-center gap-2 sm:gap-3 flex-1">
-        <HugeiconsIcon icon={ChartLineData01Icon} className="size-5 sm:size-6 text-muted-foreground hidden sm:block" />
-        <h1 className="text-base sm:text-lg font-medium truncate">Sponsorships</h1>
+      <div className="flex flex-1 items-center gap-2 sm:gap-3">
+        <HugeiconsIcon
+          icon={ChartLineData01Icon}
+          className="hidden size-5 text-muted-foreground sm:block sm:size-6"
+        />
+        <h1 className="truncate text-base font-medium sm:text-lg">
+          Sponsorships
+        </h1>
       </div>
 
-      <div className="hidden md:block relative">
-        <HugeiconsIcon icon={Search01Icon} className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-muted-foreground z-10 pointer-events-none" />
+      <div className="relative hidden md:block">
+        <HugeiconsIcon
+          icon={Search01Icon}
+          className="pointer-events-none absolute top-1/2 left-3 z-10 size-5 -translate-y-1/2 text-muted-foreground"
+        />
         <Input
           placeholder="Search Anything..."
-          className="pl-10 pr-14 w-[180px] lg:w-[220px] h-9 bg-card border"
+          className="h-9 w-[180px] border bg-card pr-14 pl-10 lg:w-[220px]"
         />
-        <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 bg-muted px-1 py-0.5 rounded text-xs text-muted-foreground">
+        <div className="absolute top-1/2 right-2 flex -translate-y-1/2 items-center gap-0.5 rounded bg-muted px-1 py-0.5 text-xs text-muted-foreground">
           <span>⌘K</span>
         </div>
       </div>
 
-      <div className="hidden sm:flex items-center gap-2">
+      <div className="hidden items-center gap-2 sm:flex">
         <DropdownMenu>
           <DropdownMenuTrigger
             render={
               <Button variant="outline" size="icon" className="relative size-9">
                 <HugeiconsIcon icon={Notification01Icon} />
-                <span className="absolute -top-0.5 -right-0.5 size-2.5 bg-rose-500 rounded-full border-2 border-card" />
+                <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full border-2 border-card bg-rose-500" />
               </Button>
             }
           />
@@ -70,8 +81,8 @@ export function DashboardHeader() {
               </DropdownMenuLabel>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="flex items-start gap-3 p-3 cursor-pointer">
-              <Avatar className="size-8 mt-0.5">
+            <DropdownMenuItem className="flex cursor-pointer items-start gap-3 p-3">
+              <Avatar className="mt-0.5 size-8">
                 <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=Alex" />
                 <AvatarFallback>AR</AvatarFallback>
               </Avatar>
@@ -82,10 +93,10 @@ export function DashboardHeader() {
                 </p>
                 <p className="text-xs text-muted-foreground">2 min ago</p>
               </div>
-              <span className="size-2 bg-blue-500 rounded-full mt-2" />
+              <span className="mt-2 size-2 rounded-full bg-blue-500" />
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex items-start gap-3 p-3 cursor-pointer">
-              <Avatar className="size-8 mt-0.5">
+            <DropdownMenuItem className="flex cursor-pointer items-start gap-3 p-3">
+              <Avatar className="mt-0.5 size-8">
                 <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=Mina" />
                 <AvatarFallback>MS</AvatarFallback>
               </Avatar>
@@ -96,10 +107,10 @@ export function DashboardHeader() {
                 </p>
                 <p className="text-xs text-muted-foreground">15 min ago</p>
               </div>
-              <span className="size-2 bg-blue-500 rounded-full mt-2" />
+              <span className="mt-2 size-2 rounded-full bg-blue-500" />
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex items-start gap-3 p-3 cursor-pointer opacity-60">
-              <Avatar className="size-8 mt-0.5">
+            <DropdownMenuItem className="flex cursor-pointer items-start gap-3 p-3 opacity-60">
+              <Avatar className="mt-0.5 size-8">
                 <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=John" />
                 <AvatarFallback>JK</AvatarFallback>
               </Avatar>
@@ -135,14 +146,17 @@ export function DashboardHeader() {
                   size="sm"
                   className="h-auto p-0 text-xs text-muted-foreground hover:text-foreground"
                 >
-                  <HugeiconsIcon icon={Settings01Icon} className="size-3.5 mr-1" />
+                  <HugeiconsIcon
+                    icon={Settings01Icon}
+                    className="mr-1 size-3.5"
+                  />
                   Settings
                 </Button>
               </DropdownMenuLabel>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="flex items-start gap-3 p-3 cursor-pointer">
-              <Avatar className="size-8 mt-0.5">
+            <DropdownMenuItem className="flex cursor-pointer items-start gap-3 p-3">
+              <Avatar className="mt-0.5 size-8">
                 <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=Sarah" />
                 <AvatarFallback>SL</AvatarFallback>
               </Avatar>
@@ -151,14 +165,14 @@ export function DashboardHeader() {
                   <p className="text-sm font-medium">Sarah Lee</p>
                   <span className="text-xs text-muted-foreground">5m</span>
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2">
+                <p className="line-clamp-2 text-xs text-muted-foreground">
                   Can you send updated booth benefits to NorthPeak before noon?
                 </p>
               </div>
-              <span className="size-2 bg-blue-500 rounded-full mt-2" />
+              <span className="mt-2 size-2 rounded-full bg-blue-500" />
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex items-start gap-3 p-3 cursor-pointer">
-              <Avatar className="size-8 mt-0.5">
+            <DropdownMenuItem className="flex cursor-pointer items-start gap-3 p-3">
+              <Avatar className="mt-0.5 size-8">
                 <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=Alex" />
                 <AvatarFallback>AR</AvatarFallback>
               </Avatar>
@@ -167,13 +181,13 @@ export function DashboardHeader() {
                   <p className="text-sm font-medium">Alex Ray</p>
                   <span className="text-xs text-muted-foreground">1h</span>
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2">
+                <p className="line-clamp-2 text-xs text-muted-foreground">
                   HarborLabs confirmed a call tomorrow at 2 PM to review tiers.
                 </p>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex items-start gap-3 p-3 cursor-pointer opacity-60">
-              <Avatar className="size-8 mt-0.5">
+            <DropdownMenuItem className="flex cursor-pointer items-start gap-3 p-3 opacity-60">
+              <Avatar className="mt-0.5 size-8">
                 <AvatarImage src="https://api.dicebear.com/9.x/glass/svg?seed=Mina" />
                 <AvatarFallback>MS</AvatarFallback>
               </Avatar>
@@ -182,7 +196,7 @@ export function DashboardHeader() {
                   <p className="text-sm font-medium">Mina Swan</p>
                   <span className="text-xs text-muted-foreground">2d</span>
                 </div>
-                <p className="text-xs text-muted-foreground line-clamp-2">
+                <p className="line-clamp-2 text-xs text-muted-foreground">
                   Great update. I will follow up on legal terms next week.
                 </p>
               </div>
@@ -200,26 +214,26 @@ export function DashboardHeader() {
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
-            <Button variant="ghost" size="icon" className="sm:hidden h-8 w-8">
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:hidden">
               <HugeiconsIcon icon={MoreHorizontalIcon} className="size-4" />
             </Button>
           }
         />
         <DropdownMenuContent className="w-40" align="end">
           <DropdownMenuItem>
-            <HugeiconsIcon icon={Search01Icon} className="size-4 mr-2" />
+            <HugeiconsIcon icon={Search01Icon} className="mr-2 size-4" />
             Search
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <HugeiconsIcon icon={Notification01Icon} className="size-4 mr-2" />
+            <HugeiconsIcon icon={Notification01Icon} className="mr-2 size-4" />
             Notifications
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <HugeiconsIcon icon={Comment01Icon} className="size-4 mr-2" />
+            <HugeiconsIcon icon={Comment01Icon} className="mr-2 size-4" />
             Messages
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
-  );
+  )
 }

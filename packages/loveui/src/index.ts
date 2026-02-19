@@ -445,6 +445,34 @@ function normalizeComponentContent(content: string, utilsImportPath: string): st
 
   let normalized = content;
   normalized = normalized.replace(
+    /@\/registry\/default\/components\//g,
+    `${aliasPrefix}components/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/ui\//g,
+    `${aliasPrefix}components/ui/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/hooks\//g,
+    `${aliasPrefix}hooks/`
+  );
+  normalized = normalized.replace(
+    /@\/registry\/default\/lib\//g,
+    `${aliasPrefix}lib/`
+  );
+  normalized = normalized.replace(
+    /@loveui\/ui\/ui\//g,
+    `${aliasPrefix}components/ui/`
+  );
+  normalized = normalized.replace(
+    /@loveui\/ui\/lib\//g,
+    `${aliasPrefix}lib/`
+  );
+  normalized = normalized.replace(
+    /@\/ui\//g,
+    `${aliasPrefix}components/ui/`
+  );
+  normalized = normalized.replace(
     /@\/registry\/building-blocks\/default\/components\//g,
     `${aliasPrefix}components/`
   );

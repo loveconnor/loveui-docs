@@ -1,21 +1,22 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Image01Icon,
-  Video01Icon,
   File01Icon,
+  FileAttachmentIcon,
   FolderZipIcon,
+  Image01Icon,
   MusicNote01Icon,
   SourceCodeIcon,
-  FileAttachmentIcon,
-} from "@hugeicons/core-free-icons";
-import { FileType } from "../../mock-data/files";
-import { cn } from "../../lib/utils";
+  Video01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { cn } from "../../lib/utils"
+import { FileType } from "../../mock-data/files"
 
 interface FileIconProps {
-  type: FileType;
-  className?: string;
+  type: FileType
+  className?: string
 }
 
 const iconMap = {
@@ -26,13 +27,12 @@ const iconMap = {
   audio: { icon: MusicNote01Icon, color: "text-cyan-500" },
   code: { icon: SourceCodeIcon, color: "text-blue-500" },
   other: { icon: FileAttachmentIcon, color: "text-muted-foreground" },
-};
+}
 
 export function FileIcon({ type, className }: FileIconProps) {
-  const { icon, color } = iconMap[type] || iconMap.other;
+  const { icon, color } = iconMap[type] || iconMap.other
 
   return (
     <HugeiconsIcon icon={icon} className={cn("size-5", color, className)} />
-  );
+  )
 }
-

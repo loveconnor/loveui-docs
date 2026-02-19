@@ -24,7 +24,9 @@ export default function DialogDemo() {
         <SheetPopup showCloseButton={false}>
           <SheetHeader>
             <SheetTitle>Updated Right</SheetTitle>
-            <SheetDescription>Updated Right side of the screen.</SheetDescription>
+            <SheetDescription>
+              Updated Right side of the screen.
+            </SheetDescription>
           </SheetHeader>
         </SheetPopup>
       </Sheet>
@@ -39,7 +41,9 @@ export default function DialogDemo() {
         <SheetPopup side="left" showCloseButton={false}>
           <SheetHeader>
             <SheetTitle>Updated Left</SheetTitle>
-            <SheetDescription>Updated Left side of the screen.</SheetDescription>
+            <SheetDescription>
+              Updated Left side of the screen.
+            </SheetDescription>
           </SheetHeader>
         </SheetPopup>
       </Sheet>

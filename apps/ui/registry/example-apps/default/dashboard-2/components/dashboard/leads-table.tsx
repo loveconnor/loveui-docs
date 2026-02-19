@@ -1,19 +1,55 @@
-"use client";
+"use client"
 
-import { useMemo, useState } from "react";
-import { Button } from "@loveui/ui/ui/button";
-import { Input } from "@loveui/ui/ui/input";
-import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Checkbox } from "@loveui/ui/ui/checkbox";
+import { useMemo, useState } from "react"
+import {
+  Activity01Icon,
+  ArrowDown01Icon,
+  ArrowLeft01Icon,
+  ArrowLeftDoubleIcon,
+  ArrowRight01Icon,
+  ArrowRightDoubleIcon,
+  ArrowUp01Icon,
+  ArrowUpDownIcon,
+  CallIcon,
+  Cancel01Icon,
+  FireIcon,
+  FlashIcon,
+  Globe02Icon,
+  HandPointingRight01Icon,
+  Linkedin01Icon,
+  Mail01Icon,
+  PieChartIcon,
+  Search01Icon,
+  SlidersHorizontalIcon,
+  SnowIcon,
+  Target01Icon,
+  Tick01Icon,
+  Upload01Icon,
+  UserIcon,
+  UserMultiple02Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import { Checkbox } from "@loveui/ui/ui/checkbox"
+import { Input } from "@loveui/ui/ui/input"
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
   DropdownMenuCheckboxItem,
+  DropdownMenuContent,
   DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@loveui/ui/ui/select"
 import {
   Table,
   TableBody,
@@ -21,48 +57,19 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@loveui/ui/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@loveui/ui/ui/select";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Search01Icon,
-  SlidersHorizontalIcon,
-  ArrowUpDownIcon,
-  Upload01Icon,
-  PieChartIcon,
-  SnowIcon,
-  FireIcon,
-  Tick01Icon,
-  Cancel01Icon,
-  UserIcon,
-  Mail01Icon,
-  HandPointingRight01Icon,
-  Activity01Icon,
-  Globe02Icon,
-  ArrowUp01Icon,
-  ArrowDown01Icon,
-  Linkedin01Icon,
-  CallIcon,
-  UserMultiple02Icon,
-  Target01Icon,
-  FlashIcon,
-  ArrowLeftDoubleIcon,
-  ArrowRightDoubleIcon,
-  ArrowLeft01Icon,
-  ArrowRight01Icon,
-} from "@hugeicons/core-free-icons";
-import { leads, LeadType, LeadStatus, LeadSource } from "../../mock-data/dashboard";
-import { useDashboardStore } from "../../store/dashboard-store";
-import { cn } from "../../lib/utils";
+} from "@loveui/ui/ui/table"
 
-type SortField = "name" | "email" | "followUp" | "status" | "score";
-type SortOrder = "asc" | "desc";
+import { cn } from "../../lib/utils"
+import {
+  leads,
+  LeadSource,
+  LeadStatus,
+  LeadType,
+} from "../../mock-data/dashboard"
+import { useDashboardStore } from "../../store/dashboard-store"
+
+type SortField = "name" | "email" | "followUp" | "status" | "score"
+type SortOrder = "asc" | "desc"
 
 function getSortIcon(
   sortField: SortField,
@@ -70,19 +77,19 @@ function getSortIcon(
   field: SortField
 ) {
   if (sortField !== field)
-    return <HugeiconsIcon icon={ArrowUpDownIcon} className="size-3" />;
+    return <HugeiconsIcon icon={ArrowUpDownIcon} className="size-3" />
   return sortOrder === "asc" ? (
     <HugeiconsIcon icon={ArrowUp01Icon} className="size-3" />
   ) : (
     <HugeiconsIcon icon={ArrowDown01Icon} className="size-3" />
-  );
+  )
 }
 
 function TypeBadge({ type }: { type: LeadType }) {
   if (type === "cold") {
     return (
       <div
-        className="flex items-center gap-1 px-2 py-1 rounded-lg border border-cyan-500/40 w-fit"
+        className="flex w-fit items-center gap-1 rounded-lg border border-cyan-500/40 px-2 py-1"
         style={{
           backgroundImage:
             "linear-gradient(90deg, rgba(6, 182, 212, 0.12) 0%, rgba(6, 182, 212, 0.06) 30%, rgba(6, 182, 212, 0) 100%), linear-gradient(90deg, hsl(var(--card)) 0%, hsl(var(--card)) 100%)",
@@ -91,12 +98,12 @@ function TypeBadge({ type }: { type: LeadType }) {
         <HugeiconsIcon icon={SnowIcon} className="size-3.5 text-cyan-400" />
         <span className="text-sm font-medium text-cyan-400">Cold</span>
       </div>
-    );
+    )
   }
 
   return (
     <div
-      className="flex items-center gap-1 px-2 py-1 rounded-lg border border-pink-500/40 w-fit"
+      className="flex w-fit items-center gap-1 rounded-lg border border-pink-500/40 px-2 py-1"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgba(236, 72, 153, 0.12) 0%, rgba(236, 72, 153, 0.06) 30%, rgba(236, 72, 153, 0) 100%), linear-gradient(90deg, hsl(var(--card)) 0%, hsl(var(--card)) 100%)",
@@ -105,28 +112,31 @@ function TypeBadge({ type }: { type: LeadType }) {
       <HugeiconsIcon icon={FireIcon} className="size-3.5 text-pink-400" />
       <span className="text-sm font-medium text-pink-400">Warm</span>
     </div>
-  );
+  )
 }
 
 function StatusBadge({ status }: { status: LeadStatus }) {
   if (status === "closed") {
     return (
       <div
-        className="flex items-center gap-1 px-2 py-1 rounded-lg border border-emerald-500/40 w-fit"
+        className="flex w-fit items-center gap-1 rounded-lg border border-emerald-500/40 px-2 py-1"
         style={{
           backgroundImage:
             "linear-gradient(90deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.06) 30%, rgba(16, 185, 129, 0) 100%), linear-gradient(90deg, hsl(var(--card)) 0%, hsl(var(--card)) 100%)",
         }}
       >
-        <HugeiconsIcon icon={Tick01Icon} className="size-3.5 text-emerald-400" />
+        <HugeiconsIcon
+          icon={Tick01Icon}
+          className="size-3.5 text-emerald-400"
+        />
         <span className="text-sm font-medium text-emerald-400">Closed</span>
       </div>
-    );
+    )
   }
 
   return (
     <div
-      className="flex items-center gap-1 px-2 py-1 rounded-lg border border-amber-500/40 w-fit"
+      className="flex w-fit items-center gap-1 rounded-lg border border-amber-500/40 px-2 py-1"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0.06) 30%, rgba(245, 158, 11, 0) 100%), linear-gradient(90deg, hsl(var(--card)) 0%, hsl(var(--card)) 100%)",
@@ -135,23 +145,23 @@ function StatusBadge({ status }: { status: LeadStatus }) {
       <HugeiconsIcon icon={Cancel01Icon} className="size-3.5 text-amber-400" />
       <span className="text-sm font-medium text-amber-400">Lost</span>
     </div>
-  );
+  )
 }
 
 function ScoreBadge({ score }: { score: number }) {
   const getScoreStyle = () => {
     if (score >= 80)
-      return { barClass: "bg-emerald-500", textClass: "text-emerald-400" };
+      return { barClass: "bg-emerald-500", textClass: "text-emerald-400" }
     if (score >= 50)
-      return { barClass: "bg-cyan-500", textClass: "text-cyan-400" };
-    return { barClass: "bg-amber-500", textClass: "text-amber-400" };
-  };
+      return { barClass: "bg-cyan-500", textClass: "text-cyan-400" }
+    return { barClass: "bg-amber-500", textClass: "text-amber-400" }
+  }
 
-  const { barClass, textClass } = getScoreStyle();
+  const { barClass, textClass } = getScoreStyle()
 
   return (
     <div className="flex items-center gap-2">
-      <div className="relative w-12 h-1.5 rounded-full bg-muted overflow-hidden">
+      <div className="relative h-1.5 w-12 overflow-hidden rounded-full bg-muted">
         <div
           className={cn(
             "absolute inset-y-0 left-0 rounded-full transition-all",
@@ -160,17 +170,22 @@ function ScoreBadge({ score }: { score: number }) {
           style={{ width: `${score}%` }}
         />
       </div>
-      <span className={cn("text-xs font-semibold min-w-[28px]", textClass)}>
+      <span className={cn("min-w-[28px] text-xs font-semibold", textClass)}>
         {score}
       </span>
     </div>
-  );
+  )
 }
 
 function SourceBadge({ source }: { source: LeadSource }) {
   const sourceConfig: Record<
     LeadSource,
-    { icon: typeof Linkedin01Icon; label: string; bgClass: string; textClass: string }
+    {
+      icon: typeof Linkedin01Icon
+      label: string
+      bgClass: string
+      textClass: string
+    }
   > = {
     linkedin: {
       icon: Linkedin01Icon,
@@ -202,23 +217,26 @@ function SourceBadge({ source }: { source: LeadSource }) {
       bgClass: "bg-orange-500/10",
       textClass: "text-orange-400",
     },
-  };
+  }
 
-  const config = sourceConfig[source];
+  const config = sourceConfig[source]
 
   return (
     <div
       className={cn(
-        "flex items-center gap-1.5 px-2 py-1 rounded-md w-fit",
+        "flex w-fit items-center gap-1.5 rounded-md px-2 py-1",
         config.bgClass
       )}
     >
-      <HugeiconsIcon icon={config.icon} className={cn("size-3", config.textClass)} />
+      <HugeiconsIcon
+        icon={config.icon}
+        className={cn("size-3", config.textClass)}
+      />
       <span className={cn("text-xs font-medium", config.textClass)}>
         {config.label}
       </span>
     </div>
-  );
+  )
 }
 
 export function LeadsTable() {
@@ -232,53 +250,53 @@ export function LeadsTable() {
     setStatusFilter,
     setSourceFilter,
     clearFilters,
-  } = useDashboardStore();
+  } = useDashboardStore()
 
-  const [sortField, setSortField] = useState<SortField>("name");
-  const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
-  const [selectedLeads, setSelectedLeads] = useState<string[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [sortField, setSortField] = useState<SortField>("name")
+  const [sortOrder, setSortOrder] = useState<SortOrder>("asc")
+  const [selectedLeads, setSelectedLeads] = useState<string[]>([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
 
   const filteredAndSortedLeads = useMemo(() => {
     const result = leads.filter((lead) => {
       const matchesSearch =
         searchQuery === "" ||
         lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        lead.email.toLowerCase().includes(searchQuery.toLowerCase());
+        lead.email.toLowerCase().includes(searchQuery.toLowerCase())
 
-      const matchesType = typeFilter === "all" || lead.type === typeFilter;
+      const matchesType = typeFilter === "all" || lead.type === typeFilter
       const matchesStatus =
-        statusFilter === "all" || lead.status === statusFilter;
+        statusFilter === "all" || lead.status === statusFilter
       const matchesSource =
-        sourceFilter === "all" || lead.source === sourceFilter;
+        sourceFilter === "all" || lead.source === sourceFilter
 
-      return matchesSearch && matchesType && matchesStatus && matchesSource;
-    });
+      return matchesSearch && matchesType && matchesStatus && matchesSource
+    })
 
     result.sort((a, b) => {
-      let comparison = 0;
+      let comparison = 0
       switch (sortField) {
         case "name":
-          comparison = a.name.localeCompare(b.name);
-          break;
+          comparison = a.name.localeCompare(b.name)
+          break
         case "email":
-          comparison = a.email.localeCompare(b.email);
-          break;
+          comparison = a.email.localeCompare(b.email)
+          break
         case "followUp":
-          comparison = a.followUp.localeCompare(b.followUp);
-          break;
+          comparison = a.followUp.localeCompare(b.followUp)
+          break
         case "status":
-          comparison = a.status.localeCompare(b.status);
-          break;
+          comparison = a.status.localeCompare(b.status)
+          break
         case "score":
-          comparison = a.score - b.score;
-          break;
+          comparison = a.score - b.score
+          break
       }
-      return sortOrder === "asc" ? comparison : -comparison;
-    });
+      return sortOrder === "asc" ? comparison : -comparison
+    })
 
-    return result;
+    return result
   }, [
     searchQuery,
     typeFilter,
@@ -286,73 +304,73 @@ export function LeadsTable() {
     sourceFilter,
     sortField,
     sortOrder,
-  ]);
+  ])
 
-  const totalPages = Math.ceil(filteredAndSortedLeads.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredAndSortedLeads.length / itemsPerPage)
   const paginatedLeads = useMemo(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    return filteredAndSortedLeads.slice(startIndex, startIndex + itemsPerPage);
-  }, [filteredAndSortedLeads, currentPage, itemsPerPage]);
+    const startIndex = (currentPage - 1) * itemsPerPage
+    return filteredAndSortedLeads.slice(startIndex, startIndex + itemsPerPage)
+  }, [filteredAndSortedLeads, currentPage, itemsPerPage])
 
   const toggleSort = (field: SortField) => {
     if (sortField === field) {
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc")
     } else {
-      setSortField(field);
-      setSortOrder("asc");
+      setSortField(field)
+      setSortOrder("asc")
     }
-  };
+  }
 
   const toggleSelectAll = () => {
     if (selectedLeads.length === paginatedLeads.length) {
-      setSelectedLeads([]);
+      setSelectedLeads([])
     } else {
-      setSelectedLeads(paginatedLeads.map((lead) => lead.id));
+      setSelectedLeads(paginatedLeads.map((lead) => lead.id))
     }
-  };
+  }
 
   const toggleSelectLead = (id: string) => {
     setSelectedLeads((prev) =>
       prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    );
-  };
+    )
+  }
 
   const hasActiveFilters =
     searchQuery !== "" ||
     typeFilter !== "all" ||
     statusFilter !== "all" ||
-    sourceFilter !== "all";
+    sourceFilter !== "all"
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    setSelectedLeads([]);
-  };
+    setCurrentPage(page)
+    setSelectedLeads([])
+  }
 
   const handleItemsPerPageChange = (value: string | null) => {
     if (value) {
-      setItemsPerPage(Number(value));
-      setCurrentPage(1);
-      setSelectedLeads([]);
+      setItemsPerPage(Number(value))
+      setCurrentPage(1)
+      setSelectedLeads([])
     }
-  };
+  }
 
   return (
-    <div className="bg-card text-card-foreground rounded-xl border overflow-hidden">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-4 py-3.5 border-b">
+    <div className="overflow-hidden rounded-xl border bg-card text-card-foreground">
+      <div className="flex flex-col gap-3 border-b px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <h3 className="font-medium text-base">Lead Management</h3>
-          <div className="h-5 w-px bg-border hidden sm:block" />
-          <div className="hidden sm:flex items-center gap-2">
+          <h3 className="text-base font-medium">Lead Management</h3>
+          <div className="hidden h-5 w-px bg-border sm:block" />
+          <div className="hidden items-center gap-2 sm:flex">
             <div className="relative">
               <HugeiconsIcon
                 icon={Search01Icon}
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground z-10 pointer-events-none"
+                className="pointer-events-none absolute top-1/2 left-2.5 z-10 size-3.5 -translate-y-1/2 text-muted-foreground"
               />
               <Input
                 placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-8 h-8 w-[200px] text-sm bg-muted/50 border-border/50"
+                className="h-8 w-[200px] border-border/50 bg-muted/50 pl-8 text-sm"
               />
             </div>
 
@@ -362,9 +380,12 @@ export function LeadsTable() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="h-8 gap-1.5 bg-muted/50 border-border/50"
+                    className="h-8 gap-1.5 border-border/50 bg-muted/50"
                   >
-                    <HugeiconsIcon icon={SlidersHorizontalIcon} className="size-3.5" />
+                    <HugeiconsIcon
+                      icon={SlidersHorizontalIcon}
+                      className="size-3.5"
+                    />
                     <span>Filter</span>
                     {hasActiveFilters && (
                       <span className="size-1.5 rounded-full bg-primary" />
@@ -375,7 +396,7 @@ export function LeadsTable() {
               <DropdownMenuContent align="start" className="w-48">
                 <DropdownMenuGroup>
                   <div className="px-2 py-1.5">
-                    <p className="text-xs font-medium text-muted-foreground mb-1.5">
+                    <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                       Type
                     </p>
                     <div className="space-y-1">
@@ -389,14 +410,20 @@ export function LeadsTable() {
                         checked={typeFilter === "cold"}
                         onCheckedChange={() => setTypeFilter("cold")}
                       >
-                        <HugeiconsIcon icon={SnowIcon} className="size-3 mr-1.5 text-cyan-400" />
+                        <HugeiconsIcon
+                          icon={SnowIcon}
+                          className="mr-1.5 size-3 text-cyan-400"
+                        />
                         Cold
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
                         checked={typeFilter === "warm"}
                         onCheckedChange={() => setTypeFilter("warm")}
                       >
-                        <HugeiconsIcon icon={FireIcon} className="size-3 mr-1.5 text-pink-400" />
+                        <HugeiconsIcon
+                          icon={FireIcon}
+                          className="mr-1.5 size-3 text-pink-400"
+                        />
                         Warm
                       </DropdownMenuCheckboxItem>
                     </div>
@@ -405,7 +432,7 @@ export function LeadsTable() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <div className="px-2 py-1.5">
-                    <p className="text-xs font-medium text-muted-foreground mb-1.5">
+                    <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                       Status
                     </p>
                     <div className="space-y-1">
@@ -419,14 +446,20 @@ export function LeadsTable() {
                         checked={statusFilter === "closed"}
                         onCheckedChange={() => setStatusFilter("closed")}
                       >
-                        <HugeiconsIcon icon={Tick01Icon} className="size-3 mr-1.5 text-emerald-400" />
+                        <HugeiconsIcon
+                          icon={Tick01Icon}
+                          className="mr-1.5 size-3 text-emerald-400"
+                        />
                         Closed
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
                         checked={statusFilter === "lost"}
                         onCheckedChange={() => setStatusFilter("lost")}
                       >
-                        <HugeiconsIcon icon={Cancel01Icon} className="size-3 mr-1.5 text-amber-400" />
+                        <HugeiconsIcon
+                          icon={Cancel01Icon}
+                          className="mr-1.5 size-3 text-amber-400"
+                        />
                         Lost
                       </DropdownMenuCheckboxItem>
                     </div>
@@ -435,7 +468,7 @@ export function LeadsTable() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <div className="px-2 py-1.5">
-                    <p className="text-xs font-medium text-muted-foreground mb-1.5">
+                    <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                       Source
                     </p>
                     <div className="space-y-1">
@@ -449,35 +482,50 @@ export function LeadsTable() {
                         checked={sourceFilter === "linkedin"}
                         onCheckedChange={() => setSourceFilter("linkedin")}
                       >
-                        <HugeiconsIcon icon={Linkedin01Icon} className="size-3 mr-1.5 text-blue-400" />
+                        <HugeiconsIcon
+                          icon={Linkedin01Icon}
+                          className="mr-1.5 size-3 text-blue-400"
+                        />
                         LinkedIn
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
                         checked={sourceFilter === "google"}
                         onCheckedChange={() => setSourceFilter("google")}
                       >
-                        <HugeiconsIcon icon={Search01Icon} className="size-3 mr-1.5 text-red-400" />
+                        <HugeiconsIcon
+                          icon={Search01Icon}
+                          className="mr-1.5 size-3 text-red-400"
+                        />
                         Google
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
                         checked={sourceFilter === "referral"}
                         onCheckedChange={() => setSourceFilter("referral")}
                       >
-                        <HugeiconsIcon icon={UserMultiple02Icon} className="size-3 mr-1.5 text-violet-400" />
+                        <HugeiconsIcon
+                          icon={UserMultiple02Icon}
+                          className="mr-1.5 size-3 text-violet-400"
+                        />
                         Referral
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
                         checked={sourceFilter === "website"}
                         onCheckedChange={() => setSourceFilter("website")}
                       >
-                        <HugeiconsIcon icon={Globe02Icon} className="size-3 mr-1.5 text-cyan-400" />
+                        <HugeiconsIcon
+                          icon={Globe02Icon}
+                          className="mr-1.5 size-3 text-cyan-400"
+                        />
                         Website
                       </DropdownMenuCheckboxItem>
                       <DropdownMenuCheckboxItem
                         checked={sourceFilter === "cold-call"}
                         onCheckedChange={() => setSourceFilter("cold-call")}
                       >
-                        <HugeiconsIcon icon={CallIcon} className="size-3 mr-1.5 text-orange-400" />
+                        <HugeiconsIcon
+                          icon={CallIcon}
+                          className="mr-1.5 size-3 text-orange-400"
+                        />
                         Cold Call
                       </DropdownMenuCheckboxItem>
                     </div>
@@ -500,9 +548,12 @@ export function LeadsTable() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="h-8 gap-1.5 bg-muted/50 border-border/50"
+                    className="h-8 gap-1.5 border-border/50 bg-muted/50"
                   >
-                    <HugeiconsIcon icon={ArrowUpDownIcon} className="size-3.5" />
+                    <HugeiconsIcon
+                      icon={ArrowUpDownIcon}
+                      className="size-3.5"
+                    />
                     <span>Sort</span>
                   </Button>
                 }
@@ -524,7 +575,8 @@ export function LeadsTable() {
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => toggleSort("status")}>
                     Status{" "}
-                    {sortField === "status" && (sortOrder === "asc" ? "↑" : "↓")}
+                    {sortField === "status" &&
+                      (sortOrder === "asc" ? "↑" : "↓")}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => toggleSort("score")}>
                     Score{" "}
@@ -543,7 +595,7 @@ export function LeadsTable() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="h-8 gap-1.5 bg-muted/50 border-border/50"
+                  className="h-8 gap-1.5 border-border/50 bg-muted/50"
                 >
                   <HugeiconsIcon icon={Upload01Icon} className="size-3.5" />
                   <span className="hidden sm:inline">Export/Import</span>
@@ -569,7 +621,7 @@ export function LeadsTable() {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="size-8 bg-muted/50 border-border/50"
+                  className="size-8 border-border/50 bg-muted/50"
                 >
                   <HugeiconsIcon icon={PieChartIcon} className="size-3.5" />
                 </Button>
@@ -588,17 +640,17 @@ export function LeadsTable() {
         </div>
       </div>
 
-      <div className="sm:hidden flex flex-wrap items-center gap-2 px-4 py-3 border-b">
+      <div className="flex flex-wrap items-center gap-2 border-b px-4 py-3 sm:hidden">
         <div className="relative flex-1">
           <HugeiconsIcon
             icon={Search01Icon}
-            className="absolute left-2.5 top-1/2 -translate-y-1/2 size-3.5 text-muted-foreground z-10 pointer-events-none"
+            className="pointer-events-none absolute top-1/2 left-2.5 z-10 size-3.5 -translate-y-1/2 text-muted-foreground"
           />
           <Input
             placeholder="Search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-8 h-8 w-full text-sm bg-muted/50 border-border/50"
+            className="h-8 w-full border-border/50 bg-muted/50 pl-8 text-sm"
           />
         </div>
         <DropdownMenu>
@@ -607,9 +659,12 @@ export function LeadsTable() {
               <Button
                 variant="outline"
                 size="sm"
-                className="h-8 gap-1.5 bg-muted/50 border-border/50"
+                className="h-8 gap-1.5 border-border/50 bg-muted/50"
               >
-                <HugeiconsIcon icon={SlidersHorizontalIcon} className="size-3.5" />
+                <HugeiconsIcon
+                  icon={SlidersHorizontalIcon}
+                  className="size-3.5"
+                />
                 {hasActiveFilters && (
                   <span className="size-1.5 rounded-full bg-primary" />
                 )}
@@ -619,7 +674,7 @@ export function LeadsTable() {
           <DropdownMenuContent align="end" className="w-48">
             <DropdownMenuGroup>
               <div className="px-2 py-1.5">
-                <p className="text-xs font-medium text-muted-foreground mb-1.5">
+                <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                   Type
                 </p>
                 <div className="space-y-1">
@@ -647,7 +702,7 @@ export function LeadsTable() {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <div className="px-2 py-1.5">
-                <p className="text-xs font-medium text-muted-foreground mb-1.5">
+                <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                   Status
                 </p>
                 <div className="space-y-1">
@@ -675,7 +730,7 @@ export function LeadsTable() {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <div className="px-2 py-1.5">
-                <p className="text-xs font-medium text-muted-foreground mb-1.5">
+                <p className="mb-1.5 text-xs font-medium text-muted-foreground">
                   Source
                 </p>
                 <div className="space-y-1">
@@ -734,7 +789,7 @@ export function LeadsTable() {
               <Button
                 variant="outline"
                 size="sm"
-                className="h-8 bg-muted/50 border-border/50"
+                className="h-8 border-border/50 bg-muted/50"
               >
                 <HugeiconsIcon icon={ArrowUpDownIcon} className="size-3.5" />
               </Button>
@@ -765,7 +820,7 @@ export function LeadsTable() {
       <div className="overflow-x-auto">
         <Table>
           <TableHeader>
-            <TableRow className="hover:bg-transparent bg-muted/30">
+            <TableRow className="bg-muted/30 hover:bg-transparent">
               <TableHead className="w-[160px]">
                 <div className="flex items-center gap-2">
                   <Checkbox
@@ -806,7 +861,10 @@ export function LeadsTable() {
                   className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
                   onClick={() => toggleSort("followUp")}
                 >
-                  <HugeiconsIcon icon={HandPointingRight01Icon} className="size-3.5" />
+                  <HugeiconsIcon
+                    icon={HandPointingRight01Icon}
+                    className="size-3.5"
+                  />
                   <span>Follow-up</span>
                   {getSortIcon(sortField, sortOrder, "followUp")}
                 </button>
@@ -861,14 +919,14 @@ export function LeadsTable() {
                         {lead.name[0]}
                       </AvatarFallback>
                     </Avatar>
-                    <span className="font-medium text-sm">{lead.name}</span>
+                    <span className="text-sm font-medium">{lead.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
                   <TypeBadge type={lead.type} />
                 </TableCell>
                 <TableCell className="max-w-[180px]">
-                  <span className="text-sm truncate block">{lead.email}</span>
+                  <span className="block truncate text-sm">{lead.email}</span>
                 </TableCell>
                 <TableCell>
                   <span className="text-sm whitespace-nowrap">
@@ -885,7 +943,7 @@ export function LeadsTable() {
                   <SourceBadge source={lead.source} />
                 </TableCell>
                 <TableCell className="max-w-[120px]">
-                  <span className="text-sm text-muted-foreground truncate block">
+                  <span className="block truncate text-sm text-muted-foreground">
                     {lead.website || "-"}
                   </span>
                 </TableCell>
@@ -895,7 +953,7 @@ export function LeadsTable() {
         </Table>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 py-3 border-t">
+      <div className="flex flex-col items-center justify-between gap-4 border-t px-4 py-3 sm:flex-row">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span>
             Showing {(currentPage - 1) * itemsPerPage + 1} to{" "}
@@ -905,7 +963,7 @@ export function LeadsTable() {
             )}{" "}
             of {filteredAndSortedLeads.length} leads
           </span>
-          <div className="h-4 w-px bg-border hidden sm:block" />
+          <div className="hidden h-4 w-px bg-border sm:block" />
           <div className="flex items-center gap-2">
             <span className="hidden sm:inline">Show</span>
             <Select
@@ -946,17 +1004,17 @@ export function LeadsTable() {
             <HugeiconsIcon icon={ArrowLeft01Icon} className="size-4" />
           </Button>
 
-          <div className="flex items-center gap-1 mx-2">
+          <div className="mx-2 flex items-center gap-1">
             {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-              let pageNum: number;
+              let pageNum: number
               if (totalPages <= 5) {
-                pageNum = i + 1;
+                pageNum = i + 1
               } else if (currentPage <= 3) {
-                pageNum = i + 1;
+                pageNum = i + 1
               } else if (currentPage >= totalPages - 2) {
-                pageNum = totalPages - 4 + i;
+                pageNum = totalPages - 4 + i
               } else {
-                pageNum = currentPage - 2 + i;
+                pageNum = currentPage - 2 + i
               }
               return (
                 <Button
@@ -968,7 +1026,7 @@ export function LeadsTable() {
                 >
                   {pageNum}
                 </Button>
-              );
+              )
             })}
           </div>
 
@@ -993,6 +1051,5 @@ export function LeadsTable() {
         </div>
       </div>
     </div>
-  );
+  )
 }
-

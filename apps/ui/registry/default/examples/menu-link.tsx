@@ -11,10 +11,14 @@ import {
 export default function MenuLinkDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>
+        Updated Open menu
+      </MenuTrigger>
       <MenuPopup>
         <MenuItem render={<Link href="/docs" />}>Updated Docs</MenuItem>
-        <MenuItem render={<Link href="/particles" />}>Updated Particles</MenuItem>
+        <MenuItem render={<Link href="/particles" />}>
+          Updated Particles
+        </MenuItem>
       </MenuPopup>
     </Menu>
   )

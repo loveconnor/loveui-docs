@@ -1,26 +1,27 @@
-import { create } from "zustand";
-import { LeadType, LeadStatus, LeadSource } from "../mock-data/dashboard";
+import { create } from "zustand"
+
+import { LeadSource, LeadStatus, LeadType } from "../mock-data/dashboard"
 
 interface DashboardStore {
-  searchQuery: string;
-  typeFilter: LeadType | "all";
-  statusFilter: LeadStatus | "all";
-  sourceFilter: LeadSource | "all";
-  sortBy: "name" | "email" | "followUp" | "status" | "score";
-  sortOrder: "asc" | "desc";
-  chartPeriod: "last_week" | "last_month" | "last_quarter";
-  currentPage: number;
-  itemsPerPage: number;
-  setSearchQuery: (query: string) => void;
-  setTypeFilter: (filter: LeadType | "all") => void;
-  setStatusFilter: (filter: LeadStatus | "all") => void;
-  setSourceFilter: (filter: LeadSource | "all") => void;
-  setSortBy: (sort: "name" | "email" | "followUp" | "status" | "score") => void;
-  setSortOrder: (order: "asc" | "desc") => void;
-  setChartPeriod: (period: "last_week" | "last_month" | "last_quarter") => void;
-  setCurrentPage: (page: number) => void;
-  setItemsPerPage: (items: number) => void;
-  clearFilters: () => void;
+  searchQuery: string
+  typeFilter: LeadType | "all"
+  statusFilter: LeadStatus | "all"
+  sourceFilter: LeadSource | "all"
+  sortBy: "name" | "email" | "followUp" | "status" | "score"
+  sortOrder: "asc" | "desc"
+  chartPeriod: "last_week" | "last_month" | "last_quarter"
+  currentPage: number
+  itemsPerPage: number
+  setSearchQuery: (query: string) => void
+  setTypeFilter: (filter: LeadType | "all") => void
+  setStatusFilter: (filter: LeadStatus | "all") => void
+  setSourceFilter: (filter: LeadSource | "all") => void
+  setSortBy: (sort: "name" | "email" | "followUp" | "status" | "score") => void
+  setSortOrder: (order: "asc" | "desc") => void
+  setChartPeriod: (period: "last_week" | "last_month" | "last_quarter") => void
+  setCurrentPage: (page: number) => void
+  setItemsPerPage: (items: number) => void
+  clearFilters: () => void
 }
 
 export const useDashboardStore = create<DashboardStore>((set) => ({
@@ -52,6 +53,4 @@ export const useDashboardStore = create<DashboardStore>((set) => ({
       sortOrder: "asc",
       currentPage: 1,
     }),
-}));
-
-
+}))

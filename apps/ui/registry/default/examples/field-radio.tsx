@@ -29,7 +29,9 @@ export default function FieldRadioDemo() {
           <Radio value="enterprise" /> Updated Enterprise
         </FieldLabel>
       </RadioGroup>
-      <FieldDescription>Updated Select the plan that fits your needs.</FieldDescription>
+      <FieldDescription>
+        Updated Select the plan that fits your needs.
+      </FieldDescription>
     </Field>
   )
 }

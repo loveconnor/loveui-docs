@@ -1,60 +1,62 @@
-"use client";
+"use client"
 
-import { format } from "date-fns";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { useState } from "react"
 import {
-  PencilEdit01Icon,
-  FileEditIcon,
-  Layers01Icon,
-  Delete01Icon,
-  Cancel01Icon,
   ArrowUpRight01Icon,
-  Tick02Icon,
-  Notification01Icon,
   Calendar01Icon,
   CallIcon,
-  UserGroupIcon,
-  NoteIcon,
+  Cancel01Icon,
+  Delete01Icon,
+  FileEditIcon,
+  Layers01Icon,
   LinkSquare01Icon,
-} from "@hugeicons/core-free-icons";
-import { Button } from "@loveui/ui/ui/button";
+  NoteIcon,
+  Notification01Icon,
+  PencilEdit01Icon,
+  Tick02Icon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { format } from "date-fns"
+
+import { Avatar, AvatarImage } from "@loveui/ui/ui/avatar"
+import { Button } from "@loveui/ui/ui/button"
+import { Kbd } from "@loveui/ui/ui/kbd"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetClose,
-} from "@loveui/ui/ui/sheet";
-import { Avatar, AvatarImage } from "@loveui/ui/ui/avatar";
-import { Event } from "../../mock-data/events";
-import { useState } from "react";
-import { Kbd } from "@loveui/ui/ui/kbd";
+} from "@loveui/ui/ui/sheet"
+
+import { Event } from "../../mock-data/events"
 
 interface EventSheetProps {
-  event: Event | null;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+  event: Event | null
+  open: boolean
+  onOpenChange: (open: boolean) => void
 }
 
 function formatTime(time: string): string {
-  const [hour, minute] = time.split(":").map(Number);
-  const period = hour >= 12 ? "PM" : "AM";
-  const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
-  return `${displayHour}:${minute.toString().padStart(2, "0")} ${period}`;
+  const [hour, minute] = time.split(":").map(Number)
+  const period = hour >= 12 ? "PM" : "AM"
+  const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour
+  return `${displayHour}:${minute.toString().padStart(2, "0")} ${period}`
 }
 
 function formatDate(dateStr: string): string {
-  const date = new Date(dateStr + "T00:00:00");
-  return format(date, "EEEE, MMMM dd");
+  const date = new Date(dateStr + "T00:00:00")
+  return format(date, "EEEE, MMMM dd")
 }
 
 function getMeetingCode(link?: string): string {
-  if (!link) return "";
-  const match = link.match(/\/[a-z-]+$/);
+  if (!link) return ""
+  const match = link.match(/\/[a-z-]+$/)
   if (match) {
-    return match[0].slice(1).replace(/-/g, " ").toUpperCase();
+    return match[0].slice(1).replace(/-/g, " ").toUpperCase()
   }
-  return "dra-jhgg-mvn";
+  return "dra-jhgg-mvn"
 }
 
 function getParticipantName(participantId: string): string {
@@ -64,12 +66,12 @@ function getParticipantName(participantId: string): string {
     user3: "Nora Singh",
     user4: "Theo Bennett",
     user5: "Ari Kim",
-  };
+  }
 
   return (
     names[participantId] ||
     participantId.charAt(0).toUpperCase() + participantId.slice(1)
-  );
+  )
 }
 
 function getParticipantEmail(participantId: string): string {
@@ -79,32 +81,32 @@ function getParticipantEmail(participantId: string): string {
     user3: "nora.singh@filmops.studio",
     user4: "theo.bennett@filmops.studio",
     user5: "ari.kim@filmops.studio",
-  };
+  }
 
-  return emails[participantId] || `${participantId}@gmail.com`;
+  return emails[participantId] || `${participantId}@gmail.com`
 }
 
 function copyToClipboard(text: string) {
-  navigator.clipboard.writeText(text);
+  navigator.clipboard.writeText(text)
 }
 
 export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
   const [rsvpStatus, setRsvpStatus] = useState<"yes" | "no" | "maybe" | null>(
     null
-  );
+  )
 
-  if (!event) return null;
+  if (!event) return null
 
-  const dateStr = formatDate(event.date);
-  const startTimeStr = formatTime(event.startTime);
-  const endTimeStr = formatTime(event.endTime);
-  const timezone = event.timezone || "PST Los Angeles";
-  const meetingCode = getMeetingCode(event.meetingLink);
+  const dateStr = formatDate(event.date)
+  const startTimeStr = formatTime(event.startTime)
+  const endTimeStr = formatTime(event.endTime)
+  const timezone = event.timezone || "PST Los Angeles"
+  const meetingCode = getMeetingCode(event.meetingLink)
 
-  const organizer = event.participants[0] || "user1";
-  const organizerName = getParticipantName(organizer);
-  const organizerEmail = getParticipantEmail(organizer);
-  const otherParticipants = event.participants.slice(1);
+  const organizer = event.participants[0] || "user1"
+  const organizerName = getParticipantName(organizer)
+  const organizerEmail = getParticipantEmail(organizer)
+  const otherParticipants = event.participants.slice(1)
 
   const mockParticipants = [
     {
@@ -129,19 +131,19 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
       rsvp: rsvpStatus || ("yes" as const),
       isYou: true,
     },
-  ];
+  ]
 
-  const yesCount = mockParticipants.filter((p) => p.rsvp === "yes").length;
+  const yesCount = mockParticipants.filter((p) => p.rsvp === "yes").length
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="right"
-        className="w-full sm:max-w-[560px] overflow-y-auto p-0 border-l border-r border-t [&>button]:hidden"
+        className="w-full overflow-y-auto border-t border-r border-l p-0 sm:max-w-[560px] [&>button]:hidden"
       >
-        <div className="flex flex-col h-full">
-          <SheetHeader className="px-4 pt-4 pb-4 border-b border-border">
-            <div className="flex items-center justify-between mb-3">
+        <div className="flex h-full flex-col">
+          <SheetHeader className="border-b border-border px-4 pt-4 pb-4">
+            <div className="mb-3 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Button
                   variant="ghost"
@@ -200,8 +202,8 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
               />
             </div>
 
-            <div className="flex flex-col gap-1 mb-4">
-              <SheetTitle className="text-xl font-semibold text-foreground leading-normal">
+            <div className="mb-4 flex flex-col gap-1">
+              <SheetTitle className="text-xl leading-normal font-semibold text-foreground">
                 {event.title}
               </SheetTitle>
               <div className="flex items-center gap-2 text-[13px] font-medium text-muted-foreground">
@@ -222,53 +224,53 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
           </SheetHeader>
 
           <div className="flex-1 overflow-y-auto px-4 py-4">
-            <div className="flex flex-col gap-4 max-w-[512px] mx-auto">
+            <div className="mx-auto flex max-w-[512px] flex-col gap-4">
               <div className="flex flex-col gap-4">
                 {mockParticipants.map((participant) => (
                   <div
                     key={participant.id}
-                    className="flex items-start gap-3 relative"
+                    className="relative flex items-start gap-3"
                   >
-                    <Avatar className="size-7 border-[1.4px] border-background shrink-0">
+                    <Avatar className="size-7 shrink-0 border-[1.4px] border-background">
                       <AvatarImage
                         src={`https://api.dicebear.com/9.x/glass/svg?seed=${participant.id}`}
                       />
                     </Avatar>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-start gap-2 relative">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-1.5 mb-1 relative">
-                            <p className="text-[13px] font-medium text-foreground leading-[18px]">
+                    <div className="min-w-0 flex-1">
+                      <div className="relative flex items-start gap-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="relative mb-1 flex items-center gap-1.5">
+                            <p className="text-[13px] leading-[18px] font-medium text-foreground">
                               {participant.name}
                             </p>
                             {participant.isOrganizer && (
-                              <span className="text-[10px] font-medium text-cyan-500 px-0.5 py-0.5 rounded-full">
+                              <span className="rounded-full px-0.5 py-0.5 text-[10px] font-medium text-cyan-500">
                                 Organizer
                               </span>
                             )}
                             {participant.isYou && (
-                              <span className="text-[10px] font-medium text-foreground px-0.5 py-0.5 rounded-full">
+                              <span className="rounded-full px-0.5 py-0.5 text-[10px] font-medium text-foreground">
                                 You
                               </span>
                             )}
                           </div>
-                          <p className="text-xs text-muted-foreground leading-none">
+                          <p className="text-xs leading-none text-muted-foreground">
                             {participant.email}
                           </p>
                         </div>
                         <HugeiconsIcon
                           icon={Tick02Icon}
-                          className="size-3 text-green-500 shrink-0 absolute right-0 top-[17px]"
+                          className="absolute top-[17px] right-0 size-3 shrink-0 text-green-500"
                         />
                       </div>
                       {participant.isYou && (
-                        <div className="mt-3 flex gap-1.5 bg-muted/50 rounded-lg p-1.5">
+                        <div className="mt-3 flex gap-1.5 rounded-lg bg-muted/50 p-1.5">
                           <Button
                             variant={rsvpStatus === "yes" ? "default" : "ghost"}
                             size="sm"
-                            className={`flex-1 h-[30px] text-xs font-medium ${
+                            className={`h-[30px] flex-1 text-xs font-medium ${
                               rsvpStatus === "yes"
-                                ? "bg-foreground text-background hover:bg-foreground/90 shadow-sm"
+                                ? "bg-foreground text-background shadow-sm hover:bg-foreground/90"
                                 : "text-muted-foreground"
                             }`}
                             onClick={() => setRsvpStatus("yes")}
@@ -278,9 +280,9 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
                           <Button
                             variant={rsvpStatus === "no" ? "default" : "ghost"}
                             size="sm"
-                            className={`flex-1 h-[30px] text-xs font-medium ${
+                            className={`h-[30px] flex-1 text-xs font-medium ${
                               rsvpStatus === "no"
-                                ? "bg-foreground text-background hover:bg-foreground/90 shadow-sm"
+                                ? "bg-foreground text-background shadow-sm hover:bg-foreground/90"
                                 : "text-muted-foreground"
                             }`}
                             onClick={() => setRsvpStatus("no")}
@@ -292,9 +294,9 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
                               rsvpStatus === "maybe" ? "default" : "ghost"
                             }
                             size="sm"
-                            className={`flex-1 h-[30px] text-xs font-medium ${
+                            className={`h-[30px] flex-1 text-xs font-medium ${
                               rsvpStatus === "maybe"
-                                ? "bg-foreground text-background hover:bg-foreground/90 shadow-sm"
+                                ? "bg-foreground text-background shadow-sm hover:bg-foreground/90"
                                 : "text-muted-foreground"
                             }`}
                             onClick={() => setRsvpStatus("maybe")}
@@ -309,8 +311,8 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
               </div>
 
               {event.meetingLink && (
-                <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                  <div className="flex items-center gap-2 mb-2">
+                <div className="flex flex-col gap-2 border-t border-border pt-4">
+                  <div className="mb-2 flex items-center gap-2">
                     <div className="size-6 shrink-0">
                       <svg
                         viewBox="0 0 24 24"
@@ -324,7 +326,7 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
                         />
                       </svg>
                     </div>
-                    <p className="text-xs font-medium text-muted-foreground flex-1">
+                    <p className="flex-1 text-xs font-medium text-muted-foreground">
                       Meeting in Google Meet
                     </p>
                     <p className="text-xs text-muted-foreground">
@@ -333,19 +335,19 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
                   </div>
                   <div className="flex gap-2">
                     <Button
-                      className="flex-1 h-8 bg-foreground text-background hover:bg-foreground/90 text-xs font-medium gap-2 shadow-sm"
+                      className="h-8 flex-1 gap-2 bg-foreground text-xs font-medium text-background shadow-sm hover:bg-foreground/90"
                       onClick={() => {
                         if (event.meetingLink) {
-                          window.open(event.meetingLink, "_blank");
+                          window.open(event.meetingLink, "_blank")
                         }
                       }}
                     >
                       <span>Join Google Meet meeting</span>
                       <div className="flex gap-0.5">
-                        <Kbd className="bg-white/14 text-white text-[10.8px] px-1.5 py-1 rounded">
+                        <Kbd className="rounded bg-white/14 px-1.5 py-1 text-[10.8px] text-white">
                           ⌘
                         </Kbd>
-                        <Kbd className="bg-white/14 text-white text-[10.8px] px-1.5 py-1 rounded w-[18px]">
+                        <Kbd className="w-[18px] rounded bg-white/14 px-1.5 py-1 text-[10.8px] text-white">
                           J
                         </Kbd>
                       </div>
@@ -353,24 +355,30 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="h-8 gap-2 text-xs border-border"
+                      className="h-8 gap-2 border-border text-xs"
                       onClick={() => {
                         if (event.meetingLink) {
-                          copyToClipboard(event.meetingLink);
+                          copyToClipboard(event.meetingLink)
                         }
                       }}
                     >
-                      <HugeiconsIcon icon={LinkSquare01Icon} className="size-4" />
+                      <HugeiconsIcon
+                        icon={LinkSquare01Icon}
+                        className="size-4"
+                      />
                       <span>Copy link</span>
                     </Button>
                   </div>
                 </div>
               )}
 
-              <div className="flex flex-col gap-2 pt-4 border-t border-border">
+              <div className="flex flex-col gap-2 border-t border-border pt-4">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <div className="p-1">
-                    <HugeiconsIcon icon={Notification01Icon} className="size-4" />
+                    <HugeiconsIcon
+                      icon={Notification01Icon}
+                      className="size-4"
+                    />
                   </div>
                   <span>Reminder: 30min before</span>
                 </div>
@@ -404,8 +412,8 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-border">
-                <p className="text-xs text-muted-foreground leading-[1.6]">
+              <div className="border-t border-border pt-4">
+                <p className="text-xs leading-[1.6] text-muted-foreground">
                   During today&apos;s daily check-in, we had an in-depth
                   discussion about the MVP (Minimum Viable Product). We agreed
                   on the core features that need to be included, focusing on the
@@ -418,5 +426,5 @@ export function EventSheet({ event, open, onOpenChange }: EventSheetProps) {
         </div>
       </SheetContent>
     </Sheet>
-  );
+  )
 }

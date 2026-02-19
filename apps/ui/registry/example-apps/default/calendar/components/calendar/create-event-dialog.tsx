@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { format } from "date-fns";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Calendar01Icon, Clock01Icon } from "@hugeicons/core-free-icons";
-import { Button } from "@loveui/ui/ui/button";
+import { useState } from "react"
+import { Calendar01Icon, Clock01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { format } from "date-fns"
+
+import { Button } from "@loveui/ui/ui/button"
 import {
   Dialog,
   DialogContent,
@@ -12,49 +13,46 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@loveui/ui/ui/dialog";
-import { Input } from "@loveui/ui/ui/input";
-import { Label } from "@loveui/ui/ui/label";
-import { Calendar } from "../ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@loveui/ui/ui/popover";
-import { useCalendarStore } from "../../store/calendar-store";
-import { cn } from "../../lib/utils";
-import { Event } from "../../mock-data/events";
+} from "@loveui/ui/ui/dialog"
+import { Input } from "@loveui/ui/ui/input"
+import { Label } from "@loveui/ui/ui/label"
+import { Popover, PopoverContent, PopoverTrigger } from "@loveui/ui/ui/popover"
+
+import { cn } from "../../lib/utils"
+import { Event } from "../../mock-data/events"
+import { useCalendarStore } from "../../store/calendar-store"
+import { Calendar } from "../ui/calendar"
 
 interface CreateEventDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+  open: boolean
+  onOpenChange: (open: boolean) => void
 }
 
 export function CreateEventDialog({
   open,
   onOpenChange,
 }: CreateEventDialogProps) {
-  const { addEvent, goToDate } = useCalendarStore();
-  const [title, setTitle] = useState("");
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
-  const [meetingLink, setMeetingLink] = useState("");
-  const [timezone, setTimezone] = useState("");
-  const [participants, setParticipants] = useState("");
-  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  const { addEvent, goToDate } = useCalendarStore()
+  const [title, setTitle] = useState("")
+  const [date, setDate] = useState<Date | undefined>(new Date())
+  const [startTime, setStartTime] = useState("")
+  const [endTime, setEndTime] = useState("")
+  const [meetingLink, setMeetingLink] = useState("")
+  const [timezone, setTimezone] = useState("")
+  const [participants, setParticipants] = useState("")
+  const [datePickerOpen, setDatePickerOpen] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!title || !date || !startTime || !endTime) {
-      return;
+      return
     }
 
     const participantsList = participants
       .split(",")
       .map((p) => p.trim())
-      .filter((p) => p.length > 0);
+      .filter((p) => p.length > 0)
 
     const newEvent: Omit<Event, "id"> = {
       title,
@@ -64,20 +62,20 @@ export function CreateEventDialog({
       participants: participantsList.length > 0 ? participantsList : ["user1"],
       meetingLink: meetingLink || undefined,
       timezone: timezone || undefined,
-    };
+    }
 
-    addEvent(newEvent);
-    goToDate(date);
+    addEvent(newEvent)
+    goToDate(date)
 
-    setTitle("");
-    setDate(new Date());
-    setStartTime("");
-    setEndTime("");
-    setMeetingLink("");
-    setTimezone("");
-    setParticipants("");
-    onOpenChange(false);
-  };
+    setTitle("")
+    setDate(new Date())
+    setStartTime("")
+    setEndTime("")
+    setMeetingLink("")
+    setTimezone("")
+    setParticipants("")
+    onOpenChange(false)
+  }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -113,7 +111,10 @@ export function CreateEventDialog({
                         !date && "text-muted-foreground"
                       )}
                     >
-                      <HugeiconsIcon icon={Calendar01Icon} className="mr-2 size-4" />
+                      <HugeiconsIcon
+                        icon={Calendar01Icon}
+                        className="mr-2 size-4"
+                      />
                       {date ? format(date, "PPP") : <span>Pick a date</span>}
                     </Button>
                   }
@@ -123,8 +124,8 @@ export function CreateEventDialog({
                     mode="single"
                     selected={date}
                     onSelect={(selectedDate) => {
-                      setDate(selectedDate);
-                      setDatePickerOpen(false);
+                      setDate(selectedDate)
+                      setDatePickerOpen(false)
                     }}
                     initialFocus
                   />
@@ -132,13 +133,13 @@ export function CreateEventDialog({
               </Popover>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="grid gap-2">
                 <Label htmlFor="startTime">Start Time</Label>
                 <div className="relative">
                   <HugeiconsIcon
                     icon={Clock01Icon}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
+                    className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"
                   />
                   <Input
                     id="startTime"
@@ -156,7 +157,7 @@ export function CreateEventDialog({
                 <div className="relative">
                   <HugeiconsIcon
                     icon={Clock01Icon}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
+                    className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"
                   />
                   <Input
                     id="endTime"
@@ -216,5 +217,5 @@ export function CreateEventDialog({
         </form>
       </DialogContent>
     </Dialog>
-  );
+  )
 }

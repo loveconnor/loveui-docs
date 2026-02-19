@@ -21,7 +21,9 @@ const Example = () => (
       <CursorPointer className="text-rose-500" />
       <CursorBody className="bg-rose-50 text-rose-700">
         <CursorName>@monster0506</CursorName>
-        <CursorMessage>Updated I'm not sure if this is working...</CursorMessage>
+        <CursorMessage>
+          Updated I'm not sure if this is working...
+        </CursorMessage>
       </CursorBody>
     </Cursor>
     <Cursor className="absolute bottom-24 left-48">

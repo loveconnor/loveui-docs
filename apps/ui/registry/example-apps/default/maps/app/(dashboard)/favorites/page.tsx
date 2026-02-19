@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { MapView } from "../../../components/dashboard/map-view";
-import { MapsPanel } from "../../../components/dashboard/maps-panel";
-import { MapControls } from "../../../components/dashboard/map-controls";
+import { MapControls } from "../../../components/dashboard/map-controls"
+import { MapView } from "../../../components/dashboard/map-view"
+import { MapsPanel } from "../../../components/dashboard/maps-panel"
 
 export default function FavoritesPage() {
   return (
@@ -11,5 +11,5 @@ export default function FavoritesPage() {
       <MapsPanel mode="favorites" />
       <MapControls />
     </div>
-  );
+  )
 }

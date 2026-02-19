@@ -27,7 +27,9 @@ import {
 export default function MenuDemo() {
   return (
     <Menu>
-      <MenuTrigger render={<Button variant="outline" />}>Updated Open menu</MenuTrigger>
+      <MenuTrigger render={<Button variant="outline" />}>
+        Updated Open menu
+      </MenuTrigger>
       <MenuPopup>
         <MenuGroup>
           <MenuGroupLabel>Updated Playback</MenuGroupLabel>

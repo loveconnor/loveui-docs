@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/textarea-lg.tsx",
-      "content": "import { Textarea } from \"@/registry/default/ui/textarea\"\n\nexport default function TextareaLg() {\n  return <Textarea size=\"lg\" placeholder=\"Type your message here\" />\n}\n",
+      "content": "import { Textarea } from \"@/registry/default/ui/textarea\"\n\nexport default function TextareaLg() {\n  return <Textarea size=\"lg\" placeholder=\"Updated Type your message here\" />\n}\n",
       "type": "registry:example"
     }
   ],

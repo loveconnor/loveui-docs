@@ -1,33 +1,35 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react";
 import {
+  Clock01Icon,
+  Delete01Icon,
   FavouriteIcon,
+  FolderOpenIcon,
   MoreVerticalIcon,
   Share01Icon,
-  FolderOpenIcon,
-  Clock01Icon,
   UserGroupIcon,
-  Delete01Icon,
-} from "@hugeicons/core-free-icons";
-import { Button } from "@loveui/ui/ui/button";
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@loveui/ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuGroup,
-} from "@loveui/ui/ui/menu";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@loveui/ui/ui/tooltip";
-import { useFilesStore } from "../../store/files-store";
-import { FileIcon } from "./file-icon";
-import { cn } from "../../lib/utils";
-import { ViewType } from "./content";
+} from "@loveui/ui/ui/menu"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@loveui/ui/ui/tooltip"
+
+import { cn } from "../../lib/utils"
+import { useFilesStore } from "../../store/files-store"
+import { ViewType } from "./content"
+import { FileIcon } from "./file-icon"
 
 interface FileListProps {
-  view: ViewType;
-  folderId?: string;
+  view: ViewType
+  folderId?: string
 }
 
 export function FileList({ view, folderId }: FileListProps) {
@@ -39,26 +41,26 @@ export function FileList({ view, folderId }: FileListProps) {
     getRecentFiles,
     getSharedFiles,
     getFilesByFolder,
-  } = useFilesStore();
+  } = useFilesStore()
 
-  let files = getFilteredFiles();
-  let title = "All Assets";
+  let files = getFilteredFiles()
+  let title = "All Assets"
 
   if (view === "starred") {
-    files = getStarredFiles();
-    title = "Pinned Assets";
+    files = getStarredFiles()
+    title = "Pinned Assets"
   } else if (view === "recent") {
-    files = getRecentFiles();
-    title = "Latest Assets";
+    files = getRecentFiles()
+    title = "Latest Assets"
   } else if (view === "shared") {
-    files = getSharedFiles();
-    title = "Shared Assets";
+    files = getSharedFiles()
+    title = "Shared Assets"
   } else if (view === "trash") {
-    files = [];
-    title = "Archive Bin";
+    files = []
+    title = "Archive Bin"
   } else if (view === "folder" && folderId) {
-    files = getFilesByFolder(folderId);
-    title = "Collection";
+    files = getFilesByFolder(folderId)
+    title = "Collection"
   }
 
   if (files.length === 0) {
@@ -88,36 +90,36 @@ export function FileList({ view, folderId }: FileListProps) {
         title: "This collection is empty",
         description: "Upload assets or drag and drop them here",
       },
-    };
+    }
 
     const state =
-      emptyStates[view as keyof typeof emptyStates] || emptyStates.default;
-    const Icon = state.icon;
+      emptyStates[view as keyof typeof emptyStates] || emptyStates.default
+    const Icon = state.icon
 
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="size-16 rounded-2xl bg-muted flex items-center justify-center mb-4">
+        <div className="mb-4 flex size-16 items-center justify-center rounded-2xl bg-muted">
           <HugeiconsIcon icon={Icon} className="size-7 text-muted-foreground" />
         </div>
-        <h3 className="font-medium text-lg mb-1">{state.title}</h3>
-        <p className="text-sm text-muted-foreground max-w-xs">
+        <h3 className="mb-1 text-lg font-medium">{state.title}</h3>
+        <p className="max-w-xs text-sm text-muted-foreground">
           {state.description}
         </p>
       </div>
-    );
+    )
   }
 
   if (viewMode === "grid") {
     return (
       <div className="space-y-4">
         <h2 className="text-sm font-medium text-muted-foreground">{title}</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {files.map((file) => (
             <div
               key={file.id}
-              className="p-4 rounded-xl border bg-card hover:bg-accent/50 transition-all cursor-pointer group"
+              className="group cursor-pointer rounded-xl border bg-card p-4 transition-all hover:bg-accent/50"
             >
-              <div className="flex items-start justify-between mb-3">
+              <div className="mb-3 flex items-start justify-between">
                 <FileIcon type={file.type} />
                 <div className="flex items-center gap-1">
                   <Tooltip>
@@ -133,8 +135,8 @@ export function FileList({ view, folderId }: FileListProps) {
                               : "opacity-0 group-hover:opacity-100"
                           )}
                           onClick={(e) => {
-                            e.stopPropagation();
-                            toggleStarred(file.id);
+                            e.stopPropagation()
+                            toggleStarred(file.id)
                           }}
                         >
                           <HugeiconsIcon
@@ -148,9 +150,7 @@ export function FileList({ view, folderId }: FileListProps) {
                       }
                     />
                     <TooltipContent>
-                      {file.starred
-                        ? "Remove from starred"
-                        : "Add to starred"}
+                      {file.starred ? "Remove from starred" : "Add to starred"}
                     </TooltipContent>
                   </Tooltip>
                   <DropdownMenu>
@@ -162,7 +162,10 @@ export function FileList({ view, folderId }: FileListProps) {
                           className="size-7"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <HugeiconsIcon icon={MoreVerticalIcon} className="size-4" />
+                          <HugeiconsIcon
+                            icon={MoreVerticalIcon}
+                            className="size-4"
+                          />
                         </Button>
                       }
                     />
@@ -180,25 +183,25 @@ export function FileList({ view, folderId }: FileListProps) {
                   </DropdownMenu>
                 </div>
               </div>
-              <p className="font-medium text-sm truncate mb-0.5">
-                {file.name}
-              </p>
+              <p className="mb-0.5 truncate text-sm font-medium">{file.name}</p>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <span>{file.size}</span>
-                {file.shared && <HugeiconsIcon icon={Share01Icon} className="size-3" />}
+                {file.shared && (
+                  <HugeiconsIcon icon={Share01Icon} className="size-3" />
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
-    );
+    )
   }
 
   return (
     <div className="space-y-4">
       <h2 className="text-sm font-medium text-muted-foreground">{title}</h2>
-      <div className="rounded-xl border bg-card overflow-hidden">
-        <div className="hidden sm:grid grid-cols-[1fr_100px_100px_100px_70px] gap-4 px-4 py-3 border-b bg-muted/50 text-xs font-medium text-muted-foreground">
+      <div className="overflow-hidden rounded-xl border bg-card">
+        <div className="hidden grid-cols-[1fr_100px_100px_100px_70px] gap-4 border-b bg-muted/50 px-4 py-3 text-xs font-medium text-muted-foreground sm:grid">
           <span>Name</span>
           <span>Size</span>
           <span>Modified</span>
@@ -209,27 +212,30 @@ export function FileList({ view, folderId }: FileListProps) {
           {files.map((file) => (
             <div
               key={file.id}
-              className="grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_100px_100px_100px_70px] gap-2 sm:gap-4 px-4 py-3 hover:bg-accent/50 transition-colors cursor-pointer group items-center"
+              className="group grid cursor-pointer grid-cols-[1fr_auto] items-center gap-2 px-4 py-3 transition-colors hover:bg-accent/50 sm:grid-cols-[1fr_100px_100px_100px_70px] sm:gap-4"
             >
-              <div className="flex items-center gap-3 min-w-0">
+              <div className="flex min-w-0 items-center gap-3">
                 <FileIcon type={file.type} />
                 <div className="min-w-0">
-                  <p className="font-medium text-sm truncate">{file.name}</p>
+                  <p className="truncate text-sm font-medium">{file.name}</p>
                   <p className="text-xs text-muted-foreground sm:hidden">
                     {file.size} · {file.modifiedAt}
                   </p>
                 </div>
                 {file.shared && (
-                  <HugeiconsIcon icon={Share01Icon} className="size-3.5 text-muted-foreground shrink-0 hidden sm:block" />
+                  <HugeiconsIcon
+                    icon={Share01Icon}
+                    className="hidden size-3.5 shrink-0 text-muted-foreground sm:block"
+                  />
                 )}
               </div>
-              <span className="hidden sm:block text-sm text-muted-foreground">
+              <span className="hidden text-sm text-muted-foreground sm:block">
                 {file.size}
               </span>
-              <span className="hidden sm:block text-sm text-muted-foreground">
+              <span className="hidden text-sm text-muted-foreground sm:block">
                 {file.modifiedAt}
               </span>
-              <span className="hidden sm:block text-sm text-muted-foreground">
+              <span className="hidden text-sm text-muted-foreground sm:block">
                 {file.createdAt}
               </span>
               <div className="flex items-center gap-1">
@@ -246,8 +252,8 @@ export function FileList({ view, folderId }: FileListProps) {
                             : "opacity-0 group-hover:opacity-100"
                         )}
                         onClick={(e) => {
-                          e.stopPropagation();
-                          toggleStarred(file.id);
+                          e.stopPropagation()
+                          toggleStarred(file.id)
                         }}
                       >
                         <HugeiconsIcon
@@ -273,7 +279,10 @@ export function FileList({ view, folderId }: FileListProps) {
                         className="size-7"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <HugeiconsIcon icon={MoreVerticalIcon} className="size-4" />
+                        <HugeiconsIcon
+                          icon={MoreVerticalIcon}
+                          className="size-4"
+                        />
                       </Button>
                     }
                   />
@@ -295,5 +304,5 @@ export function FileList({ view, folderId }: FileListProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,7 +1,7 @@
 export interface Label {
-  id: string;
-  name: string;
-  color: string;
+  id: string
+  name: string
+  color: string
 }
 
 export const labels: Label[] = [
@@ -13,11 +13,12 @@ export const labels: Label[] = [
   {
     id: "investigation",
     name: "Investigation",
-    color: "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-400",
+    color:
+      "bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-400",
   },
   {
     id: "sev1",
     name: "SEV-1",
     color: "bg-red-100 text-red-700 dark:bg-red-950/50 dark:text-red-400",
   },
-];
+]

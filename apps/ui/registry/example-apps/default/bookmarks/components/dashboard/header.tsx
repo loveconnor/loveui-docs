@@ -1,32 +1,35 @@
-"use client";
+"use client"
 
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Button } from "../ui/button";
-import { Input } from "@loveui/ui/ui/input";
-import { ThemeToggle } from "../theme-toggle";
+import {
+  ArrowsDownUp,
+  Check,
+  List,
+  MagnifyingGlass,
+  Plus,
+  SlidersHorizontal,
+  SquaresFour,
+} from "@phosphor-icons/react"
+
+import { Input } from "@loveui/ui/ui/input"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
   DropdownMenuGroup,
+  DropdownMenuItem,
   DropdownMenuLabel,
-} from "@loveui/ui/ui/menu";
-import {
-  MagnifyingGlass,
-  SquaresFour,
-  List,
-  Plus,
-  SlidersHorizontal,
-  ArrowsDownUp,
-  Check,
-} from "@phosphor-icons/react";
-import { useBookmarksStore } from "../../store/bookmarks-store";
-import { cn } from "../../lib/utils";
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@loveui/ui/ui/menu"
+
+import { SidebarTrigger } from "@/components/ui/sidebar"
+
+import { cn } from "../../lib/utils"
+import { useBookmarksStore } from "../../store/bookmarks-store"
+import { ThemeToggle } from "../theme-toggle"
+import { Button } from "../ui/button"
 
 interface BookmarksHeaderProps {
-  title?: string;
+  title?: string
 }
 
 const sortOptions = [
@@ -34,14 +37,14 @@ const sortOptions = [
   { value: "date-oldest", label: "Date Added (Oldest)" },
   { value: "alpha-az", label: "Alphabetical (A-Z)" },
   { value: "alpha-za", label: "Alphabetical (Z-A)" },
-] as const;
+] as const
 
 const filterOptions = [
   { value: "all", label: "All Bookmarks" },
   { value: "favorites", label: "Favorites Only" },
   { value: "with-tags", label: "With Tags" },
   { value: "without-tags", label: "Without Tags" },
-] as const;
+] as const
 
 export function BookmarksHeader({ title = "Bookmarks" }: BookmarksHeaderProps) {
   const {
@@ -53,31 +56,31 @@ export function BookmarksHeader({ title = "Bookmarks" }: BookmarksHeaderProps) {
     setSortBy,
     filterType,
     setFilterType,
-  } = useBookmarksStore();
+  } = useBookmarksStore()
 
-  const currentSort = sortOptions.find((opt) => opt.value === sortBy);
-  const currentFilter = filterOptions.find((opt) => opt.value === filterType);
+  const currentSort = sortOptions.find((opt) => opt.value === sortBy)
+  const currentFilter = filterOptions.find((opt) => opt.value === filterType)
 
   return (
     <header className="w-full border-b">
-      <div className="flex items-center justify-between h-14 px-4">
+      <div className="flex h-14 items-center justify-between px-4">
         <div className="flex items-center gap-3">
           <SidebarTrigger />
-          <h1 className="text-base font-semibold hidden sm:block">{title}</h1>
+          <h1 className="hidden text-base font-semibold sm:block">{title}</h1>
         </div>
 
         <div className="flex items-center gap-2">
           <div className="relative hidden md:block">
-            <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none" />
+            <MagnifyingGlass className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 w-64 h-9"
+              className="h-9 w-64 pl-9"
             />
           </div>
 
-          <div className="flex items-center border rounded-md p-0.5">
+          <div className="flex items-center rounded-md border p-0.5">
             <Button
               variant="ghost"
               size="icon-xs"
@@ -185,5 +188,5 @@ export function BookmarksHeader({ title = "Bookmarks" }: BookmarksHeaderProps) {
         </div>
       </div>
     </header>
-  );
+  )
 }

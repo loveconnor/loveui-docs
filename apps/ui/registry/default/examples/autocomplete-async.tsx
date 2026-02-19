@@ -93,7 +93,8 @@ export default function AutocompleteAsync() {
   } else if (searchResults.length === 0 && searchValue) {
     status = (
       <span className="text-sm font-normal text-muted-foreground">
-        Updated Movie or year "{searchValue}Updated " does not exist in the Top 100 IMDb movies
+        Updated Movie or year "{searchValue}Updated " does not exist in the Top
+        100 IMDb movies
       </span>
     )
   }

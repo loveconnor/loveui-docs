@@ -34,7 +34,9 @@ export default function SliderForm() {
             <SliderValue />
           </div>
         </Slider>
-        <FieldDescription>Updated Choose a value between 0 and 100</FieldDescription>
+        <FieldDescription>
+          Updated Choose a value between 0 and 100
+        </FieldDescription>
       </Field>
       <Button type="submit" disabled={loading}>
         Updated Submit

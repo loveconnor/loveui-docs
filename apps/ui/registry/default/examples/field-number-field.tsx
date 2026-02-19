@@ -19,7 +19,9 @@ export default function FieldNumberFieldDemo() {
           <NumberFieldIncrement />
         </NumberFieldGroup>
       </NumberField>
-      <FieldDescription>Updated Choose a value between 1 and 100.</FieldDescription>
+      <FieldDescription>
+        Updated Choose a value between 1 and 100.
+      </FieldDescription>
     </Field>
   )
 }

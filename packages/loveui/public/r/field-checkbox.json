@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/default/examples/field-checkbox.tsx",
-      "content": "import { Checkbox } from \"@/registry/default/ui/checkbox\"\nimport { Field, FieldLabel } from \"@/registry/default/ui/field\"\n\nexport default function FieldCheckboxDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        <Checkbox />\n        Accept terms and conditions\n      </FieldLabel>\n    </Field>\n  )\n}\n",
+      "content": "import { Checkbox } from \"@/registry/default/ui/checkbox\"\nimport { Field, FieldLabel } from \"@/registry/default/ui/field\"\n\nexport default function FieldCheckboxDemo() {\n  return (\n    <Field>\n      <FieldLabel>\n        <Checkbox />\n        Updated Accept terms and conditions\n      </FieldLabel>\n    </Field>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

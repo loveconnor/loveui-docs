@@ -1,31 +1,31 @@
-export type LeadType = "cold" | "warm";
-export type LeadStatus = "closed" | "lost";
+export type LeadType = "cold" | "warm"
+export type LeadStatus = "closed" | "lost"
 export type LeadSource =
   | "linkedin"
   | "google"
   | "referral"
   | "website"
-  | "cold-call";
+  | "cold-call"
 
 export interface Lead {
-  id: string;
-  name: string;
-  avatar: string;
-  type: LeadType;
-  email: string;
-  followUp: string;
-  status: LeadStatus;
-  website: string;
-  score: number;
-  source: LeadSource;
+  id: string
+  name: string
+  avatar: string
+  type: LeadType
+  email: string
+  followUp: string
+  status: LeadStatus
+  website: string
+  score: number
+  source: LeadSource
 }
 
 export interface TopPerformer {
-  id: string;
-  name: string;
-  avatar: string;
-  score: number;
-  icon: "star" | "user";
+  id: string
+  name: string
+  avatar: string
+  score: number
+  icon: "star" | "user"
 }
 
 export const dashboardStats = {
@@ -45,7 +45,7 @@ export const dashboardStats = {
     value: "16",
     activeCount: 12,
   },
-};
+}
 
 export const leadsChartDataWeek = [
   { date: "Mon", line1: 55, line2: 74, line3: 88, line4: 110 },
@@ -55,7 +55,7 @@ export const leadsChartDataWeek = [
   { date: "Fri", line1: 72, line2: 94, line3: 116, line4: 141 },
   { date: "Sat", line1: 84, line2: 102, line3: 130, line4: 156 },
   { date: "Sun", line1: 70, line2: 90, line3: 108, line4: 136 },
-];
+]
 
 export const leadsChartDataMonth = [
   { date: "Jan 3", line1: 180, line2: 220, line3: 260, line4: 320 },
@@ -67,7 +67,7 @@ export const leadsChartDataMonth = [
   { date: "Jan 27", line1: 236, line2: 298, line3: 346, line4: 410 },
   { date: "Jan 31", line1: 244, line2: 312, line3: 360, line4: 428 },
   { date: "Feb 4", line1: 252, line2: 320, line3: 372, line4: 440 },
-];
+]
 
 export const leadsChartDataQuarter = [
   { date: "Jan", line1: 210, line2: 275, line3: 320, line4: 385 },
@@ -79,7 +79,7 @@ export const leadsChartDataQuarter = [
   { date: "Jul", line1: 274, line2: 354, line3: 408, line4: 486 },
   { date: "Aug", line1: 296, line2: 382, line3: 438, line4: 522 },
   { date: "Sep", line1: 308, line2: 396, line3: 452, line4: 540 },
-];
+]
 
 export const topPerformers: TopPerformer[] = [
   {
@@ -117,7 +117,7 @@ export const topPerformers: TopPerformer[] = [
     score: 67,
     icon: "user",
   },
-];
+]
 
 export const leads: Lead[] = [
   {
@@ -360,4 +360,4 @@ export const leads: Lead[] = [
     score: 43,
     source: "google",
   },
-];
+]

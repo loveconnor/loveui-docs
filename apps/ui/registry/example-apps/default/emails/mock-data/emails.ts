@@ -1,23 +1,23 @@
-import { User, users } from "./users";
-import { Label, labels } from "./labels";
+import { Label, labels } from "./labels"
+import { User, users } from "./users"
 
 export interface Email {
-  id: string;
-  from: User;
-  to: User[];
-  subject: string;
-  body: string;
-  date: Date;
-  read: boolean;
-  starred: boolean;
-  labels: Label[];
-  hasAttachments: boolean;
+  id: string
+  from: User
+  to: User[]
+  subject: string
+  body: string
+  date: Date
+  read: boolean
+  starred: boolean
+  labels: Label[]
+  hasAttachments: boolean
   attachments?: {
-    id: string;
-    name: string;
-    size: string;
-    type: string;
-  }[];
+    id: string
+    name: string
+    size: string
+    type: string
+  }[]
 }
 
 export const emails: Email[] = [
@@ -327,4 +327,4 @@ Please confirm owners in the tracker thread.`,
       },
     ],
   },
-];
+]

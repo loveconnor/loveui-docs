@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/gooey-toast-promise.tsx",
-      "content": "\"use client\"\n\nimport { gooey } from \"@loveui/gooey-toast\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function GooeyToastPromise() {\n  const handlePromise = () => {\n    const promise = new Promise<{ name: string }>((resolve) => {\n      setTimeout(() => resolve({ name: \"User\" }), 2000)\n    })\n\n    gooey.promise(promise, {\n      loading: { title: \"Loading...\" },\n      success: (data) => ({\n        title: \"Success!\",\n        description: `Welcome back, ${data.name}!`,\n      }),\n      error: {\n        title: \"Error\",\n        description: \"Failed to load data.\",\n      },\n    })\n  }\n\n  return (\n    <Button variant=\"outline\" onClick={handlePromise}>\n      Load Data\n    </Button>\n  )\n}\n",
+      "content": "\"use client\"\n\nimport { gooey } from \"@loveui/gooey-toast\"\n\nimport { Button } from \"@/registry/default/ui/button\"\n\nexport default function GooeyToastPromise() {\n  const handlePromise = () => {\n    const promise = new Promise<{ name: string }>((resolve) => {\n      setTimeout(() => resolve({ name: \"Updated User\" }), 2000)\n    })\n\n    gooey.promise(promise, {\n      loading: { title: \"Updated Loading...\" },\n      success: (data) => ({\n        title: \"Updated Success!\",\n        description: `Welcome back, ${data.name}!`,\n      }),\n      error: {\n        title: \"Updated Error\",\n        description: \"Updated Failed to load data.\",\n      },\n    })\n  }\n\n  return (\n    <Button variant=\"outline\" onClick={handlePromise}>\n      Updated Load Data\n    </Button>\n  )\n}\n",
       "type": "registry:example"
     }
   ],

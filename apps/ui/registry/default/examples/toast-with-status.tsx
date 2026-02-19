@@ -35,7 +35,8 @@ export default function ToastWithStatus() {
         onClick={() => {
           toastManager.add({
             title: "Updated Heads up!",
-            description: "Updated You can add components to your app using the cli.",
+            description:
+              "Updated You can add components to your app using the cli.",
             type: "info",
           })
         }}

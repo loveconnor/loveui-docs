@@ -47,7 +47,8 @@ const plans = [
       monthly: 90,
       yearly: 75,
     },
-    description: "Updated Everything you need to build and scale your business.",
+    description:
+      "Updated Everything you need to build and scale your business.",
     features: [
       "Unlimited API calls",
       "30 second checks",
@@ -65,7 +66,8 @@ const plans = [
       monthly: "Get in touch for pricing",
       yearly: "Get in touch for pricing",
     },
-    description: "Updated Critical security, performance, observability and support.",
+    description:
+      "Updated Critical security, performance, observability and support.",
     features: [
       "You can DDOS our API.",
       "Nano-second checks.",
@@ -87,8 +89,8 @@ const Example = () => {
           Updated Simple, transparent pricing
         </h1>
         <p className="mx-auto mt-0 mb-0 max-w-2xl text-lg text-balance text-muted-foreground">
-          Updated Managing a business is hard enough, so why not make your life easier?
-          Our pricing plans are simple, transparent and scale with you.
+          Updated Managing a business is hard enough, so why not make your life
+          easier? Our pricing plans are simple, transparent and scale with you.
         </p>
         <Tabs defaultValue={frequency} onValueChange={setFrequency}>
           <TabsList>

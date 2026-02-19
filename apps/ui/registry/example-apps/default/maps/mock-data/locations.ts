@@ -1,27 +1,27 @@
 export type LocationCategory = {
-  id: string;
-  name: string;
-  icon: string;
-  color: string;
-};
+  id: string
+  name: string
+  icon: string
+  color: string
+}
 
 export type Location = {
-  id: string;
-  name: string;
-  description: string;
-  address: string;
-  categoryId: string;
+  id: string
+  name: string
+  description: string
+  address: string
+  categoryId: string
   coordinates: {
-    lat: number;
-    lng: number;
-  };
-  rating: number;
-  tags: string[];
-  createdAt: string;
-  isFavorite: boolean;
-  visitCount: number;
-  lastVisited?: string;
-};
+    lat: number
+    lng: number
+  }
+  rating: number
+  tags: string[]
+  createdAt: string
+  isFavorite: boolean
+  visitCount: number
+  lastVisited?: string
+}
 
 export const categories: LocationCategory[] = [
   { id: "food-drops", name: "Food Drops", icon: "utensils", color: "#ef4444" },
@@ -67,7 +67,7 @@ export const categories: LocationCategory[] = [
     icon: "dumbbell",
     color: "#eab308",
   },
-];
+]
 
 export const tags = [
   { id: "trending", name: "Trending" },
@@ -83,7 +83,7 @@ export const tags = [
   { id: "quiet-editing", name: "Quiet Editing" },
   { id: "event-ready", name: "Event Ready" },
   { id: "fit-check", name: "Fit Check" },
-];
+]
 
 const createLocation = (
   id: string,
@@ -112,7 +112,7 @@ const createLocation = (
   isFavorite,
   visitCount,
   lastVisited,
-});
+})
 
 export const locations: Location[] = [
   createLocation(
@@ -475,4 +475,4 @@ export const locations: Location[] = [
     false,
     "2026-02-01"
   ),
-];
+]

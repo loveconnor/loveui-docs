@@ -23,8 +23,8 @@ export default function DialogDemo() {
           <DialogHeader>
             <DialogTitle>Updated Edit profile</DialogTitle>
             <DialogDescription>
-              Updated Make changes to your profile here. Click save when you&apos;re
-              done.
+              Updated Make changes to your profile here. Click save when
+              you&apos;re done.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-4">

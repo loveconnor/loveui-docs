@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/input-sm.tsx",
-      "content": "import { Input } from \"@/registry/default/ui/input\"\n\nexport default function InputSm() {\n  return <Input size=\"sm\" placeholder=\"Enter text\" aria-label=\"Enter text\" />\n}\n",
+      "content": "import { Input } from \"@/registry/default/ui/input\"\n\nexport default function InputSm() {\n  return (\n    <Input\n      size=\"sm\"\n      placeholder=\"Updated Enter text\"\n      aria-label=\"Updated Enter text\"\n    />\n  )\n}\n",
       "type": "registry:example"
     }
   ],

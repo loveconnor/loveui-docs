@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/button-lg.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function ButtonLg() {\n  return <Button size=\"lg\">Button</Button>\n}\n",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function ButtonLg() {\n  return <Button size=\"lg\">Updated Button</Button>\n}\n",
       "type": "registry:example"
     }
   ],

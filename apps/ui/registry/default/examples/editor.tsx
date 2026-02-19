@@ -81,7 +81,10 @@ const Example = () => {
         content: [{ type: "text", text: "Updated Heading 6" }],
       },
       { type: "paragraph" },
-      { type: "paragraph", content: [{ type: "text", text: "Updated Hello, world." }] },
+      {
+        type: "paragraph",
+        content: [{ type: "text", text: "Updated Hello, world." }],
+      },
       { type: "paragraph" },
       {
         type: "taskList",
@@ -92,7 +95,9 @@ const Example = () => {
             content: [
               {
                 type: "paragraph",
-                content: [{ type: "text", text: "Updated This is a todo list" }],
+                content: [
+                  { type: "text", text: "Updated This is a todo list" },
+                ],
               },
             ],
           },
@@ -117,7 +122,9 @@ const Example = () => {
             content: [
               {
                 type: "paragraph",
-                content: [{ type: "text", text: "Updated This is an unordered list" }],
+                content: [
+                  { type: "text", text: "Updated This is an unordered list" },
+                ],
               },
               {
                 type: "bulletList",
@@ -127,7 +134,9 @@ const Example = () => {
                     content: [
                       {
                         type: "paragraph",
-                        content: [{ type: "text", text: "Updated With a nested item" }],
+                        content: [
+                          { type: "text", text: "Updated With a nested item" },
+                        ],
                       },
                     ],
                   },
@@ -147,7 +156,9 @@ const Example = () => {
             content: [
               {
                 type: "paragraph",
-                content: [{ type: "text", text: "Updated This is an ordered list" }],
+                content: [
+                  { type: "text", text: "Updated This is an ordered list" },
+                ],
               },
             ],
           },
@@ -182,7 +193,11 @@ const Example = () => {
         type: "paragraph",
         content: [
           { type: "text", text: "Updated This is some " },
-          { type: "text", marks: [{ type: "code" }], text: "Updated inline code" },
+          {
+            type: "text",
+            marks: [{ type: "code" }],
+            text: "Updated inline code",
+          },
           { type: "text", text: "Updated , while this is a code block:" },
         ],
       },
@@ -219,7 +234,9 @@ const Example = () => {
                 content: [
                   {
                     type: "paragraph",
-                    content: [{ type: "text", text: "Updated Here’s a column" }],
+                    content: [
+                      { type: "text", text: "Updated Here’s a column" },
+                    ],
                   },
                 ],
               },

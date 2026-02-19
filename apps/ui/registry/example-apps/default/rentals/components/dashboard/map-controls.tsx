@@ -1,31 +1,29 @@
-"use client";
+"use client"
 
-import * as React from "react";
+import * as React from "react"
 import {
-  ZoomIn,
-  ZoomOut,
-  Navigation,
+  Circle,
   Layers,
   Map,
   Mountain,
+  Navigation,
   Satellite,
-  Circle,
-} from "lucide-react";
-import { useRentalsStore } from "../../store/rentals-store";
-import { Button } from "@loveui/ui/ui/button";
-import { ThemeToggle } from "../theme-toggle";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@loveui/ui/ui/tooltip";
+  ZoomIn,
+  ZoomOut,
+} from "lucide-react"
+
+import { Button } from "@loveui/ui/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@loveui/ui/ui/menu";
-import { cn } from "../../lib/utils";
+} from "@loveui/ui/ui/menu"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@loveui/ui/ui/tooltip"
+
+import { cn } from "../../lib/utils"
+import { useRentalsStore } from "../../store/rentals-store"
+import { ThemeToggle } from "../theme-toggle"
 
 const mapStyles = [
   {
@@ -47,19 +45,25 @@ const mapStyles = [
     icon: Satellite,
     description: "Aerial view",
   },
-] as const;
+] as const
 
 export function MapControls() {
-  const { mapZoom, setMapZoom, setMapCenter, setUserLocation, mapStyle, setMapStyle } =
-    useRentalsStore();
+  const {
+    mapZoom,
+    setMapZoom,
+    setMapCenter,
+    setUserLocation,
+    mapStyle,
+    setMapStyle,
+  } = useRentalsStore()
 
   const handleZoomIn = () => {
-    setMapZoom(Math.min(mapZoom + 1, 18));
-  };
+    setMapZoom(Math.min(mapZoom + 1, 18))
+  }
 
   const handleZoomOut = () => {
-    setMapZoom(Math.max(mapZoom - 1, 3));
-  };
+    setMapZoom(Math.max(mapZoom - 1, 3))
+  }
 
   const handleLocate = () => {
     if ("geolocation" in navigator) {
@@ -68,23 +72,23 @@ export function MapControls() {
           const location = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-          };
-          setUserLocation(location);
-          setMapCenter(location);
-          setMapZoom(15);
+          }
+          setUserLocation(location)
+          setMapCenter(location)
+          setMapZoom(15)
         },
         () => {
-          alert("Unable to get your location. Please try again later.");
+          alert("Unable to get your location. Please try again later.")
         },
         { enableHighAccuracy: false, timeout: 5000, maximumAge: 300000 }
-      );
+      )
     } else {
-      alert("Geolocation is not supported by your browser.");
+      alert("Geolocation is not supported by your browser.")
     }
-  };
+  }
 
   return (
-    <div className="absolute right-4 top-4 z-20 flex flex-col gap-2">
+    <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
       <div className="flex flex-col gap-2 rounded-lg border bg-background p-1 shadow-lg">
         <DropdownMenu>
           <Tooltip>
@@ -92,11 +96,7 @@ export function MapControls() {
               render={
                 <DropdownMenuTrigger
                   render={
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="h-9 w-9"
-                    >
+                    <Button variant="ghost" size="icon" className="h-9 w-9">
                       <Layers className="h-4 w-4" />
                     </Button>
                   }
@@ -107,11 +107,19 @@ export function MapControls() {
           </Tooltip>
           <DropdownMenuContent align="end" className="w-48">
             {mapStyles.map((style) => {
-              const Icon = style.icon;
+              const Icon = style.icon
               return (
                 <DropdownMenuItem
                   key={style.id}
-                  onClick={() => setMapStyle(style.id as "default" | "streets" | "outdoors" | "satellite")}
+                  onClick={() =>
+                    setMapStyle(
+                      style.id as
+                        | "default"
+                        | "streets"
+                        | "outdoors"
+                        | "satellite"
+                    )
+                  }
                   className={cn("gap-3", mapStyle === style.id && "bg-accent")}
                 >
                   <Icon className="size-4 shrink-0" />
@@ -122,7 +130,7 @@ export function MapControls() {
                     </span>
                   </div>
                 </DropdownMenuItem>
-              );
+              )
             })}
           </DropdownMenuContent>
         </DropdownMenu>
@@ -179,5 +187,5 @@ export function MapControls() {
         <ThemeToggle />
       </div>
     </div>
-  );
+  )
 }

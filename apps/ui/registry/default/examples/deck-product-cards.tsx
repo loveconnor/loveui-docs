@@ -48,7 +48,8 @@ const products = [
     rating: 4.6,
     image: "https://placehold.co/400x300/96ceb4/fff?text=Stand",
     category: "Accessories",
-    description: "Updated Adjustable aluminum laptop stand for better ergonomics",
+    description:
+      "Updated Adjustable aluminum laptop stand for better ergonomics",
   },
 ]
 

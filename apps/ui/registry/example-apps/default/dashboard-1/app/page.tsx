@@ -1,18 +1,18 @@
-import { DashboardSidebar } from "../components/dashboard/sidebar";
-import { DashboardHeader } from "../components/dashboard/header";
-import { DashboardContent } from "../components/dashboard/content";
-import { SidebarProvider } from "../components/ui/sidebar";
+import { DashboardContent } from "../components/dashboard/content"
+import { DashboardHeader } from "../components/dashboard/header"
+import { DashboardSidebar } from "../components/dashboard/sidebar"
+import { SidebarProvider } from "../components/ui/sidebar"
 
 export default function DashboardPage() {
   return (
     <SidebarProvider className="bg-sidebar">
       <DashboardSidebar />
       <div className="h-svh min-h-0 w-full overflow-hidden lg:p-2">
-        <div className="lg:border lg:rounded-md overflow-hidden flex h-full min-h-0 w-full flex-col items-center justify-start bg-container bg-background">
+        <div className="bg-container flex h-full min-h-0 w-full flex-col items-center justify-start overflow-hidden bg-background lg:rounded-md lg:border">
           <DashboardHeader />
           <DashboardContent />
         </div>
       </div>
     </SidebarProvider>
-  );
+  )
 }

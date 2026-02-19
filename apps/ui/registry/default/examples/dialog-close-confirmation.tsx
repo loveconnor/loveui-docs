@@ -48,7 +48,9 @@ export default function DialogCloseConfirmationDemo() {
       <DialogPopup showCloseButton={false}>
         <DialogHeader>
           <DialogTitle>Updated New message</DialogTitle>
-          <DialogDescription>Updated Type something and try closing.</DialogDescription>
+          <DialogDescription>
+            Updated Type something and try closing.
+          </DialogDescription>
         </DialogHeader>
         <Form
           onSubmit={(event) => {

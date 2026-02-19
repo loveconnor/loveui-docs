@@ -1,6 +1,5 @@
-import { FilesContent } from "../../components/files/content";
+import { FilesContent } from "../../components/files/content"
 
 export default function AllFilesPage() {
-  return <FilesContent view="all" />;
+  return <FilesContent view="all" />
 }
-

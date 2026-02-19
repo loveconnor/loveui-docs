@@ -1,16 +1,17 @@
-"use client";
+"use client"
 
-import { dashboardStats } from "../../mock-data/dashboard";
-import { HugeiconsIcon } from "@hugeicons/react";
 import {
+  ArrowDownRightIcon,
+  ArrowUpRightIcon,
+  Building02Icon,
+  Comment01Icon,
   DollarSquareIcon,
   UserGroupIcon,
-  Comment01Icon,
-  Building02Icon,
-  ArrowUpRightIcon,
-  ArrowDownRightIcon,
-} from "@hugeicons/core-free-icons";
-import { cn } from "../../lib/utils";
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { cn } from "../../lib/utils"
+import { dashboardStats } from "../../mock-data/dashboard"
 
 const stats = [
   {
@@ -40,24 +41,27 @@ const stats = [
     extra: { active: dashboardStats.teamMembers.activeCount },
     icon: Building02Icon,
   },
-];
+]
 
 export function StatsCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((stat, index) => (
         <div
           key={index}
-          className="bg-card text-card-foreground rounded-xl border p-4"
+          className="rounded-xl border bg-card p-4 text-card-foreground"
         >
-          <div className="flex items-center justify-between mb-3">
+          <div className="mb-3 flex items-center justify-between">
             <span className="text-sm font-medium">{stat.title}</span>
-            <HugeiconsIcon icon={stat.icon} className="size-4 text-muted-foreground" />
+            <HugeiconsIcon
+              icon={stat.icon}
+              className="size-4 text-muted-foreground"
+            />
           </div>
 
-          <div className="bg-muted/50 dark:bg-neutral-800/50 border rounded-lg p-4">
+          <div className="rounded-lg border bg-muted/50 p-4 dark:bg-neutral-800/50">
             <div className="flex items-center justify-between">
-              <span className="text-2xl sm:text-3xl font-medium tracking-tight">
+              <span className="text-2xl font-medium tracking-tight sm:text-3xl">
                 {stat.value}
               </span>
 
@@ -78,9 +82,15 @@ export function StatsCards() {
                     }}
                   >
                     {stat.trend === "up" ? (
-                      <HugeiconsIcon icon={ArrowUpRightIcon} className="size-3.5" />
+                      <HugeiconsIcon
+                        icon={ArrowUpRightIcon}
+                        className="size-3.5"
+                      />
                     ) : (
-                      <HugeiconsIcon icon={ArrowDownRightIcon} className="size-3.5" />
+                      <HugeiconsIcon
+                        icon={ArrowDownRightIcon}
+                        className="size-3.5"
+                      />
                     )}
                     <span className="text-sm font-medium">{stat.change}%</span>
                   </div>
@@ -96,5 +106,5 @@ export function StatsCards() {
         </div>
       ))}
     </div>
-  );
+  )
 }

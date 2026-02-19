@@ -65,7 +65,8 @@ const eventTypes = [
   {
     value: "workshop",
     label: "Updated Workshop",
-    description: "Updated Hands-on learning experience with practical activities",
+    description:
+      "Updated Hands-on learning experience with practical activities",
   },
   {
     value: "meetup",
@@ -134,7 +135,8 @@ const Example = () => {
           Updated Create Your Event
         </h1>
         <p className="text-balance text-muted-foreground">
-          Updated Fill out the form below to create and customize your upcoming event
+          Updated Fill out the form below to create and customize your upcoming
+          event
         </p>
       </div>
 

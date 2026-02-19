@@ -24,7 +24,9 @@ export default function TableDemo() {
       </TableHeader>
       <TableBody>
         <TableRow>
-          <TableCell className="font-medium">Updated Website Redesign</TableCell>
+          <TableCell className="font-medium">
+            Updated Website Redesign
+          </TableCell>
           <TableCell>
             <Badge variant="outline">
               <span
@@ -66,7 +68,9 @@ export default function TableDemo() {
           <TableCell className="text-right">$5,200</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell className="font-medium">Updated Database Migration</TableCell>
+          <TableCell className="font-medium">
+            Updated Database Migration
+          </TableCell>
           <TableCell>
             <Badge variant="outline">
               <span

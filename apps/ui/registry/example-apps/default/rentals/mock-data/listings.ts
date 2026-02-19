@@ -4,86 +4,87 @@ export type PropertyType =
   | "villa"
   | "studio"
   | "loft"
-  | "cottage";
+  | "cottage"
 
 export type Listing = {
-  id: string;
-  title: string;
-  description: string;
-  address: string;
-  city: string;
-  country: string;
+  id: string
+  title: string
+  description: string
+  address: string
+  city: string
+  country: string
   coordinates: {
-    lat: number;
-    lng: number;
-  };
-  pricePerNight: number;
-  propertyType: PropertyType;
-  bedrooms: number;
-  beds: number;
-  bathrooms: number;
-  guests: number;
-  rating: number;
-  reviewCount: number;
-  images: string[];
-  amenities: string[];
+    lat: number
+    lng: number
+  }
+  pricePerNight: number
+  propertyType: PropertyType
+  bedrooms: number
+  beds: number
+  bathrooms: number
+  guests: number
+  rating: number
+  reviewCount: number
+  images: string[]
+  amenities: string[]
   host: {
-    name: string;
-    avatar: string;
-    isSuperhost: boolean;
-  };
-  isFavorite: boolean;
-  isNew: boolean;
-  instantBook: boolean;
-};
+    name: string
+    avatar: string
+    isSuperhost: boolean
+  }
+  isFavorite: boolean
+  isNew: boolean
+  instantBook: boolean
+}
 
 const cameraImages = [
   "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1495707902641-75cac588d2e9?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?w=900&h=700&fit=crop",
-];
+]
 
 const audioImages = [
   "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=900&h=700&fit=crop",
-];
+]
 
 const cyclingImages = [
   "https://images.unsplash.com/photo-1511994298241-608e28f14fde?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1529422643029-d4585747aaf2?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=900&h=700&fit=crop",
-];
+]
 
 const campingImages = [
   "https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1470246973918-29a93221c455?w=900&h=700&fit=crop",
-];
+]
 
 const droneImages = [
   "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1521405924368-64c5b84bec60?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1524143986875-3b098d78b363?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=900&h=700&fit=crop",
-];
+]
 
 const gamingImages = [
   "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=900&h=700&fit=crop",
   "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=900&h=700&fit=crop",
-];
+]
 
 export const listings: Listing[] = [
   {
     id: "gear-1",
     title: "Sony FX3 Creator Cinema Kit",
-    description: "Full-frame camera kit with cage, monitor, and dual batteries for short-form shoots.",
+    description:
+      "Full-frame camera kit with cage, monitor, and dual batteries for short-form shoots.",
     address: "1141 W Colfax Ave",
     city: "Denver",
     country: "USA",
@@ -97,7 +98,12 @@ export const listings: Listing[] = [
     rating: 4.9,
     reviewCount: 132,
     images: cameraImages,
-    amenities: ["Damage waiver", "Same-day pickup", "Tripod included", "ND filters"],
+    amenities: [
+      "Damage waiver",
+      "Same-day pickup",
+      "Tripod included",
+      "ND filters",
+    ],
     host: {
       name: "Mia Park",
       avatar: "https://api.dicebear.com/9.x/glass/svg?seed=MiaPark",
@@ -110,7 +116,8 @@ export const listings: Listing[] = [
   {
     id: "gear-2",
     title: "Canon R6 Mark II Event Bundle",
-    description: "Low-light camera setup with two lenses and flash for events and portraits.",
+    description:
+      "Low-light camera setup with two lenses and flash for events and portraits.",
     address: "219 SW Pine St",
     city: "Portland",
     country: "USA",
@@ -137,7 +144,8 @@ export const listings: Listing[] = [
   {
     id: "gear-3",
     title: "Rode Podcast Studio Rack",
-    description: "Two-mic recording station with interface, acoustic panels, and backup recorder.",
+    description:
+      "Two-mic recording station with interface, acoustic panels, and backup recorder.",
     address: "802 E 6th St",
     city: "Austin",
     country: "USA",
@@ -164,7 +172,8 @@ export const listings: Listing[] = [
   {
     id: "gear-4",
     title: "Pioneer DJ Booth Starter Set",
-    description: "Controller, monitors, and lighting for club practice sessions and pop-up sets.",
+    description:
+      "Controller, monitors, and lighting for club practice sessions and pop-up sets.",
     address: "1430 2nd Ave",
     city: "Seattle",
     country: "USA",
@@ -191,7 +200,8 @@ export const listings: Listing[] = [
   {
     id: "gear-5",
     title: "Trek Domane Carbon Road Package",
-    description: "Race-ready road bike with helmet, meter pedals, and roadside repair kit.",
+    description:
+      "Race-ready road bike with helmet, meter pedals, and roadside repair kit.",
     address: "1745 28th St",
     city: "Boulder",
     country: "USA",
@@ -218,7 +228,8 @@ export const listings: Listing[] = [
   {
     id: "gear-6",
     title: "Specialized Trail e-MTB Set",
-    description: "Electric mountain bike package with charger, pads, and hydration vest.",
+    description:
+      "Electric mountain bike package with charger, pads, and hydration vest.",
     address: "5025 N Harbor Dr",
     city: "San Diego",
     country: "USA",
@@ -245,7 +256,8 @@ export const listings: Listing[] = [
   {
     id: "gear-7",
     title: "4-Person Basecamp Weekend Kit",
-    description: "Tent, stove, lanterns, and insulated sleeping system for quick camp escapes.",
+    description:
+      "Tent, stove, lanterns, and insulated sleeping system for quick camp escapes.",
     address: "8812 N 3rd St",
     city: "Phoenix",
     country: "USA",
@@ -272,7 +284,8 @@ export const listings: Listing[] = [
   {
     id: "gear-8",
     title: "Winter Touring Shelter Bundle",
-    description: "Cold-weather tent system, avalanche beacons, and insulated cook station.",
+    description:
+      "Cold-weather tent system, avalanche beacons, and insulated cook station.",
     address: "311 W 200 S",
     city: "Salt Lake City",
     country: "USA",
@@ -299,7 +312,8 @@ export const listings: Listing[] = [
   {
     id: "gear-9",
     title: "DJI Mavic 3 Fly More Pack",
-    description: "Long-range drone bundle with ND set, charging dock, and dual operator screens.",
+    description:
+      "Long-range drone bundle with ND set, charging dock, and dual operator screens.",
     address: "810 Broadway",
     city: "Nashville",
     country: "USA",
@@ -326,7 +340,8 @@ export const listings: Listing[] = [
   {
     id: "gear-10",
     title: "FPV Racing Drone Starter Crate",
-    description: "Complete FPV setup with goggles, spare props, and training simulator access.",
+    description:
+      "Complete FPV setup with goggles, spare props, and training simulator access.",
     address: "155 NE 40th St",
     city: "Miami",
     country: "USA",
@@ -353,7 +368,8 @@ export const listings: Listing[] = [
   {
     id: "gear-11",
     title: "Pro Streaming Battle Station",
-    description: "Dual-PC gaming setup with capture card, scene lights, and creator mic arm.",
+    description:
+      "Dual-PC gaming setup with capture card, scene lights, and creator mic arm.",
     address: "227 W Hubbard St",
     city: "Chicago",
     country: "USA",
@@ -380,7 +396,8 @@ export const listings: Listing[] = [
   {
     id: "gear-12",
     title: "VR Event Pop-up Arena Kit",
-    description: "Portable VR package for activations with signage, chargers, and queue display.",
+    description:
+      "Portable VR package for activations with signage, chargers, and queue display.",
     address: "443 W 14th St",
     city: "New York",
     country: "USA",
@@ -407,7 +424,8 @@ export const listings: Listing[] = [
   {
     id: "gear-13",
     title: "Portable Film Lighting Grid",
-    description: "RGB panel package with softboxes and remote dimmer for interviews and product shots.",
+    description:
+      "RGB panel package with softboxes and remote dimmer for interviews and product shots.",
     address: "780 N Highland Ave",
     city: "Los Angeles",
     country: "USA",
@@ -434,7 +452,8 @@ export const listings: Listing[] = [
   {
     id: "gear-14",
     title: "Wedding Photo Duo Package",
-    description: "Two-camera setup with portrait primes, wireless flash triggers, and backup drive.",
+    description:
+      "Two-camera setup with portrait primes, wireless flash triggers, and backup drive.",
     address: "940 Peachtree St NE",
     city: "Atlanta",
     country: "USA",
@@ -461,7 +480,8 @@ export const listings: Listing[] = [
   {
     id: "gear-15",
     title: "Field Audio Interview Pack",
-    description: "Compact audio kit with lavs, boom mic, and timecode recorder for documentary crews.",
+    description:
+      "Compact audio kit with lavs, boom mic, and timecode recorder for documentary crews.",
     address: "1810 Rue Sainte-Catherine O",
     city: "Montreal",
     country: "Canada",
@@ -488,7 +508,8 @@ export const listings: Listing[] = [
   {
     id: "gear-16",
     title: "Urban Courier Bike Fleet Kit",
-    description: "Three-bike city set with helmets, pannier bags, and tracking mounts.",
+    description:
+      "Three-bike city set with helmets, pannier bags, and tracking mounts.",
     address: "390 W Cordova St",
     city: "Vancouver",
     country: "Canada",
@@ -515,7 +536,8 @@ export const listings: Listing[] = [
   {
     id: "gear-17",
     title: "Creator Office Workstation Set",
-    description: "Desk setup with monitor arm, key light, and webcam for remote brand shoots.",
+    description:
+      "Desk setup with monitor arm, key light, and webcam for remote brand shoots.",
     address: "96 Shoreditch High St",
     city: "London",
     country: "UK",
@@ -542,7 +564,8 @@ export const listings: Listing[] = [
   {
     id: "gear-18",
     title: "Street Documentary Drone Rig",
-    description: "Compact travel drone setup with fast charger and compliance checklist.",
+    description:
+      "Compact travel drone setup with fast charger and compliance checklist.",
     address: "27 Linienstrasse",
     city: "Berlin",
     country: "Germany",
@@ -566,7 +589,7 @@ export const listings: Listing[] = [
     isNew: true,
     instantBook: true,
   },
-];
+]
 
 export const propertyTypeLabels: Record<PropertyType, string> = {
   apartment: "Cameras",
@@ -575,4 +598,4 @@ export const propertyTypeLabels: Record<PropertyType, string> = {
   studio: "Camping",
   loft: "Drones",
   cottage: "Gaming",
-};
+}

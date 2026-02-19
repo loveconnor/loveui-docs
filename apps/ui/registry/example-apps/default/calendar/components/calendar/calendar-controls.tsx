@@ -1,30 +1,28 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { useState } from "react"
 import {
+  Calendar01Icon,
+  CancelCircleIcon,
+  FilterIcon,
   Search01Icon,
   Settings01Icon,
-  Calendar01Icon,
-  FilterIcon,
   Tick02Icon,
-  VideoReplayIcon,
-  CancelCircleIcon,
   UserGroupIcon,
   UserRemove01Icon,
-} from "@hugeicons/core-free-icons";
-import { Input } from "@loveui/ui/ui/input";
-import { Button } from "@loveui/ui/ui/button";
-import { useCalendarStore } from "../../store/calendar-store";
-import { format } from "date-fns";
-import { Calendar } from "../ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@loveui/ui/ui/popover";
-import { Separator } from "@loveui/ui/ui/separator";
-import { cn } from "../../lib/utils";
+  VideoReplayIcon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { format } from "date-fns"
+
+import { Button } from "@loveui/ui/ui/button"
+import { Input } from "@loveui/ui/ui/input"
+import { Popover, PopoverContent, PopoverTrigger } from "@loveui/ui/ui/popover"
+import { Separator } from "@loveui/ui/ui/separator"
+
+import { cn } from "../../lib/utils"
+import { useCalendarStore } from "../../store/calendar-store"
+import { Calendar } from "../ui/calendar"
 
 export function CalendarControls() {
   const {
@@ -37,36 +35,36 @@ export function CalendarControls() {
     participantsFilter,
     setEventTypeFilter,
     setParticipantsFilter,
-  } = useCalendarStore();
-  const [datePickerOpen, setDatePickerOpen] = useState(false);
-  const [filterOpen, setFilterOpen] = useState(false);
-  const weekStart = format(currentWeekStart, "MMM dd");
+  } = useCalendarStore()
+  const [datePickerOpen, setDatePickerOpen] = useState(false)
+  const [filterOpen, setFilterOpen] = useState(false)
+  const weekStart = format(currentWeekStart, "MMM dd")
   const weekEnd = format(
     new Date(currentWeekStart.getTime() + 6 * 24 * 60 * 60 * 1000),
     "MMM dd yyyy"
-  );
+  )
 
   const hasActiveFilters =
-    eventTypeFilter !== "all" || participantsFilter !== "all";
+    eventTypeFilter !== "all" || participantsFilter !== "all"
 
   return (
-    <div className="px-3 md:px-6 py-4 border-b border-border">
-      <div className="flex items-center gap-2 md:gap-3 flex-wrap">
-        <div className="relative flex-1 min-w-[200px] max-w-[280px] shrink-0">
+    <div className="border-b border-border px-3 py-4 md:px-6">
+      <div className="flex flex-wrap items-center gap-2 md:gap-3">
+        <div className="relative max-w-[280px] min-w-[200px] flex-1 shrink-0">
           <HugeiconsIcon
             icon={Search01Icon}
-            className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground z-10 pointer-events-none"
+            className="pointer-events-none absolute top-1/2 left-3 z-10 size-4 -translate-y-1/2 text-muted-foreground"
           />
           <Input
             placeholder="Search in calendar..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9 pr-9 h-8 bg-background"
+            className="h-8 bg-background pr-9 pl-9"
           />
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-1 top-1/2 -translate-y-1/2 size-6"
+            className="absolute top-1/2 right-1 size-6 -translate-y-1/2"
           >
             <HugeiconsIcon icon={Settings01Icon} className="size-3.5" />
           </Button>
@@ -74,7 +72,7 @@ export function CalendarControls() {
 
         <Button
           variant="outline"
-          className="h-8 px-3 shrink-0"
+          className="h-8 shrink-0 px-3"
           onClick={goToToday}
         >
           Today
@@ -86,7 +84,7 @@ export function CalendarControls() {
               <Button
                 variant="outline"
                 className={cn(
-                  "h-8 px-3 gap-2 justify-start text-left font-normal shrink-0",
+                  "h-8 shrink-0 justify-start gap-2 px-3 text-left font-normal",
                   "hover:bg-accent"
                 )}
               >
@@ -106,8 +104,8 @@ export function CalendarControls() {
               selected={currentWeekStart}
               onSelect={(date) => {
                 if (date) {
-                  goToDate(date);
-                  setDatePickerOpen(false);
+                  goToDate(date)
+                  setDatePickerOpen(false)
                 }
               }}
               initialFocus
@@ -122,10 +120,13 @@ export function CalendarControls() {
             render={
               <Button
                 variant="outline"
-                className={cn("h-8 px-3 gap-2", hasActiveFilters && "bg-accent")}
+                className={cn(
+                  "h-8 gap-2 px-3",
+                  hasActiveFilters && "bg-accent"
+                )}
               >
                 <HugeiconsIcon icon={FilterIcon} className="size-4" />
-                <span className="hidden sm:inline text-xs">Filter</span>
+                <span className="hidden text-xs sm:inline">Filter</span>
                 {hasActiveFilters && (
                   <span className="size-1.5 rounded-full bg-primary" />
                 )}
@@ -133,12 +134,12 @@ export function CalendarControls() {
             }
           />
           <PopoverContent
-            className="p-4 w-[288px]! min-w-[288px]! max-w-[288px]!"
+            className="w-[288px]! max-w-[288px]! min-w-[288px]! p-4"
             align="end"
           >
-            <div className="space-y-4 w-full">
+            <div className="w-full space-y-4">
               <div>
-                <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold">
                   <HugeiconsIcon
                     icon={VideoReplayIcon}
                     className="size-4 text-muted-foreground"
@@ -149,7 +150,7 @@ export function CalendarControls() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-between h-9 px-3"
+                    className="h-9 w-full justify-between px-3"
                     onClick={() => setEventTypeFilter("all")}
                   >
                     <span className="text-sm">All events</span>
@@ -163,7 +164,7 @@ export function CalendarControls() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-between h-9 px-3"
+                    className="h-9 w-full justify-between px-3"
                     onClick={() => setEventTypeFilter("with-meeting")}
                   >
                     <div className="flex items-center gap-2.5">
@@ -183,7 +184,7 @@ export function CalendarControls() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-between h-9 px-3"
+                    className="h-9 w-full justify-between px-3"
                     onClick={() => setEventTypeFilter("without-meeting")}
                   >
                     <div className="flex items-center gap-2.5">
@@ -206,7 +207,7 @@ export function CalendarControls() {
               <Separator />
 
               <div>
-                <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold">
                   <HugeiconsIcon
                     icon={UserGroupIcon}
                     className="size-4 text-muted-foreground"
@@ -217,7 +218,7 @@ export function CalendarControls() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-between h-9 px-3"
+                    className="h-9 w-full justify-between px-3"
                     onClick={() => setParticipantsFilter("all")}
                   >
                     <span className="text-sm">All</span>
@@ -231,7 +232,7 @@ export function CalendarControls() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-between h-9 px-3"
+                    className="h-9 w-full justify-between px-3"
                     onClick={() => setParticipantsFilter("with-participants")}
                   >
                     <div className="flex items-center gap-2.5">
@@ -251,7 +252,7 @@ export function CalendarControls() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full justify-between h-9 px-3"
+                    className="h-9 w-full justify-between px-3"
                     onClick={() =>
                       setParticipantsFilter("without-participants")
                     }
@@ -279,10 +280,10 @@ export function CalendarControls() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full h-9"
+                    className="h-9 w-full"
                     onClick={() => {
-                      setEventTypeFilter("all");
-                      setParticipantsFilter("all");
+                      setEventTypeFilter("all")
+                      setParticipantsFilter("all")
                     }}
                   >
                     Clear all filters
@@ -294,5 +295,5 @@ export function CalendarControls() {
         </Popover>
       </div>
     </div>
-  );
+  )
 }

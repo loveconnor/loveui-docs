@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import { ThemeProvider } from "../components/theme-provider";
-import "./globals.css";
+import type { Metadata } from "next"
+
+import { ThemeProvider } from "../components/theme-provider"
+
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Incident Mailbox - LoveUI",
-  description: "Operations incident inbox with escalation and response workflows",
-};
+  description:
+    "Operations incident inbox with escalation and response workflows",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -25,5 +28,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

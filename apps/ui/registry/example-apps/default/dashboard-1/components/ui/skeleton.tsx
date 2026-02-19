@@ -6,7 +6,7 @@ function Skeleton({ className, ...props }: ComponentPropsWithoutRef<"div">) {
   return (
     <div
       data-slot="skeleton"
-      className={cn("bg-muted rounded-md animate-pulse", className)}
+      className={cn("animate-pulse rounded-md bg-muted", className)}
       {...props}
     />
   )

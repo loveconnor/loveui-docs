@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/default/examples/button-sm.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function ButtonSm() {\n  return <Button size=\"sm\">Button</Button>\n}\n",
+      "content": "import { Button } from \"@/registry/default/ui/button\"\n\nexport default function ButtonSm() {\n  return <Button size=\"sm\">Updated Button</Button>\n}\n",
       "type": "registry:example"
     }
   ],

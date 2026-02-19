@@ -65,7 +65,10 @@ const Example = () => {
         ))}
       </TagsTrigger>
       <TagsContent>
-        <TagsInput onValueChange={setNewTag} placeholder="Updated Search tag..." />
+        <TagsInput
+          onValueChange={setNewTag}
+          placeholder="Updated Search tag..."
+        />
         <TagsList>
           <TagsEmpty />
           <TagsGroup>

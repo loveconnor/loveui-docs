@@ -1,13 +1,14 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTheme } from "next-themes";
-import { Button } from "@loveui/ui/ui/button";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Sun01Icon, Moon01Icon } from "@hugeicons/core-free-icons";
+import * as React from "react"
+import { Moon01Icon, Sun01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { useTheme } from "next-themes"
+
+import { Button } from "@loveui/ui/ui/button"
 
 export function ThemeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme } = useTheme()
 
   return (
     <Button
@@ -17,14 +18,13 @@ export function ThemeToggle() {
     >
       <HugeiconsIcon
         icon={Sun01Icon}
-        className="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        className="size-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
       />
       <HugeiconsIcon
         icon={Moon01Icon}
-        className="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+        className="absolute size-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
       />
       <span className="sr-only">Toggle theme</span>
     </Button>
-  );
+  )
 }
-

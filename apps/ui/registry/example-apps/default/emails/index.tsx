@@ -5,6 +5,8 @@
 
 import { useEffect, useRef, useState } from "react"
 
+import { Sheet, SheetContent } from "@loveui/ui/ui/sheet"
+
 import { EmailDetail } from "./components/emails/email-detail"
 import { EmailList } from "./components/emails/email-list"
 import { EmailsHeader } from "./components/emails/emails-header"
@@ -12,7 +14,6 @@ import { EmailsHorizontalNav } from "./components/emails/emails-horizontal-nav"
 import { EmailsVerticalSidebar } from "./components/emails/emails-vertical-sidebar"
 import { EmailsVerticalSidebarMobile } from "./components/emails/emails-vertical-sidebar-mobile"
 import { Drawer, DrawerContent } from "./components/ui/drawer"
-import { Sheet, SheetContent } from "@loveui/ui/ui/sheet"
 import { TooltipProvider } from "./components/ui/tooltip"
 import { useIsMobile } from "./hooks/use-mobile"
 import { useEmailsStore } from "./store/emails-store"
@@ -53,49 +54,49 @@ export default function EmailsWrapper() {
   }
 
   return (
-      <TooltipProvider>
-        <div className="bg-background flex h-full min-h-0 overflow-hidden">
-          <div className="hidden md:block">
-            <EmailsVerticalSidebar />
-          </div>
-
-          <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
-            <SheetContent
-              side="left"
-              className="w-[240px] border-none p-0 [&>button]:hidden"
-            >
-              <EmailsVerticalSidebarMobile
-                onItemClick={() => setSidebarOpen(false)}
-              />
-            </SheetContent>
-          </Sheet>
-
-          <div className="flex flex-1 flex-col overflow-hidden">
-            <EmailsHeader onMobileMenuClick={() => setSidebarOpen(true)} />
-
-            <div className="hidden md:block">
-              <EmailsHorizontalNav />
-            </div>
-
-            <div className="flex flex-1 overflow-hidden">
-              <div className="border-border w-full border-r md:w-[320px]">
-                <EmailList onEmailClick={handleEmailClick} />
-              </div>
-
-              <div className="hidden flex-1 md:block">
-                <EmailDetail />
-              </div>
-            </div>
-          </div>
-
-          <Drawer open={drawerOpen} onOpenChange={handleDrawerClose}>
-            <DrawerContent className="h-[90vh]">
-              <div className="f-full flex-1 overflow-hidden">
-                <EmailDetail />
-              </div>
-            </DrawerContent>
-          </Drawer>
+    <TooltipProvider>
+      <div className="flex h-full min-h-0 overflow-hidden bg-background">
+        <div className="hidden md:block">
+          <EmailsVerticalSidebar />
         </div>
-      </TooltipProvider>
+
+        <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
+          <SheetContent
+            side="left"
+            className="w-[240px] border-none p-0 [&>button]:hidden"
+          >
+            <EmailsVerticalSidebarMobile
+              onItemClick={() => setSidebarOpen(false)}
+            />
+          </SheetContent>
+        </Sheet>
+
+        <div className="flex flex-1 flex-col overflow-hidden">
+          <EmailsHeader onMobileMenuClick={() => setSidebarOpen(true)} />
+
+          <div className="hidden md:block">
+            <EmailsHorizontalNav />
+          </div>
+
+          <div className="flex flex-1 overflow-hidden">
+            <div className="w-full border-r border-border md:w-[320px]">
+              <EmailList onEmailClick={handleEmailClick} />
+            </div>
+
+            <div className="hidden flex-1 md:block">
+              <EmailDetail />
+            </div>
+          </div>
+        </div>
+
+        <Drawer open={drawerOpen} onOpenChange={handleDrawerClose}>
+          <DrawerContent className="h-[90vh]">
+            <div className="f-full flex-1 overflow-hidden">
+              <EmailDetail />
+            </div>
+          </DrawerContent>
+        </Drawer>
+      </div>
+    </TooltipProvider>
   )
 }

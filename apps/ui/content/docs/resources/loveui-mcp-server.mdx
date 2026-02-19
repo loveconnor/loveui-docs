@@ -17,17 +17,19 @@ The server runs over stdio, which means any MCP-compatible client can talk to it
 
 ## Resources
 
-Each package in `packages/*` is published as a resource using the `loveui://registry/{package}` scheme. For example, the badge definition is available at:
+Each registry item is published as a resource using the `loveui://registry/{name}` scheme. When `apps/ui/public/r` is available, the MCP server serves every generated registry entry (components, feature variants, and examples). It also falls back to package-based generation when those files are not present.
+
+For example, the base badge definition is available at:
 
 ```text
 loveui://registry/badge
 ```
 
-Reading the resource returns the same JSON schema used by `https://www.loveui.dev/r/badge.json`, so your AI tools can hydrate files exactly as the CLI would.
+Reading the resource returns the same JSON schema used by `https://www.loveui.dev/r/{name}.json`, so your AI tools can hydrate files exactly as the CLI would.
 
 ## Tools
 
-The server also provides a `get-loveui-package` tool for programmatic access:
+The server also provides a `get-loveui-package` tool for programmatic access by registry item name:
 
 ```json
 {

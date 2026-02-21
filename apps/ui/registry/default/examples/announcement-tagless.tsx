@@ -10,7 +10,7 @@ import {
 const Example = () => (
   <Announcement>
     <AnnouncementTitle>
-      Updated New feature added
+      New feature added
       <ArrowUpRightIcon className="shrink-0 text-muted-foreground" size={16} />
     </AnnouncementTitle>
   </Announcement>

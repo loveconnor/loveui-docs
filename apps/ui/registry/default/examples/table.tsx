@@ -27,9 +27,9 @@ faker.seed(123)
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
-  { id: faker.string.uuid(), name: "Updated Planned", color: "#6B7280" },
-  { id: faker.string.uuid(), name: "Updated In Progress", color: "#F59E0B" },
-  { id: faker.string.uuid(), name: "Updated Done", color: "#10B981" },
+  { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
+  { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
+  { id: faker.string.uuid(), name: "Done", color: "#10B981" },
 ]
 
 const users = Array.from({ length: 4 })
@@ -88,7 +88,7 @@ const Example = () => {
     {
       accessorKey: "name",
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Updated Name" />
+        <TableColumnHeader column={column} title="Name" />
       ),
       cell: ({ row }) => (
         <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ const Example = () => {
     {
       accessorKey: "startAt",
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Updated Start At" />
+        <TableColumnHeader column={column} title="Start At" />
       ),
       cell: ({ row }) =>
         new Intl.DateTimeFormat("en-US", {
@@ -130,7 +130,7 @@ const Example = () => {
     {
       accessorKey: "endAt",
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Updated End At" />
+        <TableColumnHeader column={column} title="End At" />
       ),
       cell: ({ row }) =>
         new Intl.DateTimeFormat("en-US", {
@@ -141,7 +141,7 @@ const Example = () => {
       id: "release",
       accessorFn: (row) => row.release.id,
       header: ({ column }) => (
-        <TableColumnHeader column={column} title="Updated Release" />
+        <TableColumnHeader column={column} title="Release" />
       ),
       cell: ({ row }) => row.original.release.name,
     },

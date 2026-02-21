@@ -39,9 +39,9 @@ faker.seed(123)
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
-  { id: faker.string.uuid(), name: "Updated Confirmed", color: "#10B981" },
-  { id: faker.string.uuid(), name: "Updated Pending", color: "#F59E0B" },
-  { id: faker.string.uuid(), name: "Updated Cancelled", color: "#EF4444" },
+  { id: faker.string.uuid(), name: "Confirmed", color: "#10B981" },
+  { id: faker.string.uuid(), name: "Pending", color: "#F59E0B" },
+  { id: faker.string.uuid(), name: "Cancelled", color: "#EF4444" },
 ]
 
 const guests = Array.from({ length: 8 })
@@ -80,7 +80,7 @@ const hotelReservations = Array.from({ length: 12 })
       metadata: {
         guest,
         room,
-        group: { name: "Updated Hotel Reservations" },
+        group: { name: "Hotel Reservations" },
       },
     }
   })
@@ -244,7 +244,7 @@ const Example = () => {
                                   className="text-muted-foreground"
                                   size={16}
                                 />
-                                Updated View reservation
+                                View reservation
                               </ContextMenuItem>
                               <ContextMenuItem
                                 className="flex items-center gap-2"
@@ -254,7 +254,7 @@ const Example = () => {
                                   className="text-muted-foreground"
                                   size={16}
                                 />
-                                Updated Copy link
+                                Copy link
                               </ContextMenuItem>
                               <ContextMenuItem
                                 className="flex items-center gap-2 text-destructive"
@@ -263,7 +263,7 @@ const Example = () => {
                                 }
                               >
                                 <TrashIcon size={16} />
-                                Updated Cancel reservation
+                                Cancel reservation
                               </ContextMenuItem>
                             </ContextMenuContent>
                           </ContextMenu>

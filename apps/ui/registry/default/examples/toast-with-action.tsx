@@ -9,16 +9,16 @@ export default function ToastWithAction() {
       variant="outline"
       onClick={() => {
         const id = toastManager.add({
-          title: "Updated Action performed",
-          description: "Updated You can undo this action.",
+          title: "Action performed",
+          description: "You can undo this action.",
           type: "success",
           actionProps: {
             children: "Undo",
             onClick: () => {
               toastManager.close(id)
               toastManager.add({
-                title: "Updated Action undone",
-                description: "Updated The action has been reverted.",
+                title: "Action undone",
+                description: "The action has been reverted.",
                 type: "info",
               })
             },
@@ -27,7 +27,7 @@ export default function ToastWithAction() {
         })
       }}
     >
-      Updated Perform Action
+      Perform Action
     </Button>
   )
 }

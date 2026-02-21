@@ -11,56 +11,56 @@ export default function GooeyToastStates() {
         variant="outline"
         onClick={() => {
           gooey.success({
-            title: "Updated Success!",
-            description: "Updated Your changes have been saved.",
+            title: "Success!",
+            description: "Your changes have been saved.",
           })
         }}
       >
-        Updated Success
+        Success
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           gooey.error({
-            title: "Updated Error",
-            description: "Updated Something went wrong. Please try again.",
+            title: "Error",
+            description: "Something went wrong. Please try again.",
           })
         }}
       >
-        Updated Error
+        Error
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           gooey.warning({
-            title: "Updated Warning",
-            description: "Updated This action cannot be undone.",
+            title: "Warning",
+            description: "This action cannot be undone.",
           })
         }}
       >
-        Updated Warning
+        Warning
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           gooey.info({
-            title: "Updated Did you know?",
-            description: "Updated You can customize toast animations.",
+            title: "Did you know?",
+            description: "You can customize toast animations.",
           })
         }}
       >
-        Updated Info
+        Info
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           gooey.action({
-            title: "Updated Action Required",
-            description: "Updated Please review your settings.",
+            title: "Action Required",
+            description: "Please review your settings.",
           })
         }}
       >
-        Updated Action
+        Action
       </Button>
     </div>
   )

@@ -9,14 +9,14 @@ export default function FieldRequiredDemo() {
   return (
     <Field>
       <FieldLabel>
-        Updated Password <span className="text-destructive-foreground">*</span>
+        Password <span className="text-destructive-foreground">*</span>
       </FieldLabel>
       <FieldControl
         type="password"
-        placeholder="Updated Enter password"
+        placeholder="Enter password"
         required
       />
-      <FieldError>Updated Please fill out this field.</FieldError>
+      <FieldError>Please fill out this field.</FieldError>
     </Field>
   )
 }

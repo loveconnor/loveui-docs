@@ -4,8 +4,8 @@ export function SiteFooter() {
   return (
     <footer className="flex flex-col gap-0.5">
       <p>
-        <Link href="/" className="font-heading text-lg">
-          love <span className="text-muted-foreground/64">ui</span>
+        <Link href="/" className="font-heading font-bold text-lg text-foreground">
+          LoveUI
         </Link>
       </p>
       <p className="text-sm text-muted-foreground">

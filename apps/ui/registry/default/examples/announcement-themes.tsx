@@ -14,9 +14,9 @@ const Example = () => (
       className="bg-rose-100 text-rose-700 dark:bg-rose-700 dark:text-rose-100"
       themed
     >
-      <AnnouncementTag>Updated Error</AnnouncementTag>
+      <AnnouncementTag>Error</AnnouncementTag>
       <AnnouncementTitle>
-        Updated Something went wrong
+        Something went wrong
         <ArrowUpRightIcon className="shrink-0 opacity-70" size={16} />
       </AnnouncementTitle>
     </Announcement>
@@ -25,9 +25,9 @@ const Example = () => (
       className="bg-emerald-100 text-emerald-700 dark:bg-emerald-700 dark:text-emerald-100"
       themed
     >
-      <AnnouncementTag>Updated Success</AnnouncementTag>
+      <AnnouncementTag>Success</AnnouncementTag>
       <AnnouncementTitle>
-        Updated New feature added
+        New feature added
         <ArrowUpRightIcon className="shrink-0 opacity-70" size={16} />
       </AnnouncementTitle>
     </Announcement>
@@ -36,9 +36,9 @@ const Example = () => (
       className="bg-orange-100 text-orange-700 dark:bg-orange-700 dark:text-orange-100"
       themed
     >
-      <AnnouncementTag>Updated Warning</AnnouncementTag>
+      <AnnouncementTag>Warning</AnnouncementTag>
       <AnnouncementTitle>
-        Updated Approaching your limit
+        Approaching your limit
         <ArrowUpRightIcon className="shrink-0 opacity-70" size={16} />
       </AnnouncementTitle>
     </Announcement>
@@ -47,9 +47,9 @@ const Example = () => (
       className="bg-sky-100 text-sky-700 dark:bg-sky-700 dark:text-sky-100"
       themed
     >
-      <AnnouncementTag>Updated Info</AnnouncementTag>
+      <AnnouncementTag>Info</AnnouncementTag>
       <AnnouncementTitle>
-        Updated Welcome to the platform
+        Welcome to the platform
         <ArrowUpRightIcon className="shrink-0 opacity-70" size={16} />
       </AnnouncementTitle>
     </Announcement>

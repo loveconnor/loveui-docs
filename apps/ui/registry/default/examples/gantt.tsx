@@ -38,9 +38,9 @@ faker.seed(123)
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1)
 
 const statuses = [
-  { id: faker.string.uuid(), name: "Updated Planned", color: "#6B7280" },
-  { id: faker.string.uuid(), name: "Updated In Progress", color: "#F59E0B" },
-  { id: faker.string.uuid(), name: "Updated Done", color: "#10B981" },
+  { id: faker.string.uuid(), name: "Planned", color: "#6B7280" },
+  { id: faker.string.uuid(), name: "In Progress", color: "#F59E0B" },
+  { id: faker.string.uuid(), name: "Done", color: "#10B981" },
 ]
 
 const users = Array.from({ length: 4 })
@@ -206,21 +206,21 @@ const Example = () => {
                         onClick={() => handleViewFeature(feature.id)}
                       >
                         <EyeIcon className="text-muted-foreground" size={16} />
-                        Updated View feature
+                        View feature
                       </ContextMenuItem>
                       <ContextMenuItem
                         className="flex items-center gap-2"
                         onClick={() => handleCopyLink(feature.id)}
                       >
                         <LinkIcon className="text-muted-foreground" size={16} />
-                        Updated Copy link
+                        Copy link
                       </ContextMenuItem>
                       <ContextMenuItem
                         className="flex items-center gap-2 text-destructive"
                         onClick={() => handleRemoveFeature(feature.id)}
                       >
                         <TrashIcon size={16} />
-                        Updated Remove from roadmap
+                        Remove from roadmap
                       </ContextMenuItem>
                     </ContextMenuContent>
                   </ContextMenu>

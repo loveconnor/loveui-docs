@@ -43,13 +43,13 @@ export default function DialogCloseConfirmationDemo() {
       }}
     >
       <DialogTrigger render={<Button variant="outline" />}>
-        Updated Compose
+        Compose
       </DialogTrigger>
       <DialogPopup showCloseButton={false}>
         <DialogHeader>
-          <DialogTitle>Updated New message</DialogTitle>
+          <DialogTitle>New message</DialogTitle>
           <DialogDescription>
-            Updated Type something and try closing.
+            Type something and try closing.
           </DialogDescription>
         </DialogHeader>
         <Form
@@ -67,7 +67,7 @@ export default function DialogCloseConfirmationDemo() {
           </Field>
           <DialogFooter>
             <DialogClose render={<Button variant="ghost" />}>
-              Updated Cancel
+              Cancel
             </DialogClose>
             <Button
               onClick={() => {
@@ -75,7 +75,7 @@ export default function DialogCloseConfirmationDemo() {
                 setDialogOpen(false)
               }}
             >
-              Updated Send
+              Send
             </Button>
           </DialogFooter>
         </Form>
@@ -85,14 +85,14 @@ export default function DialogCloseConfirmationDemo() {
       <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
         <AlertDialogPopup>
           <AlertDialogHeader>
-            <AlertDialogTitle>Updated Discard changes?</AlertDialogTitle>
+            <AlertDialogTitle>Discard changes?</AlertDialogTitle>
             <AlertDialogDescription>
-              Updated Your message will be lost.
+              Your message will be lost.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogClose render={<Button variant="ghost" />}>
-              Updated Go back
+              Go back
             </AlertDialogClose>
             <Button
               onClick={() => {
@@ -101,7 +101,7 @@ export default function DialogCloseConfirmationDemo() {
                 setDialogOpen(false)
               }}
             >
-              Updated Discard
+              Discard
             </Button>
           </AlertDialogFooter>
         </AlertDialogPopup>

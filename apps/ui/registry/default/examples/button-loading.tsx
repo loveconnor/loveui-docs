@@ -6,7 +6,7 @@ export default function ButtonLoading() {
   return (
     <Button disabled>
       <LoaderCircleIcon className="animate-spin" />
-      Updated Loading...
+      Loading...
     </Button>
   )
 }

@@ -12,7 +12,7 @@ const Example = () => (
   <Comparison className="aspect-video">
     <ComparisonItem className="bg-red-500" position="left">
       <Image
-        alt="Updated Placeholder 1"
+        alt="Placeholder 1"
         className="opacity-50"
         height={1080}
         src="https://placehold.co/1920x1080?random=1"
@@ -22,7 +22,7 @@ const Example = () => (
     </ComparisonItem>
     <ComparisonItem className="bg-blue-500" position="right">
       <Image
-        alt="Updated Placeholder 2"
+        alt="Placeholder 2"
         className="opacity-50"
         height={1440}
         src="https://placehold.co/2560x1440?random=2"

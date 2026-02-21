@@ -72,6 +72,11 @@ const nextConfig: NextConfig = {
         destination: "/docs",
         permanent: false,
       },
+      {
+        source: "/docs/features",
+        destination: "/docs/features/avatar-stack",
+        permanent: false,
+      },
     ]
   },
   async rewrites() {

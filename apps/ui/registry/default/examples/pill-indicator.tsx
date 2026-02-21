@@ -6,11 +6,11 @@ const Example = () => (
   <>
     <Pill>
       <PillIndicator pulse variant="success" />
-      Updated Active
+      Active
     </Pill>
     <Pill>
       <PillIndicator variant="error" />
-      Updated Error
+      Error
     </Pill>
   </>
 )

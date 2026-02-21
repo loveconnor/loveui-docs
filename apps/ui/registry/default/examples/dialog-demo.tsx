@@ -16,32 +16,32 @@ export default function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger render={<Button variant="outline" />}>
-        Updated Open Dialog
+        Open Dialog
       </DialogTrigger>
       <DialogPopup className="sm:max-w-sm">
         <Form>
           <DialogHeader>
-            <DialogTitle>Updated Edit profile</DialogTitle>
+            <DialogTitle>Edit profile</DialogTitle>
             <DialogDescription>
-              Updated Make changes to your profile here. Click save when
+              Make changes to your profile here. Click save when
               you&apos;re done.
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-4">
             <Field>
-              <FieldLabel>Updated Name</FieldLabel>
+              <FieldLabel>Name</FieldLabel>
               <FieldControl type="text" defaultValue="Connor Love" />
             </Field>
             <Field>
-              <FieldLabel>Updated Username</FieldLabel>
+              <FieldLabel>Username</FieldLabel>
               <FieldControl type="text" defaultValue="@loveconnor" />
             </Field>
           </div>
           <DialogFooter>
             <DialogClose render={<Button variant="ghost" />}>
-              Updated Cancel
+              Cancel
             </DialogClose>
-            <Button type="submit">Updated Save</Button>
+            <Button type="submit">Save</Button>
           </DialogFooter>
         </Form>
       </DialogPopup>

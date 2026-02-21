@@ -15,20 +15,20 @@ import {
 } from "../../../../../packages/tags"
 
 const defaultTags = [
-  { id: "react", label: "Updated React" },
-  { id: "typescript", label: "Updated TypeScript" },
-  { id: "javascript", label: "Updated JavaScript" },
-  { id: "nextjs", label: "Updated Next.js" },
-  { id: "vuejs", label: "Updated Vue.js" },
-  { id: "angular", label: "Updated Angular" },
-  { id: "svelte", label: "Updated Svelte" },
-  { id: "nodejs", label: "Updated Node.js" },
-  { id: "python", label: "Updated Python" },
-  { id: "ruby", label: "Updated Ruby" },
-  { id: "java", label: "Updated Java" },
-  { id: "csharp", label: "Updated C#" },
-  { id: "php", label: "Updated PHP" },
-  { id: "go", label: "Updated Go" },
+  { id: "react", label: "React" },
+  { id: "typescript", label: "TypeScript" },
+  { id: "javascript", label: "JavaScript" },
+  { id: "nextjs", label: "Next.js" },
+  { id: "vuejs", label: "Vue.js" },
+  { id: "angular", label: "Angular" },
+  { id: "svelte", label: "Svelte" },
+  { id: "nodejs", label: "Node.js" },
+  { id: "python", label: "Python" },
+  { id: "ruby", label: "Ruby" },
+  { id: "java", label: "Java" },
+  { id: "csharp", label: "C#" },
+  { id: "php", label: "PHP" },
+  { id: "go", label: "Go" },
 ]
 
 const Example = () => {
@@ -67,7 +67,7 @@ const Example = () => {
       <TagsContent>
         <TagsInput
           onValueChange={setNewTag}
-          placeholder="Updated Search tag..."
+          placeholder="Search tag..."
         />
         <TagsList>
           <TagsEmpty />

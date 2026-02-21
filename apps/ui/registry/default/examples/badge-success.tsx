@@ -1,5 +1,5 @@
 import { Badge } from "@/registry/default/ui/badge"
 
 export default function BadgeSuccess() {
-  return <Badge variant="success">Updated Badge</Badge>
+  return <Badge variant="success">Badge</Badge>
 }

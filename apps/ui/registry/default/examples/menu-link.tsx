@@ -12,12 +12,12 @@ export default function MenuLinkDemo() {
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Open menu
+        Open menu
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem render={<Link href="/docs" />}>Updated Docs</MenuItem>
+        <MenuItem render={<Link href="/docs" />}>Docs</MenuItem>
         <MenuItem render={<Link href="/particles" />}>
-          Updated Particles
+          Particles
         </MenuItem>
       </MenuPopup>
     </Menu>

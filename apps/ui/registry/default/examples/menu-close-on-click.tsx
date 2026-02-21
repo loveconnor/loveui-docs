@@ -10,12 +10,12 @@ export default function MenuCloseOnClickDemo() {
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Open menu
+        Open menu
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem closeOnClick>Updated Profile</MenuItem>
-        <MenuItem closeOnClick>Updated Settings</MenuItem>
-        <MenuItem closeOnClick>Updated Log out</MenuItem>
+        <MenuItem closeOnClick>Profile</MenuItem>
+        <MenuItem closeOnClick>Settings</MenuItem>
+        <MenuItem closeOnClick>Log out</MenuItem>
       </MenuPopup>
     </Menu>
   )

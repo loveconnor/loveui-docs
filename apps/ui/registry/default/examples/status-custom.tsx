@@ -13,7 +13,7 @@ const Example = () => (
     variant="outline"
   >
     <StatusIndicator />
-    <StatusLabel className="font-mono">Updated Fully operational</StatusLabel>
+    <StatusLabel className="font-mono">Fully operational</StatusLabel>
   </Status>
 )
 

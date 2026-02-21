@@ -25,9 +25,9 @@ const Example = () => (
     <Pill>
       <PillStatus>
         <CheckCircleIcon className="text-emerald-500" size={12} />
-        Updated Passed
+        Passed
       </PillStatus>
-      Updated Approval Status
+      Approval Status
     </Pill>
     <Pill>
       #loveui
@@ -37,27 +37,27 @@ const Example = () => (
     </Pill>
     <Pill>
       <PillIndicator pulse variant="success" />
-      Updated Active
+      Active
     </Pill>
     <Pill>
       <PillIndicator variant="error" />
-      Updated Error
+      Error
     </Pill>
     <Pill>
       <PillDelta delta={10} />
-      Updated Up 10%
+      Up 10%
     </Pill>
     <Pill>
       <PillDelta delta={-5} />
-      Updated Down 5%
+      Down 5%
     </Pill>
     <Pill>
       <PillDelta delta={0} />
-      Updated No change
+      No change
     </Pill>
     <Pill>
       <PillIcon icon={UsersIcon} />
-      Updated 17 users
+      17 users
     </Pill>
     <Pill>
       <PillAvatarGroup>
@@ -74,7 +74,7 @@ const Example = () => (
           src="https://pbs.twimg.com/profile_images/1862717563311968256/xfgt1L9l_400x400.jpg"
         />
       </PillAvatarGroup>
-      Updated Loved by millions
+      Loved by millions
     </Pill>
   </div>
 )

@@ -1,5 +1,5 @@
 import { Button } from "@/registry/default/ui/button"
 
 export default function ButtonSm() {
-  return <Button size="sm">Updated Button</Button>
+  return <Button size="sm">Button</Button>
 }

@@ -7,9 +7,9 @@ import {
 export default function AlertDemo() {
   return (
     <Alert>
-      <AlertTitle>Updated Heads up!</AlertTitle>
+      <AlertTitle>Heads up!</AlertTitle>
       <AlertDescription>
-        <p>Updated Describe what can be done about it here.</p>
+        <p>Describe what can be done about it here.</p>
       </AlertDescription>
     </Alert>
   )

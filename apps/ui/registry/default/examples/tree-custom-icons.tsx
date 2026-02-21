@@ -36,7 +36,7 @@ export default function TreeCustomIconsExample() {
               hasChildren
               icon={<Database className="h-4 w-4 text-blue-500" />}
             />
-            <TreeLabel>Updated Database</TreeLabel>
+            <TreeLabel>Database</TreeLabel>
           </TreeNodeTrigger>
           <TreeNodeContent hasChildren>
             <TreeNode level={1} nodeId="users-table">
@@ -46,7 +46,7 @@ export default function TreeCustomIconsExample() {
                   hasChildren
                   icon={<Table className="h-4 w-4 text-green-500" />}
                 />
-                <TreeLabel>Updated Users</TreeLabel>
+                <TreeLabel>Users</TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
                 <TreeNode level={2} nodeId="id-field">
@@ -85,7 +85,7 @@ export default function TreeCustomIconsExample() {
                   hasChildren
                   icon={<Table className="h-4 w-4 text-green-500" />}
                 />
-                <TreeLabel>Updated Roles</TreeLabel>
+                <TreeLabel>Roles</TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
                 <TreeNode level={2} nodeId="admin-role">
@@ -94,7 +94,7 @@ export default function TreeCustomIconsExample() {
                     <TreeIcon
                       icon={<Shield className="h-4 w-4 text-orange-500" />}
                     />
-                    <TreeLabel>Updated Admin</TreeLabel>
+                    <TreeLabel>Admin</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
                 <TreeNode isLast level={2} nodeId="user-role">
@@ -103,7 +103,7 @@ export default function TreeCustomIconsExample() {
                     <TreeIcon
                       icon={<User className="h-4 w-4 text-blue-400" />}
                     />
-                    <TreeLabel>Updated User</TreeLabel>
+                    <TreeLabel>User</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
               </TreeNodeContent>
@@ -117,21 +117,21 @@ export default function TreeCustomIconsExample() {
               hasChildren
               icon={<Server className="h-4 w-4 text-indigo-500" />}
             />
-            <TreeLabel>Updated API</TreeLabel>
+            <TreeLabel>API</TreeLabel>
           </TreeNodeTrigger>
           <TreeNodeContent hasChildren>
             <TreeNode level={1} nodeId="auth-endpoint">
               <TreeNodeTrigger>
                 <TreeExpander />
                 <TreeIcon icon={<Lock className="h-4 w-4 text-red-500" />} />
-                <TreeLabel>Updated Authentication</TreeLabel>
+                <TreeLabel>Authentication</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
             <TreeNode isLast level={1} nodeId="users-endpoint">
               <TreeNodeTrigger>
                 <TreeExpander />
                 <TreeIcon icon={<Users className="h-4 w-4 text-blue-500" />} />
-                <TreeLabel>Updated Users Management</TreeLabel>
+                <TreeLabel>Users Management</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
           </TreeNodeContent>

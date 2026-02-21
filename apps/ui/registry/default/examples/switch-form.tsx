@@ -27,11 +27,11 @@ export default function SwitchFormDemo() {
       <Field name="marketing">
         <FieldLabel>
           <Switch name="marketing" defaultChecked disabled={loading} />
-          Updated Enable marketing emails
+          Enable marketing emails
         </FieldLabel>
       </Field>
       <Button type="submit" disabled={loading}>
-        Updated Submit
+        Submit
       </Button>
     </Form>
   )

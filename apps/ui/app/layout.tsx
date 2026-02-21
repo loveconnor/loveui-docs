@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 
 import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
+import { geistMono, geistSans } from "@/lib/fonts"
 import { SiteHeader } from "@/components/site-header"
 import { ToastProvider } from "@/registry/default/ui/toast"
 import { Toaster } from "@loveui/gooey-toast"
@@ -23,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-sidebar font-sans text-foreground antialiased">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-sidebar font-sans text-foreground antialiased`}
+      >
         <ThemeProvider defaultTheme="dark">
           <ToastProvider>
             <div className="relative flex min-h-svh flex-col overflow-clip [--header-height:4rem] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-sidebar">

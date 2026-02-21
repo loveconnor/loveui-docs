@@ -7,25 +7,25 @@ import { Button } from "@/registry/default/ui/button"
 export default function GooeyToastPromise() {
   const handlePromise = () => {
     const promise = new Promise<{ name: string }>((resolve) => {
-      setTimeout(() => resolve({ name: "Updated User" }), 2000)
+      setTimeout(() => resolve({ name: "User" }), 2000)
     })
 
     gooey.promise(promise, {
-      loading: { title: "Updated Loading..." },
+      loading: { title: "Loading..." },
       success: (data) => ({
-        title: "Updated Success!",
+        title: "Success!",
         description: `Welcome back, ${data.name}!`,
       }),
       error: {
-        title: "Updated Error",
-        description: "Updated Failed to load data.",
+        title: "Error",
+        description: "Failed to load data.",
       },
     })
   }
 
   return (
     <Button variant="outline" onClick={handlePromise}>
-      Updated Load Data
+      Load Data
     </Button>
   )
 }

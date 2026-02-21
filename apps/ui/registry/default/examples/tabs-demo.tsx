@@ -4,23 +4,23 @@ export default function TabsDemo() {
   return (
     <Tabs defaultValue="tab-1">
       <TabsList>
-        <TabsTab value="tab-1">Updated Tab 1</TabsTab>
-        <TabsTab value="tab-2">Updated Tab 2</TabsTab>
-        <TabsTab value="tab-3">Updated Tab 3</TabsTab>
+        <TabsTab value="tab-1">Tab 1</TabsTab>
+        <TabsTab value="tab-2">Tab 2</TabsTab>
+        <TabsTab value="tab-3">Tab 3</TabsTab>
       </TabsList>
       <TabsPanel value="tab-1">
         <p className="p-4 text-center text-xs text-muted-foreground">
-          Updated Tab 1 content
+          Tab 1 content
         </p>
       </TabsPanel>
       <TabsPanel value="tab-2">
         <p className="p-4 text-center text-xs text-muted-foreground">
-          Updated Tab 2 content
+          Tab 2 content
         </p>
       </TabsPanel>
       <TabsPanel value="tab-3">
         <p className="p-4 text-center text-xs text-muted-foreground">
-          Updated Tab 3 content
+          Tab 3 content
         </p>
       </TabsPanel>
     </Tabs>

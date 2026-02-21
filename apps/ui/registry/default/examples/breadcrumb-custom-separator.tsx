@@ -15,18 +15,18 @@ export default function BreadcrumbDemo() {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink render={<Link href="/" />}>
-            Updated Home
+            Home
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator> / </BreadcrumbSeparator>
         <BreadcrumbItem>
           <BreadcrumbLink render={<Link href="/docs/components" />}>
-            Updated Components
+            Components
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator> / </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage>Updated Breadcrumb</BreadcrumbPage>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

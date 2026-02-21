@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback } from "@/registry/default/ui/avatar"
 export default function AvatarFallbackDemo() {
   return (
     <Avatar>
-      <AvatarFallback>Updated LT</AvatarFallback>
+      <AvatarFallback>LT</AvatarFallback>
     </Avatar>
   )
 }

@@ -10,11 +10,11 @@ export default function MenuHoverDemo() {
   return (
     <Menu openOnHover>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Hover me
+        Hover me
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem>Updated Item one</MenuItem>
-        <MenuItem>Updated Item two</MenuItem>
+        <MenuItem>Item one</MenuItem>
+        <MenuItem>Item two</MenuItem>
       </MenuPopup>
     </Menu>
   )

@@ -29,7 +29,7 @@ export default function Component() {
               <ChevronLeftIcon />
             </a>
           </Button>
-          <h1 className="text-sm font-medium">Love UI</h1>
+          <h1 className="text-sm font-medium">LoveUI</h1>
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">

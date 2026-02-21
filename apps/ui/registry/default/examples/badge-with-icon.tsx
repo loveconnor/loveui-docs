@@ -6,7 +6,7 @@ export default function BadgeWithIcon() {
   return (
     <Badge variant="outline">
       <CheckIcon />
-      Updated Verified
+      Verified
     </Badge>
   )
 }

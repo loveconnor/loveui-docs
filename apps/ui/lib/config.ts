@@ -10,7 +10,7 @@ export const appConfig = {
       label: "Docs",
     },
     {
-      href: "/docs/features/avatar-stack",
+      href: "/docs/features",
       label: "Features",
     },
     {

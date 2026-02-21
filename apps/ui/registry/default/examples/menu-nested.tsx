@@ -13,18 +13,18 @@ export default function MenuNestedDemo() {
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Open menu
+        Open menu
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem>Updated Item one</MenuItem>
+        <MenuItem>Item one</MenuItem>
         <MenuSub>
-          <MenuSubTrigger>Updated More</MenuSubTrigger>
+          <MenuSubTrigger>More</MenuSubTrigger>
           <MenuSubPopup>
-            <MenuItem>Updated Sub item A</MenuItem>
-            <MenuItem>Updated Sub item B</MenuItem>
+            <MenuItem>Sub item A</MenuItem>
+            <MenuItem>Sub item B</MenuItem>
           </MenuSubPopup>
         </MenuSub>
-        <MenuItem>Updated Item two</MenuItem>
+        <MenuItem>Item two</MenuItem>
       </MenuPopup>
     </Menu>
   )

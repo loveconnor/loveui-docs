@@ -10,7 +10,7 @@ export default function ProgressWithLabelValueDemo() {
   return (
     <Progress value={60}>
       <div className="flex items-center justify-between gap-2">
-        <ProgressLabel>Updated Export data</ProgressLabel>
+        <ProgressLabel>Export data</ProgressLabel>
         <ProgressValue />
       </div>
       <ProgressTrack>

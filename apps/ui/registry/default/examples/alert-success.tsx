@@ -11,9 +11,9 @@ export default function AlertSuccess() {
   return (
     <Alert variant="success">
       <CircleCheckIcon />
-      <AlertTitle>Updated Heads up!</AlertTitle>
+      <AlertTitle>Heads up!</AlertTitle>
       <AlertDescription>
-        Updated Describe what can be done about it here.
+        Describe what can be done about it here.
       </AlertDescription>
     </Alert>
   )

@@ -22,35 +22,35 @@ export default function TreeNoLinesExample() {
           <TreeNodeTrigger>
             <TreeExpander hasChildren />
             <TreeIcon hasChildren />
-            <TreeLabel>Updated Projects</TreeLabel>
+            <TreeLabel>Projects</TreeLabel>
           </TreeNodeTrigger>
           <TreeNodeContent hasChildren>
             <TreeNode level={1} nodeId="website-redesign">
               <TreeNodeTrigger>
                 <TreeExpander hasChildren />
                 <TreeIcon hasChildren />
-                <TreeLabel>Updated Website Redesign</TreeLabel>
+                <TreeLabel>Website Redesign</TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
                 <TreeNode level={2} nodeId="homepage">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Homepage</TreeLabel>
+                    <TreeLabel>Homepage</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
                 <TreeNode level={2} nodeId="about-page">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated About Page</TreeLabel>
+                    <TreeLabel>About Page</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
                 <TreeNode isLast level={2} nodeId="contact-form">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Contact Form</TreeLabel>
+                    <TreeLabel>Contact Form</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
               </TreeNodeContent>
@@ -59,21 +59,21 @@ export default function TreeNoLinesExample() {
               <TreeNodeTrigger>
                 <TreeExpander hasChildren />
                 <TreeIcon hasChildren />
-                <TreeLabel>Updated Mobile App</TreeLabel>
+                <TreeLabel>Mobile App</TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
                 <TreeNode level={2} nodeId="ios-version">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated iOS Version</TreeLabel>
+                    <TreeLabel>iOS Version</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
                 <TreeNode isLast level={2} nodeId="android-version">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Android Version</TreeLabel>
+                    <TreeLabel>Android Version</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
               </TreeNodeContent>
@@ -84,28 +84,28 @@ export default function TreeNoLinesExample() {
           <TreeNodeTrigger>
             <TreeExpander hasChildren />
             <TreeIcon hasChildren />
-            <TreeLabel>Updated Resources</TreeLabel>
+            <TreeLabel>Resources</TreeLabel>
           </TreeNodeTrigger>
           <TreeNodeContent hasChildren>
             <TreeNode level={1} nodeId="documentation">
               <TreeNodeTrigger>
                 <TreeExpander />
                 <TreeIcon />
-                <TreeLabel>Updated Documentation</TreeLabel>
+                <TreeLabel>Documentation</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
             <TreeNode level={1} nodeId="api-reference">
               <TreeNodeTrigger>
                 <TreeExpander />
                 <TreeIcon />
-                <TreeLabel>Updated API Reference</TreeLabel>
+                <TreeLabel>API Reference</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
             <TreeNode isLast level={1} nodeId="examples">
               <TreeNodeTrigger>
                 <TreeExpander />
                 <TreeIcon />
-                <TreeLabel>Updated Examples</TreeLabel>
+                <TreeLabel>Examples</TreeLabel>
               </TreeNodeTrigger>
             </TreeNode>
           </TreeNodeContent>

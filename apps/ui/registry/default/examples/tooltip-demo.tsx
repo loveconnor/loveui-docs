@@ -9,9 +9,9 @@ export default function TooltipDemo() {
   return (
     <Tooltip>
       <TooltipTrigger render={<Button variant="outline" />}>
-        Updated Hover me
+        Hover me
       </TooltipTrigger>
-      <TooltipPopup>Updated Helpful hint</TooltipPopup>
+      <TooltipPopup>Helpful hint</TooltipPopup>
     </Tooltip>
   )
 }

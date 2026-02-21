@@ -7,8 +7,6 @@
 - [Introduction](https://ui.loveui.dev/ui/docs/index.md): What LoveUI is and why it matters.
 - [Get Started](https://ui.loveui.dev/ui/docs/get-started.md): Ship your first LoveUI screen in minutes.
 - [Styling](https://ui.loveui.dev/ui/docs/styling.md): A guide to styling components with our color system.
-- [Roadmap](https://ui.loveui.dev/ui/docs/roadmap.md): Where LoveUI is today and what we’re building next.
-- [Changelog](https://ui.loveui.dev/ui/docs/changelog.md): Release notes for the LoveUI launch.
 
 ## Components
 
@@ -113,13 +111,8 @@
 - [Shader Ripple](https://ui.loveui.dev/ui/docs/backgrounds/shader-ripple.md): Animated ripple background with customizable colors and effects powered by Three.js shaders.
 - [Silk](https://ui.loveui.dev/ui/docs/backgrounds/silk.md): A smooth, flowing background built with React Three Fiber.
 
-## Sections
-
-- [Codebase](https://ui.loveui.dev/ui/docs/blocks/codebase.md): A codebase block combines a file explorer tree with a code viewer for browsing and viewing source code.
-- [Collaborative Canvas](https://ui.loveui.dev/ui/docs/blocks/collaborative-canvas.md): Create an online, realtime collaborative canvas with LoveUI components.
-- [Roadmap](https://ui.loveui.dev/ui/docs/blocks/roadmap.md): A roadmap block is a large, full-width block that is used to introduce a new product or service.
-
 ## Resources
 
-- [Love UI MCP Server](https://ui.loveui.dev/ui/docs/resources/loveui-mcp-server.md): Serve every Love UI registry definition through the Model Context Protocol.
+- [LoveUI MCP Server](https://ui.loveui.dev/ui/docs/resources/loveui-mcp-server.md): Serve every LoveUI registry definition through the Model Context Protocol.
+- [LoveUI Skills](https://ui.loveui.dev/ui/docs/resources/loveui-skills.md): Production-focused agent skill instructions for building polished LoveUI interfaces.
 - [llms.txt](https://ui.loveui.dev/llms.txt)

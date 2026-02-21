@@ -1,0 +1,36 @@
+---
+title: LoveUI Skills
+description: Production-focused agent skill instructions for building polished LoveUI interfaces.
+---
+
+LoveUI Skills is a reusable skill package for coding agents that need to build high-quality product UI with LoveUI.
+
+It provides concrete rules for visual direction, layout systems, state coverage, and production-ready UX patterns.
+
+## What It Includes
+
+- A structured workflow from scope definition to implementation and quality checks.
+- A design quality bar for typography, spacing, color, component APIs, and responsive behavior.
+- Agent UX requirements for sensitive actions: Plan, Preview, Apply, plus undo and history patterns.
+- Guidance to use LoveUI MCP as the source of truth before selecting packages or components.
+
+## Required MCP Usage
+
+The skill expects the `loveui` MCP server to be available and used during UI work:
+
+- Call `resources/list` to discover available registry items.
+- Call `get-loveui-package` to fetch exact package JSON before implementation.
+- Treat MCP responses as authoritative instead of relying on memory.
+
+## Default Prompt
+
+```text
+Use $loveui-skills to create a beautiful, professional web app/page with LoveUI and production-ready UX quality.
+```
+
+## Skill Source
+
+The full skill definition lives in this repository:
+
+- `packages/loveui-skills/SKILL.md`
+- `packages/loveui-skills/agents/openai.yaml`

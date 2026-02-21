@@ -10,9 +10,9 @@ export default function AlertInfo() {
   return (
     <Alert variant="info">
       <InfoIcon />
-      <AlertTitle>Updated Heads up!</AlertTitle>
+      <AlertTitle>Heads up!</AlertTitle>
       <AlertDescription>
-        Updated Describe what can be done about it here.
+        Describe what can be done about it here.
       </AlertDescription>
     </Alert>
   )

@@ -28,22 +28,22 @@ export default function RadioGroupFormDemo() {
         render={(props) => <Fieldset {...props} />}
       >
         <FieldsetLegend className="text-sm font-medium">
-          Updated Frameworks
+          Frameworks
         </FieldsetLegend>
         <RadioGroup defaultValue="next">
           <FieldLabel>
-            <Radio value="next" disabled={loading} /> Updated Next.js
+            <Radio value="next" disabled={loading} /> Next.js
           </FieldLabel>
           <FieldLabel>
-            <Radio value="vite" disabled={loading} /> Updated Vite
+            <Radio value="vite" disabled={loading} /> Vite
           </FieldLabel>
           <FieldLabel>
-            <Radio value="astro" disabled={loading} /> Updated Astro
+            <Radio value="astro" disabled={loading} /> Astro
           </FieldLabel>
         </RadioGroup>
       </Field>
       <Button type="submit" disabled={loading}>
-        Updated Submit
+        Submit
       </Button>
     </Form>
   )

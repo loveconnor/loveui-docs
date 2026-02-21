@@ -10,9 +10,9 @@ export default function CheckboxWithDescriptionDemo() {
     <div className="flex items-start gap-2">
       <Checkbox id={id} defaultChecked />
       <div className="flex flex-col gap-1">
-        <Label htmlFor={id}>Updated Accept terms and conditions</Label>
+        <Label htmlFor={id}>Accept terms and conditions</Label>
         <p className="text-xs text-muted-foreground">
-          Updated By clicking this checkbox, you agree to the terms and
+          By clicking this checkbox, you agree to the terms and
           conditions.
         </p>
       </div>

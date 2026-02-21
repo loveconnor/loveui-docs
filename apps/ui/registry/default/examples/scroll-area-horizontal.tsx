@@ -9,7 +9,7 @@ export default function ScrollAreaHorizontal() {
             key={i}
             className="flex h-20 w-32 shrink-0 items-center justify-center rounded-md bg-muted"
           >
-            <span className="text-sm font-medium">Updated Item {i + 1}</span>
+            <span className="text-sm font-medium">Item {i + 1}</span>
           </div>
         ))}
       </div>

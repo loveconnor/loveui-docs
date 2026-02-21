@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 import { PAGES_NEW } from "@/lib/docs"
-import blocksMeta from "@/content/docs/blocks/meta.json"
 import backgroundsMeta from "@/content/docs/backgrounds/meta.json"
 import featuresMeta from "@/content/docs/features/meta.json"
 import type { source } from "@/lib/source"
@@ -40,9 +39,6 @@ export function DocsSidebar({
     if (!normalizedPath) return null
     if (normalizedPath.startsWith("/docs/features")) {
       return "/docs/features"
-    }
-    if (normalizedPath.startsWith("/docs/blocks")) {
-      return "/docs/blocks"
     }
     if (normalizedPath.startsWith("/docs/backgrounds")) {
       return "/docs/backgrounds"
@@ -81,9 +77,6 @@ export function DocsSidebar({
   const customSections = React.useMemo(() => {
     if (sectionPrefix === "/docs/features") {
       return buildMetaSections(featuresMeta.pages ?? [], "/docs/features")
-    }
-    if (sectionPrefix === "/docs/blocks") {
-      return buildMetaSections(blocksMeta.pages ?? [], "/docs/blocks")
     }
     if (sectionPrefix === "/docs/backgrounds") {
       return buildMetaSections(backgroundsMeta.pages ?? [], "/docs/backgrounds")

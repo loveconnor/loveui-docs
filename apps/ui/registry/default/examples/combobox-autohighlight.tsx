@@ -10,27 +10,27 @@ import {
 } from "@/registry/default/ui/combobox"
 
 const items = [
-  { value: "apple", label: "Updated Apple" },
-  { value: "banana", label: "Updated Banana" },
-  { value: "orange", label: "Updated Orange" },
-  { value: "grape", label: "Updated Grape" },
-  { value: "strawberry", label: "Updated Strawberry" },
-  { value: "mango", label: "Updated Mango" },
-  { value: "pineapple", label: "Updated Pineapple" },
-  { value: "kiwi", label: "Updated Kiwi" },
-  { value: "peach", label: "Updated Peach" },
-  { value: "pear", label: "Updated Pear" },
+  { value: "apple", label: "Apple" },
+  { value: "banana", label: "Banana" },
+  { value: "orange", label: "Orange" },
+  { value: "grape", label: "Grape" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "mango", label: "Mango" },
+  { value: "pineapple", label: "Pineapple" },
+  { value: "kiwi", label: "Kiwi" },
+  { value: "peach", label: "Peach" },
+  { value: "pear", label: "Pear" },
 ]
 
 export default function ComboboxAutohighlight() {
   return (
     <Combobox items={items} autoHighlight>
       <ComboboxInput
-        placeholder="Updated Select an item..."
-        aria-label="Updated Select an item"
+        placeholder="Select an item..."
+        aria-label="Select an item"
       />
       <ComboboxPopup>
-        <ComboboxEmpty>Updated No results found.</ComboboxEmpty>
+        <ComboboxEmpty>No results found.</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item.value} value={item}>

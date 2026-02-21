@@ -4,8 +4,8 @@ export default function InputSm() {
   return (
     <Input
       size="sm"
-      placeholder="Updated Enter text"
-      aria-label="Updated Enter text"
+      placeholder="Enter text"
+      aria-label="Enter text"
     />
   )
 }

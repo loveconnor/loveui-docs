@@ -15,7 +15,7 @@ const logoToken = process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN
 
 const Example = () => (
   <p>
-    Updated In other autonomous vehicle news, Alphabet-owned{" "}
+    In other autonomous vehicle news, Alphabet-owned{" "}
     <Ticker className="rounded-full bg-muted p-1 pr-2 text-xs">
       {logoToken ? (
         <TickerIcon asChild>
@@ -33,7 +33,7 @@ const Example = () => (
       <TickerPrice price={175.41} />
       <TickerPriceChange change={2.13} />
     </Ticker>{" "}
-    Updated Waymo is looking to bring its robotaxi service to New York.
+    Waymo is looking to bring its robotaxi service to New York.
   </p>
 )
 

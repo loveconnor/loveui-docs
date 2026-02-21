@@ -10,10 +10,10 @@ import {
 export default function FieldWithValidityDemo() {
   return (
     <Field>
-      <FieldLabel>Updated Email</FieldLabel>
+      <FieldLabel>Email</FieldLabel>
       <FieldControl
         type="email"
-        placeholder="Updated Enter your email"
+        placeholder="Enter your email"
         required
       />
       <FieldValidity>

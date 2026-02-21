@@ -9,8 +9,7 @@ export function WordmarkIcon({ className }: { className?: string }) {
         className
       )}
     >
-      <span className="font-semibold">love</span>{" "}
-      <span className="text-muted-foreground">ui</span>
+      <span className="font-bold">LoveUI</span>
     </span>
   );
 }

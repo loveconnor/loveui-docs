@@ -5,7 +5,7 @@ export default function CheckboxDemo() {
   return (
     <Label>
       <Checkbox />
-      Updated Accept terms and conditions
+      Accept terms and conditions
     </Label>
   )
 }

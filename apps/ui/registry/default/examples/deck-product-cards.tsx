@@ -16,40 +16,40 @@ import { Badge } from "../../../../../packages/ui/src/ui/badge"
 const products = [
   {
     id: 1,
-    name: "Updated Wireless Headphones",
+    name: "Wireless Headphones",
     price: "$199",
     rating: 4.5,
     image: "https://placehold.co/400x300/ff6b6b/fff?text=Headphones",
     category: "Electronics",
-    description: "Updated Premium wireless headphones with noise cancellation",
+    description: "Premium wireless headphones with noise cancellation",
   },
   {
     id: 2,
-    name: "Updated Smart Watch",
+    name: "Smart Watch",
     price: "$299",
     rating: 4.8,
     image: "https://placehold.co/400x300/4ecdc4/fff?text=Watch",
     category: "Wearables",
-    description: "Updated Feature-rich smartwatch with health tracking",
+    description: "Feature-rich smartwatch with health tracking",
   },
   {
     id: 3,
-    name: "Updated Coffee Maker",
+    name: "Coffee Maker",
     price: "$149",
     rating: 4.3,
     image: "https://placehold.co/400x300/45b7d1/fff?text=Coffee",
     category: "Kitchen",
-    description: "Updated Programmable coffee maker with built-in grinder",
+    description: "Programmable coffee maker with built-in grinder",
   },
   {
     id: 4,
-    name: "Updated Laptop Stand",
+    name: "Laptop Stand",
     price: "$79",
     rating: 4.6,
     image: "https://placehold.co/400x300/96ceb4/fff?text=Stand",
     category: "Accessories",
     description:
-      "Updated Adjustable aluminum laptop stand for better ergonomics",
+      "Adjustable aluminum laptop stand for better ergonomics",
   },
 ]
 

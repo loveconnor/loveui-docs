@@ -21,7 +21,7 @@ const stories = [
     fallback: "CL",
     preview:
       "https://images.unsplash.com/photo-1753731683731-1032f9457b02?w=1636&fit=crop",
-    title: "Updated Mountain Adventure",
+    title: "Mountain Adventure",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const stories = [
     fallback: "MO",
     preview:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=533&fit=crop",
-    title: "Updated Ocean Waves",
+    title: "Ocean Waves",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const stories = [
     fallback: "N",
     preview:
       "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=533&fit=crop",
-    title: "Updated Forest Trail",
+    title: "Forest Trail",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const stories = [
     fallback: "TY",
     preview:
       "https://images.unsplash.com/photo-1541336032412-2048a678540d?w=300&h=533&fit=crop",
-    title: "Updated City Lights",
+    title: "City Lights",
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ const stories = [
     fallback: "OW",
     preview:
       "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=300&fit=crop",
-    title: "Updated Desert Road",
+    title: "Desert Road",
   },
 ]
 

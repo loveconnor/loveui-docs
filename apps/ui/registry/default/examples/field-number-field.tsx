@@ -12,7 +12,7 @@ export default function FieldNumberFieldDemo() {
   return (
     <Field>
       <NumberField defaultValue={1} min={1} max={100}>
-        <NumberFieldScrubArea label="Updated Quantity" />
+        <NumberFieldScrubArea label="Quantity" />
         <NumberFieldGroup>
           <NumberFieldDecrement />
           <NumberFieldInput />
@@ -20,7 +20,7 @@ export default function FieldNumberFieldDemo() {
         </NumberFieldGroup>
       </NumberField>
       <FieldDescription>
-        Updated Choose a value between 1 and 100.
+        Choose a value between 1 and 100.
       </FieldDescription>
     </Field>
   )

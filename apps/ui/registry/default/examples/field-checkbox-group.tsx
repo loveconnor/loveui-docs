@@ -17,21 +17,21 @@ export default function FieldCheckboxGroupDemo() {
       render={(props) => <Fieldset {...props} />}
     >
       <FieldsetLegend className="text-sm font-medium">
-        Updated Frameworks
+        Frameworks
       </FieldsetLegend>
       <CheckboxGroup defaultValue={["react"]}>
         <FieldLabel>
-          <Checkbox value="react" /> Updated React
+          <Checkbox value="react" /> React
         </FieldLabel>
         <FieldLabel>
-          <Checkbox value="vue" /> Updated Vue
+          <Checkbox value="vue" /> Vue
         </FieldLabel>
         <FieldLabel>
-          <Checkbox value="svelte" /> Updated Svelte
+          <Checkbox value="svelte" /> Svelte
         </FieldLabel>
       </CheckboxGroup>
       <FieldDescription>
-        Updated Select one or more frameworks.
+        Select one or more frameworks.
       </FieldDescription>
     </Field>
   )

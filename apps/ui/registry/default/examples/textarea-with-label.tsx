@@ -7,8 +7,8 @@ export default function TextareaWithLabel() {
   const id = useId()
   return (
     <div className="flex flex-col items-start gap-2">
-      <Label htmlFor={id}>Updated Message</Label>
-      <Textarea id={id} placeholder="Updated Type your message here" />
+      <Label htmlFor={id}>Message</Label>
+      <Textarea id={id} placeholder="Type your message here" />
     </div>
   )
 }

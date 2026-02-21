@@ -141,7 +141,7 @@ export default function TreeExample() {
           <TreeNodeTrigger>
             <TreeExpander />
             <TreeIcon icon={<FileText className="h-4 w-4" />} />
-            <TreeLabel>Updated README.md</TreeLabel>
+            <TreeLabel>README.md</TreeLabel>
           </TreeNodeTrigger>
         </TreeNode>
       </TreeView>

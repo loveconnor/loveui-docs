@@ -19,28 +19,28 @@ export default function TreeSimpleExample() {
           <TreeNodeTrigger>
             <TreeExpander hasChildren />
             <TreeIcon hasChildren />
-            <TreeLabel>Updated Documents</TreeLabel>
+            <TreeLabel>Documents</TreeLabel>
           </TreeNodeTrigger>
           <TreeNodeContent hasChildren>
             <TreeNode level={1} nodeId="work">
               <TreeNodeTrigger>
                 <TreeExpander hasChildren />
                 <TreeIcon hasChildren />
-                <TreeLabel>Updated Work</TreeLabel>
+                <TreeLabel>Work</TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
                 <TreeNode level={2} nodeId="project-a">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Project A.pdf</TreeLabel>
+                    <TreeLabel>Project A.pdf</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
                 <TreeNode isLast level={2} nodeId="project-b">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Project B.pdf</TreeLabel>
+                    <TreeLabel>Project B.pdf</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
               </TreeNodeContent>
@@ -49,21 +49,21 @@ export default function TreeSimpleExample() {
               <TreeNodeTrigger>
                 <TreeExpander hasChildren />
                 <TreeIcon hasChildren />
-                <TreeLabel>Updated Personal</TreeLabel>
+                <TreeLabel>Personal</TreeLabel>
               </TreeNodeTrigger>
               <TreeNodeContent hasChildren>
                 <TreeNode level={2} nodeId="resume">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Resume.docx</TreeLabel>
+                    <TreeLabel>Resume.docx</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
                 <TreeNode isLast level={2} nodeId="cover-letter">
                   <TreeNodeTrigger>
                     <TreeExpander />
                     <TreeIcon />
-                    <TreeLabel>Updated Cover Letter.docx</TreeLabel>
+                    <TreeLabel>Cover Letter.docx</TreeLabel>
                   </TreeNodeTrigger>
                 </TreeNode>
               </TreeNodeContent>
@@ -74,7 +74,7 @@ export default function TreeSimpleExample() {
           <TreeNodeTrigger>
             <TreeExpander hasChildren />
             <TreeIcon hasChildren />
-            <TreeLabel>Updated Downloads</TreeLabel>
+            <TreeLabel>Downloads</TreeLabel>
           </TreeNodeTrigger>
           <TreeNodeContent hasChildren>
             <TreeNode level={1} nodeId="installer">

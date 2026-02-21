@@ -9,12 +9,12 @@ export default function ToastDemo() {
       variant="outline"
       onClick={() => {
         toastManager.add({
-          title: "Updated Event has been created",
-          description: "Updated Monday, January 3rd at 6:00pm",
+          title: "Event has been created",
+          description: "Monday, January 3rd at 6:00pm",
         })
       }}
     >
-      Updated Default Toast
+      Default Toast
     </Button>
   )
 }

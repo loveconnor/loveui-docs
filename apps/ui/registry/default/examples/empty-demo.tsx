@@ -17,17 +17,17 @@ export default function EmptyDemo() {
         <EmptyMedia variant="icon">
           <RouteIcon />
         </EmptyMedia>
-        <EmptyTitle>Updated No upcoming meetings</EmptyTitle>
+        <EmptyTitle>No upcoming meetings</EmptyTitle>
         <EmptyDescription>
-          Updated Create a meeting to get started.
+          Create a meeting to get started.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <div className="flex gap-2">
-          <Button size="sm">Updated Create meeting</Button>
+          <Button size="sm">Create meeting</Button>
           <Button variant="outline" size="sm">
             <BookIcon className="opacity-72" />
-            Updated View docs
+            View docs
           </Button>
         </div>
       </EmptyContent>

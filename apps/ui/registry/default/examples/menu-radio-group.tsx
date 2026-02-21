@@ -11,13 +11,13 @@ export default function MenuRadioGroupDemo() {
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Open menu
+        Open menu
       </MenuTrigger>
       <MenuPopup>
         <MenuRadioGroup defaultValue="system">
-          <MenuRadioItem value="light">Updated Light</MenuRadioItem>
-          <MenuRadioItem value="dark">Updated Dark</MenuRadioItem>
-          <MenuRadioItem value="system">Updated System</MenuRadioItem>
+          <MenuRadioItem value="light">Light</MenuRadioItem>
+          <MenuRadioItem value="dark">Dark</MenuRadioItem>
+          <MenuRadioItem value="system">System</MenuRadioItem>
         </MenuRadioGroup>
       </MenuPopup>
     </Menu>

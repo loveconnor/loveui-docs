@@ -13,16 +13,16 @@ import {
 import { Label } from "@/registry/default/ui/label"
 
 const items = [
-  { value: "apple", label: "Updated Apple" },
-  { value: "banana", label: "Updated Banana" },
-  { value: "orange", label: "Updated Orange" },
-  { value: "grape", label: "Updated Grape" },
-  { value: "strawberry", label: "Updated Strawberry" },
-  { value: "mango", label: "Updated Mango" },
-  { value: "pineapple", label: "Updated Pineapple" },
-  { value: "kiwi", label: "Updated Kiwi" },
-  { value: "peach", label: "Updated Peach" },
-  { value: "pear", label: "Updated Pear" },
+  { value: "apple", label: "Apple" },
+  { value: "banana", label: "Banana" },
+  { value: "orange", label: "Orange" },
+  { value: "grape", label: "Grape" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "mango", label: "Mango" },
+  { value: "pineapple", label: "Pineapple" },
+  { value: "kiwi", label: "Kiwi" },
+  { value: "peach", label: "Peach" },
+  { value: "pear", label: "Pear" },
 ]
 
 export default function ComboboxWithLabel() {
@@ -30,15 +30,15 @@ export default function ComboboxWithLabel() {
   return (
     <Combobox items={items}>
       <div className="flex flex-col items-start gap-2">
-        <Label htmlFor={id}>Updated Fruits</Label>
+        <Label htmlFor={id}>Fruits</Label>
         <ComboboxInput
           id={id}
-          placeholder="Updated Select an item..."
-          aria-label="Updated Select an item"
+          placeholder="Select an item..."
+          aria-label="Select an item"
         />
       </div>
       <ComboboxPopup>
-        <ComboboxEmpty>Updated No results found.</ComboboxEmpty>
+        <ComboboxEmpty>No results found.</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item.value} value={item}>

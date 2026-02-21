@@ -24,13 +24,13 @@ import {
 const plans = [
   {
     id: "hobby",
-    name: "Updated Hobby",
+    name: "Hobby",
     price: {
       monthly: "Free forever",
       yearly: "Free forever",
     },
     description:
-      "Updated The perfect starting place for your web app or personal project.",
+      "The perfect starting place for your web app or personal project.",
     features: [
       "50 API calls / month",
       "60 second checks",
@@ -42,13 +42,13 @@ const plans = [
   },
   {
     id: "pro",
-    name: "Updated Pro",
+    name: "Pro",
     price: {
       monthly: 90,
       yearly: 75,
     },
     description:
-      "Updated Everything you need to build and scale your business.",
+      "Everything you need to build and scale your business.",
     features: [
       "Unlimited API calls",
       "30 second checks",
@@ -61,13 +61,13 @@ const plans = [
   },
   {
     id: "enterprise",
-    name: "Updated Enterprise",
+    name: "Enterprise",
     price: {
       monthly: "Get in touch for pricing",
       yearly: "Get in touch for pricing",
     },
     description:
-      "Updated Critical security, performance, observability and support.",
+      "Critical security, performance, observability and support.",
     features: [
       "You can DDOS our API.",
       "Nano-second checks.",
@@ -86,18 +86,18 @@ const Example = () => {
     <div className="not-prose @container flex flex-col gap-16 px-8 py-24 text-center">
       <div className="flex flex-col items-center justify-center gap-8">
         <h1 className="mb-0 text-5xl font-medium tracking-tighter! text-balance">
-          Updated Simple, transparent pricing
+          Simple, transparent pricing
         </h1>
         <p className="mx-auto mt-0 mb-0 max-w-2xl text-lg text-balance text-muted-foreground">
-          Updated Managing a business is hard enough, so why not make your life
+          Managing a business is hard enough, so why not make your life
           easier? Our pricing plans are simple, transparent and scale with you.
         </p>
         <Tabs defaultValue={frequency} onValueChange={setFrequency}>
           <TabsList>
-            <TabsTrigger value="monthly">Updated Monthly</TabsTrigger>
+            <TabsTrigger value="monthly">Monthly</TabsTrigger>
             <TabsTrigger value="yearly">
-              Updated Yearly
-              <Badge variant="secondary">Updated 20% off</Badge>
+              Yearly
+              <Badge variant="secondary">20% off</Badge>
             </TabsTrigger>
           </TabsList>
         </Tabs>
@@ -112,7 +112,7 @@ const Example = () => {
             >
               {plan.popular && (
                 <Badge className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full">
-                  Updated Popular
+                  Popular
                 </Badge>
               )}
               <CardHeader>

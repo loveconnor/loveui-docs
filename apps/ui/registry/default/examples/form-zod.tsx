@@ -13,10 +13,10 @@ import {
 import { Form } from "@/registry/default/ui/form"
 
 const schema = z.object({
-  name: z.string().min(1, { message: "Updated Please enter a name." }),
+  name: z.string().min(1, { message: "Please enter a name." }),
   age: z.coerce
-    .number({ message: "Updated Please enter a number." })
-    .positive({ message: "Updated Number must be positive." }),
+    .number({ message: "Please enter a number." })
+    .positive({ message: "Number must be positive." }),
 })
 
 type Errors = Record<string, string | string[]>
@@ -67,17 +67,17 @@ export default function FormZodDemo() {
       onSubmit={onSubmit}
     >
       <Field name="name">
-        <FieldLabel>Updated Name</FieldLabel>
-        <FieldControl placeholder="Updated Enter name" disabled={loading} />
+        <FieldLabel>Name</FieldLabel>
+        <FieldControl placeholder="Enter name" disabled={loading} />
         <FieldError />
       </Field>
       <Field name="age">
-        <FieldLabel>Updated Age</FieldLabel>
-        <FieldControl placeholder="Updated Enter age" disabled={loading} />
+        <FieldLabel>Age</FieldLabel>
+        <FieldControl placeholder="Enter age" disabled={loading} />
         <FieldError />
       </Field>
       <Button type="submit" disabled={loading}>
-        Updated Submit
+        Submit
       </Button>
     </Form>
   )

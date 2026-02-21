@@ -5,7 +5,7 @@ export default function SwitchWithLabel() {
   return (
     <Label>
       <Switch disabled />
-      Updated Marketing emails
+      Marketing emails
     </Label>
   )
 }

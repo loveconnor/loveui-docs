@@ -25,20 +25,87 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { cn } from "@/lib/utils";
 
 export type SandboxProviderProps = SandpackProviderProps;
 
+const DARK_HTML = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Sandpack</title>
+  <style>html,body{background:#151515;color:#e1e4e8;margin:0}</style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="index.js"></script>
+</body>
+</html>`;
+
+const LIGHT_HTML = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Sandpack</title>
+  <style>html,body{margin:0}</style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="index.js"></script>
+</body>
+</html>`;
+
 export const SandboxProvider = ({
   className,
+  theme,
+  files,
   ...props
-}: SandpackProviderProps): ReactNode => (
-  <div className={cn("size-full", className)}>
-    <SandpackProvider className="!size-full !max-h-none" {...props} />
-  </div>
-);
+}: SandpackProviderProps): ReactNode => {
+  const [resolvedTheme, setResolvedTheme] = useState<"dark" | "light">(
+    typeof document !== "undefined" &&
+    document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light"
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const observer = new MutationObserver(() => {
+      setResolvedTheme(root.classList.contains("dark") ? "dark" : "light");
+    });
+    observer.observe(root, { attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const mergedFiles = useMemo(() => {
+    const userFiles = files as Record<string, unknown> | undefined;
+    const hasUserHtml = userFiles?.["/index.html"] ?? userFiles?.["index.html"];
+    if (hasUserHtml) return files;
+    return {
+      "/index.html": {
+        code: resolvedTheme === "dark" ? DARK_HTML : LIGHT_HTML,
+        hidden: true,
+      },
+      ...files,
+    };
+  }, [resolvedTheme, files]);
+
+  return (
+    <div className={cn("size-full", className)}>
+      <SandpackProvider
+        className="!size-full !max-h-none"
+        theme={theme ?? resolvedTheme}
+        files={mergedFiles}
+        {...props}
+      />
+    </div>
+  );
+};
 
 export type SandboxLayoutProps = SandpackLayoutProps;
 

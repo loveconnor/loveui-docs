@@ -19,10 +19,10 @@ import {
 } from "@/registry/default/ui/select"
 
 const items = [
-  { label: "Updated Select a framework", value: null },
-  { label: "Updated Next.js", value: "next" },
-  { label: "Updated Vite", value: "vite" },
-  { label: "Updated Astro", value: "astro" },
+  { label: "Select a framework", value: null },
+  { label: "Next.js", value: "next" },
+  { label: "Vite", value: "vite" },
+  { label: "Astro", value: "astro" },
 ]
 
 export default function SelectForm() {
@@ -39,7 +39,7 @@ export default function SelectForm() {
   return (
     <Form onSubmit={onSubmit} className="max-w-64">
       <Field>
-        <FieldLabel>Updated Framework</FieldLabel>
+        <FieldLabel>Framework</FieldLabel>
         <Select name="framework" items={items} disabled={loading} required>
           <SelectTrigger>
             <SelectValue />
@@ -52,12 +52,12 @@ export default function SelectForm() {
             ))}
           </SelectPopup>
         </Select>
-        <FieldDescription>Updated Pick your favorite.</FieldDescription>
-        <FieldError>Updated Please select a value.</FieldError>
+        <FieldDescription>Pick your favorite.</FieldDescription>
+        <FieldError>Please select a value.</FieldError>
       </Field>
 
       <Button type="submit" disabled={loading}>
-        Updated Submit
+        Submit
       </Button>
     </Form>
   )

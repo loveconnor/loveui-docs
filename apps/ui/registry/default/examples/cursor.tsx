@@ -14,7 +14,7 @@ const Example = () => (
       <CursorPointer className="text-emerald-500" />
       <CursorBody className="bg-emerald-50 text-emerald-700">
         <CursorName>@loveconnor</CursorName>
-        <CursorMessage>Updated Can we change the color?</CursorMessage>
+        <CursorMessage>Can we change the color?</CursorMessage>
       </CursorBody>
     </Cursor>
     <Cursor className="absolute top-48 right-32">
@@ -22,7 +22,7 @@ const Example = () => (
       <CursorBody className="bg-rose-50 text-rose-700">
         <CursorName>@monster0506</CursorName>
         <CursorMessage>
-          Updated I'm not sure if this is working...
+          I'm not sure if this is working...
         </CursorMessage>
       </CursorBody>
     </Cursor>
@@ -30,7 +30,7 @@ const Example = () => (
       <CursorPointer className="text-sky-500" />
       <CursorBody className="bg-sky-50 text-sky-700">
         <CursorName>@clove</CursorName>
-        <CursorMessage>Updated What is this?</CursorMessage>
+        <CursorMessage>What is this?</CursorMessage>
       </CursorBody>
     </Cursor>
   </>

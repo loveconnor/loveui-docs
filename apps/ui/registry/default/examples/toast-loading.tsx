@@ -9,13 +9,13 @@ export default function ToastLoading() {
       variant="outline"
       onClick={() => {
         toastManager.add({
-          title: "Updated Loading…",
-          description: "Updated Please wait while we process your request.",
+          title: "Loading…",
+          description: "Please wait while we process your request.",
           type: "loading",
         })
       }}
     >
-      Updated Loading Toast
+      Loading Toast
     </Button>
   )
 }

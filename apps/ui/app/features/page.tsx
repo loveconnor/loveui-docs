@@ -122,29 +122,15 @@ const SECTION_CONFIG: Array<{
       false,
   },
   {
-    id: "finance",
-    title: "Finance features",
-    description:
-      "Composable UI for cards and market data that keep financial products on-brand.",
-    filter: (example) =>
-      example.categories?.includes("finance") ||
-      example.registryDependencies?.some((dependency) =>
-        ["@loveui/credit-card", "@loveui/ticker"].includes(dependency)
-      ) ||
-      false,
-  },
-  {
     id: "social",
     title: "Social features",
     description:
-      "Swipeable decks, stories, and reels that mirror social media interaction patterns.",
+      "Swipeable decks and video players that mirror social media interaction patterns.",
     filter: (example) =>
       example.categories?.includes("social") ||
       example.registryDependencies?.some((dependency) =>
         [
           "@loveui/deck",
-          "@loveui/reel",
-          "@loveui/stories",
           "@loveui/video-player",
         ].includes(dependency)
       ) ||

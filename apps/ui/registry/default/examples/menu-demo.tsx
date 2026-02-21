@@ -28,72 +28,72 @@ export default function MenuDemo() {
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Open menu
+        Open menu
       </MenuTrigger>
       <MenuPopup>
         <MenuGroup>
-          <MenuGroupLabel>Updated Playback</MenuGroupLabel>
+          <MenuGroupLabel>Playback</MenuGroupLabel>
           <MenuItem>
             <PlayIcon className="opacity-72" />
-            Updated Play
-            <MenuShortcut>Updated ⌘P</MenuShortcut>
+            Play
+            <MenuShortcut>⌘P</MenuShortcut>
           </MenuItem>
           <MenuItem disabled>
             <PauseIcon className="opacity-72" />
-            Updated Pause
-            <MenuShortcut>Updated ⇧⌘P</MenuShortcut>
+            Pause
+            <MenuShortcut>⇧⌘P</MenuShortcut>
           </MenuItem>
           <MenuItem>
             <SkipBackIcon className="opacity-72" />
-            Updated Previous
+            Previous
             <MenuShortcut>⌘[</MenuShortcut>
           </MenuItem>
           <MenuItem>
             <SkipForwardIcon className="opacity-72" />
-            Updated Next
+            Next
             <MenuShortcut>⌘]</MenuShortcut>
           </MenuItem>
         </MenuGroup>
         <MenuSeparator />
-        <MenuCheckboxItem>Updated Shuffle</MenuCheckboxItem>
-        <MenuCheckboxItem>Updated Repeat</MenuCheckboxItem>
-        <MenuCheckboxItem disabled>Updated Enhanced Audio</MenuCheckboxItem>
+        <MenuCheckboxItem>Shuffle</MenuCheckboxItem>
+        <MenuCheckboxItem>Repeat</MenuCheckboxItem>
+        <MenuCheckboxItem disabled>Enhanced Audio</MenuCheckboxItem>
         <MenuSeparator />
         <MenuGroup>
-          <MenuGroupLabel>Updated Sort by</MenuGroupLabel>
+          <MenuGroupLabel>Sort by</MenuGroupLabel>
           <MenuRadioGroup>
-            <MenuRadioItem value="artist">Updated Artist</MenuRadioItem>
-            <MenuRadioItem value="album">Updated Album</MenuRadioItem>
-            <MenuRadioItem value="title">Updated Title</MenuRadioItem>
+            <MenuRadioItem value="artist">Artist</MenuRadioItem>
+            <MenuRadioItem value="album">Album</MenuRadioItem>
+            <MenuRadioItem value="title">Title</MenuRadioItem>
           </MenuRadioGroup>
         </MenuGroup>
         <MenuSeparator />
         <MenuSub>
-          <MenuSubTrigger>Updated Add to Playlist</MenuSubTrigger>
+          <MenuSubTrigger>Add to Playlist</MenuSubTrigger>
           <MenuSubPopup>
-            <MenuItem>Updated Jazz</MenuItem>
+            <MenuItem>Jazz</MenuItem>
             <MenuSub>
-              <MenuSubTrigger>Updated Rock</MenuSubTrigger>
+              <MenuSubTrigger>Rock</MenuSubTrigger>
               <MenuSubPopup>
-                <MenuItem>Updated Hard Rock</MenuItem>
-                <MenuItem>Updated Soft Rock</MenuItem>
-                <MenuItem>Updated Classic Rock</MenuItem>
+                <MenuItem>Hard Rock</MenuItem>
+                <MenuItem>Soft Rock</MenuItem>
+                <MenuItem>Classic Rock</MenuItem>
                 <MenuSeparator />
-                <MenuItem>Updated Metal</MenuItem>
-                <MenuItem>Updated Punk</MenuItem>
-                <MenuItem>Updated Grunge</MenuItem>
-                <MenuItem>Updated Alternative</MenuItem>
-                <MenuItem>Updated Indie</MenuItem>
-                <MenuItem>Updated Electronic</MenuItem>
+                <MenuItem>Metal</MenuItem>
+                <MenuItem>Punk</MenuItem>
+                <MenuItem>Grunge</MenuItem>
+                <MenuItem>Alternative</MenuItem>
+                <MenuItem>Indie</MenuItem>
+                <MenuItem>Electronic</MenuItem>
               </MenuSubPopup>
             </MenuSub>
-            <MenuItem>Updated Pop</MenuItem>
+            <MenuItem>Pop</MenuItem>
           </MenuSubPopup>
         </MenuSub>
         <MenuSeparator />
         <MenuItem variant="destructive">
           <TrashIcon />
-          Updated Delete
+          Delete
           <MenuShortcut>⌘⌫</MenuShortcut>
         </MenuItem>
       </MenuPopup>

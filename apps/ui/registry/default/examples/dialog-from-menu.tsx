@@ -25,25 +25,25 @@ export default function DialogFromMenuDemo() {
     <>
       <Menu>
         <MenuTrigger render={<Button variant="outline" />}>
-          Updated Open menu
+          Open menu
         </MenuTrigger>
         <MenuPopup align="start">
           <MenuItem onClick={() => setDialogOpen(true)}>
-            Updated Open dialog
+            Open dialog
           </MenuItem>
         </MenuPopup>
       </Menu>
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogPopup>
           <DialogHeader>
-            <DialogTitle>Updated Settings</DialogTitle>
+            <DialogTitle>Settings</DialogTitle>
             <DialogDescription>
-              Updated Change your preferences
+              Change your preferences
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <DialogClose render={<Button variant="ghost" />}>
-              Updated Close
+              Close
             </DialogClose>
           </DialogFooter>
         </DialogPopup>

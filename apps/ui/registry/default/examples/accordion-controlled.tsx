@@ -17,25 +17,25 @@ export default function AccordionControlledDemo() {
     <div className="flex w-full flex-col gap-4">
       <Accordion className="w-full" value={value} onValueChange={setValue}>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Updated What is Base UI?</AccordionTrigger>
+          <AccordionTrigger>What is Base UI?</AccordionTrigger>
           <AccordionPanel>
-            Updated Base UI is a library of high-quality unstyled React
+            Base UI is a library of high-quality unstyled React
             components for design systems and web apps.
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem value="item-2">
-          <AccordionTrigger>Updated How do I get started?</AccordionTrigger>
+          <AccordionTrigger>How do I get started?</AccordionTrigger>
           <AccordionPanel>
-            Updated Head to the "Quick start" guide in the docs. If you've used
+            Head to the "Quick start" guide in the docs. If you've used
             unstyled libraries before, you'll feel at home.
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem value="item-3">
           <AccordionTrigger>
-            Updated Can I use it for my project?
+            Can I use it for my project?
           </AccordionTrigger>
           <AccordionPanel>
-            Updated Of course! Base UI is free and open source.
+            Of course! Base UI is free and open source.
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -45,10 +45,10 @@ export default function AccordionControlledDemo() {
           variant="outline"
           onClick={() => setValue(["item-1", "item-2"])}
         >
-          Updated Open First Two
+          Open First Two
         </Button>
         <p className="text-sm text-muted-foreground">
-          Updated Open items: {value.length > 0 ? value.join(", ") : "None"}
+          Open items: {value.length > 0 ? value.join(", ") : "None"}
         </p>
       </div>
     </div>

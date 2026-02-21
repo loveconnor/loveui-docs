@@ -51,7 +51,7 @@ const Example = () => (
         {({ totalCount, year }) => (
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">
-              Updated Year {year}:
+              Year {year}:
             </span>
             <Badge variant="secondary">
               {totalCount.toLocaleString()} contributions
@@ -69,7 +69,7 @@ const Example = () => (
               className={`h-full w-full rounded-sm border border-border ${level === 0 ? "bg-muted" : ""} ${level === 1 ? "bg-emerald-200 dark:bg-emerald-900" : ""} ${level === 2 ? "bg-emerald-400 dark:bg-emerald-700" : ""} ${level === 3 ? "bg-emerald-600 dark:bg-emerald-500" : ""} ${level === 4 ? "bg-emerald-800 dark:bg-emerald-300" : ""} `}
             />
             <span className="absolute -top-8 hidden rounded bg-popover px-2 py-1 text-xs text-popover-foreground shadow-md group-hover:block">
-              Updated Level {level}
+              Level {level}
             </span>
           </div>
         )}

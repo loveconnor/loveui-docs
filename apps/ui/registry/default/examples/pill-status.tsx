@@ -8,9 +8,9 @@ const Example = () => (
   <Pill>
     <PillStatus>
       <CheckCircleIcon className="text-emerald-500" size={12} />
-      Updated Passed
+      Passed
     </PillStatus>
-    Updated Approval Status
+    Approval Status
   </Pill>
 )
 

@@ -13,7 +13,7 @@ export default function NumberFieldWithLabel() {
   const id = React.useId()
   return (
     <div className="flex flex-col items-start gap-2">
-      <Label htmlFor={id}>Updated Quantity</Label>
+      <Label htmlFor={id}>Quantity</Label>
       <NumberField id={id} defaultValue={0}>
         <NumberFieldGroup>
           <NumberFieldDecrement />

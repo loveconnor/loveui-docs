@@ -7,9 +7,9 @@ export default function InputWithButton() {
       <Input
         type="email"
         placeholder="you@example.com"
-        aria-label="Updated Email"
+        aria-label="Email"
       />
-      <Button variant="outline">Updated Send</Button>
+      <Button variant="outline">Send</Button>
     </div>
   )
 }

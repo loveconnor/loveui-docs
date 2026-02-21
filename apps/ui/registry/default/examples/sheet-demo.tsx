@@ -20,26 +20,26 @@ export default function DialogDemo() {
       <SheetTrigger
         render={(props) => (
           <Button {...props} variant="outline">
-            Updated Open Sheet
+            Open Sheet
           </Button>
         )}
       />
       <SheetPopup>
         <Form>
           <SheetHeader>
-            <SheetTitle>Updated Edit profile</SheetTitle>
+            <SheetTitle>Edit profile</SheetTitle>
             <SheetDescription>
-              Updated Make changes to your profile here. Click save when
+              Make changes to your profile here. Click save when
               you&apos;re done.
             </SheetDescription>
           </SheetHeader>
           <div className="flex flex-col gap-4 px-4">
             <Field>
-              <FieldLabel>Updated Name</FieldLabel>
+              <FieldLabel>Name</FieldLabel>
               <FieldControl type="text" defaultValue="Connor Love" />
             </Field>
             <Field>
-              <FieldLabel>Updated Username</FieldLabel>
+              <FieldLabel>Username</FieldLabel>
               <FieldControl type="text" defaultValue="@loveconnor" />
             </Field>
           </div>
@@ -47,11 +47,11 @@ export default function DialogDemo() {
             <SheetClose
               render={(props) => (
                 <Button {...props} variant="ghost">
-                  Updated Cancel
+                  Cancel
                 </Button>
               )}
             />
-            <Button type="submit">Updated Save</Button>
+            <Button type="submit">Save</Button>
           </SheetFooter>
         </Form>
       </SheetPopup>

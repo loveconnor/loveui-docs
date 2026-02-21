@@ -44,21 +44,21 @@ export default function FieldCompleteFormDemo() {
     <Form onSubmit={onSubmit}>
       <Field>
         <FieldLabel>
-          Updated Full Name <span className="text-destructive">*</span>
+          Full Name <span className="text-destructive">*</span>
         </FieldLabel>
         <FieldControl
           name="fullName"
           type="text"
-          placeholder="Updated John Doe"
+          placeholder="John Doe"
           disabled={loading}
           required
         />
-        <FieldError>Updated Please enter a valid name.</FieldError>
+        <FieldError>Please enter a valid name.</FieldError>
       </Field>
 
       <Field>
         <FieldLabel>
-          Updated Email <span className="text-destructive">*</span>
+          Email <span className="text-destructive">*</span>
         </FieldLabel>
         <FieldControl
           name="email"
@@ -67,19 +67,19 @@ export default function FieldCompleteFormDemo() {
           disabled={loading}
           required
         />
-        <FieldError>Updated Please enter a valid email.</FieldError>
+        <FieldError>Please enter a valid email.</FieldError>
       </Field>
 
       <Field>
-        <FieldLabel>Updated Role</FieldLabel>
+        <FieldLabel>Role</FieldLabel>
         <Select
           name="role"
           items={[
-            { label: "Updated Select your role", value: null },
-            { label: "Updated Developer", value: "developer" },
-            { label: "Updated Designer", value: "designer" },
-            { label: "Updated Product Manager", value: "manager" },
-            { label: "Updated Other", value: "other" },
+            { label: "Select your role", value: null },
+            { label: "Developer", value: "developer" },
+            { label: "Designer", value: "designer" },
+            { label: "Product Manager", value: "manager" },
+            { label: "Other", value: "other" },
           ]}
           disabled={loading}
         >
@@ -87,26 +87,26 @@ export default function FieldCompleteFormDemo() {
             <SelectValue />
           </SelectTrigger>
           <SelectPopup>
-            <SelectItem value="developer">Updated Developer</SelectItem>
-            <SelectItem value="designer">Updated Designer</SelectItem>
-            <SelectItem value="manager">Updated Product Manager</SelectItem>
-            <SelectItem value="other">Updated Other</SelectItem>
+            <SelectItem value="developer">Developer</SelectItem>
+            <SelectItem value="designer">Designer</SelectItem>
+            <SelectItem value="manager">Product Manager</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
           </SelectPopup>
         </Select>
-        <FieldDescription>Updated This is an optional field</FieldDescription>
+        <FieldDescription>This is an optional field</FieldDescription>
       </Field>
 
       <Field>
         <div className="flex items-center gap-2">
           <Checkbox name="newsletter" disabled={loading} />
           <FieldLabel className="cursor-pointer">
-            Updated Subscribe to newsletter
+            Subscribe to newsletter
           </FieldLabel>
         </div>
       </Field>
 
       <Button type="submit" disabled={loading}>
-        Updated Submit
+        Submit
       </Button>
     </Form>
   )

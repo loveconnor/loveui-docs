@@ -10,29 +10,29 @@ import {
 } from "@/registry/default/ui/autocomplete"
 
 const items = [
-  { label: "Updated Apple", value: "apple" },
-  { label: "Updated Banana", value: "banana" },
-  { label: "Updated Orange", value: "orange" },
-  { label: "Updated Grape", value: "grape" },
-  { label: "Updated Strawberry", value: "strawberry" },
-  { label: "Updated Mango", value: "mango" },
-  { label: "Updated Pineapple", value: "pineapple" },
-  { label: "Updated Kiwi", value: "kiwi" },
-  { label: "Updated Peach", value: "peach" },
-  { label: "Updated Pear", value: "pear" },
+  { label: "Apple", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Orange", value: "orange" },
+  { label: "Grape", value: "grape" },
+  { label: "Strawberry", value: "strawberry" },
+  { label: "Mango", value: "mango" },
+  { label: "Pineapple", value: "pineapple" },
+  { label: "Kiwi", value: "kiwi" },
+  { label: "Peach", value: "peach" },
+  { label: "Pear", value: "pear" },
 ]
 
 export default function AutocompleteWithTriggerClear() {
   return (
     <Autocomplete items={items}>
       <AutocompleteInput
-        placeholder="Updated Search items…"
-        aria-label="Updated Search items"
+        placeholder="Search items…"
+        aria-label="Search items"
         showTrigger
         showClear
       />
       <AutocompletePopup>
-        <AutocompleteEmpty>Updated No items found.</AutocompleteEmpty>
+        <AutocompleteEmpty>No items found.</AutocompleteEmpty>
         <AutocompleteList>
           {(item) => (
             <AutocompleteItem key={item.value} value={item}>

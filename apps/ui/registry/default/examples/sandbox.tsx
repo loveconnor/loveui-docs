@@ -27,19 +27,19 @@ const Example = () => (
         <SandboxTabsList>
           <SandboxTabsTrigger value="code">
             <CodeIcon size={14} />
-            Updated Code
+            Code
           </SandboxTabsTrigger>
           <SandboxTabsTrigger value="preview">
             <AppWindowIcon size={14} />
-            Updated Preview
+            Preview
           </SandboxTabsTrigger>
           <SandboxTabsTrigger value="console">
             <TerminalIcon size={14} />
-            Updated Console
+            Console
           </SandboxTabsTrigger>
         </SandboxTabsList>
         <SandboxTabsContent className="overflow-hidden" value="code">
-          <ResizablePanelGroup direction="horizontal">
+          <ResizablePanelGroup direction="horizontal" className="h-full">
             <ResizablePanel
               className="overflow-y-auto"
               defaultSize={25}

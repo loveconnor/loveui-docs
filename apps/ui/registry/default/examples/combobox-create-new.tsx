@@ -17,27 +17,27 @@ import {
 const initialFrameworks = [
   {
     value: "next.js",
-    label: "Updated Next.js",
+    label: "Next.js",
   },
   {
     value: "sveltekit",
-    label: "Updated SvelteKit",
+    label: "SvelteKit",
   },
   {
     value: "nuxt.js",
-    label: "Updated Nuxt.js",
+    label: "Nuxt.js",
   },
   {
     value: "remix",
-    label: "Updated Remix",
+    label: "Remix",
   },
   {
     value: "astro",
-    label: "Updated Astro",
+    label: "Astro",
   },
   {
     value: "vite",
-    label: "Updated Vite",
+    label: "Vite",
   },
 ]
 

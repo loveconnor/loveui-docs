@@ -10,50 +10,50 @@ export default function ToastWithStatus() {
         variant="outline"
         onClick={() => {
           toastManager.add({
-            title: "Updated Success!",
-            description: "Updated Your changes have been saved.",
+            title: "Success!",
+            description: "Your changes have been saved.",
             type: "success",
           })
         }}
       >
-        Updated Success Toast
+        Success Toast
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           toastManager.add({
-            title: "Updated Uh oh! Something went wrong.",
-            description: "Updated There was a problem with your request.",
+            title: "Uh oh! Something went wrong.",
+            description: "There was a problem with your request.",
             type: "error",
           })
         }}
       >
-        Updated Error Toast
+        Error Toast
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           toastManager.add({
-            title: "Updated Heads up!",
+            title: "Heads up!",
             description:
-              "Updated You can add components to your app using the cli.",
+              "You can add components to your app using the cli.",
             type: "info",
           })
         }}
       >
-        Updated Info Toast
+        Info Toast
       </Button>
       <Button
         variant="outline"
         onClick={() => {
           toastManager.add({
-            title: "Updated Warning!",
-            description: "Updated Your session is about to expire.",
+            title: "Warning!",
+            description: "Your session is about to expire.",
             type: "warning",
           })
         }}
       >
-        Updated Warning Toast
+        Warning Toast
       </Button>
     </div>
   )

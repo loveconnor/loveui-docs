@@ -3,9 +3,9 @@ import { Input } from "@/registry/default/ui/input"
 export default function InputDisabled() {
   return (
     <Input
-      placeholder="Updated Disabled"
+      placeholder="Disabled"
       disabled
-      aria-label="Updated Disabled"
+      aria-label="Disabled"
     />
   )
 }

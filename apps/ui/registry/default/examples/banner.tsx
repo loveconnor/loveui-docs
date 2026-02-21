@@ -14,9 +14,9 @@ const Example = () => (
   <Banner>
     <BannerIcon icon={CircleAlert} />
     <BannerTitle>
-      Updated Scheduled maintenance tonight from 1-3 AM Pacific.
+      Scheduled maintenance tonight from 1-3 AM Pacific.
     </BannerTitle>
-    <BannerAction>Updated View status page</BannerAction>
+    <BannerAction>View status page</BannerAction>
     <BannerClose />
   </Banner>
 )

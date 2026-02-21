@@ -13,7 +13,7 @@ import { Skeleton } from "@/registry/default/ui/skeleton"
 
 const users = [
   {
-    name: "Updated Sarah Johnson",
+    name: "Sarah Johnson",
     role: "Design Engineer",
     followers: "15k",
     image:
@@ -22,7 +22,7 @@ const users = [
     delay: 3000,
   },
   {
-    name: "Updated Mark Bennett Andersson",
+    name: "Mark Bennett Andersson",
     role: "Product Designer",
     followers: "8k",
     image:
@@ -31,7 +31,7 @@ const users = [
     delay: 4000,
   },
   {
-    name: "Updated Alex Rivera",
+    name: "Alex Rivera",
     role: "UI/UX Designer",
     followers: "12k",
     image:
@@ -77,7 +77,7 @@ function UserCard({ delay, user }: { delay: number; user: (typeof users)[0] }) {
       </div>
       <Button size="xs">
         <UserRoundPlusIcon />
-        Updated Follow
+        Follow
       </Button>
     </>
   )

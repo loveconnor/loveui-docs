@@ -59,33 +59,33 @@ import { Textarea } from "../../../../../packages/ui/src/ui/textarea"
 const eventTypes = [
   {
     value: "conference",
-    label: "Updated Conference",
-    description: "Updated Professional gathering with speakers and networking",
+    label: "Conference",
+    description: "Professional gathering with speakers and networking",
   },
   {
     value: "workshop",
-    label: "Updated Workshop",
+    label: "Workshop",
     description:
-      "Updated Hands-on learning experience with practical activities",
+      "Hands-on learning experience with practical activities",
   },
   {
     value: "meetup",
-    label: "Updated Meetup",
-    description: "Updated Casual gathering for like-minded individuals",
+    label: "Meetup",
+    description: "Casual gathering for like-minded individuals",
   },
   {
     value: "webinar",
-    label: "Updated Webinar",
-    description: "Updated Online presentation or seminar via video conference",
+    label: "Webinar",
+    description: "Online presentation or seminar via video conference",
   },
 ]
 
 const venues = [
-  { value: "convention-center", label: "Updated Downtown Convention Center" },
-  { value: "hotel-ballroom", label: "Updated Grand Hotel Ballroom" },
-  { value: "university-hall", label: "Updated University Main Hall" },
-  { value: "co-working-space", label: "Updated Tech Hub Co-working Space" },
-  { value: "online", label: "Updated Online/Virtual" },
+  { value: "convention-center", label: "Downtown Convention Center" },
+  { value: "hotel-ballroom", label: "Grand Hotel Ballroom" },
+  { value: "university-hall", label: "University Main Hall" },
+  { value: "co-working-space", label: "Tech Hub Co-working Space" },
+  { value: "online", label: "Online/Virtual" },
 ]
 
 const availableTags = [
@@ -132,10 +132,10 @@ const Example = () => {
     <div className="not-prose mx-auto max-w-[530px] p-8">
       <div className="mb-8 text-center">
         <h1 className="mb-2 text-3xl font-semibold tracking-tight">
-          Updated Create Your Event
+          Create Your Event
         </h1>
         <p className="text-balance text-muted-foreground">
-          Updated Fill out the form below to create and customize your upcoming
+          Fill out the form below to create and customize your upcoming
           event
         </p>
       </div>
@@ -145,31 +145,31 @@ const Example = () => {
         <div className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold">
             <InfoIcon className="size-5" />
-            Updated Basic Information
+            Basic Information
           </h2>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-2">
-              <Label htmlFor="event-name">Updated Event Name</Label>
+              <Label htmlFor="event-name">Event Name</Label>
               <Input
                 id="event-name"
-                placeholder="Updated Enter your event name"
+                placeholder="Enter your event name"
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="organizer">Updated Organizer</Label>
+              <Label htmlFor="organizer">Organizer</Label>
               <Input
                 id="organizer"
-                placeholder="Updated Your name or organization"
+                placeholder="Your name or organization"
                 required
               />
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="description">Updated Description</Label>
+            <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
-              placeholder="Updated Describe your event in detail..."
+              placeholder="Describe your event in detail..."
               rows={3}
             />
           </div>
@@ -179,7 +179,7 @@ const Example = () => {
         <div className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold">
             <UsersIcon className="size-5" />
-            Updated Event Type
+            Event Type
           </h2>
           <Choicebox onValueChange={setEventType} value={eventType}>
             {eventTypes.map((type) => (
@@ -200,7 +200,7 @@ const Example = () => {
         <div className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold">
             <MapPinIcon className="size-5" />
-            Updated Venue
+            Venue
           </h2>
           <Combobox
             data={venues}
@@ -229,7 +229,7 @@ const Example = () => {
         <div className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold">
             <CalendarIcon className="size-5" />
-            Updated Select Date
+            Select Date
           </h2>
           <MiniCalendar
             className="w-fit"
@@ -251,7 +251,7 @@ const Example = () => {
         <div className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold">
             <TagIcon className="size-5" />
-            Updated Event Tags
+            Event Tags
           </h2>
           <Tags>
             <TagsTrigger>
@@ -262,9 +262,9 @@ const Example = () => {
               ))}
             </TagsTrigger>
             <TagsContent>
-              <TagsInput placeholder="Updated Search tags..." />
+              <TagsInput placeholder="Search tags..." />
               <TagsList>
-                <TagsEmpty>Updated No tags found.</TagsEmpty>
+                <TagsEmpty>No tags found.</TagsEmpty>
                 <TagsGroup>
                   {availableTags
                     .filter((tag) => !selectedTags.includes(tag))
@@ -283,7 +283,7 @@ const Example = () => {
         <div className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold">
             <ImageIcon className="size-5" />
-            Updated Event Images
+            Event Images
           </h2>
           <Dropzone
             accept={{
@@ -306,9 +306,9 @@ const Example = () => {
         {/* Submit Button */}
         <div className="flex justify-end space-x-4">
           <Button type="button" variant="outline">
-            Updated Save as Draft
+            Save as Draft
           </Button>
-          <Button type="submit">Updated Create Event</Button>
+          <Button type="submit">Create Event</Button>
         </div>
       </form>
     </div>

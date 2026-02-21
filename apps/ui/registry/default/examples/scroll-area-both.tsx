@@ -4,7 +4,7 @@ export default function ScrollAreaBoth() {
   return (
     <ScrollArea orientation="both" className="h-80 max-w-80 rounded-md border">
       <p className="min-w-100 p-4">
-        Updated Just as suddenly as it had begun, the sensation stopped, leaving
+        Just as suddenly as it had begun, the sensation stopped, leaving
         Alice feeling slightly disoriented. She looked around and realized that
         the room hadn't changed at all - it was she who had grown smaller,
         shrinking down to a fraction of her previous size. Alice felt herself

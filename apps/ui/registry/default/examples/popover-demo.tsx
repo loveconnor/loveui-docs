@@ -14,26 +14,26 @@ export default function PopoverDemo() {
   return (
     <Popover>
       <PopoverTrigger render={<Button variant="outline" />}>
-        Updated Open Popover
+        Open Popover
       </PopoverTrigger>
       <PopoverPopup className="w-80">
         <div className="mb-4">
           <PopoverTitle className="text-base">
-            Updated Send us feedback
+            Send us feedback
           </PopoverTitle>
           <PopoverDescription>
-            Updated Let us know how we can improve.
+            Let us know how we can improve.
           </PopoverDescription>
         </div>
         <Form>
           <Field>
             <Textarea
               id="feedback"
-              placeholder="Updated How can we improve?"
-              aria-label="Updated Send feedback"
+              placeholder="How can we improve?"
+              aria-label="Send feedback"
             />
           </Field>
-          <Button type="submit">Updated Send feedback</Button>
+          <Button type="submit">Send feedback</Button>
         </Form>
       </PopoverPopup>
     </Popover>

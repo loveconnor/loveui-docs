@@ -10,7 +10,7 @@ import {
 export default function NumberFieldDemoWithScrub() {
   return (
     <NumberField defaultValue={0}>
-      <NumberFieldScrubArea label="Updated Quantity" />
+      <NumberFieldScrubArea label="Quantity" />
       <NumberFieldGroup>
         <NumberFieldDecrement />
         <NumberFieldInput />

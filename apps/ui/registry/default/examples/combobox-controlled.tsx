@@ -16,27 +16,27 @@ import {
 const plants = [
   {
     value: "monstera-deliciosa",
-    label: "Updated Monstera Deliciosa (Swiss Cheese Plant)",
+    label: "Monstera Deliciosa (Swiss Cheese Plant)",
   },
   {
     value: "ficus-lyrata",
-    label: "Updated Ficus Lyrata (Fiddle Leaf Fig)",
+    label: "Ficus Lyrata (Fiddle Leaf Fig)",
   },
   {
     value: "sansevieria-trifasciata",
-    label: "Updated Sansevieria Trifasciata (Snake Plant)",
+    label: "Sansevieria Trifasciata (Snake Plant)",
   },
   {
     value: "spathiphyllum-wallisii",
-    label: "Updated Spathiphyllum Wallisii (Peace Lily)",
+    label: "Spathiphyllum Wallisii (Peace Lily)",
   },
   {
     value: "epipremnum-aureum",
-    label: "Updated Epipremnum Aureum (Golden Pothos)",
+    label: "Epipremnum Aureum (Golden Pothos)",
   },
   {
     value: "calathea-orbifolia",
-    label: "Updated Calathea Orbifolia (Prayer Plant)",
+    label: "Calathea Orbifolia (Prayer Plant)",
   },
 ]
 

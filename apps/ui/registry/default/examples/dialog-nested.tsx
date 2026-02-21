@@ -15,52 +15,52 @@ export default function DialogNestedDemo() {
   return (
     <Dialog>
       <DialogTrigger render={<Button variant="outline" />}>
-        Updated Open parent
+        Open parent
       </DialogTrigger>
       <DialogPopup showCloseButton={false}>
         <DialogHeader>
-          <DialogTitle>Updated Manage team member</DialogTitle>
+          <DialogTitle>Manage team member</DialogTitle>
           <DialogDescription>
-            Updated View and manage a user in your team.
+            View and manage a user in your team.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4">
           <div className="grid gap-1">
-            <p className="text-sm text-muted-foreground">Updated Name</p>
-            <p className="text-sm font-medium">Updated Connor Love</p>
+            <p className="text-sm text-muted-foreground">Name</p>
+            <p className="text-sm font-medium">Connor Love</p>
           </div>
           <div className="grid gap-1">
-            <p className="text-sm text-muted-foreground">Updated Email</p>
+            <p className="text-sm text-muted-foreground">Email</p>
             <p className="text-sm font-medium">clove@loveui.dev</p>
           </div>
         </div>
         <DialogFooter>
           <Dialog>
             <DialogTrigger render={<Button variant="outline" />}>
-              Updated Edit details
+              Edit details
             </DialogTrigger>
             <DialogPopup showCloseButton={false}>
               <DialogHeader>
-                <DialogTitle>Updated Edit details</DialogTitle>
+                <DialogTitle>Edit details</DialogTitle>
                 <DialogDescription>
-                  Updated Make changes to the member&apos;s information.
+                  Make changes to the member&apos;s information.
                 </DialogDescription>
               </DialogHeader>
               <div className="flex flex-col gap-4">
                 <Field>
-                  <FieldLabel>Updated Name</FieldLabel>
+                  <FieldLabel>Name</FieldLabel>
                   <FieldControl type="text" defaultValue="Connor Love" />
                 </Field>
                 <Field>
-                  <FieldLabel>Updated Email</FieldLabel>
+                  <FieldLabel>Email</FieldLabel>
                   <FieldControl type="text" defaultValue="clove@loveui.dev" />
                 </Field>
               </div>
               <DialogFooter>
                 <DialogClose render={<Button variant="ghost" />}>
-                  Updated Cancel
+                  Cancel
                 </DialogClose>
-                <Button type="submit">Updated Save changes</Button>
+                <Button type="submit">Save changes</Button>
               </DialogFooter>
             </DialogPopup>
           </Dialog>

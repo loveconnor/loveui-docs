@@ -29,25 +29,25 @@ export default function CheckboxGroupFormDemo() {
         render={(props) => <Fieldset {...props} />}
       >
         <FieldsetLegend className="text-sm font-medium">
-          Updated Frameworks
+          Frameworks
         </FieldsetLegend>
         <CheckboxGroup defaultValue={["next"]} disabled={loading}>
           <FieldLabel>
             <Checkbox value="next" />
-            Updated Next.js
+            Next.js
           </FieldLabel>
           <FieldLabel>
             <Checkbox value="vite" />
-            Updated Vite
+            Vite
           </FieldLabel>
           <FieldLabel>
             <Checkbox value="astro" />
-            Updated Astro
+            Astro
           </FieldLabel>
         </CheckboxGroup>
       </Field>
       <Button type="submit" disabled={loading}>
-        Updated Submit
+        Submit
       </Button>
     </Form>
   )

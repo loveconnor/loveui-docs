@@ -14,9 +14,9 @@ const Example = () => (
   <Banner inset>
     <BannerIcon icon={CircleAlert} />
     <BannerTitle>
-      Updated Your trial ends in 3 days. Add a payment method to stay live.
+      Your trial ends in 3 days. Add a payment method to stay live.
     </BannerTitle>
-    <BannerAction>Updated Update billing</BannerAction>
+    <BannerAction>Update billing</BannerAction>
     <BannerClose />
   </Banner>
 )

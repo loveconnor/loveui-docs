@@ -23,7 +23,7 @@ export default function BreadcrumbDemo() {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink render={<Link href="/" />}>
-            Updated Home
+            Home
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
@@ -37,9 +37,9 @@ export default function BreadcrumbDemo() {
               <BreadcrumbEllipsis />
             </MenuTrigger>
             <MenuPopup align="start">
-              <MenuItem render={<Link href="/docs" />}>Updated Docs</MenuItem>
+              <MenuItem render={<Link href="/docs" />}>Docs</MenuItem>
               <MenuItem render={<Link href="/particles" />}>
-                Updated Particles
+                Particles
               </MenuItem>
             </MenuPopup>
           </Menu>
@@ -47,12 +47,12 @@ export default function BreadcrumbDemo() {
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <BreadcrumbLink render={<Link href="/docs/components" />}>
-            Updated Components
+            Components
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Updated Breadcrumb</BreadcrumbPage>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

@@ -14,15 +14,15 @@ import { Button } from "../../../../../packages/ui/src/ui/button"
 
 const STOCK_IMAGES = [
   {
-    label: "Updated Portrait",
+    label: "Portrait",
     url: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    label: "Updated Designer",
+    label: "Designer",
     url: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    label: "Updated Developer",
+    label: "Developer",
     url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
   },
 ]
@@ -116,7 +116,7 @@ const Example = () => {
           ))}
         </div>
         <Image
-          alt="Updated Cropped"
+          alt="Cropped"
           className="overflow-hidden rounded-full"
           height={180}
           src={croppedImage}
@@ -130,7 +130,7 @@ const Example = () => {
             type="button"
             variant="outline"
           >
-            Updated Crop again
+            Crop again
           </Button>
           <Button
             onClick={() =>
@@ -140,7 +140,7 @@ const Example = () => {
             type="button"
             variant="outline"
           >
-            Updated Use another portrait
+            Use another portrait
           </Button>
         </div>
       </div>
@@ -171,14 +171,14 @@ const Example = () => {
         <div className="flex items-center gap-2 rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
           <span>{error}</span>
           <Button onClick={handleRetry} size="sm" variant="ghost">
-            Updated Retry
+            Retry
           </Button>
         </div>
       )}
 
       {!selectedFile && !isLoading && !error && (
         <p className="text-sm text-muted-foreground">
-          Updated Pick a portrait above to load the cropper.
+          Pick a portrait above to load the cropper.
         </p>
       )}
 

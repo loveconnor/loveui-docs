@@ -4,8 +4,8 @@ export default function InputLg() {
   return (
     <Input
       size="lg"
-      placeholder="Updated Enter text"
-      aria-label="Updated Enter text"
+      placeholder="Enter text"
+      aria-label="Enter text"
     />
   )
 }

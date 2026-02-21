@@ -18,22 +18,22 @@ import {
 } from "@/registry/default/ui/field"
 
 const items = [
-  { label: "Updated Apple", value: "apple" },
-  { label: "Updated Banana", value: "banana" },
-  { label: "Updated Orange", value: "orange" },
-  { label: "Updated Grape", value: "grape" },
-  { label: "Updated Strawberry", value: "strawberry" },
-  { label: "Updated Mango", value: "mango" },
-  { label: "Updated Pineapple", value: "pineapple" },
-  { label: "Updated Kiwi", value: "kiwi" },
-  { label: "Updated Peach", value: "peach" },
-  { label: "Updated Pear", value: "pear" },
+  { label: "Apple", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Orange", value: "orange" },
+  { label: "Grape", value: "grape" },
+  { label: "Strawberry", value: "strawberry" },
+  { label: "Mango", value: "mango" },
+  { label: "Pineapple", value: "pineapple" },
+  { label: "Kiwi", value: "kiwi" },
+  { label: "Peach", value: "peach" },
+  { label: "Pear", value: "pear" },
 ]
 
 export default function FieldComboboxMultiple() {
   return (
     <Field>
-      <FieldLabel>Updated Fruits</FieldLabel>
+      <FieldLabel>Fruits</FieldLabel>
       <Combobox items={items} multiple defaultValue={[items[0], items[4]]}>
         <ComboboxChips>
           <ComboboxValue>
@@ -46,14 +46,14 @@ export default function FieldComboboxMultiple() {
                 ))}
                 <ComboboxInput
                   placeholder={value.length > 0 ? undefined : "Select items…"}
-                  aria-label="Updated Select items"
+                  aria-label="Select items"
                 />
               </>
             )}
           </ComboboxValue>
         </ComboboxChips>
         <ComboboxPopup>
-          <ComboboxEmpty>Updated No items found.</ComboboxEmpty>
+          <ComboboxEmpty>No items found.</ComboboxEmpty>
           <ComboboxList>
             {(item) => (
               <ComboboxItem key={item.value} value={item}>
@@ -63,7 +63,7 @@ export default function FieldComboboxMultiple() {
           </ComboboxList>
         </ComboboxPopup>
       </Combobox>
-      <FieldDescription>Updated Select multiple items.</FieldDescription>
+      <FieldDescription>Select multiple items.</FieldDescription>
     </Field>
   )
 }

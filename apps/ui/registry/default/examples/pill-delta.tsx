@@ -6,15 +6,15 @@ const Example = () => (
   <>
     <Pill>
       <PillDelta delta={10} />
-      Updated Up 10%
+      Up 10%
     </Pill>
     <Pill>
       <PillDelta delta={-5} />
-      Updated Down 5%
+      Down 5%
     </Pill>
     <Pill>
       <PillDelta delta={0} />
-      Updated No change
+      No change
     </Pill>
   </>
 )

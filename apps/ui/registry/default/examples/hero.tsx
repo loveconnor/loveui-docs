@@ -38,37 +38,37 @@ import {
 
 const logos = [
   {
-    name: "Updated GitHub",
+    name: "GitHub",
     icon: SiGithub,
     url: "https://github.com",
   },
   {
-    name: "Updated Facebook",
+    name: "Facebook",
     icon: SiFacebook,
     url: "https://facebook.com",
   },
   {
-    name: "Updated Google",
+    name: "Google",
     icon: SiGoogle,
     url: "https://google.com",
   },
   {
-    name: "Updated X",
+    name: "X",
     icon: SiX,
     url: "https://x.com",
   },
   {
-    name: "Updated Apple",
+    name: "Apple",
     icon: SiApple,
     url: "https://apple.com",
   },
   {
-    name: "Updated Instagram",
+    name: "Instagram",
     icon: SiInstagram,
     url: "https://instagram.com",
   },
   {
-    name: "Updated YouTube",
+    name: "YouTube",
     icon: SiYoutube,
     url: "https://youtube.com",
   },
@@ -79,30 +79,30 @@ const Example = () => (
     <div className="flex flex-col items-center justify-center gap-8">
       <Link href="#">
         <Announcement>
-          <AnnouncementTag>Updated Latest</AnnouncementTag>
+          <AnnouncementTag>Latest</AnnouncementTag>
           <AnnouncementTitle>
-            Updated Introducing blocks by LoveUI
+            Introducing blocks by LoveUI
           </AnnouncementTitle>
         </Announcement>
       </Link>
       <h1 className="mb-0 text-6xl font-medium text-balance md:text-7xl xl:text-[5.25rem]">
-        Updated The best way to build your website
+        The best way to build your website
       </h1>
       <p className="mt-0 mb-0 text-lg text-balance text-muted-foreground">
-        Updated LoveUI blocks are a new way to build your website. They are a
+        LoveUI blocks are a new way to build your website. They are a
         collection of pre-built components that you can use to build your
         website.
       </p>
       <div className="flex items-center gap-2">
-        <Button render={<Link href="#" />}>Updated Get started</Button>
+        <Button render={<Link href="#" />}>Get started</Button>
         <Button render={<Link href="#" />} variant="outline">
-          Updated Learn more
+          Learn more
         </Button>
       </div>
     </div>
     <section className="flex flex-col items-center justify-center gap-8 rounded-xl bg-secondary py-8 pb-18">
       <p className="mb-0 font-medium text-balance text-muted-foreground">
-        Updated Trusted by developers from leading companies
+        Trusted by developers from leading companies
       </p>
       <div className="flex size-full items-center justify-center">
         <Marquee>

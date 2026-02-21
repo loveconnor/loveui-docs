@@ -11,16 +11,16 @@ export default function MenuGroupLabelsDemo() {
   return (
     <Menu>
       <MenuTrigger render={<Button variant="outline" />}>
-        Updated Open menu
+        Open menu
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem disabled>Updated Account</MenuItem>
-        <MenuItem>Updated Profile</MenuItem>
-        <MenuItem>Updated Billing</MenuItem>
+        <MenuItem disabled>Account</MenuItem>
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>Billing</MenuItem>
         <MenuSeparator />
-        <MenuItem disabled>Updated Support</MenuItem>
-        <MenuItem>Updated Docs</MenuItem>
-        <MenuItem>Updated Contact</MenuItem>
+        <MenuItem disabled>Support</MenuItem>
+        <MenuItem>Docs</MenuItem>
+        <MenuItem>Contact</MenuItem>
       </MenuPopup>
     </Menu>
   )

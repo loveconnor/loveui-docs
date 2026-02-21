@@ -25,9 +25,9 @@ const Example = () => {
             <UploadIcon size={24} />
           </div>
           <div className="text-left">
-            <p className="text-sm font-medium">Updated Upload a file</p>
+            <p className="text-sm font-medium">Upload a file</p>
             <p className="text-xs text-muted-foreground">
-              Updated Drag and drop or click to upload
+              Drag and drop or click to upload
             </p>
           </div>
         </div>

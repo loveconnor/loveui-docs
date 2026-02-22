@@ -1,4 +1,5 @@
 import type { LinkItemType } from "./sheard";
+import { buildUiHref } from "@/lib/ui-links";
 import {
 	BlocksIcon,
 	BookOpenIcon,
@@ -14,7 +15,7 @@ import {
 export const productLinks: LinkItemType[] = [
 	{
 		label: "Building Blocks",
-		href: "/ui/building-blocks",
+		href: buildUiHref("/building-blocks"),
 		description: "Ready-made building blocks for composing interfaces",
 		icon: (
 			<BlocksIcon
@@ -23,7 +24,7 @@ export const productLinks: LinkItemType[] = [
 	},
 	{
 		label: "Docs",
-		href: "/ui/docs",
+		href: buildUiHref("/docs"),
 		description: "Guides and API docs to get started quickly",
 		icon: (
 			<BookOpenIcon
@@ -32,7 +33,7 @@ export const productLinks: LinkItemType[] = [
 	},
 	{
 		label: "Features",
-		href: "/ui/docs/features",
+		href: buildUiHref("/docs/features"),
 		description: "Explore component capabilities and core features",
 		icon: (
 			<SparklesIcon
@@ -44,7 +45,7 @@ export const productLinks: LinkItemType[] = [
 export const companyLinks: LinkItemType[] = [
 	{
 		label: "Examples",
-		href: "/ui/examples",
+		href: buildUiHref("/examples"),
 		description: "Browse practical examples built with LoveUI",
 		icon: (
 			<GalleryHorizontalEndIcon
@@ -53,7 +54,7 @@ export const companyLinks: LinkItemType[] = [
 	},
 	{
 		label: "Templates",
-		href: "/ui/templates",
+		href: buildUiHref("/templates"),
 		description: "Start from complete template foundations",
 		icon: (
 			<PanelsTopLeftIcon
@@ -62,7 +63,7 @@ export const companyLinks: LinkItemType[] = [
 	},
 	{
 		label: "Backgrounds",
-		href: "/ui/docs/backgrounds/ether",
+		href: buildUiHref("/docs/backgrounds/ether"),
 		description: "Explore animated and visual background patterns",
 		icon: (
 			<SwatchBookIcon
@@ -74,7 +75,7 @@ export const companyLinks: LinkItemType[] = [
 export const companyLinks2: LinkItemType[] = [
 	{
 		label: "Get Started",
-		href: "/ui/docs/get-started",
+		href: buildUiHref("/docs/get-started"),
 		icon: (
 			<RocketIcon
 			/>
@@ -82,7 +83,7 @@ export const companyLinks2: LinkItemType[] = [
 	},
 	{
 		label: "LoveUI MCP Server",
-		href: "/ui/docs/resources/loveui-mcp-server",
+		href: buildUiHref("/docs/resources/loveui-mcp-server"),
 		icon: (
 			<SparklesIcon
 			/>
@@ -90,7 +91,7 @@ export const companyLinks2: LinkItemType[] = [
 	},
 	{
 		label: "LoveUI Skills",
-		href: "/ui/docs/resources/loveui-skills",
+		href: buildUiHref("/docs/resources/loveui-skills"),
 		icon: (
 			<BlocksIcon
 			/>
@@ -98,7 +99,7 @@ export const companyLinks2: LinkItemType[] = [
 	},
 	{
 		label: "Contributing Guide",
-		href: "/ui/docs/contributing",
+		href: buildUiHref("/docs/contributing"),
 		icon: (
 			<BookTextIcon
 			/>
@@ -106,7 +107,7 @@ export const companyLinks2: LinkItemType[] = [
 	},
 	{
 		label: "License",
-		href: "/ui/docs",
+		href: buildUiHref("/docs"),
 		icon: (
 			<ScaleIcon
 			/>

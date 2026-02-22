@@ -56,7 +56,7 @@ function Button({
   asChild = false,
   children,
   ...props
-}: ButtonProps) {
+}: ButtonProps): React.JSX.Element {
   const renderValue = asChild
     ? (React.Children.only(children) as React.ReactElement<
         Record<string, unknown>

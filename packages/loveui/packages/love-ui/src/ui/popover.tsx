@@ -38,7 +38,7 @@ function PopoverTrigger({
           const { asChild: _childAsChild, ...restChildProps } =
             (child.props ?? {}) as Record<string, unknown>
 
-          const childRef = (child as any).ref as
+          const childRef = (child.props as any).ref as
             | React.Ref<HTMLElement>
             | null
             | undefined

@@ -3,7 +3,6 @@ import Link from "next/link"
 
 import { siteConfig } from "@loveui/ui/lib/config"
 import { ModeSwitcher } from "@loveui/ui/components/mode-switcher"
-import { ProductLabel } from "@loveui/ui/components/product-label"
 import { ProductsDropdown } from "@loveui/ui/components/products-dropdown"
 import { cn } from "@loveui/ui/lib/utils"
 
@@ -35,15 +34,14 @@ export function SiteHeader({
         {mobileNav}
         <div className="-mt-0.5 font-heading text-2xl sm:text-[1.625em] flex shrink-0 items-center">
           {isExternal ? (
-            <a href={gatewayHome} aria-label="Home">
-              love
+            <a href={gatewayHome} aria-label="Home" className="font-bold text-foreground">
+              LoveUI
             </a>
           ) : (
-            <Link href={gatewayHome} aria-label="Home">
-              love
+            <Link href={gatewayHome} aria-label="Home" className="font-bold text-foreground">
+              LoveUI
             </Link>
           )}
-          <ProductLabel items={siteConfig.products} currentProduct={currentProduct} />
         </div>
         <div className="ms-auto flex items-center gap-2 md:flex-1 md:justify-end">
           {children}

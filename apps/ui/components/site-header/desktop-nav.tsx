@@ -8,6 +8,7 @@ import {
 } from "./ui/navigation-menu";
 import { companyLinks, companyLinks2, productLinks } from "./nav-links";
 import { LinkItem } from "./sheard";
+import { buildUiHref } from "@/lib/ui-links";
 
 export function DesktopNav() {
 	return (

@@ -1,6 +1,5 @@
 "use client";
 
-import type React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "lucide-react";
@@ -75,11 +74,10 @@ function MobileNav() {
                 key={item.href}
                 nativeButton={false}
                 render={(closeProps) => {
-                  const { className: closeClassName, style, ...restCloseProps } = closeProps;
+                  const { className: closeClassName, style: _style, ...restCloseProps } = closeProps;
                   return (
                     <Link
                       {...restCloseProps}
-                      style={style as React.CSSProperties | undefined}
                       href={item.href}
                       prefetch={false}
                       className={cn(

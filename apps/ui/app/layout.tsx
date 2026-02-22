@@ -1,6 +1,7 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
+import Script from "next/script"
 
 import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
@@ -24,6 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script defer src="https://cloud.umami.is/script.js" data-website-id="dd5a0d5c-a40d-4c3b-9278-1cb0368dba2a" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-sidebar font-sans text-foreground antialiased`}
       >

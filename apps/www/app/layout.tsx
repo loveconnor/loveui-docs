@@ -1,6 +1,7 @@
 import "./globals.css"
 
 import type { Metadata } from "next"
+import Script from "next/script"
 
 import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
@@ -20,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script defer src="https://cloud.umami.is/script.js" data-website-id="dd5a0d5c-a40d-4c3b-9278-1cb0368dba2a" />
+      </head>
       <body className="bg-sidebar font-sans text-foreground antialiased">
         <ThemeProvider defaultTheme="dark">
           <div className="relative flex min-h-svh flex-col [--header-height:4rem] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-sidebar overflow-clip">

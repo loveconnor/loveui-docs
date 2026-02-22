@@ -2,7 +2,7 @@
   "name": "love-ui",
   "version": "1.2.14",
   "private": false,
-  "license": "AGPL-3.0-or-later",
+  "license": "MIT",
   "type": "module",
   "bin": {
     "loveui": "dist/index.js",

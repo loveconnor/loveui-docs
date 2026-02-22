@@ -74,10 +74,12 @@ function MobileNav() {
                 key={item.href}
                 nativeButton={false}
                 render={(closeProps) => {
-                  const { className: closeClassName, style: _style, ...restCloseProps } = closeProps;
+                  const { className: closeClassName, style: _style, ref, ...restCloseProps } = closeProps;
                   return (
                     <Link
                       {...restCloseProps}
+                      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                      ref={ref as any}
                       href={item.href}
                       prefetch={false}
                       className={cn(

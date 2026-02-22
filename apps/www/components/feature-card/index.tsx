@@ -6,7 +6,7 @@ import { cn } from "../../../../packages/ui/src/lib/utils";
 
 type FeatureType = {
   title: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number; 'aria-hidden'?: boolean }>;
   description: string;
 };
 
@@ -19,6 +19,7 @@ export function FeatureCard({
   className,
   ...props
 }: FeatureCardPorps) {
+  const Icon = feature.icon;
   return (
     <div className={cn("relative overflow-hidden p-6", className)} {...props}>
       <div className="-mt-2 -ml-20 pointer-events-none absolute top-0 left-1/2 size-full [mask-image:radial-gradient(farthest-side_at_top,white,transparent)]">
@@ -29,7 +30,7 @@ export function FeatureCard({
           x={5}
         />
       </div>
-      <feature.icon
+      <Icon
         aria-hidden
         className="size-6 text-foreground/75"
         strokeWidth={1}

@@ -10,8 +10,8 @@ import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://loveui.dev"),
-  title: "loveui",
-  description: "loveui - the everything but AI company",  
+  title: "LoveUI — Beautiful React components built on Base UI",
+  description: "An open-source UI library with 60+ accessible components, 600+ pre-composed building blocks, full page templates, and motion primitives. Built on Base UI and styled with Tailwind CSS.",
 }
 
 export default function RootLayout({

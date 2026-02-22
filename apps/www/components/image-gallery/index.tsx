@@ -65,7 +65,7 @@ export function BuildingBlocksGallery() {
 }
 
 function GalleryCard({ category }: { category: Category }) {
-  const href = `/ui/building-blocks/${category.slug}`;
+  const href = buildUiHref(`/building-blocks/${category.slug}`);
   const alt = `${category.name} building block preview`;
   const image = thumbs[category.imageKey];
 

@@ -4,7 +4,7 @@ import { JSX, useEffect, useState } from "react"
 import { CodeIcon } from "lucide-react"
 import type { RegistryItem } from "shadcn/registry"
 
-import { convertRegistryPaths } from "@/lib/building-blocks/utils"
+import { assetPath, convertRegistryPaths } from "@/lib/building-blocks/utils"
 import ComponentCli from "@/components/building-blocks/cli-commands"
 import CodeBlock, { highlight } from "@/components/building-blocks/code-block"
 import CopyButton from "@/components/building-blocks/copy-button"
@@ -40,21 +40,38 @@ export default function ComponentDetails({
       setHighlightedCode(null)
     }
 
-    const loadCode = async () => {
-      try {
-        const response = await fetch(`/building-blocks/r/${component.name}.json`)
+    const fetchCodeJson = async () => {
+      const paths = [
+        `/building-blocks/r/${component.name}.json`,
+        `/r/${component.name}.json`,
+        `/building-blocks/${component.name}.json`,
+      ]
+
+      for (const path of paths) {
+        const response = await fetch(assetPath(path))
         if (!response.ok) {
-          handleEmptyCode()
-          return
+          continue
         }
 
         const contentType = response.headers.get("content-type")
         if (!contentType || !contentType.includes("application/json")) {
+          continue
+        }
+
+        return response.json()
+      }
+
+      return null
+    }
+
+    const loadCode = async () => {
+      try {
+        const data = await fetchCodeJson()
+        if (!data) {
           handleEmptyCode()
           return
         }
 
-        const data = await response.json()
         const codeContent = convertRegistryPaths(data.files[0].content) || ""
         setCode(codeContent)
 

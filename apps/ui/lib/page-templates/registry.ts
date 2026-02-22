@@ -321,6 +321,22 @@ const compareByOrderThenLabel = (a: string, b: string): number => {
   return a.localeCompare(b, undefined, { numeric: true })
 }
 
+const compareAuthTemplateOrder = (a: string, b: string): number => {
+  const aOrder = parseOrderValue(a)
+  const bOrder = parseOrderValue(b)
+
+  if (aOrder !== null && bOrder !== null) {
+    const normalizedA = aOrder <= 3 ? aOrder + 100 : aOrder
+    const normalizedB = bOrder <= 3 ? bOrder + 100 : bOrder
+
+    if (normalizedA !== normalizedB) {
+      return normalizedA - normalizedB
+    }
+  }
+
+  return compareByOrderThenLabel(a, b)
+}
+
 const collectTemplateFiles = (dirPath: string): TemplateFile[] => {
   const files: TemplateFile[] = []
 
@@ -541,7 +557,9 @@ const getRegistryData = (): RegistryData => {
     .map((category) => ({
       ...category,
       templates: category.templates.sort((a, b) =>
-        compareByOrderThenLabel(a.name, b.name)
+        category.slug === "auth"
+          ? compareAuthTemplateOrder(a.name, b.name)
+          : compareByOrderThenLabel(a.name, b.name)
       ),
     }))
     .sort((a, b) => compareByOrderThenLabel(a.slug, b.slug))

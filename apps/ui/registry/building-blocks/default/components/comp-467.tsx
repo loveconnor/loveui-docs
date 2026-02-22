@@ -11,21 +11,19 @@ const items = [
   {
     id: "1",
     name: "Connor Love",
-    username: "@alexthompson",
-    image:
-      "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/avatar-40-02_upqrxi.jpg",
-    email: "clove@loveui.dev",
+    username: "@loveconnor",
+    image: "https://github.com/loveconnor.png",
+    email: "loveconnor2005@gmail.com",
     location: "Columbus, Ohio",
     status: "Active",
     balance: "$1,250.00",
   },
   {
     id: "2",
-    name: "Sampson Addae",
-    username: "@sarahchen",
-    image:
-      "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/avatar-40-01_ij9v7j.jpg",
-    email: "saddae@example.com",
+    name: "John Doe",
+    username: "@jdoe",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
+    email: "jdoe@example.com",
     location: "Ghana, Africa",
     status: "Active",
     balance: "$600.00",
@@ -33,8 +31,8 @@ const items = [
   {
     id: "4",
     name: "Thomas Raklovits",
-    username: "@mariagarcia",
-    image: "https://github.com/monster0506.png",
+    username: "@monster0506",
+    image: "https://github.com/loveconnor.png",
     email: "traklovits@company.com",
     location: "Cleveland, Ohio",
     status: "Active",
@@ -43,9 +41,8 @@ const items = [
   {
     id: "5",
     name: "Nathan Wickersham",
-    username: "@davidkim",
-    image:
-      "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/exp1/avatar-40-05_cmz0mg.jpg",
+    username: "@nwickersham",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
     email: "nwick@company.com",
     location: "Los Angeles, CA",
     status: "Active",

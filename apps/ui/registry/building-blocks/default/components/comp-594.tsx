@@ -4,7 +4,7 @@ import AppToggle from "@/registry/building-blocks/default/components/navbar-comp
 import TeamSwitcher from "@/registry/building-blocks/default/components/navbar-components/team-switcher"
 import { Button } from "@/registry/building-blocks/default/ui/button"
 
-const teams = ["Acme Inc.", "loveui", "Junon"]
+const teams = ["Acme Inc.", "loveui", "Lyceum"]
 
 export default function Component() {
   return (

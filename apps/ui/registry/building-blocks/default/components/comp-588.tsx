@@ -129,7 +129,7 @@ export default function Component() {
           {/* Upgrade button */}
           <Button size="sm" className="text-sm sm:aspect-square">
             <SparklesIcon
-              className="opacity-60 sm:-ms-1"
+              className="opacity-60"
               size={16}
               aria-hidden="true"
             />

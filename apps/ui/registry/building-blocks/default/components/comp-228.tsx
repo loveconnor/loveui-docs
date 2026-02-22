@@ -26,7 +26,7 @@ export default function Component() {
             <span className="flex items-center gap-2">
               <img
                 className="rounded-full"
-                src="https://i.pravatar.cc/160?img=8"
+                src="https://github.com/loveconnor.png"
                 alt="Connor Love"
                 width={40}
                 height={40}
@@ -43,7 +43,7 @@ export default function Component() {
             <span className="flex items-center gap-2">
               <img
                 className="rounded-full"
-                src="https://github.com/monster0506.png"
+                src="https://avatars.githubusercontent.com/u/91501317?v=4"
                 alt="Thomas Raklovits"
                 width={40}
                 height={40}
@@ -60,7 +60,7 @@ export default function Component() {
             <span className="flex items-center gap-2">
               <img
                 className="rounded-full"
-                src="https://i.pravatar.cc/160?img=10"
+                src="https://github.com/loveconnor.png"
                 alt="Ian Schroeter"
                 width={40}
                 height={40}

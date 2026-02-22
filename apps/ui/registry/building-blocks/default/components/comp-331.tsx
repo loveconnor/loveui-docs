@@ -26,7 +26,7 @@ const initialBgImage = [
   {
     name: "profile-bg.jpg",
     size: 1528737,
-    type: "image/jpeg",
+    type: "image/png",
     url: assetPath("/building-blocks/profile-bg.jpg"),
     id: "profile-bg-123456789",
   },
@@ -34,10 +34,10 @@ const initialBgImage = [
 
 const initialAvatarImage = [
   {
-    name: "avatar-72-01.jpg",
+    name: "avatar.png",
     size: 1528737,
-    type: "image/jpeg",
-    url: "https://i.pravatar.cc/160?img=13",
+    type: "image/png",
+    url: assetPath("/building-blocks/thumbs/avatar.png"),
     id: "avatar-123456789",
   },
 ]

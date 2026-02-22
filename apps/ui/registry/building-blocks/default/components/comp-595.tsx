@@ -65,7 +65,7 @@ export default function Component() {
             <div className="relative">
               <Avatar>
                 <AvatarImage
-                  src="https://i.pravatar.cc/160?img=20"
+                  src="https://github.com/loveconnor.png"
                   alt="Kelly King"
                 />
                 <AvatarFallback>CL</AvatarFallback>
@@ -77,7 +77,7 @@ export default function Component() {
             <div className="relative">
               <Avatar>
                 <AvatarImage
-                  src="https://i.pravatar.cc/160?img=19"
+                  src="https://github.com/loveconnor.png"
                   alt="Martha Johnson"
                 />
                 <AvatarFallback>CL</AvatarFallback>
@@ -89,7 +89,7 @@ export default function Component() {
             <div className="relative">
               <Avatar>
                 <AvatarImage
-                  src="https://i.pravatar.cc/160?img=18"
+                  src="https://github.com/loveconnor.png"
                   alt="Linda Green"
                 />
                 <AvatarFallback>CL</AvatarFallback>

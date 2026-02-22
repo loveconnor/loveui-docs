@@ -133,14 +133,14 @@ export default function HeroSection() {
                 <div className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border bg-background p-4 shadow-lg ring-1 inset-shadow-2xs shadow-zinc-950/15 ring-background dark:inset-shadow-white/20">
                   <Image
                     className="relative hidden aspect-15/8 rounded-2xl bg-background dark:block"
-                    src={assetPath("/page-templates/hero/mail2.webp")}
+                    src={assetPath("/page-templates/hero/hero-dashboard-dark.png")}
                     alt="app screen"
                     width={2700}
                     height={1440}
                   />
                   <Image
                     className="relative z-2 aspect-15/8 rounded-2xl border border-border/25 dark:hidden"
-                    src={assetPath("/page-templates/hero/mail2-light.webp")}
+                    src={assetPath("/page-templates/hero/hero-dashboard.png")}
                     alt="app screen"
                     width={2700}
                     height={1440}

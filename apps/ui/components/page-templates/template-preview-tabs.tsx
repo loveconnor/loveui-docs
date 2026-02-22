@@ -1,10 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { ExternalLink } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/default/ui/button"
 import { Tabs, TabsList, TabsTab } from "@/registry/default/ui/tabs"
 
 export function TemplatePreviewTabs({
@@ -19,10 +17,6 @@ export function TemplatePreviewTabs({
   source: React.ReactNode
 }) {
   const [tab, setTab] = React.useState("preview")
-
-  const handleOpenInNewTab = () => {
-    window.open(`/templates/preview/${templateName}`, "_blank")
-  }
 
   return (
     <div
@@ -39,15 +33,6 @@ export function TemplatePreviewTabs({
               Code
             </TabsTab>
           </TabsList>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleOpenInNewTab}
-            className="gap-2"
-          >
-            <ExternalLink className="h-4 w-4" />
-            Open in new tab
-          </Button>
         </div>
       </Tabs>
       <div

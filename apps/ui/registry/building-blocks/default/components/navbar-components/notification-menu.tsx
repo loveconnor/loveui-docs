@@ -45,7 +45,7 @@ const initialNotifications = [
   },
   {
     id: 5,
-    user: "Sampson Addae",
+    user: "John Doe",
     action: "commented on",
     target: "Dashboard redesign",
     timestamp: "2 days ago",

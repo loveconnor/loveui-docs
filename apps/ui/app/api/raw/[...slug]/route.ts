@@ -7,34 +7,54 @@ export async function GET(
   { params }: { params: Promise<{ slug: string[] }> }
 ) {
   const { slug } = await params
+  const safeSlug = slug
+    .map((segment) => decodeURIComponent(segment))
+    .filter((segment) => segment && segment !== "." && segment !== "..")
 
-  // Construct the file path from the slug
-  // If we have ['docs', 'filename'], look in (root) directory
-  let filePath: string
-  if (slug.length === 2 && slug[0] === "docs") {
-    filePath = path.join(
-      process.cwd(),
-      "content",
-      "docs",
-      "(root)",
-      slug[1] || ""
-    )
-  } else {
-    filePath = path.join(process.cwd(), "content", ...slug)
+  if (safeSlug.length === 0 || safeSlug.length !== slug.length) {
+    return NextResponse.json({ error: "Invalid path" }, { status: 400 })
   }
 
-  // Check for both .mdx and .md extensions
-  const mdxPath = filePath.endsWith(".mdx") ? filePath : `${filePath}.mdx`
-  const mdPath = filePath.endsWith(".md") ? filePath : `${filePath}.md`
+  const root = process.cwd()
+
+  const candidatePaths: string[] = []
+
+  // Keep existing docs short-path behavior: /api/raw/docs/<name>
+  if (safeSlug.length === 2 && safeSlug[0] === "docs") {
+    candidatePaths.push(path.join(root, "content", "docs", "(root)", safeSlug[1]!))
+  }
+
+  // Existing behavior: files under /content
+  candidatePaths.push(path.join(root, "content", ...safeSlug))
+
+  // New behavior: allow top-level markdown files like /api/raw/CONTRIBUTING.md
+  candidatePaths.push(path.join(root, ...safeSlug))
+
+  // Monorepo fallback: when Next runs from repo root, app-level files live under apps/ui
+  candidatePaths.push(path.join(root, "apps", "ui", ...safeSlug))
 
   try {
-    let content: string
+    let content: string | null = null
 
-    // Try .mdx first, then .md
-    try {
-      content = await fs.readFile(mdxPath, "utf-8")
-    } catch {
-      content = await fs.readFile(mdPath, "utf-8")
+    for (const filePath of candidatePaths) {
+      const mdxPath = filePath.endsWith(".mdx") ? filePath : `${filePath}.mdx`
+      const mdPath = filePath.endsWith(".md") ? filePath : `${filePath}.md`
+
+      try {
+        content = await fs.readFile(mdxPath, "utf-8")
+        break
+      } catch {
+        try {
+          content = await fs.readFile(mdPath, "utf-8")
+          break
+        } catch {
+          continue
+        }
+      }
+    }
+
+    if (!content) {
+      return NextResponse.json({ error: "File not found" }, { status: 404 })
     }
 
     // Return raw markdown with appropriate headers

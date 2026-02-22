@@ -127,14 +127,14 @@ export default function HeroSection() {
             <div className="relative mx-auto mt-16 max-w-6xl overflow-hidden mask-b-from-55% px-4">
               <Image
                 className="relative z-2 hidden rounded-2xl border border-border/25 dark:block"
-                src={assetPath("/page-templates/hero/mail2.webp")}
+                src={assetPath("/page-templates/hero/hero-dashboard-dark.png")}
                 alt="app screen"
                 width={2700}
                 height={1440}
               />
               <Image
                 className="relative z-2 rounded-2xl border border-border/25 dark:hidden"
-                src={assetPath("/page-templates/hero/mail2-light.webp")}
+                src={assetPath("/page-templates/hero/hero-dashboard.png")}
                 alt="app screen"
                 width={2700}
                 height={1440}

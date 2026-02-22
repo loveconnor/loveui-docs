@@ -22,28 +22,28 @@ const items: {
   {
     id: 1,
     user: "Connor",
-    image: "https://i.pravatar.cc/160?img=9",
+    image: "https://github.com/loveconnor.png",
     action: "post",
     date: new Date(Date.now() - 59000), // 59 seconds ago
   },
   {
     id: 2,
     user: "Connor",
-    image: "https://i.pravatar.cc/160?img=9",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
     action: "reply",
     date: new Date(Date.now() - 180000), // 3 minutes ago
   },
   {
     id: 3,
     user: "Connor",
-    image: "https://i.pravatar.cc/160?img=9",
+    image: "https://github.com/loveconnor.png",
     action: "edit",
     date: new Date(Date.now() - 300000), // 5 minutes ago
   },
   {
     id: 4,
     user: "Connor",
-    image: "https://i.pravatar.cc/160?img=9",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
     action: "create",
     date: new Date(Date.now() - 600000), // 10 minutes ago
   },

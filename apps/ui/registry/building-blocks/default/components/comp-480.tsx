@@ -130,7 +130,22 @@ export default function Component() {
         "https://raw.githubusercontent.com/origin-space/origin-images/refs/heads/main/users-01_fertyx.json"
       )
       const data = await res.json()
-      setData(data.slice(0, 5)) // Limit to 5 items
+      const canonicalUsers = [
+        { name: "Connor Love", email: "loveconnor2005@gmail.com" },
+        { name: "John Doe", email: "jdoe@example.com" },
+        { name: "Ian Shroeter", email: "ischroeter@company.com" },
+        { name: "Thomas Raklovits", email: "traklovits@company.com" },
+        { name: "Nathan Wickersham", email: "nwick@company.com" },
+      ]
+      const normalizedData = data.slice(0, 5).map((item: Item, index: number) => {
+        const canonicalUser = canonicalUsers[index % canonicalUsers.length]
+        return {
+          ...item,
+          name: canonicalUser.name,
+          email: canonicalUser.email,
+        }
+      })
+      setData(normalizedData)
     }
     fetchPosts()
   }, [])

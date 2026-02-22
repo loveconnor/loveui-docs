@@ -15,15 +15,15 @@ const items = [
   {
     id: "1",
     name: "Connor Love",
-    email: "clove@loveui.dev",
+    email: "loveconnor2005@gmail.com",
     location: "Columbus, Ohio",
     status: "Active",
     balance: "$1,250.00",
   },
   {
     id: "2",
-    name: "Sampson Addae",
-    email: "saddae@example.com",
+    name: "John Doe",
+    email: "jdoe@example.com",
     location: "Ghana, Africa",
     status: "Active",
     balance: "$600.00",

@@ -17,7 +17,7 @@ const items = [
     action: "opened a new issue",
     description:
       "I'm having trouble with the new component library. It's not rendering properly.",
-    image: "https://i.pravatar.cc/160?img=8",
+    image: "https://github.com/loveconnor.png",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const items = [
     action: "commented on",
     description:
       "Hey Ian, I'm having trouble with the new component library. It's not rendering properly.",
-    image: "https://i.pravatar.cc/160?img=9",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const items = [
     action: "assigned you to",
     description:
       "The new component library is not rendering properly. Can you take a look?",
-    image: "https://i.pravatar.cc/160?img=10",
+    image: "https://github.com/loveconnor.png",
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const items = [
     title: "Thomas Raklovits",
     action: "closed the issue",
     description: "The issue has been fixed. Please review the changes.",
-    image: "https://github.com/monster0506.png",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
   },
 ]
 

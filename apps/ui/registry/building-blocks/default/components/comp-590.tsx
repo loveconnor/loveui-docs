@@ -22,7 +22,7 @@ import {
   PopoverTrigger,
 } from "@/registry/building-blocks/default/ui/popover"
 
-const teams = ["Acme Inc.", "loveui", "Junon"]
+const teams = ["Acme Inc.", "loveui", "Lyceum"]
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [

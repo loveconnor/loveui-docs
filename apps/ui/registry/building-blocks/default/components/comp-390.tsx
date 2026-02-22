@@ -7,7 +7,7 @@ import {
 export default function Component() {
   return (
     <Avatar>
-      <AvatarImage src="https://i.pravatar.cc/160?img=20" alt="Kelly King" />
+      <AvatarImage src="https://github.com/loveconnor.png" alt="Kelly King" />
       <AvatarFallback>CL</AvatarFallback>
     </Avatar>
   )

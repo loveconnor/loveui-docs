@@ -30,7 +30,7 @@ export default function UserMenu() {
         <Button variant="ghost" className="h-auto p-0 hover:bg-transparent">
           <Avatar>
             <AvatarImage
-              src="https://i.pravatar.cc/160?img=21"
+              src="https://github.com/loveconnor.png"
               alt="Profile image"
             />
             <AvatarFallback>CL</AvatarFallback>
@@ -43,7 +43,7 @@ export default function UserMenu() {
             Connor Love
           </span>
           <span className="truncate text-xs font-normal text-muted-foreground">
-            clove@loveui.dev
+            loveconnor2005@gmail.com
           </span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />

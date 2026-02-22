@@ -9,7 +9,7 @@ export default function Component() {
       <div className="flex gap-3">
         <img
           className="size-9 rounded-full"
-          src="https://i.pravatar.cc/160?img=7"
+          src="https://github.com/loveconnor.png"
           width={32}
           height={32}
           alt="Connor Love"

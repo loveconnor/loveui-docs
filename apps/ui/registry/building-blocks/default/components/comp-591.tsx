@@ -18,7 +18,7 @@ export default function Component() {
       <div className="flex h-16 items-center justify-between gap-4">
         {/* Left side */}
         <div>
-          <Select defaultValue="orion-alpha-45" aria-label="Select AI model">
+          <Select defaultValue="GPT-5.3" aria-label="Select AI model">
             <SelectTrigger className="**:data-desc:hidden [&>svg]:shrink-0 [&>svg]:text-muted-foreground/80">
               <BotMessageSquareIcon size={16} aria-hidden="true" />
               <SelectValue placeholder="Choose an AI model" />
@@ -26,8 +26,8 @@ export default function Component() {
             <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2">
               <SelectGroup>
                 <SelectLabel className="ps-2">Models</SelectLabel>
-                <SelectItem value="orion-alpha-45">
-                  Orion-Alpha 4.5
+                <SelectItem value="GPT-5.3">
+                  GPT-5.3
                   <span
                     className="mt-1 block text-xs text-muted-foreground"
                     data-desc
@@ -36,7 +36,7 @@ export default function Component() {
                   </span>
                 </SelectItem>
                 <SelectItem value="orion-code-4">
-                  Orion-Code 4
+                  GPT-Codex-5.3
                   <span
                     className="mt-1 block text-xs text-muted-foreground"
                     data-desc
@@ -45,7 +45,7 @@ export default function Component() {
                   </span>
                 </SelectItem>
                 <SelectItem value="nova-chat-4">
-                  Nova-Chat 4
+                  Sonnet 4.6
                   <span
                     className="mt-1 block text-xs text-muted-foreground"
                     data-desc
@@ -54,7 +54,7 @@ export default function Component() {
                   </span>
                 </SelectItem>
                 <SelectItem value="galaxy-max-4">
-                  Galaxy-Max 4
+                  Opus 4.6
                   <span
                     className="mt-1 block text-xs text-muted-foreground"
                     data-desc

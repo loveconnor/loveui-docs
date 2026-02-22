@@ -3,28 +3,28 @@ export default function Component() {
     <div className="flex -space-x-3">
       <img
         className="rounded-full ring-2 ring-background"
-        src="https://i.pravatar.cc/160?img=16"
+        src="https://github.com/loveconnor.png"
         width={40}
         height={40}
         alt="Avatar 01"
       />
       <img
         className="rounded-full ring-2 ring-background"
-        src="https://i.pravatar.cc/160?img=17"
+        src="https://avatars.githubusercontent.com/u/91501317?v=4"
         width={40}
         height={40}
         alt="Avatar 02"
       />
       <img
         className="rounded-full ring-2 ring-background"
-        src="https://i.pravatar.cc/160?img=18"
+        src="https://github.com/loveconnor.png"
         width={40}
         height={40}
         alt="Avatar 03"
       />
       <img
         className="rounded-full ring-2 ring-background"
-        src="https://i.pravatar.cc/160?img=19"
+        src="https://avatars.githubusercontent.com/u/91501317?v=4"
         width={40}
         height={40}
         alt="Avatar 04"

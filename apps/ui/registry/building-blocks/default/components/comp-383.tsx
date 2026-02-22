@@ -14,7 +14,7 @@ import {
 const initialNotifications = [
   {
     id: 1,
-    image: "https://i.pravatar.cc/160?img=14",
+    image: "https://github.com/loveconnor.png",
     user: "Connor Love",
     action: "requested review on",
     target: "PR #42: Feature implementation",
@@ -23,7 +23,7 @@ const initialNotifications = [
   },
   {
     id: 2,
-    image: "https://i.pravatar.cc/160?img=15",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
     user: "Nathan Wickersham",
     action: "shared",
     target: "New component library",
@@ -32,7 +32,7 @@ const initialNotifications = [
   },
   {
     id: 3,
-    image: "https://i.pravatar.cc/160?img=16",
+    image: "https://github.com/loveconnor.png",
     user: "Ian Shroeter",
     action: "assigned you to",
     target: "API integration task",
@@ -41,7 +41,7 @@ const initialNotifications = [
   },
   {
     id: 4,
-    image: "https://github.com/monster0506.png",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
     user: "Thomas Raklovits",
     action: "replied to your comment in",
     target: "Authentication flow",
@@ -50,8 +50,8 @@ const initialNotifications = [
   },
   {
     id: 5,
-    image: "https://i.pravatar.cc/160?img=18",
-    user: "Sampson Addae",
+    image: "https://github.com/loveconnor.png",
+    user: "John Doe",
     action: "commented on",
     target: "Dashboard redesign",
     timestamp: "2 days ago",
@@ -59,7 +59,7 @@ const initialNotifications = [
   },
   {
     id: 6,
-    image: "https://i.pravatar.cc/160?img=19",
+    image: "https://avatars.githubusercontent.com/u/91501317?v=4",
     user: "Sam Altman",
     action: "mentioned you in",
     target: "loveui open graph image",

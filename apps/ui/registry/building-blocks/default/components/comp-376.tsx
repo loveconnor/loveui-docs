@@ -30,7 +30,7 @@ export default function Component() {
       <DropdownMenuContent className="max-w-64">
         <DropdownMenuLabel className="flex items-start gap-3">
           <img
-            src="https://i.pravatar.cc/160?img=21"
+            src="https://github.com/loveconnor.png"
             alt="Avatar"
             width={32}
             height={32}
@@ -41,7 +41,7 @@ export default function Component() {
               Connor Love
             </span>
             <span className="truncate text-xs font-normal text-muted-foreground">
-              clove@loveui.dev
+              loveconnor2005@gmail.com
             </span>
           </div>
         </DropdownMenuLabel>

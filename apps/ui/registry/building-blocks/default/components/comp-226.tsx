@@ -29,7 +29,7 @@ export default function Component() {
             <SelectItem value="1">
               <img
                 className="size-5 rounded"
-                src="https://i.pravatar.cc/160?img=1"
+                src="https://github.com/loveconnor.png"
                 alt="Frank Allison"
                 width={20}
                 height={20}
@@ -39,7 +39,7 @@ export default function Component() {
             <SelectItem value="2">
               <img
                 className="size-5 rounded"
-                src="https://github.com/monster0506.png"
+                src="https://avatars.githubusercontent.com/u/91501317?v=4"
                 alt="Xavier Guerra"
                 width={20}
                 height={20}
@@ -49,7 +49,7 @@ export default function Component() {
             <SelectItem value="3">
               <img
                 className="size-5 rounded"
-                src="https://github.com/monster0506.png"
+                src="https://github.com/loveconnor.png"
                 alt="Thomas Raklovits"
                 width={20}
                 height={20}

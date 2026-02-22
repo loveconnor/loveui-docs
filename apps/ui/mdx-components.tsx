@@ -115,15 +115,18 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  a: ({ className, ...props }: React.ComponentProps<"a">) => (
-    <a
-      className={cn(
-        "font-medium text-foreground underline underline-offset-4",
-        className
-      )}
-      {...props}
-    />
-  ),
+  a: ({ className, href, ...props }: React.ComponentProps<"a">) => {
+    const classes = cn(
+      "font-medium text-foreground underline underline-offset-4",
+      className
+    )
+
+    if (href?.startsWith("/")) {
+      return <Link href={href} className={classes} {...props} />
+    }
+
+    return <a href={href} className={classes} {...props} />
+  },
   p: ({ className, ...props }: React.ComponentProps<"p">) => (
     <p
       className={cn(

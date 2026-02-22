@@ -117,14 +117,14 @@ export default function HeroSection() {
               <div className="rotate-x-20 skew-x-12 mask-r-from-75% mask-b-from-55% mask-b-to-100% pt-6 pl-6 lg:h-176">
                 <Image
                   className="rounded-(--radius) border shadow-xl dark:hidden"
-                  src={assetPath("/page-templates/hero/mail2-light.webp")}
+                  src={assetPath("/page-templates/hero/hero-dashboard.png")}
                   alt="LoveUI hero section"
                   width={2700}
                   height={1440}
                 />
                 <Image
                   className="hidden rounded-(--radius) border shadow-xl dark:block"
-                  src={assetPath("/page-templates/hero/mail2.webp")}
+                  src={assetPath("/page-templates/hero/hero-dashboard-dark.png")}
                   alt="LoveUI hero section"
                   width={2700}
                   height={1440}

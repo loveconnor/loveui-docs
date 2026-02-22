@@ -1,0 +1,56 @@
+---
+title: Contributing Guide
+description: A simple guide to help you contribute to LoveUI.
+---
+
+Thank you for helping improve LoveUI.
+
+This page explains the easiest way to contribute.
+
+## What you can contribute
+
+You can help by:
+
+- Fixing bugs
+- Improving docs
+- Adding new UI components
+- Adding examples
+- Improving accessibility
+
+## Quick steps
+
+1. Fork the repo and clone it.
+2. Create a new branch.
+3. Make a small, focused change.
+4. Run formatting and build checks.
+5. Open a pull request with a clear description.
+
+## Commands to run before you open a PR
+
+```bash
+bun run format:write
+bun run registry:build
+```
+
+If you changed core UI components, also run:
+
+```bash
+bun run ui:propagate
+```
+
+## Write clear pull requests
+
+Please include:
+
+- What changed
+- Why you changed it
+- Screenshots (if UI changed)
+- Any breaking changes
+
+Small pull requests are easier to review and merge quickly.
+
+## Need more details?
+
+For the full technical process, file conventions, and registry details, see:
+
+[Full CONTRIBUTING.md](/api/raw/CONTRIBUTING.md)

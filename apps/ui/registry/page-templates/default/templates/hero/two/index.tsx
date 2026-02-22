@@ -22,15 +22,6 @@ export default function HeroSection() {
       <main className="overflow-hidden">
         <section className="bg-background">
           <div className="relative pt-44 pb-32">
-            <div className="absolute inset-0 aspect-square mask-radial-[75%_100%] mask-radial-from-45% mask-radial-to-75% mask-radial-at-top opacity-65 md:aspect-9/4 dark:opacity-5">
-              <Image
-                src={assetPath("/page-templates/hero-bg.jpg")}
-                alt="hero background"
-                width={2102}
-                height={1694}
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
             <div className="relative z-10 mx-auto w-full max-w-5xl px-6">
               <div className="mx-auto mb-16 max-w-xl lg:mb-24">
                 <div className="grid scale-95 grid-cols-3 gap-12">

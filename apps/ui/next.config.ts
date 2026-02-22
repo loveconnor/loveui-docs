@@ -2,11 +2,13 @@ import type { NextConfig } from "next"
 import { createMDX } from "fumadocs-mdx/next"
 
 const { NEXT_PUBLIC_ORIGIN_URL } = process.env
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/ui"
+const originUrl = (NEXT_PUBLIC_ORIGIN_URL || "http://localhost:4000").replace(/\/$/, "")
 
 const withMDX = createMDX()
 
 const nextConfig: NextConfig = {
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "/ui",
+  basePath,
   transpilePackages: ["@loveui/ui", "@loveui/ether", "@loveui/silk", "@loveui/gradiant-blinds", "@loveui/gooey-toast"],
   typescript: {
     ignoreBuildErrors: true,
@@ -81,6 +83,21 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
+      {
+        source: "/building-blocks/:path*",
+        destination: `${originUrl}${basePath}/building-blocks/:path*`,
+        basePath: false,
+      },
+      {
+        source: "/avatar.png",
+        destination: `${originUrl}${basePath}/building-blocks/thumbs/avatar.png`,
+        basePath: false,
+      },
+      {
+        source: "/avatar-dark.png",
+        destination: `${originUrl}${basePath}/building-blocks/thumbs/avatar-dark.png`,
+        basePath: false,
+      },
       {
         source: "/docs/:path*.md",
         destination: "/api/raw/docs/:path*",

@@ -86,7 +86,7 @@ export default function Component() {
                   </SelectPrimitive.SelectTrigger>
                   <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2">
                     <SelectItem value="1">Main project</SelectItem>
-                    <SelectItem value="2">Origin project</SelectItem>
+                    <SelectItem value="2">Side project</SelectItem>
                   </SelectContent>
                 </Select>
               </BreadcrumbItem>

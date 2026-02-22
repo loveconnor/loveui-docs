@@ -31,7 +31,7 @@ export default function DialogNestedDemo() {
           </div>
           <div className="grid gap-1">
             <p className="text-sm text-muted-foreground">Email</p>
-            <p className="text-sm font-medium">clove@loveui.dev</p>
+            <p className="text-sm font-medium">loveconnor2005@gmail.com</p>
           </div>
         </div>
         <DialogFooter>
@@ -53,7 +53,7 @@ export default function DialogNestedDemo() {
                 </Field>
                 <Field>
                   <FieldLabel>Email</FieldLabel>
-                  <FieldControl type="text" defaultValue="clove@loveui.dev" />
+                  <FieldControl type="text" defaultValue="loveconnor2005@gmail.com" />
                 </Field>
               </div>
               <DialogFooter>

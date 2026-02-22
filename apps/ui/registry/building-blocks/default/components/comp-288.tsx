@@ -13,15 +13,15 @@ export default function Component() {
             size={16}
             aria-hidden="true"
           />
-          <div className="flex grow justify-between gap-12">
+          <div className="flex grow flex-col gap-2">
             <p className="text-sm">
               Receipt sent to billing@acme. Need to copy someone else?
             </p>
-            <div className="text-sm whitespace-nowrap">
+            <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm">
               <button className="text-sm font-medium hover:underline">
                 View receipt
-              </button>{" "}
-              <span className="mx-1 text-muted-foreground">·</span>{" "}
+              </button>
+              <span className="text-muted-foreground">·</span>
               <button className="text-sm font-medium hover:underline">
                 Send to another inbox
               </button>

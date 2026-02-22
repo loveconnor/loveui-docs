@@ -5,11 +5,11 @@ description: A guide to styling components with our color system.
 
 ## Overview
 
-This UI library is optimized to work with specific color tokens that provide crisp, contrasted borders and enhanced visual depth. Our styling system builds upon [shadcn/ui's CSS variables approach](https://ui.shadcn.com/docs/theming) to ensure consistency and maintainability.
+LoveUI uses CSS variables for colors.
 
-Our components use opaque borders instead of solid ones to ensure crisp, contrasted borders even when backgrounds lack sufficient contrast. These opaque borders mix with bottom shadows to create enhanced contrast and visual depth.
+This keeps components consistent and easy to theme.
 
-While this color system is optional, it's designed to provide optimal visual results. Using conventional color tokens may result in inconsistent borders and shadows that don't achieve the intended design quality.
+You can use the default palette or replace values with your own.
 
 ## Installation
 
@@ -26,7 +26,7 @@ While this color system is optional, it's designed to provide optimal visual res
 npx love-ui@latest add colors-zinc
 ```
 
-This command will override your existing color variables. We're currently providing a default configuration based on zinc colors, but we plan to add more color variants in the future to give you more styling options while maintaining the same optimization principles.
+This adds the default color variables.
 
 </TabsPanel>
 
@@ -35,7 +35,7 @@ This command will override your existing color variables. We're currently provid
 <Steps>
 
 <Step>
-  Copy and paste the following CSS variables into your `globals.css` file:
+  Copy these variables into your global stylesheet (for example `app/globals.css`):
 </Step>
 
 ```css title="app/globals.css"
@@ -118,7 +118,7 @@ This command will override your existing color variables. We're currently provid
 
 ## Extended Color Variables
 
-We've introduced additional color variables beyond the standard shadcn/ui palette to provide more control for specific components like badges and alerts:
+LoveUI adds these extra variables for state-based UI (alerts, badges, and status):
 
 - `--destructive-foreground`: Foreground color for destructive actions
 - `--info`: Information state color
@@ -128,4 +128,4 @@ We've introduced additional color variables beyond the standard shadcn/ui palett
 - `--warning`: Warning state color
 - `--warning-foreground`: Foreground color for warning states
 
-These additional variables ensure consistent styling across components that need to communicate different states or levels of importance.
+If you install with CLI, these are added automatically.

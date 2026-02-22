@@ -50,7 +50,7 @@ export default async function Page(props: {
   }
 
   const doc = page.data
-  const rawContent = await page.data.getText("raw");
+  const rawContent = await page.data.getText("raw")
   const MDX = doc.body
   const neighbours = await findNeighbour(source.pageTree, page.url)
 
@@ -66,16 +66,14 @@ export default async function Page(props: {
           <div className="mx-auto w-full max-w-6xl">
             <div className="flex min-w-0 flex-1 flex-col gap-8">
               <div className="flex flex-col gap-2">
-                <div className="flex flex-col gap-2">
-                  <h1 className="scroll-m-20 font-heading text-3xl xl:text-4xl">
-                    {doc.title}
-                  </h1>
-                  {doc.description && (
-                    <p className="text-muted-foreground sm:text-lg">
-                      {doc.description}
-                    </p>
-                  )}
-                </div>
+                <h1 className="scroll-m-20 font-heading text-3xl xl:text-4xl">
+                  {doc.title}
+                </h1>
+                {doc.description && (
+                  <p className="text-muted-foreground sm:text-lg">
+                    {doc.description}
+                  </p>
+                )}
                 <div className="flex items-center space-x-2 pt-4">
                   {links?.doc && (
                     <Button

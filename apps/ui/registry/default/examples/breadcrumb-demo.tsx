@@ -38,8 +38,8 @@ export default function BreadcrumbDemo() {
             </MenuTrigger>
             <MenuPopup align="start">
               <MenuItem render={<Link href="/docs" />}>Docs</MenuItem>
-              <MenuItem render={<Link href="/particles" />}>
-                Particles
+              <MenuItem render={<Link href="/building-blocks" />}>
+                Building Blocks
               </MenuItem>
             </MenuPopup>
           </Menu>

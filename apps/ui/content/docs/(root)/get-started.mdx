@@ -3,50 +3,44 @@ title: Get Started
 description: Ship your first LoveUI screen in minutes.
 ---
 
-Welcome to the LoveUI release. Everything in the library is built to drop into a modern React + Tailwind project without wrestling with design tokens or wiring.
+This guide helps you install LoveUI quickly.
 
 ## Project checklist
 
-LoveUI targets [Tailwind CSS v4](https://tailwindcss.com) running inside a React application (Next.js, Remix, Vite, or Expo Router work great). Make sure you have:
+Before you start, make sure your app has:
 
-- Tailwind configured with the v4 preset
-- TypeScript enabled
-- A global CSS file where we can register LoveUI tokens (usually `app/globals.css` or `src/styles.css`)
+- React
+- Tailwind CSS v4
+- A global stylesheet (for example `app/globals.css`)
 
-Once those pieces are in place you can choose the install flow that fits your workflow.
+## Install with CLI
 
-## Quick start (CLI)
-
-Every component page surfaces a `npx loveui` command that copies the source, drops in dependencies, and syncs design tokens automatically. To pull the full primitive set in one shot:
+Use the CLI to add components and required dependencies:
 
 ```bash
 npx love-ui@latest add loveui
 ```
 
-Run the command from the root of your project and the CLI will create the `/components` files, register styles, and install peer packages. You can rerun the same command as we ship updates—duplicate files are kept in sync.
+Run this command in your project root.
 
-## Manual copy-paste
+## Install manually
 
-Prefer a lighter touch or want to audit changes before they land? Copy the code from the **Code** tab on any component or background page.
+If you prefer manual setup:
 
-1. Locate the component on [Components](/ui/docs) or [Particles](/ui/particles).
-2. Create a matching file in your project, e.g. `components/ui/button.tsx`.
-3. Paste the snippet and install any listed dependencies.
-4. Import the component wherever you need it.
+1. Open a component page in the docs.
+2. Copy the code from the **Code** tab.
+3. Paste it into your project.
+4. Install any listed dependencies.
 
-Manual installs require you to keep tokens updated (see the next section). You only have to do this once per project.
+Use [Styling](/docs/styling) to add the required CSS variables.
 
-## Styling and tokens
+## Where to browse components
 
-LoveUI exposes a token layer that mirrors shadcn/ui but extends it with our product design system. Drop the token block into your global CSS if you are copying files manually:
+- [Components](/docs/components/button)
+- [Building Blocks](/building-blocks)
 
-- `--destructive-foreground` for destructive outlines, menus, and error states
-- `--info` / `--info-foreground` for notice banners and info toasts
-- `--success` / `--success-foreground` for success badges and confirmations
-- `--warning` / `--warning-foreground` for warning banners and destructive previews
+## Need help?
 
-Feel free to override any variable to match your own palette—the components respond instantly because every color, radius, and shadow is token-driven. If you use the CLI the CSS is injected for you, so you can just adjust values in your theme file.
+If you want to contribute, read the [Contributing Guide](/docs/contributing).
 
-## Use it with LLMs
-
-We’ve tuned the docs for AI workflows. The [llms.txt](/ui/llms.txt) sitemap keeps agents aware of the structure, and every page exposes a Copy Markdown button so you can hand complete instructions to your tooling.
+If you use AI tools, you can also share [llms.txt](/llms.txt).

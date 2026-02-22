@@ -16,8 +16,8 @@ export default function MenuLinkDemo() {
       </MenuTrigger>
       <MenuPopup>
         <MenuItem render={<Link href="/docs" />}>Docs</MenuItem>
-        <MenuItem render={<Link href="/particles" />}>
-          Particles
+        <MenuItem render={<Link href="/building-blocks" />}>
+          Building Blocks
         </MenuItem>
       </MenuPopup>
     </Menu>

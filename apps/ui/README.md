@@ -1,81 +1,88 @@
-# loveui
+# apps/ui
 
-**loveui** is a collection of beautifully designed, accessible, and composable components for your React apps. Built on top of [Base UI](https://base-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/), it's designed for you to copy, paste, and own.
+The documentation and component preview site for LoveUI. It runs with Next.js and serves the component registry, docs, examples, particles, page templates, and example apps.
 
-We think Base UI is the best foundation for modern web applications. We've taken its powerful, unstyled primitives and given them a design system that's ready to go, right out of the box.
+Live at: `http://localhost:4000/ui`
 
-This is the component library we'll be progressively adopting for [cal.com](https://cal.com). We're building it in the open for anyone who wants to create beautiful, reliable user interfaces.
+---
 
-## Contributing
+## What's in here
 
-We're always looking for contributors to help improve our UI components. Whether it's a bug report, a new feature, or a documentation update, we appreciate your help.
+| Folder / File | What it does |
+|---|---|
+| `app/` | Next.js app router pages |
+| `content/docs/` | MDX documentation pages |
+| `registry/default/ui/` | UI component source files |
+| `registry/default/examples/` | Example components shown in docs |
+| `registry/default/particles/` | Particle / background animations |
+| `registry/page-templates/` | Full page templates |
+| `registry/example-apps/` | Standalone example apps |
+| `registry/registry-ui.ts` | Manifest for UI components |
+| `registry/registry-examples.ts` | Manifest for examples |
+| `registry/registry-particles.ts` | Manifest for particles |
+| `scripts/` | Build scripts for the registry |
 
-Please see our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get involved.
+> `registry/__index__.tsx` is auto-generated. Don't edit it by hand.
 
-## Getting Started
+---
 
-Run development server:
+## Getting started
 
-```sh
+From the repo root, install dependencies first:
+
+```bash
+bun install
+```
+
+Then start the dev server from this folder:
+
+```bash
+cd apps/ui
 bun run dev
 ```
 
-Open http://localhost:4000 with your browser to see the result.
+Open [http://localhost:4000/ui](http://localhost:4000/ui).
 
-## Development
+---
 
-### Linting
+## Scripts
 
-Check for linting errors:
+| Command | What it does |
+|---|---|
+| `bun run dev` | Start the dev server on port 4000 |
+| `bun run build` | Build for production |
+| `bun run start` | Start the production server |
+| `bun run lint` | Check for lint errors |
+| `bun run lint:fix` | Auto-fix lint errors |
+| `bun run typecheck` | Run TypeScript type checks |
+| `bun run format:write` | Format all `.ts`, `.tsx`, and `.mdx` files |
+| `bun run registry:build` | Rebuild the component registry |
+| `bun run ui:propagate` | Push UI component changes to other packages |
 
-```sh
-bun run lint
-```
+---
 
-Fix linting errors automatically:
+## How the registry works
 
-```sh
-bun run lint:fix
-```
+The registry powers the `npx love-ui add <component>` CLI command.
 
-### Formatting
+- Each component, example, particle, or template has a source file and a matching entry in one of the `registry-*.ts` manifest files.
+- Running `bun run registry:build` reads those manifests and writes the final registry output.
+- If you change any file in `registry/default/ui/`, run `bun run ui:propagate` afterward to sync it to the right packages.
 
-Check code formatting:
+---
 
-```sh
-bun run format:check
-```
+## Making changes
 
-Format code automatically:
+For a full guide on adding components, examples, particles, and page templates, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-```sh
+Quick checklist before opening a pull request:
+
+```bash
 bun run format:write
-```
-
-### Type Checking
-
-Run TypeScript type checking:
-
-```sh
+bun run lint
 bun run typecheck
-```
-
-## Resources
-
-- [Next.JS](https://nextjs.org/)
-- [shadcn/ui](https://ui.shadcn.com/docs/registry)
-- [Fumadocs](https://fumadocs.dev/)
-
-### shadcn/ui Registry
-
-Build shadcn/ui registry:
-
-```sh
 bun run registry:build
+
+# If you changed any UI component:
+bun run ui:propagate
 ```
-
-This build script compiles all the registry items into a json file that is compatible with both v0 and the shadcn/ui cli. Read the [documentation](https://ui.shadcn.com/docs/registry) for further details.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](../../LICENSING.md) file for details.

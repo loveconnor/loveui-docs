@@ -15,7 +15,7 @@ const Example = () => (
       <AvatarFallback>CL</AvatarFallback>
     </Avatar>
     <Avatar>
-      <AvatarImage src="https://avatars.githubusercontent.com/u/91501317?v=4" />
+      <AvatarImage src="https://github.com/loveconnor.png" />
       <AvatarFallback>MO</AvatarFallback>
     </Avatar>
     <Avatar>
@@ -23,7 +23,7 @@ const Example = () => (
       <AvatarFallback>CL</AvatarFallback>
     </Avatar>
     <Avatar>
-      <AvatarImage src="https://avatars.githubusercontent.com/u/91501317?v=4" />
+      <AvatarImage src="https://github.com/loveconnor.png" />
       <AvatarFallback>MO</AvatarFallback>
     </Avatar>
   </AvatarStack>

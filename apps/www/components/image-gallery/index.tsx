@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react";
+import { Button } from "../../../../packages/ui/src/ui/button";
+import { buildUiHref } from "@/lib/ui-links";
 
 const assetBase = "/thumbs";
 
@@ -46,6 +49,16 @@ export function BuildingBlocksGallery() {
         {featuredCategories.map((category) => (
           <GalleryCard key={category.slug} category={category} />
         ))}
+      </div>
+      <div className="mt-10 flex justify-center">
+        <Button
+          size="lg"
+          variant="outline"
+          render={<Link href={buildUiHref("/docs")} />}
+        >
+          View all components
+          <ArrowRightIcon className="size-4" />
+        </Button>
       </div>
     </div>
   );

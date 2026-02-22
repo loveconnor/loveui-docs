@@ -112,7 +112,13 @@ export const getAvailableTags = (
 
 export const convertRegistryPaths = (content: string): string => {
   return content
-    .replace(/@\/registry\/default\/ui/g, "@/components/building-blocks/ui")
+    .replace(/@\/registry\/building-blocks\/default\/ui/g, "@/components/ui")
+    .replace(/@\/registry\/building-blocks\/default\/compositions/g, "@/components")
+    .replace(/@\/registry\/building-blocks\/default\/hooks/g, "@/hooks")
+    .replace(/@\/registry\/building-blocks\/default\/lib/g, "@/lib")
+    .replace(/@\/registry\/building-blocks\/default\/components/g, "@/components")
+    .replace(/@\/lib\/building-blocks\/utils/g, "@/lib/utils")
+    .replace(/@\/registry\/default\/ui/g, "@/components/ui")
     .replace(/@\/registry\/default\/compositions/g, "@/components")
     .replace(/@\/registry\/default\/hooks/g, "@/hooks")
     .replace(/@\/registry\/default\/lib/g, "@/lib")

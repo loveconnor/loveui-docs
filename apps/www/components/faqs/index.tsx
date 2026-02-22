@@ -52,36 +52,36 @@ const questions = [
     id: "item-1",
     title: "What is LoveUI?",
     content:
-      "LoveUI is our opinionated React component library, complete with backgrounds, marketing blocks, and documentation used across loveui.dev. It gives you the exact building blocks we rely on to ship new surfaces fast.",
+      "LoveUI is an open-source UI library for React. It gives you ready-to-use components, backgrounds, and building blocks so you can ship polished interfaces without starting from scratch.",
   },
   {
     id: "item-2",
-    title: "Which frameworks are supported?",
+    title: "How do I install it?",
     content:
-      "Every component is built with React, TypeScript, and Tailwind. They work instantly in Next.js, and drop into other React setups with minor adjustments to routing or data fetching.",
+      "Run npx love-ui@latest add loveui in your project root. You can also copy any component manually from the docs — just grab the code and install the listed dependencies.",
   },
   {
     id: "item-3",
-    title: "Can I customize the look and feel?",
+    title: "What do I need before I start?",
     content:
-      "Yes. Tokens for color, typography, spacing, and radius mirror the theme config documented across the LoveUI design kit, so you can override decisions globally or per component without rewriting markup.",
+      "You need a React app with Tailwind CSS v4 and a global stylesheet. It works great with Next.js, and should drop into any other React setup too.",
   },
   {
     id: "item-4",
-    title: "Do the components cover accessibility?",
+    title: "Can I customize the components?",
     content:
-      "We bake in keyboard support, focus management, and ARIA attributes. LoveUI sits on top of Base UI primitives, so accessibility isn’t an afterthought—it’s part of the contract.",
+      "Yes. Components are built with Tailwind CSS, so you can change colors, spacing, typography, and more. Start with the defaults and adjust as your design evolves.",
   },
   {
     id: "item-5",
-    title: "How often do you ship updates?",
+    title: "Are the components accessible?",
     content:
-      "We dogfood LoveUI on our marketing site and docs, so enhancements land weekly. The changelog highlights new blocks, backgrounds, and fixes as soon as they’re available.",
+      "Yes. Components are built to be keyboard-friendly and screen-reader compatible. Accessibility is part of the design, not an afterthought.",
   },
   {
     id: "item-6",
-    title: "Can I request a new component?",
+    title: "Can I contribute or request a component?",
     content:
-      "Absolutely. Open an issue or drop us a note with your use case. We prioritise components that benefit the broader community and share progress publicly.",
+      "Yes. Open a GitHub issue to request a component or report a bug. If you want to contribute, check the Contributing Guide in the docs for step-by-step instructions.",
   },
 ];

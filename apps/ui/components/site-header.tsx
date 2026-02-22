@@ -1,19 +1,17 @@
-import { SiteHeader as WorkspaceSiteHeader } from "@loveui/ui/components/site-header"
 import { Separator } from "@loveui/ui/ui/separator"
 
 import { appConfig } from "@/lib/config"
 import { source } from "@/lib/source"
 import { CommandMenu } from "@/components/command-menu"
-import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
+import { DesktopNav } from "@/components/site-header/desktop-nav"
+import { SiteHeaderShell } from "@/components/site-header/header"
 
 export function SiteHeader() {
   const pageTree = source.pageTree
 
   return (
-    <WorkspaceSiteHeader
-      currentProduct="ui"
-      showProductsDropdown={false}
+    <SiteHeaderShell
       mobileNav={
         <MobileNav
           tree={pageTree}
@@ -21,12 +19,17 @@ export function SiteHeader() {
           className="flex lg:hidden"
         />
       }
+     
     >
-      <MainNav items={appConfig.navItems} className="hidden lg:flex" />
-      <div className="mx-2 hidden w-full flex-1 md:flex md:w-auto md:flex-none">
-        <CommandMenu tree={pageTree} navItems={appConfig.navItems} />
+       <DesktopNav />
+      <div className="mx-2 hidden w-full flex-1 md:flex md:w-56 md:flex-none lg:w-64">
+        <CommandMenu
+          tree={pageTree}
+          navItems={appConfig.navItems}
+          className="w-full justify-between"
+        />
       </div>
       <Separator orientation="vertical" className="h-5 max-md:hidden" />
-    </WorkspaceSiteHeader>
+    </SiteHeaderShell>
   )
 }

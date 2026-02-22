@@ -1,11 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Announcement,
-  AnnouncementTag,
-  AnnouncementTitle,
-} from "../../../../packages/announcement";
 import { PageHeaderHeading } from "@loveui/ui/components/page-header";
 import { Button } from "@loveui/ui/ui/button";
 
@@ -16,14 +11,6 @@ export function Hero() {
       className="relative isolate flex min-h-[calc(100vh-var(--header-height))] flex-col overflow-hidden border-b border-border/40 transition-colors duration-300 bg-background dark:bg-sidebar"
     >
       <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center gap-8 px-4 py-24 text-center lg:gap-10 lg:py-32">
-        <Announcement
-          themed
-          className="border-transparent bg-white/80 text-sm text-foreground shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-background/80"
-          render={<Link href="/ui/docs/changelog" />}
-        >
-          <AnnouncementTag>Release</AnnouncementTag>
-          <AnnouncementTitle>LoveUI launch — the release is live</AnnouncementTitle>
-        </Announcement>
         <PageHeaderHeading className="max-w-3xl text-balance text-5xl leading-tight text-foreground md:text-6xl lg:text-7xl">
           Build polished interfaces at the speed of copy&nbsp;+&nbsp;paste
         </PageHeaderHeading>

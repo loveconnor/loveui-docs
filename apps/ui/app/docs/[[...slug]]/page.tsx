@@ -64,38 +64,33 @@ export default async function Page(props: {
       <div className="relative flex min-w-0 flex-1 flex-col bg-muted/50 bg-clip-padding before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-2xl)-1px)] before:shadow-[0_1px_2px_1px_--theme(--color-black/4%)] after:pointer-events-none after:absolute after:-inset-[5px] after:-z-1 after:rounded-[calc(var(--radius-2xl)+4px)] after:border after:border-border/50 after:bg-clip-padding max-lg:before:hidden lg:mt-8 lg:mr-4 lg:mb-8 lg:rounded-2xl lg:border dark:after:bg-background/72">
         <div className="-m-px border bg-background px-4 py-6 before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-2xl)-1px)] sm:px-6 lg:rounded-t-2xl lg:rounded-b-xl lg:p-8 dark:before:shadow-[0_-1px_--theme(--color-white/8%)]">
           <div className="mx-auto w-full max-w-6xl">
-            <div className="flex min-w-0 flex-1 flex-col gap-8">
-              <div className="flex flex-col gap-2">
-                <h1 className="scroll-m-20 font-heading text-3xl xl:text-4xl">
-                  {doc.title}
-                </h1>
-                {doc.description && (
-                  <p className="text-muted-foreground sm:text-lg">
-                    {doc.description}
-                  </p>
+            <div className="flex flex-col gap-2">
+              <h1 className="scroll-m-20 font-heading text-3xl xl:text-4xl">
+                {doc.title}
+              </h1>
+              {doc.description && (
+                <p className="text-muted-foreground sm:text-lg">
+                  {doc.description}
+                </p>
+              )}
+              <div className="flex items-center space-x-2 pt-4">
+                {links?.doc && (
+                  <Button
+                    variant="outline"
+                    size="xs"
+                    render={
+                      <Link href={links.doc} target="_blank" rel="noreferrer">
+                        <HugeiconsIcon icon={LinkSquare02Icon} strokeWidth={2.5} />
+                        API Reference
+                      </Link>
+                    }
+                  />
                 )}
-                <div className="flex items-center space-x-2 pt-4">
-                  {links?.doc && (
-                    <Button
-                      variant="outline"
-                      size="xs"
-                      render={
-                        <Link href={links.doc} target="_blank" rel="noreferrer">
-                          <HugeiconsIcon
-                            icon={LinkSquare02Icon}
-                            strokeWidth={2.5}
-                          />
-                          API Reference
-                        </Link>
-                      }
-                    />
-                  )}
-                  <DocsCopyPage page={rawContent} />
-                </div>
+                <DocsCopyPage page={rawContent} />
               </div>
-              <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
-                <MDX components={mdxComponents} />
-              </div>
+            </div>
+            <div className="mt-8 w-full flex-1 *:data-[slot=alert]:first:mt-0">
+              <MDX components={mdxComponents} />
             </div>
             <div className="hidden items-center gap-2 pt-8 sm:flex">
               {neighbours.previous && (

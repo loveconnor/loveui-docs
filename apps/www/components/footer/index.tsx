@@ -7,30 +7,34 @@ import { cn } from "../../../../packages/ui/src/lib/utils";
 import { buildUiHref } from "@/lib/ui-links";
 
 export function Footer() {
-  const company = [
+  const resources = [
     {
       title: "Docs",
       href: buildUiHref("/docs"),
     },
     {
-      title: "Changelog",
-      href: buildUiHref("/docs/changelog"),
+      title: "Features",
+      href: buildUiHref("/docs/features"),
     },
-  ];
-
-  const resources = [
+    {
+      title: "Building Blocks",
+      href: buildUiHref("/building-blocks"),
+    },
+    {
+      title: "Templates",
+      href: buildUiHref("/templates"),
+    },
     {
       title: "Backgrounds",
       href: buildUiHref("/docs/backgrounds/ether"),
     },
     {
-      title: "Building blocks",
-      href: buildUiHref("/building-blocks"),
+      title: "Examples",
+      href: buildUiHref("/examples"),
     },
-    {
-      title: "Roadmap",
-      href: "https://github.com/loveconnor/loveui/discussions",
-    },
+  ];
+
+  const company = [
     {
       title: "Support",
       href: "mailto:loveconnor2005@gmail.com",
@@ -50,12 +54,16 @@ export function Footer() {
 
   const community = [
     {
-      title: "GitHub issues",
+      title: "GitHub Issues",
       href: "https://github.com/loveconnor/loveui/issues",
     },
     {
-      title: "Community calls",
-      href: buildUiHref("/docs/community"),
+      title: "Contributing",
+      href: buildUiHref("/docs/contributing"),
+    },
+    {
+      title: "MCP Server",
+      href: buildUiHref("/docs/resources/loveui-mcp-server"),
     },
   ];
   return (
@@ -100,8 +108,19 @@ export function Footer() {
             <FooterColumn label="Community" items={community} />
           </div>
         </div>
-        <div className="border-t border-border/60 pt-6 text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} LoveUI. Crafted with care for builders everywhere.
+        <div className="border-t border-border/60 pt-6 flex flex-col items-center gap-1 text-center text-sm text-muted-foreground sm:flex-row sm:justify-between">
+          <span>{new Date().getFullYear()} LoveUI. Crafted with care for builders everywhere.</span>
+          <span>
+            Made by{" "}
+            <a
+              href="https://connorlove.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:underline"
+            >
+              Connor Love
+            </a>
+          </span>
         </div>
       </div>
     </footer>

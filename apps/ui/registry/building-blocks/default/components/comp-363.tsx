@@ -28,7 +28,7 @@ export default function HoverCardDemo() {
         <div className="flex items-start gap-3">
           <img
             className="shrink-0 rounded-full"
-            src="https://avatars.githubusercontent.com/u/91501317?v=4"
+            src="https://github.com/loveconnor.png"
             width={40}
             height={40}
             alt="Avatar"

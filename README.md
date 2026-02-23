@@ -40,7 +40,6 @@ npx love-ui add button
 
 - **Ownership** — you get the source, not a dependency. Customize freely.
 - **Solid foundation** — built on Base UI primitives, which handle accessibility and behavior correctly.
-- **Real-world tested** — being progressively adopted at [cal.com](https://cal.com).
 
 ## License
 

@@ -66,13 +66,6 @@ const externalLinks: CommandLink[] = [
     href: buildUiHref("/building-blocks"),
     external: true,
   },
-  {
-    id: "waitlist",
-    label: "Join the waitlist",
-    description: "Request early access to LoveUI",
-    href: "https://i.cal.com/forms/0129f2a8-7b15-4850-b3fb-07944dfacb3c",
-    external: true,
-  },
 ];
 
 function scrollToHash(hash: string) {

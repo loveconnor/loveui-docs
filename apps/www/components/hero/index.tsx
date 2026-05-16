@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { PageHeaderHeading } from "@loveui/ui/components/page-header";
 import { Button } from "@loveui/ui/ui/button";
+import { buildUiHref } from "@/lib/ui-links";
 
 export function Hero() {
   return (
@@ -18,10 +19,10 @@ export function Hero() {
           Curated React components and docs. Copy, paste, ship.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button size="xl" render={<Link href="https://ui.loveui.dev/ui/docs" />}>
+          <Button size="xl" render={<Link href={buildUiHref("/docs")} />}>
             Browse the docs
           </Button>
-          <Button size="xl" variant="outline" render={<Link href="https://ui.loveui.dev/ui/building-blocks" />}>
+          <Button size="xl" variant="outline" render={<Link href={buildUiHref("/building-blocks")} />}>
             Explore blocks
           </Button>
         </div>

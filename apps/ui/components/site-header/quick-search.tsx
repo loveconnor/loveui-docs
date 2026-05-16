@@ -29,53 +29,60 @@ type CommandAction = CommandLink & {
   group: "Navigation" | "External";
 };
 
-const sectionLinks: CommandLink[] = [
-  { id: "hero", label: "Hero", description: "Jump to the top", href: "#hero" },
+const navigationLinks: CommandLink[] = [
+  {
+    id: "docs",
+    label: "Docs",
+    description: "Browse the LoveUI docs",
+    href: buildUiHref("/docs"),
+  },
+  {
+    id: "get-started",
+    label: "Get started",
+    description: "Install and configure LoveUI",
+    href: buildUiHref("/docs/get-started"),
+  },
   {
     id: "features",
     label: "Features",
-    description: "LoveUI feature cards",
-    href: "#features",
+    description: "Explore component capabilities",
+    href: buildUiHref("/docs/features/avatar-stack"),
   },
   {
-    id: "gallery",
-    label: "Image gallery",
-    description: "Preview component imagery",
-    href: "#gallery",
+    id: "blocks",
+    label: "Building blocks",
+    description: "Explore production-ready blocks",
+    href: buildUiHref("/building-blocks"),
   },
   {
-    id: "faqs",
-    label: "FAQs",
-    description: "Browse common questions",
-    href: "#faqs",
+    id: "templates",
+    label: "Templates",
+    description: "Start from complete page foundations",
+    href: buildUiHref("/templates"),
+  },
+  {
+    id: "examples",
+    label: "Examples",
+    description: "Browse practical examples",
+    href: buildUiHref("/examples"),
+  },
+  {
+    id: "backgrounds",
+    label: "Backgrounds",
+    description: "Explore visual background patterns",
+    href: buildUiHref("/docs/backgrounds/ether"),
   },
 ];
 
 const externalLinks: CommandLink[] = [
   {
-    id: "docs",
-    label: "Documentation",
-    description: "Browse the LoveUI docs",
-    href: buildUiHref("/docs"),
-    external: true,
-  },
-  {
-    id: "blocks",
-    label: "Blocks directory",
-    description: "Explore production-ready blocks",
-    href: buildUiHref("/building-blocks"),
+    id: "github",
+    label: "GitHub",
+    description: "Open the LoveUI repository",
+    href: "https://github.com/loveconnor/loveui",
     external: true,
   },
 ];
-
-function scrollToHash(hash: string) {
-  const id = hash.replace(/^#/, "");
-  const element = typeof document !== "undefined" ? document.getElementById(id) : null;
-
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
 
 export function QuickSearch({ className }: { className?: string }) {
   const router = useRouter();
@@ -83,7 +90,7 @@ export function QuickSearch({ className }: { className?: string }) {
 
   const commands = useMemo<CommandAction[]>(() => {
     return [
-      ...sectionLinks.map((item) => ({ ...item, group: "Navigation" as const })),
+      ...navigationLinks.map((item) => ({ ...item, group: "Navigation" as const })),
       ...externalLinks.map((item) => ({ ...item, group: "External" as const })),
     ];
   }, []);
@@ -94,10 +101,6 @@ export function QuickSearch({ className }: { className?: string }) {
   const handleSelect = useCallback(
     (action: CommandAction) => {
       handleClose();
-      if (action.href.startsWith("#")) {
-        scrollToHash(action.href);
-        return;
-      }
       if (action.external) {
         window.open(action.href, "_blank", "noopener,noreferrer");
         return;
@@ -152,8 +155,8 @@ export function QuickSearch({ className }: { className?: string }) {
         </div>
       </Button>
 
-      <CommandDialog open={open} onOpenChange={setOpen} title="Quick search" description="Jump to a section or open external links.">
-        <CommandInput placeholder="Search sections and resources..." />
+      <CommandDialog open={open} onOpenChange={setOpen} title="Quick search" description="Jump to docs, blocks, templates, examples, and resources.">
+        <CommandInput placeholder="Search docs and resources..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           {(["Navigation", "External"] as const).map((group) => {

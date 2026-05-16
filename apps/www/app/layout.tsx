@@ -7,6 +7,7 @@ import { ThemeProvider } from "@loveui/ui/components/theme-provider"
 
 import { SiteHeader } from "@/components/site-header"
 import { Footer } from "@/components/footer"
+import { loveMono, loveSans } from "@/lib/fonts"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://loveui.dev"),
@@ -24,7 +25,7 @@ export default function RootLayout({
       <head>
         <Script defer src="https://cloud.umami.is/script.js" data-website-id="dd5a0d5c-a40d-4c3b-9278-1cb0368dba2a" />
       </head>
-      <body className="bg-sidebar font-sans text-foreground antialiased">
+      <body className={`${loveSans.variable} ${loveMono.variable} bg-sidebar font-sans text-foreground antialiased`}>
         <ThemeProvider defaultTheme="dark">
           <div className="relative flex min-h-svh flex-col [--header-height:4rem] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:bg-sidebar overflow-clip">
             <div className="absolute inset-0 z-60 pointer-events-none container before:absolute before:inset-y-0 before:-left-3 before:w-px before:bg-border/50 after:absolute after:inset-y-0 after:-right-3 after:w-px after:bg-border/50" aria-hidden="true"></div>

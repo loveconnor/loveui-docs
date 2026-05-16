@@ -6,6 +6,8 @@ import Link from "next/link"
 import { ModeSwitcher } from "@loveui/ui/components/mode-switcher"
 import { cn } from "@loveui/ui/lib/utils"
 
+import { buildMarketingHref } from "@/lib/ui-links"
+
 type SiteHeaderShellProps = {
   mobileNav?: ReactNode
   leftContent?: ReactNode
@@ -14,9 +16,8 @@ type SiteHeaderShellProps = {
 }
 
 export function SiteHeaderShell({ mobileNav, leftContent, children, className }: SiteHeaderShellProps) {
-  const gatewayOrigin = process.env.NEXT_PUBLIC_LOVEUI_URL || ""
-  const homeHref = gatewayOrigin ? `${gatewayOrigin}/` : "/"
-  const isExternal = !!gatewayOrigin
+  const homeHref = buildMarketingHref("/")
+  const isExternal = /^https?:\/\//i.test(homeHref)
 
   return (
     <header

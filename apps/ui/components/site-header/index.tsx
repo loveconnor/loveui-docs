@@ -10,7 +10,6 @@ import { cn } from "@loveui/ui/lib/utils";
 import { QuickSearch } from "@/components/site-header/quick-search";
 import { DesktopNav } from "@/components/site-header/desktop-nav";
 import { buildUiActiveHref, buildUiHref } from "@/lib/ui-links";
-import { useScrolledPastHero } from "@/hooks/use-scrolled-past-hero";
 import { SiteHeaderShell } from "./header";
 
 type NavItem = {
@@ -105,18 +104,8 @@ function MobileNav() {
 }
 
 export function SiteHeader() {
-  const scrolledPastHero = useScrolledPastHero();
-
   return (
-    <SiteHeaderShell
-      mobileNav={<MobileNav />}
-      className={cn(
-        "landing-header transition-[background-color,backdrop-filter] duration-300 before:transition-colors",
-        scrolledPastHero
-          ? "bg-sidebar/80 backdrop-blur-sm before:bg-border/50"
-          : "bg-transparent before:bg-transparent"
-      )}
-    >
+    <SiteHeaderShell mobileNav={<MobileNav />}>
       <DesktopNav />
       <div className="mx-2 hidden w-full flex-1 md:flex md:w-56 md:flex-none lg:w-64">
         <QuickSearch className="w-full" />

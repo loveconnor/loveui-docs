@@ -70,6 +70,42 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/docs/:path*",
+        destination: `${basePath}/docs/:path*`,
+        permanent: false,
+        basePath: false,
+      },
+      {
+        source: "/building-blocks/:path*",
+        destination: `${basePath}/building-blocks/:path*`,
+        permanent: false,
+        basePath: false,
+      },
+      {
+        source: "/templates/:path*",
+        destination: `${basePath}/templates/:path*`,
+        permanent: false,
+        basePath: false,
+      },
+      {
+        source: "/examples/:path*",
+        destination: `${basePath}/examples/:path*`,
+        permanent: false,
+        basePath: false,
+      },
+      {
+        source: "/backgrounds",
+        destination: `${basePath}/backgrounds`,
+        permanent: false,
+        basePath: false,
+      },
+      {
+        source: "/features",
+        destination: `${basePath}/features`,
+        permanent: false,
+        basePath: false,
+      },
+      {
         source: "/",
         destination: "/docs",
         permanent: false,

@@ -19,9 +19,9 @@ export function buildUiActiveHref(path: string) {
 
 export function buildUiBrowserHref(path: string) {
   const href = buildUiHref(path);
-  const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "/ui").replace(/\/$/, "");
+  const basePath = "/ui";
 
-  if (!basePath || href === basePath || href.startsWith(`${basePath}/`)) {
+  if (href === basePath || href.startsWith(`${basePath}/`)) {
     return href;
   }
 

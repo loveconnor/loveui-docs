@@ -17,6 +17,17 @@ export function buildUiActiveHref(path: string) {
   return normalizeUiPath(path).replace(/\/{2,}/g, "/");
 }
 
+export function buildUiBrowserHref(path: string) {
+  const href = buildUiHref(path);
+  const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "/ui").replace(/\/$/, "");
+
+  if (!basePath || href === basePath || href.startsWith(`${basePath}/`)) {
+    return href;
+  }
+
+  return `${basePath}${href}`.replace(/\/{2,}/g, "/");
+}
+
 export function buildMarketingHref(path = "/") {
   const configuredOrigin = process.env.NEXT_PUBLIC_LOVEUI_URL?.trim();
 
